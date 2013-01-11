@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Opener Project
+title: Welcome!
 tagline: Language Analysis for the rest of us
 ---
 {% include JB/setup %}
@@ -13,11 +13,11 @@ Customer reviews and ratings on the Internet are increasing importance in the ev
 
 This trend will continue with the growth of Social Media and access to Information andCommunication Technologies (ICT). Consumers tend to trust the opinion of other consumers, especially those with prior experience of a product or service, rather than company marketing. The role of user comments is of particular importance when there is little differentiation between the product offers.
 
+## Sentiment Analysis
+
 Sentiment Analysis and Opinion Mining are established, although nascent, fields of research, development and innovation. The goal is always broadly the same; to know “Who” is speaking about “What”, “When” and in “What sense”.
 
 These factors have led to a burgeoning industry with a plethora of companies offering Sentiment Analysis services in Social Media. While most offer a generic service, in typically just one language, several companies have specialised offering services specific to tourism due to its bounded domain, demonstrable value, and the high level of adoption of Internet technologies by both suppliers and consumers.
-
-## Hospitality Domain
 
 It is also an application domain with limited scope and variation, and a high dependency on multilingual sentiment analysis and detection and classification of a wide range of common Named Entities.
 
