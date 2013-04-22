@@ -26,6 +26,10 @@ German and Dutch.
 Besides the individual components, guidelines exists on how to add languages and
 how to adjust components for specific situations and topics.
 
+## Quick Start Guide
+
+Checkout the [Quick start guide](quick-start.html) to get going right away.
+
 ## What technology is used?
 
 The OpeNER toolchain consists of a broad mix of technologies glued together
@@ -44,6 +48,9 @@ Every part of the OpeNER toolchain has individual dependencies. Most of which
 are included in the components themselves. Check out the [individual manual pages
 of the components](component-list.html) to for the specifics. 
 
+For example, checkout the usage and installation instructions of the Dutch
+Polarity tagger at [https://github.com/opener-project/VU-polarity-tagger-lite_NL_kernel](https://github.com/opener-project/VU-polarity-tagger-lite_NL_kernel).
+
 ## Introduction to the OpeNER architecture
 
 The OpeNER architecture consists of several buidling blocks called COMPONENTS,
@@ -55,10 +62,6 @@ CONFIGURATION](assets/images/opener-chain.png "Example CONFIGURATION")
 
 Please read the [Architecture and Lingo Overview](architecture.html) to get an
 overview of the terms used in the rest of the documentation.
-
-## Quick Start Guide
-
-Checkout the [Quick start guide](quick-start.html) to get going right away.
 
 ## Recent tech-updates
 
