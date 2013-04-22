@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Opener Project</title>
+ <link href="http://opener-project.github.com/atom.xml" rel="self"/>
+ <link href="http://opener-project.github.com"/>
+ <updated>2013-04-22T17:42:27+02:00</updated>
+ <id>http://opener-project.github.com</id>
+ <author>
+   <name>Opener Consortium</name>
+   <email>info@opener-project.org</email>
+ </author>
+
+ 
+ 
+</feed>

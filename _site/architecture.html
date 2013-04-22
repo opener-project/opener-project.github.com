@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Architecture Overview</title>
+	<meta name="author" content="Opener Consortium">
+	<link href='/assets/themes/the-minimum/css/style.css' rel="stylesheet" media="all">
+	<link href="http://feeds.feedburner.com/" rel="alternate" title="Architecture Overview" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body>
+
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<p class="logo"><a href="/">Opener Project</a></p>
+				<nav class="nav-global">
+					<ul>
+						<li class="archive"><a href="/archive.html">archive</a></li>
+						<li class="page"><a href="/pages.html">pages</a></li>
+						<li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+								allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></li>
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+					
+<article class="unit-article layout-page">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">Architecture Overview</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<p><img alt='OpeNER architecture overview' src='assets/images/architecture-overview.png' /></p>
+
+<h1 id='lingo_in_short'>Lingo in short</h1>
+
+<p>Each COMPONENT consists of a KERNEL that actually does all the work. The KERNEL can be written in Java, Perl, Python or any language that suits the tasks that needs to be completed.</p>
+
+<p>Each KERNEL is provided with some padding and GLUE to ease the execution, installation and integration of the KERNEL with other KERNELS. The GLUE consists of a Ruby padding which takes care of:</p>
+
+<ul>
+<li>Installation using the &#8220;gem&#8221; command. e.g. <code>gem install VU-polarity-tagger-basic_EN</code></li>
+
+<li>A command line interface accepting input on STDIN and outputting on STDOUT</li>
+
+<li>A standardized command line &#8220;help&#8221; command (under development)</li>
+
+<li>Dependecy checking and installation using the Gemspec and Gemfile</li>
+</ul>
+
+<p>Throughout the documentation you will consistently see a certain OpeNER lingo. The list below provides and overview of the OpeNER lingo. We try and make it a habit to refer to LINGO words in CAPITALS.</p>
+
+<h2 id='configuration'>CONFIGURATION</h2>
+
+<p>A working “chain” of COMPONENTS including the workflow. <em>Example:</em></p>
+
+<p><code>No example provided (yet).</code></p>
+
+<h2 id='component'>COMPONENT</h2>
+
+<p>A part of the “chain” in a CONFIGURATION. A component combines a KERNEL with some GLUE, in order to do its work and connect with other COMPONENTS.</p>
+
+<p><em>Example:</em></p>
+
+<p><a href='https://github.com/opener-project/Vicom-tokenizer-lite_EN_kernel'>KAF Tokenizer</a> or <a href='https://github.com/opener-project/VU-polarity-tagger-basic_EN_kernel'>Polarity Tagger</a></p>
+
+<h2 id='kernel'>KERNEL</h2>
+
+<p>The &#8220;working part&#8221; of a component.</p>
+
+<p><em>Example:</em></p>
+
+<p>The actual &#8220;tagger&#8221; in the <a href='https://github.com/opener-project/VU-polarity-tagger-basic_EN_kernel/tree/master/core'>VU Polarity Tagger</a>.</p>
+
+<h2 id='glue'>GLUE</h2>
+
+<p>The parts “around” the kernel that provide connectivity of the KERNEL to the outside world. The glue includes TCP, WS and QUEUE endpoints as well as a ROUTER.</p>
+
+<p><em>Example:</em></p>
+
+<p><code>No example provided (yet).</code></p>
+
+<h2 id='tcp'>TCP</h2>
+
+<p>A TCP Server module, which is part of the GLUE of a COMPONENT. The TCP server module makes that provides a way to access the KERNEL by sending messages to a TCP port.</p>
+
+<p>Example of using TCP server:</p>
+
+<p><code>telnet localhost 1234 &lt; my_input.kaf &gt; my_output.kaf</code></p>
+
+<h2 id='ws'>WS</h2>
+
+<p>A WS (WEBSERVICE) module, which is part of the GLUE of a COMPONENT. The WS module makes that the KERNEL can be accessed by sending web-requests to a uri-endpoint.</p>
+
+<p>Example of using WEBSERVICE:</p>
+
+<p><code>curl -F kaf=&lt;my_input.kaf http://localhost:1234 &gt; my_output.kaf</code></p>
+
+<h2 id='queue'>QUEUE</h2>
+
+<p>A QUEUE module, which is part of the GLUE of a COMPONENT. The QUEUE module is a daemon process that reads jobs out of a job queue. (Amazon SQS)</p>
+
+<p><em>Example:</em></p>
+
+<p><code>Currently no example given</code></p>
+
+<h2 id='cli'>CLI</h2>
+
+<p>A CLI (COMMAND LINE INTERFACE) module, which is part of the GLUE of a COMPONENT. The CLI module enables users to access the KERNEL from a command line.</p>
+
+<p><em>Example:</em></p>
+
+<p><code>cat my_input.kaf &gt; my_kaf_tokenizer &gt; my_output.kaf</code></p>
+
+<h2 id='router'>ROUTER</h2>
+
+<p>A ROUTER module, which is part of the GLUE of a COMPONENT. The ROUTER module connects to the other GLUE components and makes it possible to “forward” a response of the KERNEL to another COMPONENT based on a route file. Note: route file specifications still have to be developed</p>
+
+<p><em>Example:</em></p>
+
+<p><code>No example provided</code></p>
+				</div><!-- entry-content -->
+			</div><!-- bd -->
+
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p>
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+						<li class="contact"><address><span class="author fn n">Opener Consortium</span> - <span class="fn email">info@opener-project.org</span></address></li>
+						<li class="github"><a href="http://github.com/opener-project/" rel="me">github.com/opener-project</a></li>
+						<li class="twitter"><a href="http://twitter.com//" rel="me">twitter.com/</a></li>
+						<li class="rss"><a href="http://feeds.feedburner.com/">Subscribe to RSS Feed</a></li>
+					</ul>
+				</div><!-- misc -->
+				<p class="licence">
+					Theme: <a href="http://layouts-the.me">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/architecture.html" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+
+  
+</body>
+</html>
+

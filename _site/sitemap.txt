@@ -1,0 +1,11 @@
+
+http://opener-project.github.com/architecture.html
+http://opener-project.github.com/archive.html
+http://opener-project.github.com/atom.xml
+http://opener-project.github.com/categories.html
+http://opener-project.github.com/component-list.html
+http://opener-project.github.com/index.html
+http://opener-project.github.com/pages.html
+http://opener-project.github.com/quick-start.html
+http://opener-project.github.com/sitemap.txt
+http://opener-project.github.com/tags.html
