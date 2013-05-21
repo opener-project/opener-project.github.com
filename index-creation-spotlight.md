@@ -37,14 +37,12 @@ We have used JDK1.7 for the entire process.
 
 *Important*: Please, check that the encoding is always UTF-8.
 
-### 1. Environment preparation
---------------------------
+# Environment preparation
 
 If you already have installed in your machine JDK6 and MAVEN 3, please go to step 3
 directly. Otherwise, follow these steps:
 
 ## 1.1 Install JDK 1.7
--------------------
 
 If you do not install JDK 1.7 in a default location, you will probably need to configure the PATH in .bashrc or .bash_profile:
 
@@ -68,8 +66,7 @@ java -version
 
 You should now see that your jdk is 1.7
 
-1.2 Install MAVEN 3
-------------------
+## 1.2 Install MAVEN 3
 
 Download MAVEN 3 from
 
@@ -99,8 +96,7 @@ mvn -version
 
 You should see reference to the MAVEN version you have just installed plus the JDK 7 that is using.
 
-1.3 Download and Install DBpedia Spotlight
-------------------------------------------
+## 1.3 Download and Install DBpedia Spotlight
 
 ````shell
 git clone https://github.com/dbpedia-spotlight/dbpedia-spotlight.git
@@ -108,8 +104,8 @@ cd dbpedia-spotlight/
 mvn install
 ````
 
-2. Download Required Data
--------------------------
+# 2. Download Required Data
+
 
 Rename the download file to match your language. Replace $lang with one of these
 languages: de,en,es,fr,it,nl. In principle these instructions should work for all six languages
@@ -175,14 +171,14 @@ Downloaded from: http://dumps.wikimedia.org/enwiki/20120307/ .
 To keep in sync with the DBpedia Spotlight installation scripts, the downloaded page has been renamed
 to enwiki-lates-pages-articles.xml
 
-3. Modify Configuration Files
------------------------------
+# 3. Modify Configuration Files
+
 
 First, we modify the dbpedia-spotlight/conf/indexing.properties file. Lucene information has been
 taken from [here](http://lucene.apache.org/core/3_6_2/index.html).
 
-3.1 Modify indexing.properties
-------------------------------
+## 3.1 Modify indexing.properties
+
 
 These are the variables changed assuming English
 as the running example:
@@ -208,8 +204,7 @@ org.dbpedia.spotlight.yahoo.language = en
 org.dbpedia.spotlight.yahoo.region = en
 ````
 
-3.2 Modify index.sh
--------------------
+## 3.2 Modify index.sh
 
 You need to provide the path to the dbpedia_data directory in the dbpedia-spotlight/bin/index.sh file.
 
