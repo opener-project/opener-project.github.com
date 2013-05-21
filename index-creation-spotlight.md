@@ -1,14 +1,14 @@
 ---
 layout: page
-title: "Disambiguation Index for DBpedia Spotlight"
+title: "Creating a Disambiguation Index for DBpedia Spotlight"
 tagline: DBpedia Spotlight for your language
 description: "Creating Lucene-based Disambiguation Index for DBpedia Spotlight"
 tags: [Named Entity Disambiguation, DBpedia Spotlight, Lucene, Internationalization]
 ---
 {% include JB/setup %}
 
-OpeNER Internationalization of DBpedia Spotlight
-================================================
+### OpeNER Internationalization of DBpedia Spotlight
+
 
 .... or how to create a disambiguation index to be used by DBpedia Spotlight for your language.
 
@@ -21,7 +21,7 @@ This procedure described is a modification of the DBpedia Spotlight Internationa
 [here](https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki/Internationalization).
 
 
-## Summary:
+### Summary:
 
 +  Environment preparation
 +  Downloading and setting the required data
