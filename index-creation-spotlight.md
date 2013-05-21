@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Index Creation Spotlight"
+title: "Disambiguation Index for DBpedia Spotlight"
 tagline: DBpedia Spotlight for your language
 description: "Creating Lucene-based Disambiguation Index for DBpedia Spotlight"
 tags: [Named Entity Disambiguation, DBpedia Spotlight, Lucene, Internationalization]
@@ -11,6 +11,7 @@ OpeNER Internationalization of DBpedia Spotlight
 ================================================
 
 .... or how to create a disambiguation index to be used by DBpedia Spotlight for your language.
+
 This page describes the necessary steps to create a Lucene-based disambiguation index
 as used by DBpedia Spotlight. This procedure has been successfully applied within the OpeNER 7th
 Framework European project (http://opener-project.org) to create Named Entity Disambiguation tools
@@ -20,32 +21,29 @@ This procedure described is a modification of the DBpedia Spotlight Internationa
 [here](https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki/Internationalization).
 
 
-**Summary:**
+Summary:
+--------
 
 1. Environment preparation
-
 2. Downloading and setting the required data
-
 3. Setting up the config and server files
-
 4. Building indexes
-
 5. Preparing and running the server
-
 6. Testing the system
-
 7. Setting-up and running the web-based interface
 
 Whereas most of DBpedia Spotlight works with Java 1.6, the submodule index requires Java 1.7.
 We have used JDK1.7 for the entire process.
+
 *Important*: Please, check that the encoding is always UTF-8.
 
 ### 1. Environment preparation
+--------------------------
 
 If you already have installed in your machine JDK6 and MAVEN 3, please go to step 3
 directly. Otherwise, follow these steps:
 
-1.1 Install JDK 1.7
+## 1.1 Install JDK 1.7
 -------------------
 
 If you do not install JDK 1.7 in a default location, you will probably need to configure the PATH in .bashrc or .bash_profile:
@@ -110,8 +108,8 @@ cd dbpedia-spotlight/
 mvn install
 ````
 
-### 2. Download Required Data
-
+2. Download Required Data
+-------------------------
 
 Rename the download file to match your language. Replace $lang with one of these
 languages: de,en,es,fr,it,nl. In principle these instructions should work for all six languages
@@ -177,7 +175,8 @@ Downloaded from: http://dumps.wikimedia.org/enwiki/20120307/ .
 To keep in sync with the DBpedia Spotlight installation scripts, the downloaded page has been renamed
 to enwiki-lates-pages-articles.xml
 
-### 3. Modify Configuration Files
+3. Modify Configuration Files
+-----------------------------
 
 First, we modify the dbpedia-spotlight/conf/indexing.properties file. Lucene information has been
 taken from [here](http://lucene.apache.org/core/3_6_2/index.html).
