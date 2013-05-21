@@ -21,23 +21,19 @@ This procedure described is a modification of the DBpedia Spotlight Internationa
 [here](https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki/Internationalization).
 
 
-Summary:
---------
+## Summary:
 
 1. Environment preparation
 2. Downloading and setting the required data
-3. Setting up the config and server files
+3. Setting up the configuration files
 4. Building indexes
-5. Preparing and running the server
-6. Testing the system
-7. Setting-up and running the web-based interface
 
 Whereas most of DBpedia Spotlight works with Java 1.6, the submodule index requires Java 1.7.
 We have used JDK1.7 for the entire process.
 
 *Important*: Please, check that the encoding is always UTF-8.
 
-# Environment preparation
+# 1. Environment preparation
 
 If you already have installed in your machine JDK6 and MAVEN 3, please go to step 3
 directly. Otherwise, follow these steps:
@@ -46,10 +42,10 @@ directly. Otherwise, follow these steps:
 
 If you do not install JDK 1.7 in a default location, you will probably need to configure the PATH in .bashrc or .bash_profile:
 
-````shell
+`
 export JAVA_HOME=/yourpath/local/java17
 export PATH=${JAVA_HOME}/bin:${PATH}
-````
+`
 
 If you use tcsh you will need to specify it in your .login as follows:
 
