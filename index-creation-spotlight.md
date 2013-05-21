@@ -1,8 +1,9 @@
 ---
 layout: page
 title: "Index Creation Spotlight"
+tagline: DBpedia Spotlight for your language
 description: "Creating Lucene-based Disambiguation Index for DBpedia Spotlight"
-tags:[Named Entity Disambiguation, DBpedia Spotlight, Lucene, Internationalization]
+tags: [Named Entity Disambiguation, DBpedia Spotlight, Lucene, Internationalization]
 ---
 {% include JB/setup %}
 
@@ -188,34 +189,25 @@ These are the variables changed assuming English
 as the running example:
 
 ````shell
-
-    org.dbpedia.spotlight.data.wikipediaDump = ../data/spotlight/dbpedia_data/original/wikipedia/en/enwiki-latest-pages-articles.xml
-
-    org.dbpedia.spotlight.index.dir =../data/spotlight/dbpedia_data/data/output/index
-
-    org.dbpedia.spotlight.data.labels =../data/spotlight/dbpedia_data/original/dbpedia/en/labels_en.nt.bz2
-    org.dbpedia.spotlight.data.redirects = ../data/spotlight/dbpedia_data/original/dbpedia/en/redirects_en.nt.bz2
-    org.dbpedia.spotlight.data.disambiguations = ../data/spotlight/dbpedia_data/original/dbpedia/en/disambiguations_en.nt.bz2
-    org.dbpedia.spotlight.data.instanceTypes = ../data/spotlight/dbpedia_data/original/dbpedia/en/instance_types_en.nt.bz2
-
-    org.dbpedia.spotlight.data.conceptURIs = ../data/spotlight/dbpedia_data/data/output/conceptURIs.list
-    org.dbpedia.spotlight.data.redirectsTC = ../data/spotlight/dbpedia_data/data/output/redirects_tc.tsv
-    org.dbpedia.spotlight.data.surfaceForms = ../data/spotlight/dbpedia_data/data/output/surfaceForms.tsv
-
-    org.dbpedia.spotlight.language = English
-    org.dbpedia.spotlight.language_i18n_code = en
-    org.dbpedia.spotlight.lucene.analyzer = org.apache.lucene.analysis.en.EnglishAnalyzer
-
-    org.dbpedia.spotlight.default_namespace = http://dbpedia.org/resource/
-    org.dbpedia.spotlight.default_ontology= http://dbpedia.org/ontology/
-
-    org.dbpedia.spotlight.data.stopWords.english = ../data/spotlight/dbpedia_data/data/stopwords.en.list
-    org.dbpedia.spotlight.data.badURIs.english= ../data/spotlight/dbpedia_data/data/blacklistedURIPatterns.en.list
-
-    org.dbpedia.spotlight.yahoo.language = en
-    org.dbpedia.spotlight.yahoo.region = en
-
-```
+org.dbpedia.spotlight.data.wikipediaDump = ../data/spotlight/dbpedia_data/original/wikipedia/en/enwiki-latest-pages-articles.xml
+org.dbpedia.spotlight.index.dir =../data/spotlight/dbpedia_data/data/output/index
+org.dbpedia.spotlight.data.labels =../data/spotlight/dbpedia_data/original/dbpedia/en/labels_en.nt.bz2
+org.dbpedia.spotlight.data.redirects = ../data/spotlight/dbpedia_data/original/dbpedia/en/redirects_en.nt.bz2
+org.dbpedia.spotlight.data.disambiguations = ../data/spotlight/dbpedia_data/original/dbpedia/en/disambiguations_en.nt.bz2
+org.dbpedia.spotlight.data.instanceTypes = ../data/spotlight/dbpedia_data/original/dbpedia/en/instance_types_en.nt.bz2
+org.dbpedia.spotlight.data.conceptURIs = ../data/spotlight/dbpedia_data/data/output/conceptURIs.list
+org.dbpedia.spotlight.data.redirectsTC = ../data/spotlight/dbpedia_data/data/output/redirects_tc.tsv
+org.dbpedia.spotlight.data.surfaceForms = ../data/spotlight/dbpedia_data/data/output/surfaceForms.tsv
+org.dbpedia.spotlight.language = English
+org.dbpedia.spotlight.language_i18n_code = en
+org.dbpedia.spotlight.lucene.analyzer = org.apache.lucene.analysis.en.EnglishAnalyzer
+org.dbpedia.spotlight.default_namespace = http://dbpedia.org/resource/
+org.dbpedia.spotlight.default_ontology= http://dbpedia.org/ontology/
+org.dbpedia.spotlight.data.stopWords.english = ../data/spotlight/dbpedia_data/data/stopwords.en.list
+org.dbpedia.spotlight.data.badURIs.english= ../data/spotlight/dbpedia_data/data/blacklistedURIPatterns.en.list
+org.dbpedia.spotlight.yahoo.language = en
+org.dbpedia.spotlight.yahoo.region = en
+````
 
 3.2 Modify index.sh
 -------------------
@@ -280,13 +272,8 @@ Contact information
 ===================
 
 ````shell
-Rodrigo Agerri
-rodrigo.agerri@ehu.es
-
-and
-
-Itziar Aldabe
-itziar.aldabe@ehu.es
+Rodrigo Agerri and Itziar Aldabe
+{rodrigo.agerri,itziar.aldabe}@ehu.es
 IXA NLP Group
 University of the Basque Country (UPV/EHU)
 E-20018 Donostia-San Sebastián
