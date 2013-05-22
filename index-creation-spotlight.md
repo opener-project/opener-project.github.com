@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Creating a Disambiguation Index for DBpedia Spotlight"
+title: "DBpedia Spotlight Internationalization in OpeNER"
 tagline: DBpedia Spotlight for your language
 description: "Creating Lucene-based Disambiguation Index for DBpedia Spotlight"
 tags: [Named Entity Disambiguation, DBpedia Spotlight, Lucene, Internationalization]
@@ -187,6 +187,41 @@ version the original 14GB value has been kept:
 
     JAVA_XMX=4g
 
+Then unzip the file `dbpedia-spotlight/data/spotlight/dbpedia_data/original/wikipedia/en/enwiki-latest-pages-articles.xml.bz2`.
+Alternatively, you can specify in the `index-en.sh` and it will unzip it everytime you run the script.
+
+If the one retrieved from March 7, 2012 has not this name, unzip it and change the name accordingly.
+Finally, **execute the index script to obtain the Disambiguation index**:
+
+
+    ./bin/index-$lang.sh
+
+**Note**: If you need to re-run this script, make sure to delete everything *but* the `index`
+folder in `../data/spotlight/dbpedia_data/data/output/`
+
+
+#### 3.3 Rename and compressed index for distribution
+
+Given that it is possible to run different NED tools based on the same repository of DBpedia Spotlight,
+it is convenient to ** rename each of the Disambiguation indexes created following this procedure**. Everything
+going well, you should have your new Lucene-based Disambiguation Index in this path:
+
+    dbpedia-spotlight/data/spotlight/dbpedia_data/data/output/index-withSF-withTypes-compressed
+
+Just rename it using the index-$lang nomenclature and zip it:
+
+    mv index-withSF-withTypes-compressed index-en
+    tar cvzf index.tgz index-en/
+
+**This will be required in the OpeNER project by the
+[EHU-DBpedia-Spotlight](https://github.com/opener-project/EHU-DBpedia-Spotlight) to setup
+the [NED tool EHU-ned_kernel](https://github.com/opener-project/EHU-ned_kernel) for each language
+in OpeNER.**
+
+
+#### 4. Infinite Loop error
+
+
 When running the indexing of the English version, the system sometimes goes into a infinite loop.
 This is due to the getEndChainUri function in the ExtractCandidateMap.scala source file.
 If this happens, change the getEndChainUri function from the one contained in
@@ -208,18 +243,6 @@ index/src/main/scala/org/dbpedia/spotlight/util/ExtractCandidateMap.scala so tha
 As it can be seen, the function has a new variable to control the number of loops that has been done.
 It has been set at 1000. This is useful when the given uri contains '. The problem is that although the values
 of s and k are equal, if there is a ', the system doesn't recognise it as equal and a new recursive loop is done.
-
-Then unzip the file `dbpedia-spotlight/data/spotlight/dbpedia_data/original/wikipedia/en/enwiki-latest-pages-articles.xml.bz2`.
-Alternatively, you can specify in the `index-en.sh` and it will unzip it everytime you run the script.
-
-If the one retrieved from March 7, 2012 has not this name, unzip it and change the name accordingly.
-Finally, **execute the index script to obtain the Disambiguation index**:
-
-
-    ./bin/index-en.sh
-
-**Note**: If you need to re-run this script, make sure to delete everything *but* the `index`
-folder in `../data/spotlight/dbpedia_data/data/output/`
 
 
 #### Contact information
