@@ -7,9 +7,6 @@ tags: [Named Entity Disambiguation, DBpedia Spotlight, Lucene, Internationalizat
 ---
 {% include JB/setup %}
 
-### OpeNER Internationalization of DBpedia Spotlight
-
-
 .... or how to create a disambiguation index to be used by DBpedia Spotlight for your language.
 
 This page describes the necessary steps to create a Lucene-based disambiguation index
@@ -17,90 +14,80 @@ as used by DBpedia Spotlight. This procedure has been successfully applied withi
 Framework European project (http://opener-project.org) to create Named Entity Disambiguation tools
 for six languages based on DBpedia Spotlight: Dutch, French, German, Italian, English and Spanish.
 
-This procedure described is a modification of the DBpedia Spotlight Internationalization instructions
-[here](https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki/Internationalization).
+This procedure described is a modification of the [DBpedia Spotlight Internationalization instructions]
+(https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki/Internationalization).
 
 
 ### Summary:
 
-+  Environment preparation
-+  Downloading and setting the required data
-+  Setting up the configuration files
-+  Building indexes
+    1. Environment preparation
+    2. Downloading and setting the required data
+    3. Setting up the configuration files
+    4. Building indexes
 
 Whereas most of DBpedia Spotlight works with Java 1.6, the submodule index requires Java 1.7.
-We have used JDK1.7 for the entire process.
+We have used JDK 1.7 for the entire process.
 
 *Important*: Please, check that the encoding is always UTF-8.
 
-# 1. Environment preparation
+### 1. Environment preparation
 
 If you already have installed in your machine JDK6 and MAVEN 3, please go to step 3
 directly. Otherwise, follow these steps:
 
-## 1.1 Install JDK 1.7
+#### 1.1 Install JDK 1.7
 
 If you do not install JDK 1.7 in a default location, you will probably need to configure the PATH in .bashrc or .bash_profile:
 
-`
-export JAVA_HOME=/yourpath/local/java17
-export PATH=${JAVA_HOME}/bin:${PATH}
-`
+
+    export JAVA_HOME=/yourpath/local/java17
+    export PATH=${JAVA_HOME}/bin:${PATH}
+
 
 If you use tcsh you will need to specify it in your .login as follows:
 
-`
-setenv JAVA_HOME /usr/java/java17
-setenv PATH ${JAVA_HOME}/bin:${PATH}
-`
+    setenv JAVA_HOME /usr/java/java17
+    setenv PATH ${JAVA_HOME}/bin:${PATH}
 
 If you re-login into your shell and run the command
 
-`
-java -version
-`
+    java -version
 
 You should now see that your jdk is 1.7
 
-## 1.2 Install MAVEN 3
+#### 1.2 Install MAVEN 3
 
 Download MAVEN 3 from
 
-`
-wget http://ftp.udc.es/apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz
-`
+
+    wget http://ftp.udc.es/apache/maven/maven-3/3.0.4/binaries/apache-maven-3.0.4-bin.tar.gz
+
 
 Now you need to configure the PATH. For Bash Shell:
 
-`
-export MAVEN_HOME=/home/ragerri/local/apache-maven-3.0.4
-export PATH=${MAVEN_HOME}/bin:${PATH}
-`
+
+    export MAVEN_HOME=/home/ragerri/local/apache-maven-3.0.4
+    export PATH=${MAVEN_HOME}/bin:${PATH}
 
 For tcsh shell:
 
-`
-setenv MAVEN3_HOME ~/local/apache-maven-3.0.4
-setenv PATH ${MAVEN3}/bin:{PATH}
-`
+    setenv MAVEN3_HOME ~/local/apache-maven-3.0.4
+    setenv PATH ${MAVEN3}/bin:{PATH}
 
 If you re-login into your shell and run the command
 
-`
-mvn -version
-`
+    mvn -version
 
 You should see reference to the MAVEN version you have just installed plus the JDK 7 that is using.
 
-## 1.3 Download and Install DBpedia Spotlight
+#### 1.3 Download and Install DBpedia Spotlight
 
-`
-git clone https://github.com/dbpedia-spotlight/dbpedia-spotlight.git
-cd dbpedia-spotlight/
-mvn install
-`
+    git clone https://github.com/dbpedia-spotlight/dbpedia-spotlight.git
+    cd dbpedia-spotlight/
+    mvn install
 
-# 2. Download Required Data
+
+### 2. Download Required Data
 
 
 Rename the download file to match your language. Replace $lang with one of these
