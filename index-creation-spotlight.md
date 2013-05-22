@@ -28,7 +28,7 @@ This procedure described is a modification of the [DBpedia Spotlight Internation
 Whereas most of DBpedia Spotlight works with Java 1.6, the submodule index requires Java 1.7.
 We have used JDK 1.7 for the entire process.
 
-*Important*: Please, check that the encoding is always UTF-8.
+**Important**: Please, check that the encoding is always UTF-8.
 
 ### 1. Environment preparation
 
@@ -89,23 +89,20 @@ You should see reference to the MAVEN version you have just installed plus the J
 
 ### 2. Download Required Data
 
-
 Rename the download file to match your language. Replace $lang with one of these
 languages: de,en,es,fr,it,nl. In principle these instructions should work for all six languages
 althought we will be using English as an example if we need to be specific.
 
-`
-mv ./dbpedia-spotlight/bin/download.sh ./dbpedia-spotlight/bin/download-$lang.sh
-`
+    mv ./dbpedia-spotlight/bin/download.sh ./dbpedia-spotlight/bin/download-$lang.sh
+
 
 Edit the file `download-$lang.sh` by changing the following lines:
 
-`
-export lang_i18n=en
-export language=english
-export dbpedia_workspace=../data/spotlight
-export dbpedia_version=3.8
-`
+    export lang_i18n=en
+    export language=english
+    export dbpedia_workspace=../data/spotlight
+    export dbpedia_version=3.8
+
 
 Where `../data/spotlight` is the place where you want to install (e.g., create indexes and other files)
 the DBpedia Spotlight.
@@ -113,119 +110,100 @@ the DBpedia Spotlight.
 Create the DBpedia workspace directory, namely, the place where the required dumps of DBpedia and Wikipedia will be stored.
 We do this inside the dbpedia-spotlight project itself:
 
-`
-mkdir -p ./data/spotlight
-`./dbpedia-spotlight/bin/download-$lang.sh`
-`
+    mkdir -p ./data/spotlight
+    ./dbpedia-spotlight/bin/download-$lang.sh
 
-Get a stopword file from [here](http://snowball.tartarus.org/index.php): You will need to choose the stemmer for
+Get a [stopword file for your language](http://snowball.tartarus.org/index.php): You will need to choose the stemmer for
 your language and download the stopword list. For example, the English and Spanish stopword lists are here:
 
-`
-wget http://snowball.tartarus.org/algorithms/spanish/stop.txt
-wget http://snowball.tartarus.org/algorithms/english/stop.txt
-`
+    wget http://snowball.tartarus.org/algorithms/spanish/stop.txt
+    wget http://snowball.tartarus.org/algorithms/english/stop.txt
 
 Copy your stop.txt list for your language to `dbpedia-spotlight/data/spotlight/dbpedia_data/data`. For example, for English:
 
-`
-cp stop.txt dbpedia-spotlight/data/spotlight/dbpedia_data/data/stopwords.en.list
-`
+    cp stop.txt dbpedia-spotlight/data/spotlight/dbpedia_data/data/stopwords.en.list
 
 Create a new file called `blackListedURIPattens.$lang.list` to put instructions (one regex pattern per line) that
 will guide DBpedia Spotlight to remove pages and articles that should not be considered valid resources for annotation. For example
 for English:
 
-`
-^List_of_
-.+([Dd]isambiguation)$
-^[0-9]+$
-`
+    ^List_of_
+    .+([Dd]isambiguation)$
+    ^[0-9]+$
 
 Then copy the file to `dbpedia-spotlight/data/spotlight/dbpedia_data/data`:
 
-`
-cp blacklistedURIPatterns.en.list ../data/spotlight/dbpedia_data/data
-`
+    cp blacklistedURIPatterns.en.list ../data/spotlight/dbpedia_data/data
 
-*English Disclaimer*: The latest Wikipedia version does not work for creating the English disambiguation index.
+**English Disclaimer**: The latest Wikipedia version does not work for creating the English disambiguation index.
  The index has been created with a Wikipedia dump from March 7, 2012.
-Downloaded from: http://dumps.wikimedia.org/enwiki/20120307/ .
+Downloaded from: [http://dumps.wikimedia.org/enwiki/20120307/](http://dumps.wikimedia.org/enwiki/20120307/) .
 To keep in sync with the DBpedia Spotlight installation scripts, the downloaded page has been renamed
 to enwiki-lates-pages-articles.xml
 
-# 3. Modify Configuration Files
+### 3. Modify Configuration Files
 
 
 First, we modify the dbpedia-spotlight/conf/indexing.properties file. Lucene information has been
 taken from [here](http://lucene.apache.org/core/3_6_2/index.html).
 
-## 3.1 Modify indexing.properties
-
+#### 3.1 Modify indexing.properties
 
 These are the variables changed assuming English
 as the running example:
 
-`
-org.dbpedia.spotlight.data.wikipediaDump = ../data/spotlight/dbpedia_data/original/wikipedia/en/enwiki-latest-pages-articles.xml
-org.dbpedia.spotlight.index.dir =../data/spotlight/dbpedia_data/data/output/index
-org.dbpedia.spotlight.data.labels =../data/spotlight/dbpedia_data/original/dbpedia/en/labels_en.nt.bz2
-org.dbpedia.spotlight.data.redirects = ../data/spotlight/dbpedia_data/original/dbpedia/en/redirects_en.nt.bz2
-org.dbpedia.spotlight.data.disambiguations = ../data/spotlight/dbpedia_data/original/dbpedia/en/disambiguations_en.nt.bz2
-org.dbpedia.spotlight.data.instanceTypes = ../data/spotlight/dbpedia_data/original/dbpedia/en/instance_types_en.nt.bz2
-org.dbpedia.spotlight.data.conceptURIs = ../data/spotlight/dbpedia_data/data/output/conceptURIs.list
-org.dbpedia.spotlight.data.redirectsTC = ../data/spotlight/dbpedia_data/data/output/redirects_tc.tsv
-org.dbpedia.spotlight.data.surfaceForms = ../data/spotlight/dbpedia_data/data/output/surfaceForms.tsv
-org.dbpedia.spotlight.language = English
-org.dbpedia.spotlight.language_i18n_code = en
-org.dbpedia.spotlight.lucene.analyzer = org.apache.lucene.analysis.en.EnglishAnalyzer
-org.dbpedia.spotlight.default_namespace = http://dbpedia.org/resource/
-org.dbpedia.spotlight.default_ontology= http://dbpedia.org/ontology/
-org.dbpedia.spotlight.data.stopWords.english = ../data/spotlight/dbpedia_data/data/stopwords.en.list
-org.dbpedia.spotlight.data.badURIs.english= ../data/spotlight/dbpedia_data/data/blacklistedURIPatterns.en.list
-org.dbpedia.spotlight.yahoo.language = en
-org.dbpedia.spotlight.yahoo.region = en
-`
 
-## 3.2 Modify index.sh
+    org.dbpedia.spotlight.data.wikipediaDump = ../data/spotlight/dbpedia_data/original/wikipedia/en/enwiki-latest-pages-articles.xml
+    org.dbpedia.spotlight.index.dir =../data/spotlight/dbpedia_data/data/output/index
+    org.dbpedia.spotlight.data.labels =../data/spotlight/dbpedia_data/original/dbpedia/en/labels_en.nt.bz2
+    org.dbpedia.spotlight.data.redirects = ../data/spotlight/dbpedia_data/original/dbpedia/en/redirects_en.nt.bz2
+    org.dbpedia.spotlight.data.disambiguations = ../data/spotlight/dbpedia_data/original/dbpedia/en/disambiguations_en.nt.bz2
+    org.dbpedia.spotlight.data.instanceTypes = ../data/spotlight/dbpedia_data/original/dbpedia/en/instance_types_en.nt.bz2
+    org.dbpedia.spotlight.data.conceptURIs = ../data/spotlight/dbpedia_data/data/output/conceptURIs.list
+    org.dbpedia.spotlight.data.redirectsTC = ../data/spotlight/dbpedia_data/data/output/redirects_tc.tsv
+    org.dbpedia.spotlight.data.surfaceForms = ../data/spotlight/dbpedia_data/data/output/surfaceForms.tsv
+    org.dbpedia.spotlight.language = English
+    org.dbpedia.spotlight.language_i18n_code = en
+    org.dbpedia.spotlight.lucene.analyzer = org.apache.lucene.analysis.en.EnglishAnalyzer
+    org.dbpedia.spotlight.default_namespace = http://dbpedia.org/resource/
+    org.dbpedia.spotlight.default_ontology= http://dbpedia.org/ontology/
+    org.dbpedia.spotlight.data.stopWords.english = ../data/spotlight/dbpedia_data/data/stopwords.en.list
+    org.dbpedia.spotlight.data.badURIs.english= ../data/spotlight/dbpedia_data/data/blacklistedURIPatterns.en.list
+    org.dbpedia.spotlight.yahoo.language = en
+    org.dbpedia.spotlight.yahoo.region = en
+
+#### 3.2 Modify index.sh
 
 You need to provide the path to the dbpedia_data directory in the dbpedia-spotlight/bin/index.sh file.
 
-`
-cp ./dbpedia-spotlight/bin/index.sh ./dbpedia-spotlight/bin/index-$lang.sh
-`
+    cp ./dbpedia-spotlight/bin/index.sh ./dbpedia-spotlight/bin/index-$lang.sh
 
 Edit the new file and set the following parameter:
 
-`
-export DBPEDIA_WORKSPACE=../data/spotlight/dbpedia_data
-`
+    export DBPEDIA_WORKSPACE=../data/spotlight/dbpedia_data
 
 and set the variable according to the available memory in your system (e.g. 4GB). Note that for the English
 version the original 14GB value has been kept:
 
-`
-JAVA_XMX=4g
-`
+    JAVA_XMX=4g
 
 When running the indexing of the English version, the system sometimes goes into a infinite loop.
 This is due to the getEndChainUri function in the ExtractCandidateMap.scala source file.
 If this happens, change the getEndChainUri function from the one contained in
 index/src/main/scala/org/dbpedia/spotlight/util/ExtractCandidateMap.scala so that it looks like this:
 
-`
- private def getEndOfChainUri(m : Map[String,String], k : String, c: Int) : String = {
-        // get end of chain but check for redirects to itself
-	// NEW
-	if (c == 1000){
-            return k
-	}
-        m.get(k) match {
-            case Some(s : String) => if (s equals k) k else getEndOfChainUri(m, s, c+1)
-            case None => k
+     private def getEndOfChainUri(m : Map[String,String], k : String, c: Int) : String = {
+            // get end of chain but check for redirects to itself
+	    // NEW
+	    if (c == 1000){
+                return k
+	    }
+            m.get(k) match {
+                case Some(s : String) => if (s equals k) k else getEndOfChainUri(m, s, c+1)
+                case None => k
+            }
         }
-    }
-`
+
 
 As it can be seen, the function has a new variable to control the number of loops that has been done.
 It has been set at 1000. This is useful when the given uri contains '. The problem is that although the values
@@ -235,23 +213,20 @@ Then unzip the file `dbpedia-spotlight/data/spotlight/dbpedia_data/original/wiki
 Alternatively, you can specify in the `index-en.sh` and it will unzip it everytime you run the script.
 
 If the one retrieved from March 7, 2012 has not this name, unzip it and change the name accordingly.
-Next, execute the index script:
+Finally, **execute the index script to obtain the Disambiguation index**:
 
-`
-./bin/index-en.sh
-`
 
-*Note*: If you need to re-run this script, make sure to delete everything *but* the `index`
+    ./bin/index-en.sh
+
+**Note**: If you need to re-run this script, make sure to delete everything *but* the `index`
 folder in `../data/spotlight/dbpedia_data/data/output/`
 
 
-Contact information
-===================
+#### Contact information
 
-`
-Rodrigo Agerri and Itziar Aldabe
-{rodrigo.agerri,itziar.aldabe}@ehu.es
-IXA NLP Group
-University of the Basque Country (UPV/EHU)
-E-20018 Donostia-San Sebastián
-`
+    Rodrigo Agerri and Itziar Aldabe
+    {rodrigo.agerri,itziar.aldabe}@ehu.es
+    IXA NLP Group
+    University of the Basque Country (UPV/EHU)
+    E-20018 Donostia-San Sebastián
+
