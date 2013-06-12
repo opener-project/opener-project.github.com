@@ -7,7 +7,7 @@ description: Description of the VUA tools
 
 This is the description of the two main tools developed by the VUA.
 
-## Polarity tagger
+## Polarity tagging
 
 The polarity tagging is a task by means which terms in a text are tagged with their correct polarity and sentiment modifier label.
 
@@ -32,9 +32,24 @@ intensify or weaken the strength of an expression or polarity word. Polarity shi
 + Will *never* return.
 
 
-## Opinion detector
+## Opinion detection
 
-Opinion detection...
+The opinion detection is concerned with the identification of opinions in a text at the expression level. This task has received a lot of interesest in last period because of the explosion of the social networks. More and more companies
+use social networks to promote and offer their products, and they receive a lot of feedback from their customers as well. Considering the thousands of reactions that the people generates every on Social Networks, automatic analysis techniques
+become more and more interesting for extracting automatically opinions from this data.
+
+In our case, we deal with fine-grained opinion extraction. This is not only about deciding if a text is in general expressing a positive or negative opinion, but detecting and extracting single opinions and the entities that build these opinions:
++ Opinion expression: expressions that indicate emotions, sentiments, opinions or other private states
++ Opinion holder: mentions of whom is the opinion from
++ Opinion target: expressions that indicate what the opinion is about
+
+For instance consider the next example:
+    "I like the design of Ipod video"
+    Opinion expression: like
+    Opinion holder: I
+    Opinion target: the design of Ipod video
+
+
 
 
 
