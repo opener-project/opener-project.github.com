@@ -43,11 +43,10 @@ In our case, we deal with fine-grained opinion extraction. This is not only abou
 + Opinion holder: mentions of whom is the opinion from
 + Opinion target: expressions that indicate what the opinion is about
 
-For instance consider the next example:
-    "I like the design of Ipod video"
-    Opinion expression: like
-    Opinion holder: I
-    Opinion target: the design of Ipod video
+For instance consider the sentence "I like the design of Ipod video". These are the elements of the opinion extracted from it:
++ Opinion expression: like
++ Opinion holder: I
++ Opinion target: the design of Ipod video
 
 
 
