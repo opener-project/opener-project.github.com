@@ -9,7 +9,7 @@ This is the description of the two main tools developed by the VUA.
 
 ## Polarity tagger
 
-The polarity tagging is a task by means terms in a text are tagged with their correct polarity and sentiment modifier label.
+The polarity tagging is a task by means which terms in a text are tagged with their correct polarity and sentiment modifier label.
 
 Words with polarity are words that express a negative or positive opinion, belief, attitude, etc. towards a certain topic. In our case polarity refers to out of context or “prior” polarity (Wilson et al. 2005),
 i.e. to words which  evoke something positive or negative independent from the context in which they are found.  Polarity words can be nouns, verbs, adjectives and adverbs. The following examples contain negative polarity lemma's like ruin, debt,
