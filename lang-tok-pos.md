@@ -25,10 +25,10 @@ This component is the responsible of detecting the language of an input document
 This language identification is based on the Mike Schilli's perl Text::Language::Guess language guessing CPAN library. Its implementation is simple: Using Text::ExtractWords and Lingua::StopWords from CPAN, it determines how many of the known stopwords the document contains for each language supported are supported in Lingua::StopWords. The choose of this method is a choice between different existing components but prioritizing the response time.
 This component has these requisites:
 
-    *input:* text file
-    *output:* language detected
-    *programing language:* perl
-    *prerequisites:* Perl: Text/ExtractWords.pm, please refer to 
+    input: text file
+    output: language detected
+    programing language: perl
+    prerequisites: Perl: Text/ExtractWords.pm, please refer to 
         
     https://github.com/gitpan/Text-ExtractWords and read the readme there so see how to install there.
 
@@ -57,10 +57,10 @@ These components are the majority, except for French, based on Apache OpeNLP com
 For the French, the component is based on a statistic method with a rules data file that helps the tokenization of tokens and sentences.
 This component has these requisites:
 
-    *input:* text file
-    *output:* KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
-    *language:* java /perl (French)
-    *prerequisites:*  Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language model, perl
+    input: text file
+    output: KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
+    language: java /perl (French)
+    prerequisites:  Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language model, perl
 
 
 The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found here [https://github.com/opener-project/tokenizer]
@@ -74,28 +74,28 @@ An example of the expected input and output is as follows:
     
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <KAF xml:lang="fr" version="v1.opener">
-    <kafHeader>
-    <fileDesc />
-    <linguisticProcessors layer="text">
-    <lp name="openlp-fr-tok" version="1.0" timestamp="2013-06-14T10:41:08Z"/>
-    </linguisticProcessors>
-    </kafHeader>
-    <text>
-    <wf wid="w1" sent="1" para="1" offset="0">This</wf>
-    <wf wid="w2" sent="1" para="1" offset="5">is</wf>
-    <wf wid="w3" sent="1" para="1" offset="8">just</wf>
-    <wf wid="w4" sent="1" para="1" offset="13">an</wf>
-    <wf wid="w5" sent="1" para="1" offset="16">example</wf>
-    <wf wid="w6" sent="1" para="1" offset="23">,</wf>
-    <wf wid="w7" sent="1" para="1" offset="25">of</wf>
-    <wf wid="w8" sent="1" para="1" offset="28">how</wf>
-    <wf wid="w9" sent="1" para="1" offset="32">we</wf>
-    <wf wid="w10" sent="1" para="1" offset="35">tokenize</wf>
-    <wf wid="w11" sent="1" para="1" offset="43">.</wf>
-    <wf wid="w12" sent="2" para="1" offset="45">Bye</wf>
-    <wf wid="w13" sent="2" para="1" offset="48">,</wf>
-    <wf wid="w14" sent="2" para="1" offset="50">bye</wf>
-    </text>
+      <kafHeader>
+       <fileDesc />
+       <linguisticProcessors layer="text">
+         <lp name="openlp-fr-tok" version="1.0" timestamp="2013-06-14T10:41:08Z"/>
+       </linguisticProcessors>
+      </kafHeader>
+      <text>
+        <wf wid="w1" sent="1" para="1" offset="0">This</wf>
+        <wf wid="w2" sent="1" para="1" offset="5">is</wf>
+        <wf wid="w3" sent="1" para="1" offset="8">just</wf>
+        <wf wid="w4" sent="1" para="1" offset="13">an</wf>
+        <wf wid="w5" sent="1" para="1" offset="16">example</wf>
+        <wf wid="w6" sent="1" para="1" offset="23">,</wf>
+        <wf wid="w7" sent="1" para="1" offset="25">of</wf>
+        <wf wid="w8" sent="1" para="1" offset="28">how</wf>
+        <wf wid="w9" sent="1" para="1" offset="32">we</wf>
+        <wf wid="w10" sent="1" para="1" offset="35">tokenize</wf>
+        <wf wid="w11" sent="1" para="1" offset="43">.</wf>
+        <wf wid="w12" sent="2" para="1" offset="45">Bye</wf>
+        <wf wid="w13" sent="2" para="1" offset="48">,</wf>
+        <wf wid="w14" sent="2" para="1" offset="50">bye</wf>
+      </text>
     </KAF>
  
 
@@ -120,10 +120,10 @@ For the rest of the languages they also include a file inside the repository whi
 
 This component has these requisites:
 
-    *input:* KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
-    *output:* The input KAF file with the  terms layer coded with the part-of-speech and its relative lemma.
-    *language:* java
-    *prerequisites:* Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language models
+    input: KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
+    output: The input KAF file with the  terms layer coded with the part-of-speech and its relative lemma.
+    language: java
+    prerequisites: Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language models
 
 
 
@@ -135,60 +135,60 @@ An example of the expected input and output is as follows:
     $ echo 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <KAF xml:lang="fr" version="v1.opener">
-    <kafHeader>
-    <fileDesc />
-    <linguisticProcessors layer="text">
-    <lp name="openlp-fr-tok" version="1.0" timestamp="2013-06-14T10:41:08Z"/>
-    </linguisticProcessors>
-    </kafHeader>
-    <text>
-    <wf wid="w1" sent="1" para="1" offset="0">This</wf>
-    <wf wid="w2" sent="1" para="1" offset="5">is</wf>
-    <wf wid="w3" sent="1" para="1" offset="8">just</wf>
-    <wf wid="w4" sent="1" para="1" offset="13">an</wf>
-    <wf wid="w5" sent="1" para="1" offset="16">example</wf>
-    <wf wid="w6" sent="1" para="1" offset="23">,</wf>
-    <wf wid="w7" sent="1" para="1" offset="25">of</wf>
-    <wf wid="w8" sent="1" para="1" offset="28">how</wf>
-    <wf wid="w9" sent="1" para="1" offset="32">we</wf>
-    <wf wid="w10" sent="1" para="1" offset="35">tokenize</wf>
-    <wf wid="w11" sent="1" para="1" offset="43">.</wf>
-    <wf wid="w12" sent="2" para="1" offset="45">Bye</wf>
-    <wf wid="w13" sent="2" para="1" offset="48">,</wf>
-    <wf wid="w14" sent="2" para="1" offset="50">bye</wf>
-    </text>
+      <kafHeader>
+       <fileDesc />
+       <linguisticProcessors layer="text">
+         <lp name="openlp-fr-tok" version="1.0" timestamp="2013-06-14T10:41:08Z"/>
+       </linguisticProcessors>
+      </kafHeader>
+      <text>
+        <wf wid="w1" sent="1" para="1" offset="0">This</wf>
+        <wf wid="w2" sent="1" para="1" offset="5">is</wf>
+        <wf wid="w3" sent="1" para="1" offset="8">just</wf>
+        <wf wid="w4" sent="1" para="1" offset="13">an</wf>
+        <wf wid="w5" sent="1" para="1" offset="16">example</wf>
+        <wf wid="w6" sent="1" para="1" offset="23">,</wf>
+        <wf wid="w7" sent="1" para="1" offset="25">of</wf>
+        <wf wid="w8" sent="1" para="1" offset="28">how</wf>
+        <wf wid="w9" sent="1" para="1" offset="32">we</wf>
+        <wf wid="w10" sent="1" para="1" offset="35">tokenize</wf>
+        <wf wid="w11" sent="1" para="1" offset="43">.</wf>
+        <wf wid="w12" sent="2" para="1" offset="45">Bye</wf>
+        <wf wid="w13" sent="2" para="1" offset="48">,</wf>
+        <wf wid="w14" sent="2" para="1" offset="50">bye</wf>
+      </text>
     </KAF>
     
      | pos-tagger -l en
     
     and the response is 
-    
-    <?xml version="1.0" encoding="UTF-8"?>
-    <KAF xml:lang="en" version="v1.opener">
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <KAF xml:lang="fr" version="v1.opener">
       <kafHeader>
-    <linguisticProcessors layer="text">
-      <lp name="openlp-fr-tok" timestamp="2013-06-14T11:13:28Z" version="1.0" />
-    </linguisticProcessors>
-    <linguisticProcessors layer="terms">
-      <lp name="ehu-pos-en" timestamp="2013-06-165T13:13:30+0200" version="1.0" />
-    </linguisticProcessors>
-    </kafHeader>
-    <text>
-    <wf wid="w1" sent="1" offset="0" length="" para="1">This</wf>
-    <wf wid="w2" sent="1" offset="5" length="" para="1">is</wf>
-    <wf wid="w3" sent="1" offset="8" length="" para="1">just</wf>
-    <wf wid="w4" sent="1" offset="13" length="" para="1">an</wf>
-    <wf wid="w5" sent="1" offset="16" length="" para="1">example</wf>
-    <wf wid="w6" sent="1" offset="23" length="" para="1">,</wf>
-    <wf wid="w7" sent="1" offset="25" length="" para="1">of</wf>
-    <wf wid="w8" sent="1" offset="28" length="" para="1">how</wf>
-    <wf wid="w9" sent="1" offset="32" length="" para="1">we</wf>
-    <wf wid="w10" sent="1" offset="35" length="" para="1">tokenize</wf>
-    <wf wid="w11" sent="1" offset="43" length="" para="1">.</wf>
-    <wf wid="w12" sent="2" offset="45" length="" para="1">Bye</wf>
-    <wf wid="w13" sent="2" offset="48" length="" para="1">,</wf>
-    <wf wid="w14" sent="2" offset="50" length="" para="1">bye</wf>
-    </text>
+      <fileDesc />
+      <linguisticProcessors layer="text">
+         <lp name="openlp-fr-tok" version="1.0" timestamp="2013-06-14T10:41:08Z"/>
+      </linguisticProcessors>
+      <linguisticProcessors layer="terms">
+         <lp name="ehu-pos-en" timestamp="2013-06-165T13:13:30+0200" version="1.0" />
+      </linguisticProcessors>
+      </kafHeader>
+      <text>
+        <wf wid="w1" sent="1" para="1" offset="0">This</wf>
+        <wf wid="w2" sent="1" para="1" offset="5">is</wf>
+        <wf wid="w3" sent="1" para="1" offset="8">just</wf>
+        <wf wid="w4" sent="1" para="1" offset="13">an</wf>
+        <wf wid="w5" sent="1" para="1" offset="16">example</wf>
+        <wf wid="w6" sent="1" para="1" offset="23">,</wf>
+        <wf wid="w7" sent="1" para="1" offset="25">of</wf>
+        <wf wid="w8" sent="1" para="1" offset="28">how</wf>
+        <wf wid="w9" sent="1" para="1" offset="32">we</wf>
+        <wf wid="w10" sent="1" para="1" offset="35">tokenize</wf>
+        <wf wid="w11" sent="1" para="1" offset="43">.</wf>
+        <wf wid="w12" sent="2" para="1" offset="45">Bye</wf>
+        <wf wid="w13" sent="2" para="1" offset="48">,</wf>
+        <wf wid="w14" sent="2" para="1" offset="50">bye</wf>
+      </text>
     <terms>
     <term tid="t1" pos="D" morphofeat="DT" lemma="this" type="close">
       <span>
