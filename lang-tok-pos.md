@@ -33,7 +33,7 @@ This component has these requisites:
     https://github.com/gitpan/Text-ExtractWords and read the readme there so see how to install there.
 
 
-The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found here [https://github.com/opener-project/language-identifier]
+The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found [here] (https://github.com/opener-project/language-identifier)
 
 An example of the expected input and output is as follows:
 
@@ -63,7 +63,7 @@ This component has these requisites:
     prerequisites:  Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language model, perl
 
 
-The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found here [https://github.com/opener-project/tokenizer]
+The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found [here] (https://github.com/opener-project/tokenizer)
 
 
 An example of the expected input and output is as follows:
@@ -127,7 +127,7 @@ This component has these requisites:
 
 
 
-The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found here: [https://github.com/opener-project/pos-tagger]
+The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found [here] (https://github.com/opener-project/pos-tagger)
 
 
 An example of the expected input and output is as follows:
