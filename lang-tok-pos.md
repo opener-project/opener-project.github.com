@@ -57,7 +57,7 @@ These components are the majority, except for French, based on Apache OpeNLP com
 For the French, the component is based on a statistic method with a rules data file that helps the tokenization of tokens and sentences.
 This component has these requisites:
 
-    input: text file
+    input: text file 
     output: KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
     language: java /perl (French)
     prerequisites:  Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language model, perl
