@@ -15,6 +15,7 @@ This page describes the first steps to prepare a corpus to do an advanced NLP pr
     1. Language Detection
     2. Tokenization   
     3. Part of Speech Tagging
+    4. OpeNER NLP chain schema
 
 
 ## Language Detection
@@ -279,6 +280,7 @@ An example of the expected input and output is as follows:
     </KAF>
 
 
+## OpeNER NLP Schema 
 
 In the following schema, there is the main schema of the work flow in OpeNER. This work flow could be seen as a processing chain for each language in OpeNER. The input regarding this schema is prepared to be raw text and the output of all the modules will be KAF.
 
