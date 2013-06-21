@@ -215,8 +215,6 @@ mentions and the third one the "a girl" mentions.
 The OpeNER coreference component is rule-based so this means that its adaptation for using it in the Tourist Domain
 will most likely consist of adding new specific sieves to that domain.
 
-
-
 #### Contact information
 
     Rodrigo Agerri
