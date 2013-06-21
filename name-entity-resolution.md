@@ -210,7 +210,7 @@ mentions and the third one the "a girl" mentions.
         <target id="t30"/>
       </span>
     </coref>
-  </coreferences>
+    </coreferences>
 
 The OpeNER coreference component is rule-based so this means that its adaptation for using it in the Tourist Domain
 will most likely consist of adding new specific sieves to that domain.
