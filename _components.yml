@@ -1,0 +1,51 @@
+---
+base:
+  repository_base: https://github.com/opener-project/
+  portal_base: http://opener-project.github.io/
+  webservice_base: https://opener.olery.com/
+
+components:
+  - &language_identifier
+    name: Language Identifier
+    repository: language-identifier
+  - &tokenizer
+    name: Tokenizer
+    repository: tokenizer
+  - &tree_tagger
+    name: Tree Tagger
+    repository: tree-tagger
+  - &pos_tagger
+    name: POS Tagger
+    repository: pos-tagger
+  - &ner
+    name: NER
+    repository: ner
+  - &ned
+    name: NED
+    repository: ned
+  - &coreference
+    name: Co-reference
+    repository: co-reference
+  - &pol_tagger_basic
+    name: Polarity Tagger Basic
+    repository: opinion-detector-basic
+  - &pol_tagger_deluxe
+    name: Polarity Tagger Deluxe
+    repository: polarity-tagger
+
+clusters:
+  -
+    name: Input Tools
+    components: [*language_identifier]
+  -
+    name: Foundation
+    components: [*tokenizer, *pos_tagger, *tree_tagger]
+  -
+    name: ner/ned/co-reference
+    components: [*ner, *ned, *coreference]
+  -
+    name: Property Tagger
+    components: [*property_tagger]
+  -
+    name: Polarity / Opinions
+    components: [*pol_tagger_basic, *pol_tagger_deluxe]
