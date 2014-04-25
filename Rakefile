@@ -26,7 +26,7 @@ end
 
 desc "Soft update: do overwrite, but not remove any files."
 task :update => [:'update:rakefile'] do
-  puts "Diving deep into multiverse mode..."
+  puts "Diving deep into the multiverse..."
   `rake update:no_rakefile`
 end
 

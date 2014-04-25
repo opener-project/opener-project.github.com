@@ -1,0 +1,13 @@
+<ul id="sidebar" class="nav bs-sidenav">
+  {% for cluster in page.clusters %}
+  <li>
+  <a href="#{{ cluster.name | handleize }}">{{ cluster.name }}</a>
+    <ul class="nav nav-stacked">
+      {% for component in cluster.components %}
+        <li><a href="{{ component.documentation }}">{{ component.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </li>
+  {% endfor %}
+</ul>
+

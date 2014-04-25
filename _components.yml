@@ -1,51 +1,306 @@
 ---
-base:
-  repository_base: https://github.com/opener-project/
-  portal_base: http://opener-project.github.io/
-  webservice_base: https://opener.olery.com/
-
 components:
   - &language_identifier
     name: Language Identifier
-    repository: language-identifier
+    repository: https://github.com/opener-project/language-identifier
+    documentation: https://opener-project.github.com/language-identifier
+    webservice: http://opener.olery.com/language-identifier
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
   - &tokenizer
     name: Tokenizer
-    repository: tokenizer
+    repository: https://github.com/opener-project/tokenizer
+    documentation: https://opener-project.github.com/tokenizer
+    webservice: http://opener.olery.com/tokenizer
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
   - &tree_tagger
     name: Tree Tagger
-    repository: tree-tagger
+    repository: https://github.com/opener-project/tree-tagger
+    documentation: https://opener-project.github.com/tree-tagger
+    webservice: http://opener.olery.com/tree-tagger
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
   - &pos_tagger
     name: POS Tagger
-    repository: pos-tagger
+    repository: https://github.com/opener-project/pos-tagger
+    documentation: https://opener-project.github.com/pos-tagger
+    webservice: http://opener.olery.com/pos-tagger
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
   - &ner
     name: NER
-    repository: ner
+    repository: https://github.com/opener-project/ner
+    documentation: https://opener-project.github.com/ner
+    webservice: http://opener.olery.com/ner
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
   - &ned
     name: NED
-    repository: ned
+    repository: https://github.com/opener-project/ned
+    documentation: https://opener-project.github.com/ned
+    webservice: http://opener.olery.com/ned
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
   - &coreference
-    name: Co-reference
-    repository: co-reference
+    name: Coreference
+    repository: https://github.com/opener-project/coreference
+    documentation: https://opener-project.github.com/coreference
+    webservice: http://opener.olery.com/coreference
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &constituent
+    name: Constituent Parser
+    repository: https://github.com/opener-project/constituent-parser
+    documentation: https://opener-project.github.com/constituent-parser
+    webservice: http://opener.olery.com/constituent-parser
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &property_tagger
+    name: Property Tagger
+    repository: https://github.com/opener-project/property-tagger
+    documentation: https://opener-project.github.com/property-tagger
+    webservice: http://opener.olery.com/property-tagger
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
   - &pol_tagger_basic
-    name: Polarity Tagger Basic
-    repository: opinion-detector-basic
-  - &pol_tagger_deluxe
-    name: Polarity Tagger Deluxe
-    repository: polarity-tagger
+    name: Polarity Tagger
+    repository: https://github.com/opener-project/polarity-tagger
+    documentation: https://opener-project.github.com/polarity-tagger
+    webservice: http://opener.olery.com/polarity-tagger
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &opinion_detector_basic
+    name: Opinion Detector Basic
+    repository: https://github.com/opener-project/opinion-detector-basic
+    documentation: https://opener-project.github.com/opinion-detector-basic
+    webservice: http://opener.olery.com/opinion-detector-basic
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &opinion_detector_deluxe
+    name: Opinion Detector Deluxe
+    repository: https://github.com/opener-project/opinion-detector
+    documentation: https://opener-project.github.com/opinion-detector
+    webservice: http://opener.olery.com/opinion-detector
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &outlet
+    name: Outlet
+    repository: https://github.com/opener-project/outlet
+    documentation: https://opener-project.github.com/outlet
+    webservice: http://opener.olery.com/outlet
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &s3_outlet
+    name: S3 Outlet
+    repository: https://github.com/opener-project/s3-outlet
+    documentation: https://opener-project.github.com/s3-outlet
+    webservice: http://opener.olery.com/s3-outlet
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &kaf_to_json
+    name: kaf-to-json
+    repository: https://github.com/opener-project/kaf-to-json
+    documentation: https://opener-project.github.com/kaf-to-json
+    webservice: http://opener.olery.com/kaf-to-json
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &kaf_naf_parser
+    name: kaf-naf parser
+    repository: https://github.com/opener-project/kaf-naf-parser
+    documentation: https://opener-project.github.com/kaf-naf-parser
+    webservice: http://opener.olery.com/kaf-naf-parser
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &scorer
+    name: Sentiment Scores
+    repository: https://github.com/opener-project/scorer
+    documentation: https://opener-project.github.com/scorer
+    webservice: http://opener.olery.com/scorer
+    description:
+      This is a placeholder for a 2 to 5 line description of the component.
+      Each component should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
 
 clusters:
-  -
+  - &c_input_tools
     name: Input Tools
     components: [*language_identifier]
-  -
-    name: Foundation
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_foundation
+    name: Basics
     components: [*tokenizer, *pos_tagger, *tree_tagger]
-  -
-    name: ner/ned/co-reference
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_nerned
+    name: NER/NED/Co-reference
     components: [*ner, *ned, *coreference]
-  -
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_property
     name: Property Tagger
     components: [*property_tagger]
-  -
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_polarity
     name: Polarity / Opinions
-    components: [*pol_tagger_basic, *pol_tagger_deluxe]
+    components: [*opinion_detector_basic, *opinion_detector_deluxe]
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_storage
+    name: Storage
+    components: [*outlet, *s3_outlet]
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_converters
+    name: Converters
+    components: [*kaf_to_json, *kaf_naf_parser]
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_processors
+    name: Processors / Aggregators
+    components: [*scorer]
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+  - &c_toolkits
+    name: Toolkits
+    components: []
+    description:
+      This is a placeholder for a 2 to 5 line description of the cluster of components.
+      Each cluster should have description like this. So that when we provide
+      a nice overview page, then we can show a neat description.
+
+webservices:
+  - *c_input_tools
+  - *c_foundation
+  - *c_nerned
+  - *c_property
+  - *c_polarity
+  - *c_storage
+  - *c_converters
+  - *c_processors
+  -
+    name: Scenarios
+    components:
+      -
+        name: Basic Opinions
+        webservice: /webservices/scenarios/basic-opinions.html
+        documentation: /getting-started/scenarios/basic-opinions.html
+        description:
+          This is a placeholder for a 2 to 5 line description of the component.
+          Each component should have description like this. So that when we provide
+          a nice overview page, then we can show a neat description.
+      -
+        name: Named Entity Disambiguation
+        webservice: /webservices/scenarios/named-entity-disambiguation.html
+        documentation: /getting-started/scenarios/named-entity-disambiguation.html
+        description:
+          This is a placeholder for a 2 to 5 line description of the component.
+          Each component should have description like this. So that when we provide
+          a nice overview page, then we can show a neat description.
+      -
+        name: Full Pipeline
+        webservice: /webservices/scenarios/full-pipeline.html
+        documentation: /getting-started/scenarios/full-pipeline.html
+        description:
+          This is a placeholder for a 2 to 5 line description of the component.
+          Each component should have description like this. So that when we provide
+          a nice overview page, then we can show a neat description.
+
+toolkits:
+  -
+    name: Brat conversion tools
+  -
+    name: Opinion miner toolkit
+  -
+    name: Lexical acquisition toolkit
+  -
+    name: Lexicon propagation toolkit
+
+datasets: &datasets
+  -
+    name: Tourpedia Named Entities
+  -
+    name: Tourpedia
+  -
+    name: ESTHER Corpus
+
+lexicons: &lexicons
+  -
+    name: Sentiment Lexicon English
+  -
+    name: Sentiment Lexicon Dutch
+  -
+    name: Sentiment Lexicon German
+  -
+    name: Sentiment Lexicon French
+  -
+    name: Sentiment Lexicon Spanish
+  -
+    name: Sentiment Lexicon Italian
+  -
+    name: Hotel Property Lexicon
+
+documentation:
+  components:
+    - *c_input_tools
+    - *c_foundation
+    - *c_nerned
+    - *c_property
+    - *c_polarity
+    - *c_storage
+    - *c_converters
+    - *c_processors
+    - *c_toolkits
+  lexicons: *lexicons
+  datasets: *datasets
+

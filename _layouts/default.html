@@ -6,13 +6,36 @@
     {% include stylesheets.html %}
     <title>{{ page.title }}</title>
   </head>
-  <body>
-    <div class="page-wrapper">
-      {% include header.html %}
-      {{ content }}
-      {% include footer.html %}
-      <!-- Placed at the end of the document so the pages load faster -->
-      {% include javascripts.html %}
+  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    {% include header.html %}
+
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
+        </div>
+      </div>
     </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <!--Nav Bar -->
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+            {% assign file = page.sidebar | prepend: "sidebar_" | append: ".html" %}
+            {% include {{ file }} %}
+          </div>
+        </div>
+        <!--Main Content -->
+        <div class="col-sm-8 col-sm-offset-1">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% include javascripts.html %}
   </body>
 </html>

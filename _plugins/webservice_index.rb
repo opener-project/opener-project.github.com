@@ -1,10 +1,11 @@
-module Documentation
+module Webservices
 
-  class DocumentationPageGenerator < Jekyll::Generator
-
+  class WebservicePageGenerator < Jekyll::Generator
     def generate(site)
-      doc_page = site.pages.detect {|page| page.url == '/documentation/index.html'}
-      doc_page.data['clusters'] = documentation
+      doc_pages = site.pages.select {|page| page.url.include?("webservices")}
+      doc_pages.each do |doc_page|
+        doc_page.data['clusters'] = webservices
+      end
     end
 
     private
@@ -21,10 +22,9 @@ module Documentation
       File.expand_path("../../_components.yml", __FILE__)
     end
 
-    def documentation
-      config["documentation"]
+    def webservices
+      config["webservices"]
     end
-
   end
 end
 

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    {% include meta.html %}
+    {% include stylesheets.html %}
+    <title>{{ page.title }}</title>
+  </head>
+  <body class="basic">
+      {% include header.html %}
+      {{ content }}
+      {% include footer.html %}
+      <!-- Placed at the end of the document so the pages load faster -->
+      {% include javascripts.html %}
+  </body>
+</html>

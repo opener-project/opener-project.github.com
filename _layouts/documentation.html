@@ -7,39 +7,29 @@
     <title>{{ page.title }}</title>
   </head>
   <body>
-    <div class="page-wrapper">
-      {% include header.html %}
+    {% include header.html %}
 
-      <section class="header-2-sub bg-midnight-blue low">
-          <div class="background">&nbsp;</div>
-          <div class="container">
-              <div class="row">
-                  <div class="col-sm-8 col-sm-offset-2">
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <section class="content-documentation">
-        <div class="container">
-          <div class="row">
-            <!--Nav Bar -->
-            <nav class="col-xs-3 bs-docs-sidebar">
-              {% include documentation/sidebar.html %}
-            </nav>
-            <!--Main Content -->
-            <div class="col-xs-9">
-              {{ content }}
-            </div>
-          </div>
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
         </div>
-      </section>
-
-      {% include footer.html %}
-      <!-- Placed at the end of the document so the pages load faster -->
-      {% include javascripts.html %}
-      <script> $('body').scrollspy({ target: '#sidebar', offset: 50 }); </script>
+      </div>
     </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <!--Main Content -->
+        <div class="col-sm-12 content">
+          {{ content }}
+        </div>
+      </div>
+    </div>
+
+    {% include footer.html %}
+    <!-- Placed at the end of the document so the pages load faster -->
+    {% include javascripts.html %}
   </body>
 </html>
 
