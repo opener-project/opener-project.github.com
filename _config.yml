@@ -2,3 +2,5 @@ name: OpeNER Project
 markdown: redcarpet
 highlighter: pygments
 exclude: ["Gemfile", "Gemfile.lock", "lib"]
+kramdown:
+  input: GFM
