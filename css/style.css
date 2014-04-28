@@ -1271,12 +1271,21 @@ body {
 
   margin-bottom: 8px;
 }
+
+.bs-sidebar .nav .visible {
+  display: block;
+}
 .bs-sidebar .nav .nav > li > a {
   padding-top: 3px;
   padding-bottom: 3px;
   padding-left: 30px;
   font-size: 90%;
 }
+
+.bs-sidebar .nav ul.double-stacked > li > a {
+  padding-left: 45px;
+}
+
 .doc-sub-element {
   margin-top: 40px;
 }
