@@ -73,21 +73,6 @@ of the components](component-list.html) to for the specifics.
 For example, checkout the usage and installation instructions of the [Dutch
 Polarity tagger](/documentation/pol-tagger.html).
 
-<div id="introduction-to-the-opener-architecture"></div>
-## Introduction to the OpeNER architecture
-
-The OpeNER architecture consists of several buidling blocks called COMPONENTS,
-with which you build a language analysis toolchain called a CONFIGURATION.
-
-An overview of how COMPONENTS might be chained into a CONFIGRATION is displayed
-in the picture below. ![Example
-CONFIGURATION](/images/opener-chain.png "Example CONFIGURATION")
-
-Please read the [Architecture and Lingo Overview](architecture.html) to get an
-overview of the terms used in the rest of the documentation.
-
-This page describes the first steps to prepare a corpus to do an advanced NLP processing. Concretely, this first steps are necessary are important in order to pre-process any raw text normalized in UTF-8 and serve it to a more advanced Natural Language Processing Tasks selecting them by the language, with good tokenization and part-of-speech tags.
-
 <div id="core-technology"></div>
 ## Main Functionality
 
