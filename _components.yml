@@ -251,27 +251,42 @@ toolkits:
 
 datasets: &datasets
   -
-    name: Tourpedia Named Entities
+    name: Sentiment Lexicons WordNet propagation (Es,En,Nl,Fr,It)
+    partner: VU
   -
-    name: Tourpedia
+    name: Sentiment Lexicon Tourist Domain (Es,En,Nl,De,Fr,It)
+    partner: VU
   -
-    name: ESTHER Corpus
+    name: Hotel Reviews Metadata (Es,En,Nl,De,Fr,It)
+    partner: VU
+  -
+    name: Attraction Reviews Metadata (Es,En,Nl,De,Fr,It)
+    partner: VU
+  -
+    name: News Articles Annotated Metadata (Es,En,Nl,De,Fr,It)
+    partner: VU
+  -
+    name: Ent-Itup Social and Mass Media Analysis application
+    partner: Synthema
+  -
+    name: Tourpedia Named Entities LOD dataset
+    documentation: http://tour-pedia.org
+  -
+    name: Tourpedia Named Entities OD dataset
+    documentation: http://tour-pedia.org
+  -
+    name: Sentiment on Social Media Classifier training sets
 
 lexicons: &lexicons
   -
-    name: Sentiment Lexicon English
+    name: Sentiment Lexicons
+    documentation: https://github.com/opener-project/sentiment-lexicons
   -
-    name: Sentiment Lexicon Dutch
+    name: Polarity Lexicons
+    documentation: https://github.com/opener-project/general-polarity-lexicons
   -
-    name: Sentiment Lexicon German
-  -
-    name: Sentiment Lexicon French
-  -
-    name: Sentiment Lexicon Spanish
-  -
-    name: Sentiment Lexicon Italian
-  -
-    name: Hotel Property Lexicon
+    name: Propagation Lexicons
+    documentation: https://github.com/opener-project/VU-propagation-lexicons_ALL_LANGS_data
 
 documentation:
   components:
@@ -286,4 +301,14 @@ documentation:
     - *c_toolkits
   lexicons: *lexicons
   datasets: *datasets
+  other:
+    -
+      name: KAF
+      documentation: https://github.com/opener-project/kaf/wiki/KAF-structure-overview
+    -
+      name: KAF JSON
+      documentation: https://github.com/opener-project/kaf-to-json
+    -
+      name: OpeNER LMF
+      documentation: https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.31.pdf
 
