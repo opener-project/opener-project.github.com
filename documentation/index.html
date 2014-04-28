@@ -25,7 +25,7 @@ sidebar: documentation
           <p>{{cluster.description}}</p>
           <ul>
             {% for component in cluster.components %}
-            <li><a href="{{component.documentation}}">{{component.name}}</a></li>
+            <li><a href="/documentation/{{component.name | handle}}.html">{{component.name}}</a></li>
             {% endfor %}
           </ul>
         {% endif %}
@@ -41,7 +41,7 @@ sidebar: documentation
           <p>{{cluster.description}}</p>
           <ul>
             {% for component in cluster.components %}
-            <li><a href="{{component.documentation}}">{{component.name}}</a></li>
+            <li><a href="/documentation/{{component.name | handle}}.html">{{component.name}}</a></li>
             {% endfor %}
           </ul>
         {% endif %}
