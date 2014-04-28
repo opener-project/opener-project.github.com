@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/flat-ui.css">
+<link rel="stylesheet" href="/css/icon-font.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>Getting Started</title>
+  </head>
+  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <header class="header-2">
+<div class="container">
+  <div class="row">
+    <nav class="navbar col-sm-12" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"></button>
+      <a class="brand" href="#"><img src="/images/opener_log.png" width="125" height="58" alt=""> </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav pull-right">
+        <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+      </ul>
+      <ul class="subnav">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+</header>
+
+
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <!--Nav Bar -->
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+            
+            <ul id="sidebar" class="nav bs-sidenav">
+  <li>
+  <a href="/getting-started#introduction">Getting Started</a>
+    <ul class="nav nav-stacked visible">
+      <li><a href="#what-is-opener">What is OpeNER</a></li>
+      <li><a href="#quick-start-guide">Quick Start Guide</a></li>
+      <li><a href="#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
+      <li><a href="#what-technology-is-used">What technology is used</a></li>
+      <li>
+        <a href="#core-technology">Main functionality</a>
+        <ul class="nav nav-stacked double-stacked">
+          <li><a href="#language-detection">Language Detection</a></li>
+          <li><a href="#tokenization">Tokenization</a></li>
+          <li><a href="#part-of-speech-tagging">Part of Speech Tagging</a></li>
+          <li><a href="#named-entity-resolution">Named Entity Resolution</a></li>
+          <li><a href="#polarity-tagging">Polarity Tagging</a></li>
+          <li><a href="#opinion-detection">Opinion Detection</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+  <a href="#scenarios">Scenarios</a>
+    <ul class="nav visible">
+      <li><a href="/getting-started/scenarios/basic-opinions.html">Basic Opinions</a></li>
+      <li><a
+        href="/getting-started/scenarios/named-entity-disambiguation.html">Named Entities</a></li>
+      <li><a href="/getting-started/scenarios/full-pipeline.html">Full Pipeline</a></li>
+      <li><a href="/getting-started/scenarios/create-your-own-scenario.html">Create your own</a></li>
+    </ul>
+  </li>
+  <li>
+  <a href="#how-to">How to:</a>
+    <ul class="nav visible">
+      <li><a href="/getting-started/how-to/quick-start.html">Quick Start</a></li>
+      <li><a href="/getting-started/how-to/domain-adaption.html">Domain Adaption</a></li>
+      <li><a href="/getting-started/how-to/language-extension.html">Language Extension</a></li>
+      <li><a href="/getting-started/how-to/local-installations.html">Local Installations</a></li>
+      <li><a href="/getting-started/how-to/using-a-queue-system.html">Using a Queue System</a></li>
+    </ul>
+  </li>
+</ul>
+
+          </div>
+        </div>
+        <!--Main Content -->
+        <div class="col-sm-8 col-sm-offset-1">
+          <div id="introduction"></div>
+
+<h1>Getting Started</h1>
+
+<ul>
+<li><a href="#what-is-opener">What is OpeNER</a></li>
+<li><a href="#quick-start-guide">Quick Start Guide</a></li>
+<li><a href="#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
+<li><a href="#what-technology-is-used">What technology is used</a></li>
+<li><a href="#core-components">Main functionality</a>
+
+<ul>
+<li><a href="#language-detection">Language Detection</a></li>
+<li><a href="#tokenization">Tokenization</a></li>
+<li><a href="#part-of-speech-tagging">Part of Speech Tagging</a></li>
+<li><a href="#named-entity-resolution">Named Entity Resolution</a></li>
+<li><a href="#polarity-tagging">Polarity Tagging</a></li>
+<li><a href="#opinion-detection">Opinion Detection</a></li>
+</ul></li>
+</ul>
+
+<div id="what-is-opener"></div>
+
+<h2>What is OpeNER?</h2>
+
+<p>OpeNER is a language analysis toolchain helping (academic) researchers and
+companies make sense out of &quot;natural language analysis&quot;. It consist of easy to
+install, improve and configure components to:</p>
+
+<ul>
+<li>Detect the language of a text</li>
+<li>Tokenize texts</li>
+<li>Determine polarisation of texts (sentiment analysis) and detect what topics
+are included in the text.</li>
+<li>Detect entities named in the texts and link them together. (e.g. President
+Obama or The Hilton Hotel)</li>
+</ul>
+
+<p>The supported language set currently consists of: English, Spanish, Italian,
+German and Dutch.</p>
+
+<p>Besides the individual components, guidelines exists on how to add languages and
+how to adjust components for specific situations and topics.</p>
+
+<div id="quick-start-guide"></div>
+
+<h2>Quick Start Guide</h2>
+
+<p>Checkout the <a href="/getting-started/how-to/quick-start.html">Quick start guide</a> to get going right away.</p>
+
+<div id="opener-nlp-chain-schema"></div>
+
+<h2>OpeNER NLP Schema</h2>
+
+<p>In the following schema, there is the main schema of the work flow in OpeNER. This work flow could be seen as a processing chain for each language in OpeNER. The input regarding this schema is prepared to be raw text and the output of all the modules will be KAF.</p>
+
+<p><img src="/images/opeNERschema.png" alt="altTitle"></p>
+
+<div id="what-technology-is-used"></div>
+
+<h2>What technology is used?</h2>
+
+<p>The OpeNER toolchain consists of a broad mix of technologies glued together
+using Ruby. The prerequisits of running an OpeNER toolchain consists of:</p>
+
+<ul>
+<li>A mac / linux / unix kind of operating system</li>
+<li>Ruby 1.9.3+</li>
+<li>Python 2.7+</li>
+<li>Java 1.7+</li>
+<li>Perl 5+</li>
+</ul>
+
+<p>Most of these requirements are already present on up-to-date unix like
+installations (including Mac OSX) or can be easily upgraded.</p>
+
+<p>Every part of the OpeNER toolchain has individual dependencies. Most of which
+are included in the components themselves. Check out the <a href="component-list.html">individual manual pages
+of the components</a> to for the specifics.</p>
+
+<p>For example, checkout the usage and installation instructions of the <a href="/documentation/pol-tagger.html">Dutch
+Polarity tagger</a>.</p>
+
+<div id="core-technology"></div>
+
+<h2>Main Functionality</h2>
+
+<div id="language-detection"></div>
+
+<h3>Language Detection</h3>
+
+<p>This component is the responsible of detecting the language of an input document and delivers it to the correct language pipeline. If the language detector detects that a text is in English the input text should send the text flow to the English pipeline and so forth.</p>
+
+<h4>Technical characteristics</h4>
+
+<p>This language identification is based on the Mike Schilli&#39;s perl Text::Language::Guess language guessing CPAN library. Its implementation is simple: Using Text::ExtractWords and Lingua::StopWords from CPAN, it determines how many of the known stopwords the document contains for each language supported are supported in Lingua::StopWords. The choose of this method is a choice between different existing components but prioritizing the response time.
+This component has these requisites:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">input: text file
+output: language detected
+programing language: perl
+prerequisites: Perl: Text/ExtractWords.pm, please refer to
+
+https://github.com/gitpan/Text-ExtractWords and read the readme there so see how to install there.
+</code></pre></div>
+<p>The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found <strong>[here]</strong> (https://github.com/opener-project/language-identifier)</p>
+
+<p>An example of the expected input and output is as follows:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ echo &quot;this is an english text&quot; | language-identifier
+
+and the response is
+
+en
+</code></pre></div>
+<p>There is also the posibility of obtaining KAF as an output or an extended version of the language-identifier covering more languages than the ones in OpeNER. Finally, there is also the posibility of creating a server out of the language identification.</p>
+
+<div id="tokenization"></div>
+
+<h3>Tokenization</h3>
+
+<p>This component is the responsible of tokenizing the text in two levels, in sentence level and in word level. This component is crucial to the correct working of the rest of NLP components.  This components is the first one of each language processing chain.</p>
+
+<h4>Technical characteristics</h4>
+
+<p>These components are the majority, except for French, based on Apache OpeNLP component and contain two modules for sentence and token segmentation respectively. The components based on Apache OpeNLP are identically the same except for the models which depend on the languages and are trained according to the linguistic features of each language.
+For the French, the component is based on a statistic method with a rules data file that helps the tokenization of tokens and sentences.
+This component has these requisites:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">input: text file
+output: KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
+language: java /perl (French)
+prerequisites:  Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language model, perl
+</code></pre></div>
+<p>The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found <strong>[here]</strong> (https://github.com/opener-project/tokenizer)</p>
+
+<p>An example of the expected input and output is as follows:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ echo &quot;this is an english text&quot; | tokenizer -l en
+
+and the response is
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;KAF xml:lang=&quot;fr&quot; version=&quot;v1.opener&quot;&gt;
+  &lt;kafHeader&gt;
+   &lt;fileDesc /&gt;
+   &lt;linguisticProcessors layer=&quot;text&quot;&gt;
+     &lt;lp name=&quot;openlp-fr-tok&quot; version=&quot;1.0&quot; timestamp=&quot;2013-06-14T10:41:08Z&quot;/&gt;
+   &lt;/linguisticProcessors&gt;
+  &lt;/kafHeader&gt;
+  &lt;text&gt;
+    &lt;wf wid=&quot;w1&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;0&quot;&gt;This&lt;/wf&gt;
+    &lt;wf wid=&quot;w2&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;5&quot;&gt;is&lt;/wf&gt;
+    &lt;wf wid=&quot;w3&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;8&quot;&gt;just&lt;/wf&gt;
+    &lt;wf wid=&quot;w4&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;13&quot;&gt;an&lt;/wf&gt;
+    &lt;wf wid=&quot;w5&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;16&quot;&gt;example&lt;/wf&gt;
+    &lt;wf wid=&quot;w6&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;23&quot;&gt;,&lt;/wf&gt;
+    &lt;wf wid=&quot;w7&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;25&quot;&gt;of&lt;/wf&gt;
+    &lt;wf wid=&quot;w8&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;28&quot;&gt;how&lt;/wf&gt;
+    &lt;wf wid=&quot;w9&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;32&quot;&gt;we&lt;/wf&gt;
+    &lt;wf wid=&quot;w10&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;35&quot;&gt;tokenize&lt;/wf&gt;
+    &lt;wf wid=&quot;w11&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;43&quot;&gt;.&lt;/wf&gt;
+    &lt;wf wid=&quot;w12&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;45&quot;&gt;Bye&lt;/wf&gt;
+    &lt;wf wid=&quot;w13&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;48&quot;&gt;,&lt;/wf&gt;
+    &lt;wf wid=&quot;w14&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;50&quot;&gt;bye&lt;/wf&gt;
+  &lt;/text&gt;
+&lt;/KAF&gt;
+</code></pre></div>
+<div id="part-of-speech-tagging"></div>
+
+<h3>Part of Speech Tagging</h3>
+
+<p>This component is the responsible of assigning each token its morphological label. This component is crucial to the correct working of the rest of NLP components. This component also includes the lemmatization of the words.</p>
+
+<h4>Technical characteristics</h4>
+
+<p>This component is based on Apache OpeNLP component and contains one module that relates a word with its part of speech given a context. The component is the same for all the languages in the consortium, the only differences are the models which depend on the languages (are trained according to the linguistic features of each language) and the lemmatizers. Lemmatization is dictionary-based. To perform English lemmatization the module uses three different methods for English and two for Spanish:</p>
+
+<p>English has two possible lemmatizers. One is based on WordNet-3.0 and the other is based on pain text dictionary (en-lemmas.dict is a &quot;Word POStag lemma&quot; dictionary in plain text to perform lemmatization).
+Also, there is Morfologik-stemming: english.dict is the same as en-lemmas.dict but binarized as a finite state automata using the morfologik-stemming project (see NOTICE file for details) This method uses 10% of RAM with
+respect to the plain text dictionary and works 2x faster.</p>
+
+<p>Spanish has a plain text dictionary: es-lemmas.dict and it uses the Morfologik stemming: spanish.dict.
+For the rest of the languages they also include a file inside the repository which lemmatizes the output and maps a form to a lemma.</p>
+
+<p>This component has these requisites:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">input: KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
+output: The input KAF file with the  terms layer coded with the part-of-speech and its relative lemma.
+language: java
+prerequisites: Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language models
+</code></pre></div>
+<p>The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found <strong>[here]</strong> (https://github.com/opener-project/pos-tagger)</p>
+
+<p>An example of the expected input and output is as follows:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$ echo
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;KAF xml:lang=&quot;fr&quot; version=&quot;v1.opener&quot;&gt;
+  &lt;kafHeader&gt;
+   &lt;fileDesc /&gt;
+   &lt;linguisticProcessors layer=&quot;text&quot;&gt;
+     &lt;lp name=&quot;openlp-fr-tok&quot; version=&quot;1.0&quot; timestamp=&quot;2013-06-14T10:41:08Z&quot;/&gt;
+   &lt;/linguisticProcessors&gt;
+  &lt;/kafHeader&gt;
+  &lt;text&gt;
+    &lt;wf wid=&quot;w1&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;0&quot;&gt;This&lt;/wf&gt;
+    &lt;wf wid=&quot;w2&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;5&quot;&gt;is&lt;/wf&gt;
+    &lt;wf wid=&quot;w3&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;8&quot;&gt;just&lt;/wf&gt;
+    &lt;wf wid=&quot;w4&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;13&quot;&gt;an&lt;/wf&gt;
+    &lt;wf wid=&quot;w5&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;16&quot;&gt;example&lt;/wf&gt;
+    &lt;wf wid=&quot;w6&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;23&quot;&gt;,&lt;/wf&gt;
+    &lt;wf wid=&quot;w7&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;25&quot;&gt;of&lt;/wf&gt;
+    &lt;wf wid=&quot;w8&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;28&quot;&gt;how&lt;/wf&gt;
+    &lt;wf wid=&quot;w9&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;32&quot;&gt;we&lt;/wf&gt;
+    &lt;wf wid=&quot;w10&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;35&quot;&gt;tokenize&lt;/wf&gt;
+    &lt;wf wid=&quot;w11&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;43&quot;&gt;.&lt;/wf&gt;
+    &lt;wf wid=&quot;w12&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;45&quot;&gt;Bye&lt;/wf&gt;
+    &lt;wf wid=&quot;w13&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;48&quot;&gt;,&lt;/wf&gt;
+    &lt;wf wid=&quot;w14&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;50&quot;&gt;bye&lt;/wf&gt;
+  &lt;/text&gt;
+&lt;/KAF&gt;
+
+ | pos-tagger -l en
+
+and the response is
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;KAF xml:lang=&quot;fr&quot; version=&quot;v1.opener&quot;&gt;
+  &lt;kafHeader&gt;
+  &lt;fileDesc /&gt;
+  &lt;linguisticProcessors layer=&quot;text&quot;&gt;
+     &lt;lp name=&quot;openlp-fr-tok&quot; version=&quot;1.0&quot; timestamp=&quot;2013-06-14T10:41:08Z&quot;/&gt;
+  &lt;/linguisticProcessors&gt;
+  &lt;linguisticProcessors layer=&quot;terms&quot;&gt;
+     &lt;lp name=&quot;ehu-pos-en&quot; timestamp=&quot;2013-06-165T13:13:30+0200&quot; version=&quot;1.0&quot; /&gt;
+  &lt;/linguisticProcessors&gt;
+  &lt;/kafHeader&gt;
+  &lt;text&gt;
+    &lt;wf wid=&quot;w1&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;0&quot;&gt;This&lt;/wf&gt;
+    &lt;wf wid=&quot;w2&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;5&quot;&gt;is&lt;/wf&gt;
+    &lt;wf wid=&quot;w3&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;8&quot;&gt;just&lt;/wf&gt;
+    &lt;wf wid=&quot;w4&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;13&quot;&gt;an&lt;/wf&gt;
+    &lt;wf wid=&quot;w5&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;16&quot;&gt;example&lt;/wf&gt;
+    &lt;wf wid=&quot;w6&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;23&quot;&gt;,&lt;/wf&gt;
+    &lt;wf wid=&quot;w7&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;25&quot;&gt;of&lt;/wf&gt;
+    &lt;wf wid=&quot;w8&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;28&quot;&gt;how&lt;/wf&gt;
+    &lt;wf wid=&quot;w9&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;32&quot;&gt;we&lt;/wf&gt;
+    &lt;wf wid=&quot;w10&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;35&quot;&gt;tokenize&lt;/wf&gt;
+    &lt;wf wid=&quot;w11&quot; sent=&quot;1&quot; para=&quot;1&quot; offset=&quot;43&quot;&gt;.&lt;/wf&gt;
+    &lt;wf wid=&quot;w12&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;45&quot;&gt;Bye&lt;/wf&gt;
+    &lt;wf wid=&quot;w13&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;48&quot;&gt;,&lt;/wf&gt;
+    &lt;wf wid=&quot;w14&quot; sent=&quot;2&quot; para=&quot;1&quot; offset=&quot;50&quot;&gt;bye&lt;/wf&gt;
+  &lt;/text&gt;
+&lt;terms&gt;
+&lt;term tid=&quot;t1&quot; pos=&quot;D&quot; morphofeat=&quot;DT&quot; lemma=&quot;this&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--This--&gt;
+    &lt;target id=&quot;w1&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t2&quot; pos=&quot;V&quot; morphofeat=&quot;VBZ&quot; lemma=&quot;be&quot; type=&quot;open&quot;&gt;
+  &lt;span&gt;
+    &lt;!--is--&gt;
+    &lt;target id=&quot;w2&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t3&quot; pos=&quot;A&quot; morphofeat=&quot;RB&quot; lemma=&quot;just&quot; type=&quot;open&quot;&gt;
+  &lt;span&gt;
+    &lt;!--just--&gt;
+    &lt;target id=&quot;w3&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t4&quot; pos=&quot;D&quot; morphofeat=&quot;DT&quot; lemma=&quot;a&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--an--&gt;
+    &lt;target id=&quot;w4&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t5&quot; pos=&quot;N&quot; morphofeat=&quot;NN&quot; lemma=&quot;example&quot; type=&quot;open&quot;&gt;
+  &lt;span&gt;
+    &lt;!--example--&gt;
+    &lt;target id=&quot;w5&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t6&quot; pos=&quot;O&quot; morphofeat=&quot;,&quot; lemma=&quot;,&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--,--&gt;
+    &lt;target id=&quot;w6&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t7&quot; pos=&quot;P&quot; morphofeat=&quot;IN&quot; lemma=&quot;of&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--of--&gt;
+    &lt;target id=&quot;w7&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t8&quot; pos=&quot;O&quot; morphofeat=&quot;WRB&quot; lemma=&quot;how&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--how--&gt;
+    &lt;target id=&quot;w8&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t9&quot; pos=&quot;Q&quot; morphofeat=&quot;PRP&quot; lemma=&quot;we&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--we--&gt;
+    &lt;target id=&quot;w9&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t10&quot; pos=&quot;V&quot; morphofeat=&quot;VBP&quot; lemma=&quot;tokenize&quot; type=&quot;open&quot;&gt;
+  &lt;span&gt;
+    &lt;!--tokenize--&gt;
+    &lt;target id=&quot;w10&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t11&quot; pos=&quot;O&quot; morphofeat=&quot;.&quot; lemma=&quot;.&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--.--&gt;
+    &lt;target id=&quot;w11&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t12&quot; pos=&quot;R&quot; morphofeat=&quot;NNP&quot; lemma=&quot;Bye&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--Bye--&gt;
+    &lt;target id=&quot;w12&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t13&quot; pos=&quot;O&quot; morphofeat=&quot;,&quot; lemma=&quot;,&quot; type=&quot;close&quot;&gt;
+  &lt;span&gt;
+    &lt;!--,--&gt;
+    &lt;target id=&quot;w13&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;term tid=&quot;t14&quot; pos=&quot;N&quot; morphofeat=&quot;NN&quot; lemma=&quot;bye&quot; type=&quot;open&quot;&gt;
+  &lt;span&gt;
+    &lt;!--bye--&gt;
+    &lt;target id=&quot;w14&quot; /&gt;
+  &lt;/span&gt;
+&lt;/term&gt;
+&lt;/terms&gt;
+&lt;entities /&gt;
+&lt;/KAF&gt;
+</code></pre></div>
+<div id="named-entity-resolution"></div>
+
+<h3>Named Entity Resolution</h3>
+
+<p>Named Entity Resolution consists of processing named entities in text. The overall objective is
+to be able to <strong>recognize, classify and link every mention of a specific named entity</strong> in a text.
+By Named Entity we usually mean a proper name of a person, a place, an organization, etc.</p>
+
+<p>A named entity can be mentioned using a great variety of surface forms (Barack Obama,
+President Obama, Mr. Obama, B. Obama, etc.) and the same surface form can refer to a variety of
+named entities which make them ambiguous. For example, the form &#39;san juan&#39; can be used to
+ambiguously refer to dozens of toponyms, persons, a saint, etc. (e.g, see http://en.wikipedia.org/wiki/San_Juan).</p>
+
+<p>Furthermore, it is possible to refer to a named-entity by means of anaphoric pronouns and
+co-referent expressions such as &#39;he&#39;, &#39;her&#39;, &#39;their&#39;, &#39;I&#39;, &#39;the 35 year old&#39;, etc.
+Therefore, in order to provide an adequate an comprehensive account of named-entities entities in text
+it is needed to recognize the mention of a named-entity, to classify it as a type (e.g, person, location, etc.),
+to disambiguate it to a specific entity, and to resolve every form of mentioning or co-referring to the same
+entity in a text. In summary, to perform <strong>Named Entity Resolution</strong>.  With the aim of making this problem more manageable,
+several Natural Language Processing tasks have been distinguished:
+Named Entity Recognition and Classification (NERC), Coreference resolution and Named Entity  Disambiguation (NED).</p>
+
+<h4>Named Entity Recognition and Classification (NERC):</h4>
+
+<p>Generally, since MUC and CONLL (http://www.cnts.ua.ac.be/conll2003/ner/) shared tasks, NERC uses manually
+annotated data which serves to train machine learning models in a supervised manner. More recent trends aim
+at building automatic silver-standard and gold-standard datasets from existing large knowledge resources
+such as Wikipedia (Mika et al. 2008; Nothman et al. 2012) to avoid the reliance on hand-generated data for training.</p>
+
+<p>NER taggers recognized a variety of Named Entity types, namely, references to PERSON, LOCATION, ORGANIZATION
+and MISCELLANEOUS, although in principle, given the appropriated annotated data, any type of Named Entity can be
+recognized. In this sense, OpeNER will, during its second year of development, be looking at recognizing and
+classifying Named Entity types releated with the Tourist domain such as restaurants, hotels, and perhaps monuments,
+theatres, etc.</p>
+
+<p>The NERC components included in OpeNER for the first year take an input text (from KAF word forms) and recognizes and
+classifies Named Entities according to the 4 entity types of CoNLL, namely, location, organization, person and miscellaneous,
+creating new KAF element for each entity in this manner:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;entity eid=&quot;e9&quot; type=&quot;organization&quot;&gt;
+  &lt;references&gt;
+    &lt;span&gt;
+      &lt;!--UN Office --&gt;
+      &lt;target id=&quot;t276&quot; /&gt;
+      &lt;target id=&quot;t277&quot; /&gt;
+    &lt;/span&gt;
+  &lt;/references&gt;
+&lt;/entity&gt;
+&lt;entity eid=&quot;e13&quot; type=&quot;location&quot;&gt;
+  &lt;references&gt;
+    &lt;!--Herat--&gt;
+    &lt;span&gt;
+      &lt;target id=&quot;t349&quot; /&gt;
+    &lt;/span&gt;
+  &lt;/references&gt;
+&lt;/entity&gt;
+</code></pre></div>
+<h4>Named Entity Disambiguation (NED):</h4>
+
+<p>Named Entity Recognition and Classification (NERC) deals with the detection and identification of specific
+entities in running text. Once the named entities are recognised they can be identified or disambiguated with
+respect to an existing catalogue. This is required because the &quot;surface form&quot; of a Named Entity can actually refer
+to several real things in the world. Wikipedia has become the de facto standard as such a named entity catalogue. Thus,
+if the form &#39;San Juan&#39; appears in a given document, the NED task consist of deciding to which of the &quot;San Juan&quot; things
+listed in Wikipedia is actually the &quot;San Juan&quot; source form in that document referring to
+(e.g, see http://en.wikipedia.org/wiki/San_Juan).</p>
+
+<p>In OpeNER the NED component is based on the DBpedia Spotlight (http://https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki)
+which uses the DBpedia (http://dbpedia.org) as the catalogue to perform the disambiguation. Within the OpeNER project new NED tools
+have been developed for each of the languages based on the English DBpedia Spotlight.</p>
+
+<p>The NED component will take every entity recognized by the NERC component and try to decide to
+which actual thing is referring to. For example, it will take a entity such as</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;entity eid=&quot;e13&quot; type=&quot;location&quot;&gt;
+  &lt;references&gt;
+    &lt;!--Herat--&gt;
+    &lt;span&gt;
+      &lt;target id=&quot;t349&quot; /&gt;
+    &lt;/span&gt;
+  &lt;/references&gt;
+  &lt;externalReferences&gt;
+    &lt;externalRef resource=&quot;spotlight_v1&quot; reference=&quot;http://dbpedia.org/resource/Herat_Province&quot; /&gt;
+  &lt;/externalReferences&gt;
+&lt;/entity&gt;
+</code></pre></div>
+<p>and produce a new external reference to (hopefully) point out to the actual thing in the DBpedia to which the &quot;Herat&quot; entity
+is actually referring to:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;entity eid=&quot;e13&quot; type=&quot;location&quot;&gt;
+  &lt;references&gt;
+    &lt;!--Herat--&gt;
+    &lt;span&gt;
+      &lt;target id=&quot;t349&quot; /&gt;
+    &lt;/span&gt;
+  &lt;/references&gt;
+  &lt;externalReferences&gt;
+    &lt;externalRef resource=&quot;spotlight_v1&quot; reference=&quot;http://dbpedia.org/resource/Herat_Province&quot; /&gt;
+  &lt;/externalReferences&gt;
+&lt;/entity&gt;
+</code></pre></div>
+<p>The NED components in OpeNER are currently running on default paramenters as set by the DBpedia Spotlight, so improvement
+is definitely needed. Furthermore, during the second year of the project a catalogue containing articles about Tourist related
+Named Entities is needed in order to perform disambiguation for names of hotels, restaurants, etc.</p>
+
+<h4>Coreference Resolution:</h4>
+
+<p>Coreference resolution aims at grouping together all the mentions in the text to a Named Entity. For example, a person can
+be referred to by using her proper name, Claudia Lawrence, or by other types of expressions, such as &quot;her&quot;, &quot;she&quot;, &quot;the 35-year-old&quot;,
+&quot;Peter Lawrence&#39;s daughter&quot;, &quot;the university chef&quot;, etc. Coreference resolution will aim at linking together or &quot;clustering&quot;
+every mention to a given Named Entity. This is useful, for example, if we really want to know who is talking about what. In the
+Tourist Domain, it is hoped that the coreference resolution will help to clarify who says an opinion about which hotel, for example.</p>
+
+<p>The Coreference component developed for OpeNER is an implementation of the Multi-Sieve Pass system for
+originally proposed by the Stanford NLP Group (Raghunathan et al., 2010; Lee et al., 2011) and (Lee et al., 2013).
+This system proposes a number of deterministic passes, ranging from high precision to higher recall,
+each dealing with a different manner in which coreference manifests itself in running text.</p>
+
+<p>In order to facilitate the integration of the coreference system for the 6 languages of OpeNER we have included here 4 sieves:
+Exact String Matching, Precise Constructs, Strict Head Match and Pronoun Match (the sieve nomenclature follows Lee et al (2013)).</p>
+
+<p>The coreference component requires two main requisites, external to the component itself, to work:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">1. A constituent parsing tree with head words marked. This is a syntactic tree with a mark for the head word for each of
+   the nodes of the tree.
+2. A number of dictionaries and static lists which provide genre, number and animacy information which is used to assign
+   attributes to the mentions to be clustered.
+</code></pre></div>
+<p>Constituent parser are usually probabilistic: they used hand-annotated built datasets (called treebanks) to train machine learning
+models in a supervised manner. The OpeNER pipeline provides such a constituent parser for each of the languages of the project.</p>
+
+<p>The Coreference component reads text from KAF (including words, part of speech information, named entities recognized) and the
+syntactic tree and provides &quot;clusters&quot; or &quot;groups&quot; of mentions that the system guesses actually refer to a given entity. For example,
+take the following text:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;John is a musician. He played a new song. A girl was listening to the song. &quot;It is my favorite,&quot; John said to her.&quot;
+</code></pre></div>
+<p>The OpeNER coreference component creates three clusters: the first groups the John-related mentions, the second one the &quot;the song&quot;
+mentions and the third one the &quot;a girl&quot; mentions.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;coreferences&gt;
+&lt;coref coid=&quot;co1&quot;&gt;
+  &lt;!--John--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t1&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--John--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t27&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--a musician--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t3&quot;/&gt;
+    &lt;target id=&quot;t4&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--He--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t6&quot;/&gt;
+  &lt;/span&gt;
+&lt;/coref&gt;
+&lt;coref coid=&quot;co2&quot;&gt;
+  &lt;!--a new song--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t8&quot;/&gt;
+    &lt;target id=&quot;t9&quot;/&gt;
+    &lt;target id=&quot;t10&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--the song--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t17&quot;/&gt;
+    &lt;target id=&quot;t18&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--It--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t21&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--my favorite--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t23&quot;/&gt;
+    &lt;target id=&quot;t24&quot;/&gt;
+  &lt;/span&gt;
+&lt;/coref&gt;
+&lt;coref coid=&quot;co3&quot;&gt;
+  &lt;!--A girl--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t12&quot;/&gt;
+    &lt;target id=&quot;t13&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--my--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t23&quot;/&gt;
+  &lt;/span&gt;
+  &lt;!--her--&gt;
+  &lt;span&gt;
+    &lt;target id=&quot;t30&quot;/&gt;
+  &lt;/span&gt;
+&lt;/coref&gt;
+&lt;/coreferences&gt;
+</code></pre></div>
+<p>The OpeNER coreference component is rule-based so this means that its adaptation for using it in the Tourist Domain
+will most likely consist of adding new specific sieves to that domain.</p>
+
+<div id="polarity-tagging"></div>
+
+<h3>Polarity tagging</h3>
+
+<p>The polarity tagging is a task by means which terms in a text are tagged with their correct polarity and sentiment modifier label.</p>
+
+<p>Words with polarity are words that express a negative or positive opinion, belief, attitude, etc. towards a certain topic. In our case polarity refers to out of context or &quot;prior&quot; polarity,
+i.e. to words which  evoke something positive or negative independent from the context in which they are found.  Polarity words can be nouns, verbs, adjectives and adverbs. The following examples contain negative polarity lemma&#39;s like ruin, debt,
+problem and complaint and positive polarity lemma&#39;s like pleasant, enjoy
+and delicious:</p>
+
+<ul>
+<li>Look, it seriously <em>ruined</em> our trip to Athens ...</li>
+<li>In 2004 the president said that he felt that the <em>debt</em> was an enormous <em>problem</em></li>
+<li>The stay was very <strong>pleasant</strong> and I have no <em>complaint</em> whatsoever</li>
+<li>We really <strong>enjoyed</strong> the <strong>delicious</strong> food</li>
+</ul>
+
+<p>Sentiment modifiers are words that change or modify in certain way the polarity of a word or expression. We differenciate three subtypes of sentiment modifiers: intensifiers, weakeners and polarity shifters.
+Intensifiers (enormous, seriouly) and weakeners (relatively) are words that
+intensify or weaken the strength of an expression or polarity word. Polarity shifters (not, no, never) are negations which shift the polarity of an opinion word from positive to negative or vice versa. Here some examples are shown in italics:
++ In 2004 the president said that he felt that the debt was an <em>enormous</em> problem
++ Look, it <em>seriously</em> ruined our trip to Athens ...
++ The standard room was <em>relatively</em> large
++ The hotel&#39;s location was <em>not</em> a very interesting part of town
++ The stay was very pleasant and I have <em>no</em> complaint whatsoever
++ Will <em>never</em> return.</p>
+
+<div id="opinion-detection"></div>
+
+<h3>Opinion detection</h3>
+
+<p>The opinion detection is concerned with the identification of opinions in a text at the expression level. This task has received a lot of interesest in last period because of the explosion of the social networks. More and more companies
+use social networks to promote and offer their products, and they receive a lot of feedback from their customers as well. Considering the thousands of reactions that the people generates every on Social Networks, automatic analysis techniques
+become more and more interesting for extracting automatically opinions from this data.</p>
+
+<p>In our case, we deal with fine-grained opinion extraction. This is not only about deciding if a text is in general expressing a positive or negative opinion, but detecting and extracting single opinions and the entities that build these opinions:
++ Opinion expression: expressions that indicate emotions, sentiments, opinions or other private states
++ Opinion holder: mentions of whom is the opinion from
++ Opinion target: expressions that indicate what the opinion is about</p>
+
+<p>For instance consider the sentence &quot;I like the design of Ipod video&quot;. These are the elements of the opinion extracted from it:
++ Opinion expression: like
++ Opinion holder: I
++ Opinion target: the design of Ipod video</p>
+
+<div id="where-to-go-from-here"></div>
+
+<h2>Where to go from here?</h2>
+
+<p>We prepared several example scenarios that explain how and for which
+applications you can use OpeNER technology. You can find them listed under the
+<a href="/getting-started/secenarios">scenarios section</a> on the left.</p>
+
+<p>Besided the usage scenarios there are also a set of how-to guides available,
+check those out in the <a href="/getting-started/how-to/">how to section</a>.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-2 bg-midnight-blue doc-bottom-margin">
+<div class="container">
+  <nav class="pull-left">
+  <ul>
+    <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+  </ul>
+  </nav>
+  <div class="social-btns pull-right">
+    <a href="#">
+      <div class="fui-vimeo"></div>
+      <div class="fui-vimeo"></div>
+    </a>
+    <a href="#">
+      <div class="fui-facebook"></div>
+      <div class="fui-facebook"></div>
+    </a>
+    <a href="#">
+      <div class="fui-twitter"></div>
+      <div class="fui-twitter"></div>
+    </a>
+  </div>
+  <div class="additional-links">
+    Be sure to take a look at our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/page-transitions.js"></script>
+<script src="/js/easing.min.js"></script>
+<script src="/js/jquery.svg.js"></script>
+<script src="/js/jquery.svganim.js"></script>
+<script src="/js/jquery.backgroundvideo.min.js"></script>
+<script src="/js/froogaloop.min.js"></script>
+<script src="/js/startup-kit.js"></script>
+
+  </body>
+</html>
