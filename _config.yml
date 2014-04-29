@@ -4,5 +4,3 @@ highlighter: pygments
 exclude: ["Gemfile", "Gemfile.lock", "lib"]
 kramdown:
   input: GFM
-source: _site
-destination: _regenerated
