@@ -2,57 +2,88 @@ Template for OpeNER Jekyll Website
 ==================================
 
 The OpeNER portal (http://opener-project.github.io) contains all information you
-need to get up and running with OpeNER language technologies in minutes. To make
-sure the documentation stays up to date, each OpeNER github repository actually
-maintains it's documentation in a gh-pages branch.
+need to get up and running with OpeNER language technologies in minutes. 
 
-This causes a problem, how to keep the layout and styles between all
-repositories synchronized? 
+This repository is a bid odd. The actual SOURCE of the repository can be found
+in the SOURCE dir. the root of this repository contains the compiled source of
+the website.
 
-The solution: Create a repo that contains the basic template, and knows how to
-update itself. That is exactly what you're looking at. 
+Also, some documentation is actually taken from specific files from different
+repositories. So to answer the most pressing questions.
 
-All style changes to the website can be done in this repository, you then have
-to update all repositories by running a ```rake update```.
+Keep in mind: Github pages, and therefore this portal uses Jekyll to build the
+website. Please find [all you need to know about Jekyll
+here](http://jekyllrb.com)
 
-Usage
+Setup
 -----
 
-Copy the rakefile in this repository to any gh-pages branch of any repository.
-Then run the ```rake update``` command.
+When working with the portal, please clone this repository and then run:
 
-```bash
-wget https://raw.githubusercontent.com/opener-project/jekyll-page-template/master/Rakefile
-rake update
+```
+bundle install
 ```
 
-Updates
--------
+You're all good to go now.
 
-If you want to update the template, again, run:
 
-```bash
-rake update
+How to update text in general
+-----------------------------
+
+Find the right file in the ```source/``` folder. Update the text in the file.
+Then from the root of this folder run:
+
+```rake build```
+
+now you can test your change by typing
+
+```jekyll serve``` 
+
+You should be able to see the portal now at
+[http://localhost:4000](http://localhost:4000)
+
+
+How to update documentation of components
+-----------------------------------------
+
+Go to the repository of the component you want to update the documentation for
+and update the ```README.md```, ```reference.md``` or ```webservices.md``` file.
+Then, from the root of the portal repository run:
+
+```
+rake update:documentation
 ```
 
-Custom files
-------------
+and to test:
 
-If you want to add custom files to the general template, this is possible.
-However, since the update mechanism is sometimes a bit blunt (especially on major updates),
-it needs some special treatment.
+```
+rake build
+jekyll serve
+```
 
-There is a custom directory present. Any file that you put in the custom
-directory will be copied OVER any template file. Also any files in the custom
-directory not present in the template will be added to the final result.
+How to release a new version to GitHub?:
+----------------------------------------
+
+```
+rake release
+```
+
+Other fancy stuff?
+------------------
+
+If you want a more dynamic way of writing your documentation, you can actually
+go into the "source" directory and start Jekyll with the -w (watch) option. Then
+you can make your changes and jekyll will automatically update the compiled
+version of the site.
+
+```
+cd source
+jekyll serve -w
+```
+
+Help I don't see my changes deployed!
+-------------------------------------
+
+Make sure you make your changes in the SOURCE directory and then run a release.
 
 
-### Why???
-
-You might ask...WHY?! Well, because being able to do a "blunt" remove and
-re-install update is straightforward and comes in handy. It is expected that
-hardly any repository needs custom files, and those that do need custom files
-only need very few.
-
-When a "custom" file can actually be re-used it makes more sense to extend the
-template anyway. 

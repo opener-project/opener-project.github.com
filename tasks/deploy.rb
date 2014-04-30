@@ -11,6 +11,7 @@ task :build do
     `jekyll build`
   end
   puts "Done Building"
+  Rake::Task["copy"].execute
 end
 
 desc "Copy the generated Jekyll site over to root"
