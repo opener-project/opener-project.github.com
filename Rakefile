@@ -1,1 +1,2 @@
-require_relative "_tasks/update"
+require_relative "tasks/update"
+require_relavive "tasks/deploy"

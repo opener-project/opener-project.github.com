@@ -24,10 +24,10 @@ class Updater
 
           contents << "\n\n"
           contents << "<div id='#{filename.split(".")[0].downcase}'></div>"
-          contents << "\n"
+          contents << "\n\n"
           contents << Base64.decode64(response[:content])
 
-          path = File.expand_path("../../documentation/#{identify(component['name'])}.md", __FILE__)
+          path = File.expand_path("../../source/documentation/#{identify(component['name'])}.md", __FILE__)
           file = File.open(path, "wb")
           file.write(contents)
           file.close
@@ -62,7 +62,7 @@ class Updater
   end
 
   def config_file_path
-    File.expand_path("../../_components.yml", __FILE__)
+    File.expand_path("../../source/_components.yml", __FILE__)
   end
 
   def repositories
