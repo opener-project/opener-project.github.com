@@ -36,7 +36,7 @@ task :delete_unsafe_files do
   # Remove any directories that can collide with the basics
   # It wouldn't be a big problem, but it can cause confusion
   # and a lot of litter.
-  config_excluded_files.map{|filename| "source/_site/#{filename}"}
+  filelist = config_excluded_files.map{|filename| "source/_site/#{filename}"}
   rm_rf filelist
 end
 
