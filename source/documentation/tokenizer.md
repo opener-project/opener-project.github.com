@@ -8,6 +8,7 @@ sidebar: documentation
 
 
 <div id='readme'></div>
+
 # Tokenizer
 
 Component that wraps the different existing tokenizers.

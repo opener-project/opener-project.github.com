@@ -8,6 +8,7 @@ sidebar: documentation
 
 
 <div id='readme'></div>
+
 [![Build Status](https://drone.io/github.com/opener-project/language-identifier/status.png)](https://drone.io/github.com/opener-project/language-identifier/latest)
 
 # Language Identifier

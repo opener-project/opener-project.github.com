@@ -8,6 +8,7 @@ sidebar: documentation
 
 
 <div id='readme'></div>
+
 # Outlet
 
 Component that stores results from the Opener Web Services chain into a SQLite 

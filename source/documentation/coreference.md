@@ -8,6 +8,7 @@ sidebar: documentation
 
 
 <div id='readme'></div>
+
 # Opener::Coreference
 
 TODO: Write a gem description

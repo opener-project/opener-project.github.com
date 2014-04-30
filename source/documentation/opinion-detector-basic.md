@@ -8,6 +8,7 @@ sidebar: documentation
 
 
 <div id='readme'></div>
+
 VU-opinion-detector-basic_EN_kernel
 ==================================
 
