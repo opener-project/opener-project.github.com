@@ -42,7 +42,11 @@ end
 
 task :clean do
   rm_r "source/_site", :force=>true
-  rm_rf excluded_files
+end
+
+desc "Destroy all generated files from root"
+task :reset do
+  rm_r (Dir.glob("*") - excluded_files), :force=>true
 end
 
 def config_excluded_files
@@ -54,6 +58,7 @@ def excluded_files
   filelist = []
   filelist.concat(Dir.glob("*.md"))
   filelist.concat(Dir.glob("_*"))
+  filelist.concat(Dir.glob(".*"))
   filelist.concat(config_excluded_files)
-  return filelist
+  return filelist - [".",".."]
 end
