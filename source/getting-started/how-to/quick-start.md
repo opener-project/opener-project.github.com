@@ -39,14 +39,14 @@ After you installed Rubygems install the bundler gem with the following command:
 ````gem install bundler````
 
 
-<a name="get-the-example-application"></a>
+<div id="get-the-example-application"></div>
 # Get the example application
 Once you've got the basics set up, including the installation of bundler
 
 ```gem install opener-basic```
 
 
-<a name="run-the-example"></a>
+<div id="run-the-example"></div>
 # Run the example
 
 See if things are setup propery by trying to run the following line of code:

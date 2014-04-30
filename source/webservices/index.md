@@ -12,6 +12,7 @@ Put some generic text on the webservices here. Foo
 {% for cluster in page.clusters %}
 
 <div id="{{cluster.name | handle}}"></div>
+
 ## {{cluster.name }}
 
 -------------------
@@ -20,6 +21,7 @@ Put some generic text on the webservices here. Foo
 
 {% for component in cluster.components %}
 <div id="{{component.name | handle}}"></div>
+
 ### {{component.name }}
 
 {{component.description}}

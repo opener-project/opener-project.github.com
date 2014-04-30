@@ -5,6 +5,7 @@ sidebar: project
 ---
 
 <div id="introduction"></div>
+
 # The OpeNER Project
 
 OpeNER is a project funded by the European Commission under the FP7 (7th Framework Program). Its acronym stands for Open Polarity Enhanced Name Entity Recognition. It is a two year duration project which officially started at July 2012, and finishes at July 2014. In OpeNER are collaborating partners from Italy, Holland and Spain.
@@ -14,6 +15,7 @@ OpeNER’s main goal is to provide a set of ready to use tools to perform some n
 
 
 <div id="vision"></div>
+
 ## Vision/Goals
 
 Customer reviews and ratings on the Internet are increasing importance in the evaluation of products and services by potential customers. In certain sectors, it is even becoming a fundamental variable in the purchase decision. A recent Forrester study showed more than 30% of Internet users have evaluated products online, and that 70% of those studied end user generated reviews.
@@ -34,6 +36,7 @@ The OpeNER project will provide a rich Named Entity Data Source in a simple, str
 
 
 <div id="objectives"</div>
+
 ## Objectives
 
 OpeNER aims to provide enterprise and society with base technologies for Cross-lingual Named Entity Recognition and Classification and Sentiment Analysis through the reuse of existing resources and the open development of complementary technologies. The key objectives of the project are:
@@ -47,6 +50,7 @@ Research and trailing of models that will ensure that the project results are se
 Achievement of the projects objectives by repurposing and leveraging existing state of the art and established language resources.
 
 <div id="consortium"></div>
+
 
 ## Consortium
 
@@ -82,6 +86,7 @@ The following members are part of the original OpeNER consortium.
 </table>
 
 <div id="euab"></div>
+
 ## End User Advisory Board
 
 <table class="table">

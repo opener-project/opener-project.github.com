@@ -5,6 +5,7 @@ sidebar: getting_started
 ---
 
 <div id="introduction"></div>
+
 # Getting Started
 
 - [What is OpeNER](#what-is-opener)
@@ -20,6 +21,7 @@ sidebar: getting_started
     - [Opinion Detection](#opinion-detection)
 
 <div id="what-is-opener"></div>
+
 ## What is OpeNER?
 
 OpeNER is a language analysis toolchain helping (academic) researchers and
@@ -40,11 +42,13 @@ Besides the individual components, guidelines exists on how to add languages and
 how to adjust components for specific situations and topics.
 
 <div id="quick-start-guide"></div>
+
 ## Quick Start Guide
 
 Checkout the [Quick start guide](/getting-started/how-to/quick-start.html) to get going right away.
 
 <div id="opener-nlp-chain-schema"></div>
+
 ## OpeNER NLP Schema
 
 In the following schema, there is the main schema of the work flow in OpeNER. This work flow could be seen as a processing chain for each language in OpeNER. The input regarding this schema is prepared to be raw text and the output of all the modules will be KAF.
@@ -52,6 +56,7 @@ In the following schema, there is the main schema of the work flow in OpeNER. Th
 ![altTitle](/images/opeNERschema.png)
 
 <div id="what-technology-is-used"></div>
+
 ## What technology is used?
 
 The OpeNER toolchain consists of a broad mix of technologies glued together
@@ -74,9 +79,11 @@ For example, checkout the usage and installation instructions of the [Dutch
 Polarity tagger](/documentation/pol-tagger.html).
 
 <div id="core-technology"></div>
+
 ## Main Functionality
 
 <div id="language-detection"></div>
+
 ### Language Detection
 
 This component is the responsible of detecting the language of an input document and delivers it to the correct language pipeline. If the language detector detects that a text is in English the input text should send the text flow to the English pipeline and so forth.
@@ -107,6 +114,7 @@ An example of the expected input and output is as follows:
 There is also the posibility of obtaining KAF as an output or an extended version of the language-identifier covering more languages than the ones in OpeNER. Finally, there is also the posibility of creating a server out of the language identification.
 
 <div id="tokenization"></div>
+
 ### Tokenization
 
 This component is the responsible of tokenizing the text in two levels, in sentence level and in word level. This component is crucial to the correct working of the rest of NLP components.  This components is the first one of each language processing chain.
@@ -162,6 +170,7 @@ An example of the expected input and output is as follows:
 
 
 <div id="part-of-speech-tagging"></div>
+
 ### Part of Speech Tagging
 
 This component is the responsible of assigning each token its morphological label. This component is crucial to the correct working of the rest of NLP components. This component also includes the lemmatization of the words.
@@ -342,6 +351,7 @@ An example of the expected input and output is as follows:
 
 
 <div id="named-entity-resolution"></div>
+
 ### Named Entity Resolution
 
 Named Entity Resolution consists of processing named entities in text. The overall objective is
@@ -547,6 +557,7 @@ The OpeNER coreference component is rule-based so this means that its adaptation
 will most likely consist of adding new specific sieves to that domain.
 
 <div id="polarity-tagging"></div>
+
 ### Polarity tagging
 
 The polarity tagging is a task by means which terms in a text are tagged with their correct polarity and sentiment modifier label.
@@ -572,6 +583,7 @@ intensify or weaken the strength of an expression or polarity word. Polarity shi
 + Will *never* return.
 
 <div id="opinion-detection"></div>
+
 ### Opinion detection
 
 The opinion detection is concerned with the identification of opinions in a text at the expression level. This task has received a lot of interesest in last period because of the explosion of the social networks. More and more companies
@@ -589,6 +601,7 @@ For instance consider the sentence "I like the design of Ipod video". These are 
 + Opinion target: the design of Ipod video
 
 <div id="where-to-go-from-here"></div>
+
 ## Where to go from here?
 
 We prepared several example scenarios that explain how and for which

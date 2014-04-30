@@ -7,6 +7,7 @@ sidebar: project
 # Publications
 
 <div id="deliverables"></div>
+
 ## Deliverables
 
 This will be a list of deliverables of the OpeNER project.
@@ -27,6 +28,7 @@ This will be a list of deliverables of the OpeNER project.
 
 
 <div id="papers"></div>
+
 ## Papers
 
 <p>
@@ -81,6 +83,7 @@ Egoitz Laparra and German Rigau, <strong>Sources of Evidence for Implicit
 </p>
 
 <div id="presentations"></div>
+
 ## Presentations
 
 * [Download OpeNER Newsletter](http://opener-fp7project.rhcloud.com/wp-content/uploads/2013/07/Newsletter_opener_v0.2.1_final.pdf)
