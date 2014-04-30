@@ -29,7 +29,8 @@ task :commit do
   if answer.empty?
     abort("Commit and any further tasks aborted due to empty commit message")
   end
-  `git commit -am "#{answer}"`
+  `git add .`
+  `git commit -m "#{answer}"`
 end
 
 task :delete_unsafe_files do
