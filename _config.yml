@@ -1,4 +1,2 @@
 name: OpeNER Project
 exclude: ["Gemfile", "Gemfile.lock", "lib", "tasks", "source", "Rakefile"]
-kramdown:
-  input: GFM
