@@ -20,7 +20,8 @@ end
 
 desc "Commit & Push the result to Github"
 task :deploy do
-  `git push origin master`
+  branch = `git rev-parse --abbrev-ref HEAD`
+  `git push origin #{branch}`
 end
 
 task :commit do
