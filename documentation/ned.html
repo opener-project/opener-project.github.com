@@ -83,12 +83,12 @@
           </div>
         </div>
         <!--Main Content -->
-        <div class="col-sm-8 col-sm-offset-1">
+        <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
 <h1 id="ned">NED</h1>
 
-<p>This repository contains a Named Entity Disambiguation tool that queries a<br />
+<p>This repository contains a Named Entity Disambiguation tool that queries a
 DBpedia spotlight server. The client takes KAF as input (containing
 <code>&lt;entities&gt;</code> nodes).</p>
 
@@ -122,8 +122,8 @@ gem specific_install opener-ned \
 
 <h2 id="usage">Usage</h2>
 
-<p>The NED client requires a working DBpedia Spotlight server to be available. By<br />
-default it tries to connect to http://localhost:2020 (English language) but you<br />
+<p>The NED client requires a working DBpedia Spotlight server to be available. By
+default it tries to connect to http://localhost:2020 (English language) but you
 can change this using the <code>--host</code> and <code>--port</code> options in the CLI.</p>
 
 <p>A simple example:</p>
@@ -143,13 +143,13 @@ can change this using the <code>--host</code> and <code>--port</code> options in
 <pre><code>bundle exec rake compile
 </code></pre>
 
-<p>For this you’ll need to have Java 1.7 and Maven installed. These requirements<br />
+<p>For this you’ll need to have Java 1.7 and Maven installed. These requirements
 are verified for you before the Rake task calls Maven.</p>
 
 <h2 id="structure">Structure</h2>
 
-<p>This repository comes in two parts: a collection of Java source files and Ruby<br />
-source files. The Java code can be found in the <code>core/</code> directory, everything<br />
+<p>This repository comes in two parts: a collection of Java source files and Ruby
+source files. The Java code can be found in the <code>core/</code> directory, everything
 else will be Ruby source code.</p>
 
         </div>

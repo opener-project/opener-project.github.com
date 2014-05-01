@@ -6,8 +6,8 @@
 body {
   color: #34495e;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.231;
+  font-size: 16px;
+  line-height: 27px;
 }
 input,
 button,
@@ -344,6 +344,11 @@ body {
 li {
   line-height: 20px;
 }
+
+.content li {
+  line-height: 26px;
+}
+
 .btn {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;

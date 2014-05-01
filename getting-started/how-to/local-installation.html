@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/css/animations.css">
 <link rel="stylesheet" href="/css/style.css">
 
-    <title>Local installations of OpeNER</title>
+    <title>Quick Start</title>
   </head>
   <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
@@ -89,7 +89,7 @@
     </ul>
   </li>
   <li>
-  <a href="#scenarios">Scenarios</a>
+  <a href="/getting-started/scenarios/">Scenarios</a>
     <ul class="nav visible">
       <li><a href="/getting-started/scenarios/basic-opinions.html">Basic Opinions</a></li>
       <li><a
@@ -101,10 +101,9 @@
   <li>
   <a href="#how-to">How to:</a>
     <ul class="nav visible">
-      <li><a href="/getting-started/how-to/quick-start.html">Quick Start</a></li>
       <li><a href="/getting-started/how-to/domain-adaption.html">Domain Adaption</a></li>
       <li><a href="/getting-started/how-to/language-extension.html">Language Extension</a></li>
-      <li><a href="/getting-started/how-to/local-installations.html">Local Installations</a></li>
+      <li><a href="/getting-started/how-to/local-installation.html">Local Installation</a></li>
       <li><a href="/getting-started/how-to/using-a-queue-system.html">Using a Queue System</a></li>
     </ul>
   </li>
@@ -113,10 +112,107 @@
           </div>
         </div>
         <!--Main Content -->
-        <div class="col-sm-8 col-sm-offset-1">
-          <h1 id="local-installations">Local Installations</h1>
+        <div class="col-sm-8 col-sm-offset-1 content">
+          <h1 id="install-opener-requirements">Install OpeNER requirements</h1>
 
-<p>Some instructions here.</p>
+<p>In order to work with OpeNER you need to:</p>
+
+<ol>
+  <li>Install the overall OpeNER requirements</li>
+  <li>Install OpeNER</li>
+  <li>Try some examples</li>
+</ol>
+
+<p>The OpeNER toolchain consists of a broad mix of technologies glued together
+using Ruby. Most of these requirements are already present on up-to-date unix like
+installations (including Mac OSX) or can be easily upgraded.</p>
+
+<p>Every part of the OpeNER toolchain has individual dependencies. Most of which
+are included in the components themselves. Check out the individual manual pages
+of the components to for the specifics.</p>
+
+<h2 id="opener-requirements">OpeNER requirements</h2>
+
+<h3 id="general-environment">General Environment</h3>
+
+<p>The prerequisits of running an OpeNER toolchain consists of:</p>
+
+<ul>
+  <li>A mac / linux / unix kind of operating system</li>
+  <li>JRuby 1.7.9+ (<a href="http://jruby.org">installation instructions</a>)</li>
+  <li>Python 2.7+ (<a href="http://www.python.org/getit/">installation instructions</a>)</li>
+  <li>Java 1.7+ (<a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html">installation instructions</a>)</li>
+  <li>Perl 5+(<a href="http://www.perl.org/get.html">installation instructions</a>)</li>
+</ul>
+
+<h3 id="ruby-setup">Ruby Setup</h3>
+
+<p>After you installed JRuby you also need to install Rubygems and Bundler.</p>
+
+<p>You can find the installation instructions of Rubygems here:
+<a href="http://rubygems.org/pages/download">RubyGems installation instructions</a></p>
+
+<p>After you installed Rubygems install the bundler gem with the following command:</p>
+
+<p><code>gem install bundler</code></p>
+
+<h3 id="python-setup">Python Setup</h3>
+
+<h4 id="virtual-environment">Virtual environment</h4>
+
+<p>We highly recommend using a python virtualenv environment. A convenient way to
+get that working is by visiting the <a href="https://github.com/brainsik/virtualenv-burrito">virtualenv-burrito
+project</a> over at Github.</p>
+
+<p>Once you have the virtualenv-burrito installed you can for example create an
+OpeNER environment using:</p>
+
+<p><code>
+mkvirtualenv opener
+</code></p>
+
+<p>and then activate is using</p>
+
+<p><code>
+workon opener
+</code></p>
+
+<p>If you make sure that you activate your <code>opener</code> enviroment before
+installing any OpeNER components. We can more or less guarantee you a smooth
+Python ride. If you forget to <code>workon opener</code> the road might be quite bumpy.</p>
+
+<h4 id="lxml">Lxml</h4>
+
+<p>Most OpeNER components ship with all batteries included. However lxml is used
+so often that that wouldn’t make sense. So please, after you activated your
+virtualenv. please install lxml. There is a <a href="http://lxml.de/installation.html">manual available at the lxml
+website</a>.</p>
+
+<div id="get-the-example-application"></div>
+
+<h1 id="install-opener">Install OpeNER</h1>
+
+<p>Once you’ve got the basics set up, including the installation of rubygems,
+bundler, a Python virtual environment and lxml run the following command:</p>
+
+<p><code>gem install opener-basic</code></p>
+
+<p>The installation might take a while and you might get asked several questions.
+But if all goes well, you’ll be up and running in about 15 minutes, give or
+take.</p>
+
+<div id="run-the-example"></div>
+
+<h1 id="run-the-example">Run the example</h1>
+
+<p>See if things are setup propery by trying to run the following line of code:</p>
+
+<p><code>echo "This is absolutelty great" | language-identifier</code></p>
+
+<p>You can also try and put your own text into the opener-example chain. For
+example by piping in the contents of a textfile:</p>
+
+<p><code>cat my_text_file.txt | language-identifier | tokenizer | pos-tagger</code></p>
 
 
         </div>

@@ -49,7 +49,7 @@ end
 
 desc "Destroy all generated files from root"
 task :reset do
-  rm_r (Dir.glob("*") - excluded_files), :force=>true
+  rm_r (Dir.glob("*") - excluded_files + ["_site"]), :force=>true
 end
 
 def config_excluded_files

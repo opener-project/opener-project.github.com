@@ -83,16 +83,16 @@
           </div>
         </div>
         <!--Main Content -->
-        <div class="col-sm-8 col-sm-offset-1">
+        <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
 <h1 id="vu-opinion-detector-basicenkernel">VU-opinion-detector-basic_EN_kernel</h1>
 
-<p>This module implements a opinion detector for English (also works for Dutch and German). The language<br />
-is determined by the “xml:lang” attribut in the input KAF file. Depending on the value of this attribute,<br />
-the corresponding lexicon will be loaded. This module detects three elements of the opinions:<br />
-* Expression: the actual opinion expression<br />
-* Target: about what is the previous expression<br />
+<p>This module implements a opinion detector for English (also works for Dutch and German). The language
+is determined by the “xml:lang” attribut in the input KAF file. Depending on the value of this attribute,
+the corresponding lexicon will be loaded. This module detects three elements of the opinions:
+* Expression: the actual opinion expression
+* Target: about what is the previous expression
 * Holder: who is stating that expression</p>
 
 <h2 id="requirements">Requirements</h2>
@@ -103,7 +103,7 @@ the corresponding lexicon will be loaded. This module detects three elements of 
 
 <h2 id="usage">Usage</h2>
 
-<p>The input KAF file has to be annotated with at least the term layer, with polarity information.<br />
+<p>The input KAF file has to be annotated with at least the term layer, with polarity information.
 Correct input files for this module are the output KAF files from the polarity tagger module</p>
 
 <p>To tag an input KAF file example.kaf with opinions you can run:

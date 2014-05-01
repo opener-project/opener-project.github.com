@@ -83,7 +83,7 @@
           </div>
         </div>
         <!--Main Content -->
-        <div class="col-sm-8 col-sm-offset-1">
+        <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
 <p><a href="https://drone.io/github.com/opener-project/VU-tree-tagger_kernel/latest"><img src="https://drone.io/github.com/opener-project/VU-tree-tagger_kernel/status.png" alt="Build Status" /></a></p>
@@ -92,17 +92,17 @@
 
 <h1 id="opener-tree-tagger">Opener Tree Tagger</h1>
 
-<p>This module implements a wrapper to process text with the PoS tagger TreeTagger. TreeTagger is a tool that assigns the lemmas and part-of-speech information to an input text.<br />
-This module takes KAF as input, with the token layer created (for instance by one of our tokenizer modules) and outputs KAF with a new term layer. It is important to note<br />
+<p>This module implements a wrapper to process text with the PoS tagger TreeTagger. TreeTagger is a tool that assigns the lemmas and part-of-speech information to an input text.
+This module takes KAF as input, with the token layer created (for instance by one of our tokenizer modules) and outputs KAF with a new term layer. It is important to note
 that the token layer in the input is not modified in the output, so the program takes care of performing the correct matching between the term and the token layer.</p>
 
-<p>By default this module works for text in English, Dutch and German, but can be easily extended to other languages. The language of the input KAF text has to be specified through<br />
+<p>By default this module works for text in English, Dutch and German, but can be easily extended to other languages. The language of the input KAF text has to be specified through
 the attribute xml:lang in the main KAF element.</p>
 
 <h2 id="initial-version">Initial version</h2>
 
-<p>This module has a dependency on the following external module:<br />
-TreeTagger (http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/)<br />
+<p>This module has a dependency on the following external module:
+TreeTagger (http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/)
 More information is further down in this document.</p>
 
 <h2 id="installation">Installation</h2>
@@ -127,29 +127,25 @@ $ gem specific_install opener-tree-tagger -l https://github.com/opener-project/o
     $ gem install specific_install
 </code></p>
 
-<p>Finally you have to indicate to your program where TreeTagger is installed in your machine, which is a requirement. If TreeTagger is not installed in your machine<br />
-you can download it from http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/ and follow the installation instructions. To indicate to our scripts where<br />
-TreeTagger is located, you have to set an environment variable with the<br />
+<p>Finally you have to indicate to your program where TreeTagger is installed in your machine, which is a requirement. If TreeTagger is not installed in your machine
+you can download it from http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/ and follow the installation instructions. To indicate to our scripts where
+TreeTagger is located, you have to set an environment variable with the
 location:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>export TREE_TAGGER_PATH=/usr/local/TreeTagger/
-</pre></div>
-</div>
-</div>
+<p><code>shell
+export TREE_TAGGER_PATH=/usr/local/TreeTagger/
+</code></p>
 
-<p>It is advised you add the path to the tree tagger in your bash or zsh profile by<br />
+<p>It is advised you add the path to the tree tagger in your bash or zsh profile by
 adding it to <code>~/.bash_profile</code> or <code>~/.zshrc</code></p>
 
 <h2 id="usage">Usage</h2>
 
 <p>Once installed as a gem you can access the gem from anywhere. The input has to be KAF format with the token layer created.</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>cat input.token.kaf | opener-tree-tagger &gt; output.token.term.kaf
-</pre></div>
-</div>
-</div>
+<p><code>shell
+cat input.token.kaf | opener-tree-tagger &gt; output.token.term.kaf
+</code></p>
 
 <p>In the file output.token.term.kaf we will have the KAF file extended with the term layer (containing both lemma and PoS information)</p>
 

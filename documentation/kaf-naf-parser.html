@@ -83,49 +83,53 @@
           </div>
         </div>
         <!--Main Content -->
-        <div class="col-sm-8 col-sm-offset-1">
+        <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
 <h1 id="kaf-naf-parser">kaf-naf-parser</h1>
 
-<p>This library converts KAF to NAF and NAF to KAF. It also contains a webservice<br />
+<p>This library converts KAF to NAF and NAF to KAF. It also contains a webservice
 for doing exactly this.</p>
 
-<p>It uses slightly altered <br />
-distributions of the VUA_pylib and KafNafParserPy but it keeps the external <br />
+<p>It uses slightly altered 
+distributions of the VUA_pylib and KafNafParserPy but it keeps the external 
 libraries contained, so that shouldn’t influence anything on your system.</p>
 
-<p>This does mean however, that changes to the VUA_pylib and KafNafParserPy are not<br />
+<p>This does mean however, that changes to the VUA_pylib and KafNafParserPy are not
 automatically resembled in the kaf-naf-parser.</p>
 
 <p>It ships with 3 command line tools and a webservice:</p>
 
-<pre><code>kaf-to-naf
+<p><code>
+kaf-to-naf
 naf-to-kaf
 kaf-naf-parser
 kaf-naf-parser-server
-</code></pre>
+</code></p>
 
 <p>It works like this:</p>
 
-<pre><code>cat some_kaf.kaf | kaf-to-naf &gt; output.naf
-cat some_naf.naf | naf-to-kaf &gt; output.kaf
+<p>```
+cat some_kaf.kaf | kaf-to-naf &gt; output.naf
+cat some_naf.naf | naf-to-kaf &gt; output.kaf</p>
 
-cat some_kaf.kaf | kaf-naf-parser --tonaf &gt; output.naf
-</code></pre>
+<p>cat some_kaf.kaf | kaf-naf-parser –tonaf &gt; output.naf
+```</p>
 
 <p>The webservice can be started like this:</p>
 
-<pre><code>naf-to-kaf-parser-server
-</code></pre>
-<p>And can then be accessed at: http://localhost:9292</p>
+<p><code>
+naf-to-kaf-parser-server
+</code>
+And can then be accessed at: http://localhost:9292</p>
 
 <p>Easiest way to install the gem:</p>
 
-<pre><code>git clone git@github.com:opener-project/kaf-naf-parser.git
+<p><code>
+git clone git@github.com:opener-project/kaf-naf-parser.git
 cd kaf-naf-parser
 rake install
-</code></pre>
+</code></p>
 
 
         </div>

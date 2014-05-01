@@ -83,15 +83,15 @@
           </div>
         </div>
         <!--Main Content -->
-        <div class="col-sm-8 col-sm-offset-1">
+        <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
 <h1 id="property-tagger">property-tagger</h1>
 
 <h2 id="introduction">Introduction</h2>
-<p>This module implements a tagger for hotel properties for Dutch, English, French, Italian, Spanish and German, like words related with “room”, “cleanliness”, “staff” or “breakfast” for instance.<br />
-The input for this module has to be a valid KAF file with at lest the term layer, as the lemmas will be used for detecting the hotel properties. The output is also<br />
-a KAF valid file extended with the property layer. This module works for English and Dutch, and the language is read from the input KAF file, from the lang attribute<br />
+<p>This module implements a tagger for hotel properties for Dutch, English, French, Italian, Spanish and German, like words related with “room”, “cleanliness”, “staff” or “breakfast” for instance.
+The input for this module has to be a valid KAF file with at lest the term layer, as the lemmas will be used for detecting the hotel properties. The output is also
+a KAF valid file extended with the property layer. This module works for English and Dutch, and the language is read from the input KAF file, from the lang attribute
 of the KAF element, so be sure your preprocessors set properly this value or you will get an error.
 <code>shell
 &lt;KAF xml:lang="( en | nl | fr | it | de | es)"&gt;
@@ -110,7 +110,7 @@ git clone git@github.com:opener-project/VU-hotel-property-tagger_NL_EN_kernel.gi
 </code></p>
 
 <h2 id="how-to-run-the-module-with-python">How to run the module with Python</h2>
-<p>You can run this module from the command line using Python. The main script is core/hotel_property_tagger_nl_en.py. This reads<br />
+<p>You can run this module from the command line using Python. The main script is core/hotel_property_tagger_nl_en.py. This reads
 and writes the output to the standard output, generating some log information in the standard error output. To process the file
 “input.kaf” just type:
 <code>shell
