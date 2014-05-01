@@ -4,13 +4,20 @@ title: Scenario's
 sidebar: getting_started
 ---
 
-# Example Scenario's
+# Scenarios
 
-## List Example Scenario 1
+OpeNER can be used in many different scenario's. Each scenario can use a mixed
+selection of OpeNER components and components you built yourself. It might help
+to think of an OpeNER scenario as a constructing a pipeline out of Lego-blocks
+where each block (we call them components) performs a certain task that enriches
+the text and analysis.
 
-Some description of example scenario 1
+We currently have a description of several scenarios:
 
-## List How to 2
+* [basic opinion detection](basic-opinions.html)
+* [named-entity-disambiguation](named-entity-disambiguation.html)
+* [full pipeline](full-pipeline.html)
 
-Some description of example scenario 2
+And we have manuals available on:
 
+* [how to create your own scenario](create-your-won-scenario.html)
