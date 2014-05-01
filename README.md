@@ -61,6 +61,16 @@ rake build
 jekyll serve
 ```
 
+How to update styling and Layouts
+---------------------------------
+
+The styling can be changed using the CSS files in the ```source/css```
+directory. Don't be fooled by the ```css``` directory in root.
+
+Layouts can be found in: ```source/_layouts```. Most probably you'll need
+changes to the "default" file not to the "basic" file.
+
+
 How to release a new version to GitHub?:
 ----------------------------------------
 
