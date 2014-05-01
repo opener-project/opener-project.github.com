@@ -72,7 +72,7 @@ components:
       This is a placeholder for a 2 to 5 line description of the component.
       Each component should have description like this. So that when we provide
       a nice overview page, then we can show a neat description.
-  - &pol_tagger_basic
+  - &polarity_tagger
     name: Polarity Tagger
     repository: https://github.com/opener-project/polarity-tagger
     webservice: http://opener.olery.com/polarity-tagger
@@ -168,7 +168,7 @@ clusters:
       a nice overview page, then we can show a neat description.
   - &c_polarity
     name: Polarity / Opinions
-    components: [*opinion_detector_basic, *opinion_detector_deluxe]
+    components: [*opinion_detector_basic, *opinion_detector_deluxe, *polarity_tagger]
     description:
       This is a placeholder for a 2 to 5 line description of the cluster of components.
       Each cluster should have description like this. So that when we provide
