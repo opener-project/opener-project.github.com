@@ -68,6 +68,9 @@ using Ruby. The prerequisits of running an OpeNER toolchain consists of:
 * Java 1.7+
 * Perl 5+
 
+Don't worry though. If you just want to jump in and get started, take a look at
+the freely available <a href="/webservices/">webservices</a>.
+
 Most of these requirements are already present on up-to-date unix like
 installations (including Mac OSX) or can be easily upgraded.
 
@@ -76,7 +79,7 @@ are included in the components themselves. Check out the [individual manual page
 of the components](component-list.html) to for the specifics.
 
 For example, checkout the usage and installation instructions of the [Dutch
-Polarity tagger](/documentation/pol-tagger.html).
+Polarity tagger](/documentation/polarity-tagger.html).
 
 <div id="core-technology"></div>
 
@@ -90,28 +93,24 @@ This component is the responsible of detecting the language of an input document
 
 #### Technical characteristics
 This language identification is based on the Mike Schilli's perl Text::Language::Guess language guessing CPAN library. Its implementation is simple: Using Text::ExtractWords and Lingua::StopWords from CPAN, it determines how many of the known stopwords the document contains for each language supported are supported in Lingua::StopWords. The choose of this method is a choice between different existing components but prioritizing the response time.
-This component has these requisites:
 
-    input: text file
-    output: language detected
-    programing language: perl
-    prerequisites: Perl: Text/ExtractWords.pm, please refer to
-
-    https://github.com/gitpan/Text-ExtractWords and read the readme there so see how to install there.
-
-
-The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found **[here]** (https://github.com/opener-project/language-identifier)
 
 An example of the expected input and output is as follows:
 
 
-    $ echo "this is an english text" | language-identifier
+```bash
+$ echo "this is an english text." | language-identifier
+```
 
-    and the response is
+and the response is
 
-    en
+```xml
+<KAF xml:lang="en" version="2.1">
+  <raw>This is an english text.</raw>
+</KAF>
+```
 
-There is also the posibility of obtaining KAF as an output or an extended version of the language-identifier covering more languages than the ones in OpeNER. Finally, there is also the posibility of creating a server out of the language identification.
+Check out the [documentation of the language identifier](/documentation/language-identifier.html) or visit the [webservices page](/webservices/)
 
 <div id="tokenization"></div>
 
@@ -121,24 +120,16 @@ This component is the responsible of tokenizing the text in two levels, in sente
 
 ####Technical characteristics
 
-These components are the majority, except for French, based on Apache OpeNLP component and contain two modules for sentence and token segmentation respectively. The components based on Apache OpeNLP are identically the same except for the models which depend on the languages and are trained according to the linguistic features of each language.
+This component uses Apache OpeNLP for all languages except French.  The tokenizer contains two modules for sentence and token segmentation
+respectively. The components based on Apache OpeNLP are the same except for the models which depend on the languages and are trained according to the linguistic features of each language.
+
 For the French, the component is based on a statistic method with a rules data file that helps the tokenization of tokens and sentences.
-This component has these requisites:
-
-    input: text file
-    output: KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
-    language: java /perl (French)
-    prerequisites:  Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language model, perl
-
-
-The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found **[here]** (https://github.com/opener-project/tokenizer)
-
 
 An example of the expected input and output is as follows:
 
-    $ echo "this is an english text" | tokenizer -l en
+    $ echo "This is just an example, of how we tokenize. Bye, bye" | tokenizer -l en
 
-    and the response is
+and the response is
 
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <KAF xml:lang="fr" version="v1.opener">
@@ -166,7 +157,16 @@ An example of the expected input and output is as follows:
       </text>
     </KAF>
 
+Of course you can also use the language identifier instead of of the ```-l en```
+option. You can do this like this.
 
+```
+echo "This is just an example, of how we tokenize. Bye, bye" | language-identifier | tokenizer
+```
+
+The output will be identical.
+
+Check out the [documentation of the tokenizer](/documentation/tokenizer.html) or visit the [webservices page](/webservices/)
 
 
 <div id="part-of-speech-tagging"></div>
@@ -187,168 +187,15 @@ respect to the plain text dictionary and works 2x faster.
 Spanish has a plain text dictionary: es-lemmas.dict and it uses the Morfologik stemming: spanish.dict.
 For the rest of the languages they also include a file inside the repository which lemmatizes the output and maps a form to a lemma.
 
-
-This component has these requisites:
-
-    input: KAF file with the text layer filled with the tokens appearing in the document and the sentence they belong to.
-    output: The input KAF file with the  terms layer coded with the part-of-speech and its relative lemma.
-    language: java
-    prerequisites: Java 6, Apache Maven3, Ruby, RubyGems and of course git itself, Apache OpenNLP, specific language models
-
-
-
-The installation and usage of this component follows the common installation instructions explained in the Github component README.md file which can be found **[here]** (https://github.com/opener-project/pos-tagger)
-
+The part of speech tagger takes a KAF file as an input and will output KAF as
+well. You can take a look at the [example kaf file
+here](/examples/kaf-pos-tagger.kaf)
 
 An example of the expected input and output is as follows:
 
-    $ echo
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <KAF xml:lang="fr" version="v1.opener">
-      <kafHeader>
-       <fileDesc />
-       <linguisticProcessors layer="text">
-         <lp name="openlp-fr-tok" version="1.0" timestamp="2013-06-14T10:41:08Z"/>
-       </linguisticProcessors>
-      </kafHeader>
-      <text>
-        <wf wid="w1" sent="1" para="1" offset="0">This</wf>
-        <wf wid="w2" sent="1" para="1" offset="5">is</wf>
-        <wf wid="w3" sent="1" para="1" offset="8">just</wf>
-        <wf wid="w4" sent="1" para="1" offset="13">an</wf>
-        <wf wid="w5" sent="1" para="1" offset="16">example</wf>
-        <wf wid="w6" sent="1" para="1" offset="23">,</wf>
-        <wf wid="w7" sent="1" para="1" offset="25">of</wf>
-        <wf wid="w8" sent="1" para="1" offset="28">how</wf>
-        <wf wid="w9" sent="1" para="1" offset="32">we</wf>
-        <wf wid="w10" sent="1" para="1" offset="35">tokenize</wf>
-        <wf wid="w11" sent="1" para="1" offset="43">.</wf>
-        <wf wid="w12" sent="2" para="1" offset="45">Bye</wf>
-        <wf wid="w13" sent="2" para="1" offset="48">,</wf>
-        <wf wid="w14" sent="2" para="1" offset="50">bye</wf>
-      </text>
-    </KAF>
+    $ cat kaf-pos-tagger.kaf | pos-tagger
 
-     | pos-tagger -l en
-
-    and the response is
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <KAF xml:lang="fr" version="v1.opener">
-      <kafHeader>
-      <fileDesc />
-      <linguisticProcessors layer="text">
-         <lp name="openlp-fr-tok" version="1.0" timestamp="2013-06-14T10:41:08Z"/>
-      </linguisticProcessors>
-      <linguisticProcessors layer="terms">
-         <lp name="ehu-pos-en" timestamp="2013-06-165T13:13:30+0200" version="1.0" />
-      </linguisticProcessors>
-      </kafHeader>
-      <text>
-        <wf wid="w1" sent="1" para="1" offset="0">This</wf>
-        <wf wid="w2" sent="1" para="1" offset="5">is</wf>
-        <wf wid="w3" sent="1" para="1" offset="8">just</wf>
-        <wf wid="w4" sent="1" para="1" offset="13">an</wf>
-        <wf wid="w5" sent="1" para="1" offset="16">example</wf>
-        <wf wid="w6" sent="1" para="1" offset="23">,</wf>
-        <wf wid="w7" sent="1" para="1" offset="25">of</wf>
-        <wf wid="w8" sent="1" para="1" offset="28">how</wf>
-        <wf wid="w9" sent="1" para="1" offset="32">we</wf>
-        <wf wid="w10" sent="1" para="1" offset="35">tokenize</wf>
-        <wf wid="w11" sent="1" para="1" offset="43">.</wf>
-        <wf wid="w12" sent="2" para="1" offset="45">Bye</wf>
-        <wf wid="w13" sent="2" para="1" offset="48">,</wf>
-        <wf wid="w14" sent="2" para="1" offset="50">bye</wf>
-      </text>
-    <terms>
-    <term tid="t1" pos="D" morphofeat="DT" lemma="this" type="close">
-      <span>
-        <!--This-->
-        <target id="w1" />
-      </span>
-    </term>
-    <term tid="t2" pos="V" morphofeat="VBZ" lemma="be" type="open">
-      <span>
-        <!--is-->
-        <target id="w2" />
-      </span>
-    </term>
-    <term tid="t3" pos="A" morphofeat="RB" lemma="just" type="open">
-      <span>
-        <!--just-->
-        <target id="w3" />
-      </span>
-    </term>
-    <term tid="t4" pos="D" morphofeat="DT" lemma="a" type="close">
-      <span>
-        <!--an-->
-        <target id="w4" />
-      </span>
-    </term>
-    <term tid="t5" pos="N" morphofeat="NN" lemma="example" type="open">
-      <span>
-        <!--example-->
-        <target id="w5" />
-      </span>
-    </term>
-    <term tid="t6" pos="O" morphofeat="," lemma="," type="close">
-      <span>
-        <!--,-->
-        <target id="w6" />
-      </span>
-    </term>
-    <term tid="t7" pos="P" morphofeat="IN" lemma="of" type="close">
-      <span>
-        <!--of-->
-        <target id="w7" />
-      </span>
-    </term>
-    <term tid="t8" pos="O" morphofeat="WRB" lemma="how" type="close">
-      <span>
-        <!--how-->
-        <target id="w8" />
-      </span>
-    </term>
-    <term tid="t9" pos="Q" morphofeat="PRP" lemma="we" type="close">
-      <span>
-        <!--we-->
-        <target id="w9" />
-      </span>
-    </term>
-    <term tid="t10" pos="V" morphofeat="VBP" lemma="tokenize" type="open">
-      <span>
-        <!--tokenize-->
-        <target id="w10" />
-      </span>
-    </term>
-    <term tid="t11" pos="O" morphofeat="." lemma="." type="close">
-      <span>
-        <!--.-->
-        <target id="w11" />
-      </span>
-    </term>
-    <term tid="t12" pos="R" morphofeat="NNP" lemma="Bye" type="close">
-      <span>
-        <!--Bye-->
-        <target id="w12" />
-      </span>
-    </term>
-    <term tid="t13" pos="O" morphofeat="," lemma="," type="close">
-      <span>
-        <!--,-->
-        <target id="w13" />
-      </span>
-    </term>
-    <term tid="t14" pos="N" morphofeat="NN" lemma="bye" type="open">
-      <span>
-        <!--bye-->
-        <target id="w14" />
-      </span>
-    </term>
-    </terms>
-    <entities />
-    </KAF>
-
-
+[The response can be seen here](/examples/kaf-pos-tagger-out.kaf).
 
 <div id="named-entity-resolution"></div>
 
@@ -363,32 +210,19 @@ President Obama, Mr. Obama, B. Obama, etc.) and the same surface form can refer 
 named entities which make them ambiguous. For example, the form 'san juan' can be used to
 ambiguously refer to dozens of toponyms, persons, a saint, etc. (e.g, see http://en.wikipedia.org/wiki/San_Juan).
 
-Furthermore, it is possible to refer to a named-entity by means of anaphoric pronouns and
-co-referent expressions such as 'he', 'her', 'their', 'I', 'the 35 year old', etc.
-Therefore, in order to provide an adequate an comprehensive account of named-entities entities in text
-it is needed to recognize the mention of a named-entity, to classify it as a type (e.g, person, location, etc.),
-to disambiguate it to a specific entity, and to resolve every form of mentioning or co-referring to the same
-entity in a text. In summary, to perform **Named Entity Resolution**.  With the aim of making this problem more manageable,
-several Natural Language Processing tasks have been distinguished:
-Named Entity Recognition and Classification (NERC), Coreference resolution and Named Entity  Disambiguation (NED).
+Furthermore, it is possible to refer to a named-entity by means of anaphoric pronouns and co-referent expressions such as 'he', 'her', 'their', 'I', 'the 35 year old', etc.  Therefore, in order to provide an adequate an comprehensive account of named-entities entities in text it is needed to recognize the mention of a named-entity, to classify it as a type (e.g, person, location, etc.), to disambiguate it to a specific entity, and to resolve every form of mentioning or co-referring to the same entity in a text. In summary, to perform **Named Entity Resolution**.  With the aim of making this problem more manageable, several Natural Language Processing tasks have been distinguished:
 
+* Named Entity Recognition and Classification (NERC),
+* Coreference resolution and
+* Named Entity Disambiguation (NED).
 
 #### Named Entity Recognition and Classification (NERC):
 
-Generally, since MUC and CONLL (http://www.cnts.ua.ac.be/conll2003/ner/) shared tasks, NERC uses manually
-annotated data which serves to train machine learning models in a supervised manner. More recent trends aim
-at building automatic silver-standard and gold-standard datasets from existing large knowledge resources
-such as Wikipedia (Mika et al. 2008; Nothman et al. 2012) to avoid the reliance on hand-generated data for training.
+Generally, since MUC and CONLL (http://www.cnts.ua.ac.be/conll2003/ner/) shared tasks, NERC uses manually annotated data which serves to train machine learning models in a supervised manner. More recent trends aim at building automatic silver-standard and gold-standard datasets from existing large knowledge resources such as Wikipedia (Mika et al. 2008; Nothman et al. 2012) to avoid the reliance on hand-generated data for training.
 
-NER taggers recognized a variety of Named Entity types, namely, references to PERSON, LOCATION, ORGANIZATION
-and MISCELLANEOUS, although in principle, given the appropriated annotated data, any type of Named Entity can be
-recognized. In this sense, OpeNER will, during its second year of development, be looking at recognizing and
-classifying Named Entity types releated with the Tourist domain such as restaurants, hotels, and perhaps monuments,
-theatres, etc.
+NER taggers recognized a variety of Named Entity types, namely, references to PERSON, LOCATION, ORGANIZATION and MISCELLANEOUS, although in principle, given the appropriated annotated data, any type of Named Entity can be recognized. In this sense, OpeNER will, during its second year of development, be looking at recognizing and classifying Named Entity types releated with the Tourist domain such as restaurants, hotels, and perhaps monuments, theatres, etc.
 
-The NERC components included in OpeNER for the first year take an input text (from KAF word forms) and recognizes and
-classifies Named Entities according to the 4 entity types of CoNLL, namely, location, organization, person and miscellaneous,
-creating new KAF element for each entity in this manner:
+The NERC components included in OpeNER for the first year take an input text (from KAF word forms) and recognizes and classifies Named Entities according to the 4 entity types of CoNLL, namely, location, organization, person and miscellaneous, creating new KAF element for each entity in this manner:
 
     <entity eid="e9" type="organization">
       <references>
@@ -411,13 +245,7 @@ creating new KAF element for each entity in this manner:
 
 #### Named Entity Disambiguation (NED):
 
-Named Entity Recognition and Classification (NERC) deals with the detection and identification of specific
-entities in running text. Once the named entities are recognised they can be identified or disambiguated with
-respect to an existing catalogue. This is required because the "surface form" of a Named Entity can actually refer
-to several real things in the world. Wikipedia has become the de facto standard as such a named entity catalogue. Thus,
-if the form 'San Juan' appears in a given document, the NED task consist of deciding to which of the "San Juan" things
-listed in Wikipedia is actually the "San Juan" source form in that document referring to
-(e.g, see http://en.wikipedia.org/wiki/San_Juan).
+Named Entity Recognition and Classification (NERC) deals with the detection and identification of specific entities in running text. Once the named entities are recognised they can be identified or disambiguated with respect to an existing catalogue. This is required because the "surface form" of a Named Entity can actually refer to several real things in the world. Wikipedia has become the de facto standard as such a named entity catalogue. Thus, if the form 'San Juan' appears in a given document, the NED task consist of deciding to which of the "San Juan" things listed in Wikipedia is actually the "San Juan" source form in that document referring to (e.g, see http://en.wikipedia.org/wiki/San_Juan).
 
 In OpeNER the NED component is based on the DBpedia Spotlight (http://https://github.com/dbpedia-spotlight/dbpedia-spotlight/wiki)
 which uses the DBpedia (http://dbpedia.org) as the catalogue to perform the disambiguation. Within the OpeNER project new NED tools
@@ -439,8 +267,7 @@ which actual thing is referring to. For example, it will take a entity such as
     </entity>
 
 
-and produce a new external reference to (hopefully) point out to the actual thing in the DBpedia to which the "Herat" entity
-is actually referring to:
+and produce a new external reference to (hopefully) point out to the actual thing in the DBpedia to which the "Herat" entity is actually referring to:
 
     <entity eid="e13" type="location">
       <references>
@@ -453,11 +280,6 @@ is actually referring to:
         <externalRef resource="spotlight_v1" reference="http://dbpedia.org/resource/Herat_Province" />
       </externalReferences>
     </entity>
-
-
-The NED components in OpeNER are currently running on default paramenters as set by the DBpedia Spotlight, so improvement
-is definitely needed. Furthermore, during the second year of the project a catalogue containing articles about Tourist related
-Named Entities is needed in order to perform disambiguation for names of hotels, restaurants, etc.
 
 #### Coreference Resolution:
 
@@ -477,10 +299,10 @@ Exact String Matching, Precise Constructs, Strict Head Match and Pronoun Match (
 
 The coreference component requires two main requisites, external to the component itself, to work:
 
-    1. A constituent parsing tree with head words marked. This is a syntactic tree with a mark for the head word for each of
-       the nodes of the tree.
-    2. A number of dictionaries and static lists which provide genre, number and animacy information which is used to assign
-       attributes to the mentions to be clustered.
+1. A constituent parsing tree with head words marked. This is a syntactic tree with a mark for the head word for each of
+   the nodes of the tree. This is done by the [OpeNER constituent parser](/documentation/constituent-parser.html)
+2. A number of dictionaries and static lists which provide genre, number and animacy information which is used to assign
+   attributes to the mentions to be clustered. Which have been included in the [OpeNER Co-reference component](/documentation/co-reference.html).
 
 Constituent parser are usually probabilistic: they used hand-annotated built datasets (called treebanks) to train machine learning
 models in a supervised manner. The OpeNER pipeline provides such a constituent parser for each of the languages of the project.
@@ -591,14 +413,16 @@ use social networks to promote and offer their products, and they receive a lot 
 become more and more interesting for extracting automatically opinions from this data.
 
 In our case, we deal with fine-grained opinion extraction. This is not only about deciding if a text is in general expressing a positive or negative opinion, but detecting and extracting single opinions and the entities that build these opinions:
-+ Opinion expression: expressions that indicate emotions, sentiments, opinions or other private states
-+ Opinion holder: mentions of whom is the opinion from
-+ Opinion target: expressions that indicate what the opinion is about
+
+* Opinion expression: expressions that indicate emotions, sentiments, opinions or other private states
+* Opinion holder: mentions of whom is the opinion from
+* Opinion target: expressions that indicate what the opinion is about
 
 For instance consider the sentence "I like the design of Ipod video". These are the elements of the opinion extracted from it:
-+ Opinion expression: like
-+ Opinion holder: I
-+ Opinion target: the design of Ipod video
+
+* Opinion expression: like
+* Opinion holder: I
+* Opinion target: the design of Ipod video
 
 <div id="where-to-go-from-here"></div>
 
@@ -610,4 +434,6 @@ applications you can use OpeNER technology. You can find them listed under the
 
 Besided the usage scenarios there are also a set of how-to guides available,
 check those out in the [how to section](/getting-started/how-to/).
+
+
 
