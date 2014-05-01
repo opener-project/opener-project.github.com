@@ -1,4 +1,2 @@
 name: OpeNER Project
 highlighter: pygments
-kramdown:
-  input: GFM
