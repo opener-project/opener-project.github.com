@@ -59,8 +59,12 @@ The following members are part of the original OpeNER consortium.
 <table class="table">
 <tbody>
 <tr>
+<td><a title="Vicomtech-IK4" href="http://www.vicomtech.org" target="_blank"><img class="alignleft size-full wp-image-167" alt="log_vicomtech" src="http://opener-fp7project.rhcloud.com/wp-content/uploads/2013/07/log_vicomtech.png" width="300" height="152"></a></td>
+<td style="text-align: justify;">Project Coordinator - Vicomtech-IK4 is an applied research centre for Interactive Computer Graphics and Multimedia located in the Technology Park of San Sebastian (Spain). It is a non-profit association, founded in 2001 as a joint venture by the INI-GraphicsNet Foundation and the EiTB Broadcasting Group. It is currently formed by 15 members. Among its 95 employees, more than 75 are researchers dedicated to the field of applied research. The role of Vicomtech in the market is to supply society with technology by transfer of primary research to industry.</td>
+</tr>
+<tr>
 <td><a title="Olery" href="http://www.olery.com" target="_blank"><img class="alignleft size-full wp-image-165" alt="log_olery" src="http://opener-fp7project.rhcloud.com/wp-content/uploads/2013/07/log_olery.jpg" width="158" height="154"></a></td>
-<td style="text-align: justify;">Founded in 2010, Olery is a privately held company based in Amsterdam, The Netherlands. Olery develops easy-to-use tools for the leisure and hospitality industry that provide insight into online reputation and social media presence by monitoring review sites (like Booking.com) as well as social media (like Twitter and Foursquare). Besides monitoring Olery also analyses this data. Olery doesn’t only weight the grades that guest has given a hotel, but also the content of the written accompanied text. This is a very important feature for hotels, because with Olery hotel managers can track changes in their service.</td>
+<td style="text-align: justify;">Technical Coordinator - Founded in 2010, Olery is a privately held company based in Amsterdam, The Netherlands. Olery develops easy-to-use tools for the leisure and hospitality industry that provide insight into online reputation and social media presence by monitoring review sites (like Booking.com) as well as social media (like Twitter and Foursquare). Besides monitoring Olery also analyses this data. Olery doesn’t only weight the grades that guest has given a hotel, but also the content of the written accompanied text. This is a very important feature for hotels, because with Olery hotel managers can track changes in their service.</td>
 </tr>
 <tr>
 <td><a title="VU" href="http://www.let.vu.nl" target="_blank"><img class="alignleft size-full wp-image-169" alt="log_vu" src="http://opener-fp7project.rhcloud.com/wp-content/uploads/2013/07/log_vu.jpg" width="300" height="91"></a></td>
@@ -77,10 +81,6 @@ The following members are part of the original OpeNER consortium.
 <tr>
 <td><a title="IIT CNR" href="http://www.iit.cnr.it" target="_blank"><img class="alignleft size-full wp-image-163" alt="log_iit" src="http://opener-fp7project.rhcloud.com/wp-content/uploads/2013/07/log_iit.jpg" width="300" height="68"></a></td>
 <td style="text-align: justify;">CNR, the Italian National Research Council, is the main public Italian research institution. The Pisa Research Area of CNR is one of the biggest among the CNR interdisciplinary research areas, which hosts ten research institutes among which the Institute for Informatics and Telematics (IIT) and the Institute of Linguistic Computation (ILC). IIT has followed the evolution of the World Wide Web from the success of markup languages, the explosion of the social web content to the introduction of a semantic layer.</td>
-</tr>
-<tr>
-<td><a title="Vicomtech-IK4" href="http://www.vicomtech.org" target="_blank"><img class="alignleft size-full wp-image-167" alt="log_vicomtech" src="http://opener-fp7project.rhcloud.com/wp-content/uploads/2013/07/log_vicomtech.png" width="300" height="152"></a></td>
-<td style="text-align: justify;">Vicomtech-IK4 is an applied research centre for Interactive Computer Graphics and Multimedia located in the Technology Park of San Sebastian (Spain). It is a non-profit association, founded in 2001 as a joint venture by the INI-GraphicsNet Foundation and the EiTB Broadcasting Group. It is currently formed by 15 members. Among its 95 employees, more than 75 are researchers dedicated to the field of applied research. The role of Vicomtech in the market is to supply society with technology by transfer of primary research to industry.</td>
 </tr>
 </tbody>
 </table>
