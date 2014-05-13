@@ -1,5 +1,5 @@
 language: ruby
-script: "bundle exec jekyll build"
+script: "bundle exec jekyll build --trace"
 
 rvm:
   - 1.9.3
