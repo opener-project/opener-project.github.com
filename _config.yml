@@ -1,2 +1,4 @@
 name: OpeNER Project
 exclude: ["Gemfile", "Gemfile.lock", "lib", "tasks", "source", "Rakefile"]
+encoding: UTF-8
+timezone: Europe/Amsterdam
