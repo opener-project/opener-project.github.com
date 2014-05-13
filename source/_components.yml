@@ -248,6 +248,8 @@ toolkits:
     name: Lexical acquisition toolkit
   -
     name: Lexicon propagation toolkit
+  -
+    name: Domain adaptation toolkit
 
 datasets: &datasets
   -
