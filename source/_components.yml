@@ -242,14 +242,24 @@ webservices:
 toolkits:
   -
     name: Brat conversion tools
+    partner: Vicom
+    person: Aitor
   -
     name: Opinion miner toolkit
+    partner: VU
+    person: Ruben
   -
     name: Lexical acquisition toolkit
+    partner: VU
+    person: Ruben
   -
     name: Lexicon propagation toolkit
+    partner: VU
+    person: Ruben
   -
     name: Domain adaptation toolkit
+    partner: Vicom
+    person: Andoni  
 
 datasets: &datasets
   -
