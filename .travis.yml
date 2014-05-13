@@ -6,4 +6,10 @@ rvm:
   - 2.1
   - rbx-2.2
 
+notifications:
+  email:
+    email:
+      on_success: change
+      on_failure: change
+
 cache: bundler
