@@ -5,17 +5,16 @@ components:
     repository: https://github.com/opener-project/language-identifier
     webservice: http://opener.olery.com/language-identifier
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      Language identifier receives plain text and outputs the language of the input text.
+      The identified language can be used as a parameter to the OpeNER modules that require a language parameter.
   - &tokenizer
     name: Tokenizer
     repository: https://github.com/opener-project/tokenizer
     webservice: http://opener.olery.com/tokenizer
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      The tokenizer receives plain text as input and a language parameter.
+      It splits it in paragraphs, sentences and tokens and generates a KAF document with this information.
+      The resulting KAF document can be used as input to other modules.
   - &tree_tagger
     name: Tree Tagger
     repository: https://github.com/opener-project/opener-tree-tagger
