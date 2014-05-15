@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/css/animations.css">
 <link rel="stylesheet" href="/css/style.css">
 
-    <title>OpeNER - Full Pipeline Scenario</title>
+    <title>OpeNER - NED</title>
   </head>
   <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
@@ -69,107 +69,107 @@
             
             <ul id="sidebar" class="nav bs-sidenav">
   <li>
-    <a href="/webservices/#introduction">Webservices</a>
+    <a href="#introduction">Webservices</a>
   </li>
 
   
   <li>
-  <a href="/webservices/#input-tools">Input Tools</a>
+  <a href="#input-tools">Input Tools</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#language-identifier">Language Identifier</a></li>
+        <li><a href="#language-identifier">Language Identifier</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#basics">Basics</a>
+  <a href="#basics">Basics</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#tokenizer">Tokenizer</a></li>
+        <li><a href="#tokenizer">Tokenizer</a></li>
       
-        <li><a href="/webservices/#pos-tagger">POS Tagger</a></li>
+        <li><a href="#pos-tagger">POS Tagger</a></li>
       
-        <li><a href="/webservices/#tree-tagger">Tree Tagger</a></li>
+        <li><a href="#tree-tagger">Tree Tagger</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#ner-ned-co-reference">NER/NED/Co-reference</a>
+  <a href="#ner-ned-co-reference">NER/NED/Co-reference</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#ner">NER</a></li>
+        <li><a href="#ner">NER</a></li>
       
-        <li><a href="/webservices/#ned">NED</a></li>
+        <li><a href="#ned">NED</a></li>
       
-        <li><a href="/webservices/#coreference">Coreference</a></li>
+        <li><a href="#coreference">Coreference</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#property-tagger">Property Tagger</a>
+  <a href="#property-tagger">Property Tagger</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#property-tagger">Property Tagger</a></li>
+        <li><a href="#property-tagger">Property Tagger</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#polarity-opinions">Polarity / Opinions</a>
+  <a href="#polarity-opinions">Polarity / Opinions</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#opinion-detector-basic">Opinion Detector Basic</a></li>
+        <li><a href="#opinion-detector-basic">Opinion Detector Basic</a></li>
       
-        <li><a href="/webservices/#opinion-detector-deluxe">Opinion Detector Deluxe</a></li>
+        <li><a href="#opinion-detector-deluxe">Opinion Detector Deluxe</a></li>
       
-        <li><a href="/webservices/#polarity-tagger">Polarity Tagger</a></li>
+        <li><a href="#polarity-tagger">Polarity Tagger</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#storage">Storage</a>
+  <a href="#storage">Storage</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#outlet">Outlet</a></li>
+        <li><a href="#outlet">Outlet</a></li>
       
-        <li><a href="/webservices/#s3-outlet">S3 Outlet</a></li>
+        <li><a href="#s3-outlet">S3 Outlet</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#converters">Converters</a>
+  <a href="#converters">Converters</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#kaf-to-json">kaf-to-json</a></li>
+        <li><a href="#kaf-to-json">kaf-to-json</a></li>
       
-        <li><a href="/webservices/#kaf-naf-parser">kaf-naf parser</a></li>
+        <li><a href="#kaf-naf-parser">kaf-naf parser</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#processors-aggregators">Processors / Aggregators</a>
+  <a href="#processors-aggregators">Processors / Aggregators</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#sentiment-scores">Sentiment Scores</a></li>
+        <li><a href="#sentiment-scores">Sentiment Scores</a></li>
       
     </ul>
   </li>
   
   <li>
-  <a href="/webservices/#scenarios">Scenarios</a>
+  <a href="#scenarios">Scenarios</a>
     <ul class="nav nav-stacked">
       
-        <li><a href="/webservices/#basic-opinions">Basic Opinions</a></li>
+        <li><a href="#basic-opinions">Basic Opinions</a></li>
       
-        <li><a href="/webservices/#named-entity-disambiguation">Named Entity Disambiguation</a></li>
+        <li><a href="#named-entity-disambiguation">Named Entity Disambiguation</a></li>
       
-        <li><a href="/webservices/#full-pipeline">Full Pipeline</a></li>
+        <li><a href="#full-pipeline">Full Pipeline</a></li>
       
     </ul>
   </li>
@@ -180,9 +180,9 @@
         </div>
         <!--Main Content -->
         <div class="col-sm-8 col-sm-offset-1 content">
-          <h1 id="full-pipeline">Full Pipeline</h1>
+          <h1 id="named-entity-disambiguation">Named Entity Disambiguation</h1>
 
-<p>Put some generic text on the full pipeline scenario here.</p>
+<p>Put some generic text on the NED here.</p>
 
 
         </div>
