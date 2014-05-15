@@ -20,9 +20,10 @@ components:
     repository: https://github.com/opener-project/opener-tree-tagger
     webservice: http://opener.olery.com/tree-tagger
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      This tool implements a wrapper for TreeTagger (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger) allowing to 
+      apply this tagger to KAF files and obtain the result also in KAF format. It provides the lemmas and part-of-speech
+      tags of the tokens in a given text and works for all the OpeNER languages The tagset used is the one specified in the 
+      KAF definition, but the real tags from TreeTagger are also stored in the result.
   - &pos_tagger
     name: POS Tagger
     repository: https://github.com/opener-project/pos-tagger
@@ -68,33 +69,40 @@ components:
     repository: https://github.com/opener-project/property-tagger
     webservice: http://opener.olery.com/property-tagger
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      This module implements a tagger for hotel properties. It detects aspect words
+      which represent aspect or properties of a hotel, and links them with the correct aspect class.
+      These properties are important because they are usually the target of the opinions. For instance,
+      it would detect that "bed" or "mattress" are hotel properties related to the aspect SLEEPING_COMFORT.
+      It works for all the OpeNER languages and it is based on the KAF format for the input/output files.
   - &polarity_tagger
     name: Polarity Tagger
     repository: https://github.com/opener-project/polarity-tagger
     webservice: http://opener.olery.com/polarity-tagger
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      The polarity tagger assigns polarity information to words on the text. This polarity information contains
+      basically the positive/negative content of the word (good, cheap, clean can be positive words in the hotel
+      domain), and words which are polarity modifiers (negators, intensifiers, ...). This tool is based on a set
+      of lexicons which contain the polarity information, but new custom lexicons can be added. The polarity
+      information will be used to detect and extract complete opinions.
   - &opinion_detector_basic
     name: Opinion Detector Basic
     repository: https://github.com/opener-project/opinion-detector-basic
     webservice: http://opener.olery.com/opinion-detector-basic
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      The opinion detector basic detects and extracts fine-grained opinions on an input KAF file. In particular
+      the opinion expression (the actual opinion), the target (what is the opinion about) and the holder (who is
+      expressing the opinion) will be detected for each opinion. This basic version is based on the evidence
+      provided by the polarity information and a set of rules. 
   - &opinion_detector_deluxe
     name: Opinion Detector Deluxe
     repository: https://github.com/opener-project/opinion-detector
     webservice: http://opener.olery.com/opinion-detector
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      The opinion detector deluxe also extracts fine-grained opinions as the basic version. It is based on 
+      Machine Learning, using two Artificial Intelligence algorithms (Conditional Random Fields and Support 
+      Vector Machines) to induce models from annotated data. Models for hotel, restaurants and attractions reviews
+      are provided, as well as for political news, but the tool allows to train a new model for a new domain if 
+      the annotated data for the new domain is available.
   - &outlet
     name: Outlet
     repository: https://github.com/opener-project/outlet
