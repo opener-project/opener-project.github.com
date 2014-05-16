@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/flat-ui.css">
+<link rel="stylesheet" href="/css/icon-font.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>The OpeNER Project</title>
+  </head>
+  <body class="basic">
+      <header class="header-2">
+<div class="container">
+  <div class="row">
+    <nav class="navbar col-sm-12" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"></button>
+      <a class="brand" href="/"><img src="/images/opener_log.png" width="125" height="58" alt=""> </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav pull-right">
+        <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+      </ul>
+      <ul class="subnav">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+</header>
+
+      <section class="header-2-sub bg-midnight-blue homebg">
+    <div class="background">&nbsp;</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="hero-unit">
+                  <h1>Natural Language Processing for the rest of us.<br/>
+                    Opinions, Entities and Sentiments in 6 languages <br/>
+                    and accross domains.</h1>
+                </div>
+                <div class="btns">
+                    <a class="btn btn-danger" href="/getting-started/">Get started</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-32">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h3>The OpeNER project</h3>
+
+                <p class="">
+                OpeNER is a project funded by the European Commission under the
+                FP7 (7th Framework Program). Its acronym stands for <strong>Open
+                  olarity Enhanced Name Entity Recognition</strong>.
+                </p>
+
+                <p class="">
+                OpeNER’s main goal is to provide a set of ready to use tools to
+                perform some natural language processing tasks, free and easy to
+                adapt for Academia, Research and Small and Medium Enterprise to integrate them in their workflow. More precisely, OpeNER aims to be able to detect and disambiguate entity mentions and perform sentiment analysis and opinion detection on the texts, to be able for example, to extract the sentiment and the opinion of customers about certain resource (e.g. hotels and accommodations) in Web reviews.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="features">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6>What can OpeNER do?</h6>
+                   OpeNER excels at detecting sentiments, opinions and named
+                   entities in texts. Get more information in <a
+                     href="/getting-started/">the getting started guide</a>.
+
+                </div>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <h6>Open Source</h6>
+                    All source code of OpeNER is freely available and ready for
+                    you to use. Visit the <a href="/getting-started/">Getting
+                      Started</a> section to get some
+                    help on installing OpeNER on your local machine.
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <h6>Webservices</h6>
+                    Jump right in and get started. All of OpeNER is available as
+                    a <a href="/webservices/">webservice</a>.
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6>Multi Lingual</h6>
+                    OpeNER is currently available in <em>Dutch, English, German,
+                      French, Spanish and Italian</em>. Is your language not in the
+                    list? You can add it yourself if you want.
+                </div>
+                <div class="col-sm-4 col-sm-offset-1">
+                    <h6>Tourism & News</h6>
+                    The OpeNER components have been proven and tested on news
+                    and hospitality reviews. It is pretty easy however, to add
+                    your own domain.
+                </div>
+                <div class="col-sm-3 col-sm-offset-1">
+                    <h6>Extendible</h6>
+                    There are well written manuals available on how to extend
+                    the OpeNER technology to your domain and in your languages.
+                    Visit the <a href="/getting-started/">getting started</a> page to get started.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-25 bg-clouds">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h3>Featured Demo</h3>
+
+                <p>
+                    This demo was created to show you what the different OpeNER
+                    components can achieve. The demo uses the OpeNER Webservices
+                    to analyze it's texts.
+
+                    Visit the <a href="http://demo2-opener.rhcloud.com">OpeNER
+                      Analysis Demo</a>.
+                </p>
+
+            </div>
+            <div class="col-sm-6">
+              <img class="pull-right" src="http://www.opener-project.org/wp-content/uploads/2013/07/screenshot-opener-demo-1024x705.png" alt="" width="502">
+            </div>
+        </div>
+    </div>
+</section>
+<section class="content-13 subscribe-form bg-orange">
+  <div class="container">
+    <div class="row">
+      <form action="http://opener.olery.com/language-identifier" method="POST">
+        <div class="col-sm-8">
+          <input type="text" placeholder="Copy/Paste or Type your text here" name="input" spellcheck="false">
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-large btn-inverse" type="submit">
+            Analyze
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+      <footer class="footer-2 bg-midnight-blue doc-bottom-margin">
+<div class="container">
+  <nav class="pull-left">
+  <ul>
+    <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+  </ul>
+  </nav>
+  <div class="social-btns pull-right">
+    <a href="#">
+      <div class="fui-vimeo"></div>
+      <div class="fui-vimeo"></div>
+    </a>
+    <a href="#">
+      <div class="fui-facebook"></div>
+      <div class="fui-facebook"></div>
+    </a>
+    <a href="#">
+      <div class="fui-twitter"></div>
+      <div class="fui-twitter"></div>
+    </a>
+  </div>
+  <div class="additional-links">
+    Be sure to take a look at our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/page-transitions.js"></script>
+<script src="/js/easing.min.js"></script>
+<script src="/js/jquery.svg.js"></script>
+<script src="/js/jquery.svganim.js"></script>
+<script src="/js/jquery.backgroundvideo.min.js"></script>
+<script src="/js/froogaloop.min.js"></script>
+<script src="/js/startup-kit.js"></script>
+
+  </body>
+</html>

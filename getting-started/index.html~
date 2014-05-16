@@ -81,7 +81,6 @@
           <li><a href="#language-detection">Language Detection</a></li>
           <li><a href="#tokenization">Tokenization</a></li>
           <li><a href="#part-of-speech-tagging">Part of Speech Tagging</a></li>
-	  <li><a href="#constituent-parsing">Constituent Parsing</a></li>
           <li><a href="#named-entity-resolution">Named Entity Resolution</a></li>
           <li><a href="#polarity-tagging">Polarity Tagging</a></li>
           <li><a href="#opinion-detection">Opinion Detection</a></li>
@@ -314,17 +313,6 @@ here</a></p>
 </code></pre>
 
 <p><a href="/examples/kaf-pos-tagger-out.kaf">The response can be seen here</a>.</p>
-
-<div id="constituent-parsing"></div>
-
-<h3 id="constituent-parsing">Constituent parsing</h3>
-
-
-
-<h4 id="technical-characteristics-2">Technical characteristics</h4>
-
-
-
 
 <div id="named-entity-resolution"></div>
 
