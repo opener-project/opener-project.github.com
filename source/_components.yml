@@ -22,48 +22,50 @@ components:
     description:
       This tool implements a wrapper for TreeTagger (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger) allowing to 
       apply this tagger to KAF files and obtain the result also in KAF format. It provides the lemmas and part-of-speech
-      tags of the tokens in a given text and works for all the OpeNER languages The tagset used is the one specified in the 
+      tags of the tokens in a given text and works for all the OpeNER languages. The tagset used is the one specified in the 
       KAF definition, but the real tags from TreeTagger are also stored in the result.
   - &pos_tagger
     name: POS Tagger
     repository: https://github.com/opener-project/pos-tagger
     webservice: http://opener.olery.com/pos-tagger
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      Part of Speech Tagging means identifying whether each word is a noun, a verb, etc. This component provides 
+      Part of Speech Perceptron and Maximum Entropy Models for English, Spanish, French, Italian and Dutch. 
+      The models have been trained with the Apache OpenNLP Machine Learning API. The component also provides
+      dictionary-based lemmatization which consists of identifying the lemma (dictionary entry) for a given word. 
   - &ner
     name: NER
     repository: https://github.com/opener-project/ner
     webservice: http://opener.olery.com/ner
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+    Named Entity Recognition and Classification identifies names of persons, cities, museums, and classifies them in a 
+    semantic class (PERSON, LOCATION, etc.). This component uses the Apache OpenNLP API to provide Perceptron and 
+    Maximum Entropy models trained for Dutch, English, French, German, Italian and Spanish.
   - &ned
     name: NED
     repository: https://github.com/opener-project/ned
     webservice: http://opener.olery.com/ned
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      For a given Named Entity detected by the NER, the Named Entity Disambiguation component aims at identifying to 
+      which actual entity in a catalogue such name is referring to. This component is a client to query DBPedia Spotlight
+      (http://spotlight.dbpedia.org).
   - &coreference
     name: Coreference
     repository: https://github.com/opener-project/coreference
     webservice: http://opener.olery.com/coreference
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+    Coreference resolution aims at identifying every word which refers to the same object or entity.
+    This component is loosely based on the Stanford Multi Sieve Coreference resolution
+    system (https://http://www-nlp.stanford.edu/software/dcoref.shtml). The coreference resolution system uses all
+    the linguistic information provided by the tokenizer, pos tagger, NER, NED and constituent parser.
   - &constituent
     name: Constituent Parser
     repository: https://github.com/opener-project/constituent-parser
     webservice: http://opener.olery.com/constituent-parser
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+    Parsing means providing the syntactic tree representation of a sentence. This component provides shift-reduced style 
+    constituent parsers for English, French, Italian and Spanish trained using the Apache OpenNLP API. Constituent parsing
+    is primarily used in OpeNER as an input to the Coreference resolution system.
   - &property_tagger
     name: Property Tagger
     repository: https://github.com/opener-project/property-tagger
