@@ -91,6 +91,8 @@
         <li><a href="#pos-tagger">POS Tagger</a></li>
       
         <li><a href="#tree-tagger">Tree Tagger</a></li>
+
+		<li><a href="#constituent-parser">Constituent Parser</a></li>
       
     </ul>
   </li>
@@ -199,7 +201,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/language-identifier">http://opener.olery.com/language-identifier</a>.</p>
 
 <div id="basics"></div>
@@ -216,7 +218,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/tokenizer">http://opener.olery.com/tokenizer</a>.</p>
 
 <div id="pos-tagger"></div>
@@ -225,7 +227,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/pos-tagger">http://opener.olery.com/pos-tagger</a>.</p>
 
 <div id="tree-tagger"></div>
@@ -234,8 +236,19 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/tree-tagger">http://opener.olery.com/tree-tagger</a>.</p>
+
+<div id="constituent-parser"></div>
+
+<h3 id="constituent-parser">Constituent Parser</h3>
+
+<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<a href="http://opener.olery.com/constituent-parser">http://opener.olery.com/constituent-parser</a>.</p>
+
+
 
 <div id="ner-ned-co-reference"></div>
 
@@ -251,7 +264,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/ner">http://opener.olery.com/ner</a>.</p>
 
 <div id="ned"></div>
@@ -260,7 +273,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/ned">http://opener.olery.com/ned</a>.</p>
 
 <div id="coreference"></div>
@@ -269,7 +282,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/coreference">http://opener.olery.com/coreference</a>.</p>
 
 <div id="property-tagger"></div>
@@ -286,7 +299,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/property-tagger">http://opener.olery.com/property-tagger</a>.</p>
 
 <div id="polarity-opinions"></div>
@@ -303,7 +316,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/opinion-detector-basic">http://opener.olery.com/opinion-detector-basic</a>.</p>
 
 <div id="opinion-detector-deluxe"></div>
@@ -312,7 +325,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/opinion-detector">http://opener.olery.com/opinion-detector</a>.</p>
 
 <div id="polarity-tagger"></div>
@@ -321,7 +334,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/polarity-tagger">http://opener.olery.com/polarity-tagger</a>.</p>
 
 <div id="storage"></div>
@@ -338,7 +351,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/outlet">http://opener.olery.com/outlet</a>.</p>
 
 <div id="s3-outlet"></div>
@@ -347,7 +360,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/s3-outlet">http://opener.olery.com/s3-outlet</a>.</p>
 
 <div id="converters"></div>
@@ -364,7 +377,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/kaf-to-json">http://opener.olery.com/kaf-to-json</a>.</p>
 
 <div id="kaf-naf-parser"></div>
@@ -373,7 +386,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/kaf-naf-parser">http://opener.olery.com/kaf-naf-parser</a>.</p>
 
 <div id="processors-aggregators"></div>
@@ -390,7 +403,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/scorer">http://opener.olery.com/scorer</a>.</p>
 
 <div id="scenarios"></div>
@@ -405,7 +418,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="/webservices/scenarios/basic-opinions.html">/webservices/scenarios/basic-opinions.html</a>.</p>
 
 <div id="named-entity-disambiguation"></div>
@@ -414,7 +427,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="/webservices/scenarios/named-entity-disambiguation.html">/webservices/scenarios/named-entity-disambiguation.html</a>.</p>
 
 <div id="full-pipeline"></div>
@@ -423,7 +436,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 <a href="/webservices/scenarios/full-pipeline.html">/webservices/scenarios/full-pipeline.html</a>.</p>
 
 
