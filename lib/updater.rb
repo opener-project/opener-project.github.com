@@ -51,7 +51,8 @@ class Updater
   def yaml_front_matter(component="OpeNER")
     options = {"layout"=>"default",
                "title"=>component,
-               "sidebar"=>"documentation"}
+               "sidebar"=>"documentation",
+               "webservice"=>"http://opener.olery.com/#{identify(component)}"}
     yaml = YAML.dump(options)
     yaml << "\n---\n\n"
   end

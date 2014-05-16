@@ -2,6 +2,7 @@
 layout: default
 title: Tokenizer
 sidebar: documentation
+webservice: http://opener.olery.com/tokenizer
 
 ---
 

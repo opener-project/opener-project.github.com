@@ -2,6 +2,7 @@
 layout: default
 title: Coreference
 sidebar: documentation
+webservice: http://opener.olery.com/coreference
 
 ---
 

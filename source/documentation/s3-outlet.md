@@ -2,6 +2,7 @@
 layout: default
 title: S3 Outlet
 sidebar: documentation
+webservice: http://opener.olery.com/s3-outlet
 
 ---
 

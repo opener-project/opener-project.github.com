@@ -2,6 +2,7 @@
 layout: default
 title: kaf-naf parser
 sidebar: documentation
+webservice: http://opener.olery.com/kaf-naf-parser
 
 ---
 

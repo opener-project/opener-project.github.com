@@ -2,6 +2,7 @@
 layout: default
 title: Opinion Detector Deluxe
 sidebar: documentation
+webservice: http://opener.olery.com/opinion-detector-deluxe
 
 ---
 

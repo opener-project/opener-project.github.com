@@ -27,5 +27,3 @@ module Documentation
 
   end
 end
-
-

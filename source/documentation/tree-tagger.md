@@ -2,6 +2,7 @@
 layout: default
 title: Tree Tagger
 sidebar: documentation
+webservice: http://opener.olery.com/tree-tagger
 
 ---
 

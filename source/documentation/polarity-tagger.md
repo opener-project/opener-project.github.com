@@ -2,6 +2,7 @@
 layout: default
 title: Polarity Tagger
 sidebar: documentation
+webservice: http://opener.olery.com/polarity-tagger
 
 ---
 

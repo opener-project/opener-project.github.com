@@ -2,6 +2,7 @@
 layout: default
 title: Sentiment Scores
 sidebar: documentation
+webservice: http://opener.olery.com/sentiment-scores
 
 ---
 

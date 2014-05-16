@@ -2,6 +2,7 @@
 layout: default
 title: NER
 sidebar: documentation
+webservice: http://opener.olery.com/ner
 
 ---
 

@@ -2,6 +2,7 @@
 layout: default
 title: Property Tagger
 sidebar: documentation
+webservice: http://opener.olery.com/property-tagger
 
 ---
 

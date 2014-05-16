@@ -2,6 +2,7 @@
 layout: default
 title: Language Identifier
 sidebar: documentation
+webservice: http://opener.olery.com/language-identifier
 
 ---
 

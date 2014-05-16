@@ -2,6 +2,7 @@
 layout: default
 title: NED
 sidebar: documentation
+webservice: http://opener.olery.com/ned
 
 ---
 
