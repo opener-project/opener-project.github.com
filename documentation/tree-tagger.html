@@ -88,66 +88,76 @@
 
 <p><a href="https://drone.io/github.com/opener-project/VU-tree-tagger_kernel/latest"><img src="https://drone.io/github.com/opener-project/VU-tree-tagger_kernel/status.png" alt="Build Status" /></a></p>
 
-<h1 id="openertreetagger">Opener::TreeTagger</h1>
-
 <h1 id="opener-tree-tagger">Opener Tree Tagger</h1>
 
-<p>This module implements a wrapper to process text with the PoS tagger TreeTagger. TreeTagger is a tool that assigns the lemmas and part-of-speech information to an input text.
-This module takes KAF as input, with the token layer created (for instance by one of our tokenizer modules) and outputs KAF with a new term layer. It is important to note
-that the token layer in the input is not modified in the output, so the program takes care of performing the correct matching between the term and the token layer.</p>
+<p>This module implements a wrapper to process text with the PoS tagger
+TreeTagger. TreeTagger is a tool that assigns the lemmas and part-of-speech
+information to an input text.</p>
 
-<p>By default this module works for text in English, Dutch and German, but can be easily extended to other languages. The language of the input KAF text has to be specified through
-the attribute xml:lang in the main KAF element.</p>
+<p>This module takes KAF as input, with the token layer created (for instance by
+one of our tokenizer modules) and outputs KAF with a new term layer. It is
+important to note that the token layer in the input is not modified in the
+output, so the program takes care of performing the correct matching between
+the term and the token layer.</p>
+
+<p>By default this module works for text in English, Dutch and German, but can be
+easily extended to other languages. The language of the input KAF text has to
+be specified through the attribute xml:lang in the main KAF element.</p>
 
 <h2 id="initial-version">Initial version</h2>
 
-<p>This module has a dependency on the following external module:
-TreeTagger (http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/)
-More information is further down in this document.</p>
+<p>This module has a dependency on the following external module: TreeTagger
+(<a href="http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/">http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/</a>) More
+information is further down in this document.</p>
 
 <h2 id="installation">Installation</h2>
 
-<p>Add this line to your application’s Gemfile:</p>
+<p>The TreeTagger module comes as a Ruby Gem and can be installed as following:</p>
 
-<pre><code>gem 'opener-tree-tagger', :git=&gt;"git@github.com/opener-project/opener-tree-tagger.git"
+<pre><code>gem install opener-tree-tagger
 </code></pre>
 
-<p>And then execute:
-<code>shell
-$ bundle install
-</code>`</p>
+<p>If you’re using Bundler you can add this Gem to your Gemfile:</p>
 
-<p>Or install it yourself as:
-<code>shell
-$ gem specific_install opener-tree-tagger -l https://github.com/opener-project/opener-tree-tagger.git
-</code></p>
+<pre><code>source 'https://rubygems.org'
 
-<p>If you dont have specific_install already:
-<code>shell
-    $ gem install specific_install
-</code></p>
+gem 'opener-tree-tagger'
+</code></pre>
 
-<p>Finally you have to indicate to your program where TreeTagger is installed in your machine, which is a requirement. If TreeTagger is not installed in your machine
-you can download it from http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/ and follow the installation instructions. To indicate to our scripts where
-TreeTagger is located, you have to set an environment variable with the
-location:</p>
+<p>Then run <code>bundle install</code> to install the Gem.</p>
 
-<p><code>shell
-export TREE_TAGGER_PATH=/usr/local/TreeTagger/
-</code></p>
+<p>Alternatively you can use <code>specific_install</code>:</p>
 
-<p>It is advised you add the path to the tree tagger in your bash or zsh profile by
-adding it to <code>~/.bash_profile</code> or <code>~/.zshrc</code></p>
+<pre><code>gem install specific_install
+gem specific_install opener-tree-tagger \
+    -l https://github.com/opener-project/opener-tree-tagger.git
+</code></pre>
+
+<p>Finally you have to indicate to your program where TreeTagger is installed in
+your machine, which is a requirement. If TreeTagger is not installed in your
+machine you can download it from
+<a href="http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/">http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/</a> and follow the
+installation instructions.</p>
+
+<p>To indicate to our scripts where TreeTagger is
+located, you have to set an environment variable with the location:</p>
+
+<pre><code>export TREE_TAGGER_PATH=/usr/local/TreeTagger/
+</code></pre>
+
+<p>It is advised you add the path to the tree tagger in your bash or zsh profile
+by adding it to <code>~/.bash_profile</code> or <code>~/.zshrc</code>.</p>
 
 <h2 id="usage">Usage</h2>
 
-<p>Once installed as a gem you can access the gem from anywhere. The input has to be KAF format with the token layer created.</p>
+<p>Once installed as a gem you can access the gem from anywhere. The input has to
+be KAF format with the token layer created.</p>
 
-<p><code>shell
-cat input.token.kaf | opener-tree-tagger &gt; output.token.term.kaf
-</code></p>
+<pre><code>cat input.token.kaf | opener-tree-tagger &gt; output.token.term.kaf
+</code></pre>
 
-<p>In the file output.token.term.kaf we will have the KAF file extended with the term layer (containing both lemma and PoS information)</p>
+<p>In the file output.token.term.kaf we will have the KAF file extended with the
+term layer (containing both lemma and PoS information).</p>
 
 <h2 id="contributing">Contributing</h2>
 

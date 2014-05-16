@@ -91,8 +91,6 @@
         <li><a href="#pos-tagger">POS Tagger</a></li>
       
         <li><a href="#tree-tagger">Tree Tagger</a></li>
-
-	<li><a href="#constituent-parser">Constituent Parser</a></li>
       
     </ul>
   </li>
@@ -199,9 +197,9 @@
 
 <h3 id="language-identifier">Language Identifier</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>Language identifier receives plain text and outputs the language of the input text. The identified language can be used as a parameter to the OpeNER modules that require a language parameter.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/language-identifier">http://opener.olery.com/language-identifier</a>.</p>
 
 <div id="basics"></div>
@@ -216,39 +214,28 @@
 
 <h3 id="tokenizer">Tokenizer</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>The tokenizer receives plain text as input and a language parameter. It splits it in paragraphs, sentences and tokens and generates a KAF document with this information. The resulting KAF document can be used as input to other modules.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/tokenizer">http://opener.olery.com/tokenizer</a>.</p>
 
 <div id="pos-tagger"></div>
 
 <h3 id="pos-tagger">POS Tagger</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>Part of Speech Tagging means identifying whether each word is a noun, a verb, etc. This component provides Part of Speech Perceptron and Maximum Entropy Models for English, Spanish, French, Italian and Dutch. The models have been trained with the Apache OpenNLP Machine Learning API. The component also provides dictionary-based lemmatization which consists of identifying the lemma (dictionary entry) for a given word.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/pos-tagger">http://opener.olery.com/pos-tagger</a>.</p>
 
 <div id="tree-tagger"></div>
 
 <h3 id="tree-tagger">Tree Tagger</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>This tool implements a wrapper for TreeTagger (http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger) allowing to apply this tagger to KAF files and obtain the result also in KAF format. It provides the lemmas and part-of-speech tags of the tokens in a given text and works for all the OpeNER languages. The tagset used is the one specified in the KAF definition, but the real tags from TreeTagger are also stored in the result.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/tree-tagger">http://opener.olery.com/tree-tagger</a>.</p>
-
-<div id="constituent-parser"></div>
-
-<h3 id="constituent-parser">Constituent Parser</h3>
-
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
-
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
-<a href="http://opener.olery.com/constituent-parser">http://opener.olery.com/constituent-parser</a>.</p>
-
-
 
 <div id="ner-ned-co-reference"></div>
 
@@ -262,27 +249,27 @@
 
 <h3 id="ner">NER</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>Named Entity Recognition and Classification identifies names of persons, cities, museums, and classifies them in a semantic class (PERSON, LOCATION, etc.). This component uses the Apache OpenNLP API to provide Perceptron and Maximum Entropy models trained for Dutch, English, French, German, Italian and Spanish.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/ner">http://opener.olery.com/ner</a>.</p>
 
 <div id="ned"></div>
 
 <h3 id="ned">NED</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>For a given Named Entity detected by the NER, the Named Entity Disambiguation component aims at identifying to which actual entity in a catalogue such name is referring to. This component is a client to query DBPedia Spotlight (http://spotlight.dbpedia.org).</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/ned">http://opener.olery.com/ned</a>.</p>
 
 <div id="coreference"></div>
 
 <h3 id="coreference">Coreference</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>Coreference resolution aims at identifying every word which refers to the same object or entity. This component is loosely based on the Stanford Multi Sieve Coreference resolution system (https://http://www-nlp.stanford.edu/software/dcoref.shtml). The coreference resolution system uses all the linguistic information provided by the tokenizer, pos tagger, NER, NED and constituent parser.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/coreference">http://opener.olery.com/coreference</a>.</p>
 
 <div id="property-tagger"></div>
@@ -297,9 +284,9 @@
 
 <h3 id="property-tagger-1">Property Tagger</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>This module implements a tagger for hotel properties. It detects aspect words which represent aspect or properties of a hotel, and links them with the correct aspect class. These properties are important because they are usually the target of the opinions. For instance, it would detect that “bed” or “mattress” are hotel properties related to the aspect SLEEPING_COMFORT. It works for all the OpeNER languages and it is based on the KAF format for the input/output files.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/property-tagger">http://opener.olery.com/property-tagger</a>.</p>
 
 <div id="polarity-opinions"></div>
@@ -314,27 +301,27 @@
 
 <h3 id="opinion-detector-basic">Opinion Detector Basic</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>The opinion detector basic detects and extracts fine-grained opinions on an input KAF file. In particular the opinion expression (the actual opinion), the target (what is the opinion about) and the holder (who is expressing the opinion) will be detected for each opinion. This basic version is based on the evidence provided by the polarity information and a set of rules.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/opinion-detector-basic">http://opener.olery.com/opinion-detector-basic</a>.</p>
 
 <div id="opinion-detector-deluxe"></div>
 
 <h3 id="opinion-detector-deluxe">Opinion Detector Deluxe</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>The opinion detector deluxe also extracts fine-grained opinions as the basic version. It is based on Machine Learning, using two Artificial Intelligence algorithms (Conditional Random Fields and Support Vector Machines) to induce models from annotated data. Models for hotel, restaurants and attractions reviews are provided, as well as for political news, but the tool allows to train a new model for a new domain if the annotated data for the new domain is available.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/opinion-detector">http://opener.olery.com/opinion-detector</a>.</p>
 
 <div id="polarity-tagger"></div>
 
 <h3 id="polarity-tagger">Polarity Tagger</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>The polarity tagger assigns polarity information to words on the text. This polarity information contains basically the positive/negative content of the word (good, cheap, clean can be positive words in the hotel domain), and words which are polarity modifiers (negators, intensifiers, …). This tool is based on a set of lexicons which contain the polarity information, but new custom lexicons can be added. The polarity information will be used to detect and extract complete opinions.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/polarity-tagger">http://opener.olery.com/polarity-tagger</a>.</p>
 
 <div id="storage"></div>
@@ -351,7 +338,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/outlet">http://opener.olery.com/outlet</a>.</p>
 
 <div id="s3-outlet"></div>
@@ -360,7 +347,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/s3-outlet">http://opener.olery.com/s3-outlet</a>.</p>
 
 <div id="converters"></div>
@@ -377,7 +364,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/kaf-to-json">http://opener.olery.com/kaf-to-json</a>.</p>
 
 <div id="kaf-naf-parser"></div>
@@ -386,7 +373,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/kaf-naf-parser">http://opener.olery.com/kaf-naf-parser</a>.</p>
 
 <div id="processors-aggregators"></div>
@@ -403,7 +390,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/scorer">http://opener.olery.com/scorer</a>.</p>
 
 <div id="scenarios"></div>
@@ -418,7 +405,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="/webservices/scenarios/basic-opinions.html">/webservices/scenarios/basic-opinions.html</a>.</p>
 
 <div id="named-entity-disambiguation"></div>
@@ -427,7 +414,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="/webservices/scenarios/named-entity-disambiguation.html">/webservices/scenarios/named-entity-disambiguation.html</a>.</p>
 
 <div id="full-pipeline"></div>
@@ -436,7 +423,7 @@
 
 <p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
 
-<p>More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="/webservices/scenarios/full-pipeline.html">/webservices/scenarios/full-pipeline.html</a>.</p>
 
 

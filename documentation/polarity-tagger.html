@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/flat-ui.css">
+<link rel="stylesheet" href="/css/icon-font.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>Polarity Tagger</title>
+  </head>
+  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <header class="header-2">
+<div class="container">
+  <div class="row">
+    <nav class="navbar col-sm-12" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"></button>
+      <a class="brand" href="/"><img src="/images/opener_log.png" width="125" height="58" alt=""> </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav pull-right">
+        <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+      </ul>
+      <ul class="subnav">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+</header>
+
+
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <!--Nav Bar -->
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+            
+            <ul id="sidebar" class="nav bs-sidenav">
+  <li>
+    <a href="#readme">Polarity Tagger</a>
+    <ul class="nav nav-stacked visible">
+      <li><a href="#readme">Introduction</a></li>
+      <li><a href="#reference">Reference</a></li>
+      <li><a href="#webservice">Webservice</a></li>
+    </ul>
+  </li>
+  <li><a href="/documentation/">Other Components</a></li>
+</ul>
+
+
+          </div>
+        </div>
+        <!--Main Content -->
+        <div class="col-sm-8 col-sm-offset-1 content">
+          <div id="readme"></div>
+
+<h1 id="polarity-tagger">Polarity tagger</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>This repository contains the code for the OpeNER polarity tagger. This tool tags words in a KAF file with polarity information, which basically is:</p>
+
+<ul>
+  <li>Polarity information, which represents positive or negative facts in a certain domain. Good, cheap and clean can be positive words in a hotel domain, while
+bad, expensive and dirty could be negative ones.</li>
+  <li>Sentiment modifiers, which modify the polarity of a surrounding polarity word. For instance very or no are sentiment modifiers</li>
+</ul>
+
+<p>The polarity tagger supports the following languages:</p>
+
+<ul>
+  <li>Dutch</li>
+  <li>German</li>
+  <li>English</li>
+  <li>French</li>
+  <li>Italian</li>
+  <li>Spanish</li>
+</ul>
+
+<p>The most simple way to call to the tagger is:
+<code>shell
+cat my_input.nl.kaf | core/poltagger-basic-multi.py
+</code></p>
+
+<h2 id="how-to">How-to</h2>
+
+<p>The main script of this tool is a python file, which accepts a set of parameters to determine which features
+or options we want to use. The language is read from the KAF file, so it doesn’t need to be specified as a parameter.
+The program reads a KAF file from the standard input and writes the resulting KAf in the standard output.
+To see the options you can call to the main script with the -h or –help option
+````shell
+$ python core/poltagger-basic-multi.py -h
+usage: poltagger-basic-multi.py [-h] [–no-time] [–ignore-pos]
+                                [–show-lexicons {nl,en,de,es,it,fr}]
+                                [–lexicon LEXICON] [–silent] [–version]</p>
+
+<p>Tags a text with polarities at lemma level</p>
+
+<p>optional arguments:
+  -h, –help            show this help message and exit
+  –no-time             For not including timestamp in header
+  –ignore-pos          Ignore the pos labels
+  –show-lexicons {nl,en,de,es,it,fr}
+                        Show lexicons for the given language and exit
+  –lexicon LEXICON     Lexicon identifier, check with –show-lexicons LANG
+                        for options
+  –silent              Turn off debug info
+  –version             show program’s version number and exit
+````</p>
+
+<p>The <code>--ignore-pos</code> parameter must be used when want to ignore the part-of-speech information assigned to the lemmas, and we want to assign polarities
+just to the lemmas, not considering the POS tag. This could be useful when the information provided by the pos-tagger is not accurate or the pos-tagging
+has not been processed.</p>
+
+<p>The main options are those concerning with the usage of different lexicons. The lexicons are provided by the
+VU-sentiment-lexicon library (https://github.com/opener-project/VU-sentiment-lexicon), which needs to be installed.
+You can see what the lexicons available for a given language are by calling to the program with the option –show-lexicons LANG,
+for instance:
+````shell
+core/poltagger-basic-multi.py –show-lexicons nl</p>
+
+<h6 id="section">#</h6>
+<p>Available lexicons for nl
+  Identifier: “hotel” (Default)
+    Desc: Hotel domain lexicon for Dutch
+     Res: VUA_olery_lexicon_nl_lmf
+    File: /Users/ruben/python_envs/python2.7/lib/python2.7/VUSentimentLexicon/NL-lexicon/Sentiment-Dutch-HotelDomain.xml</p>
+
+<p>Identifier:”general”
+    Desc: General lexicon for Dutch
+     Res: VUA_olery_lexicon_nl_lmf
+    File: /Users/ruben/python_envs/python2.7/lib/python2.7/VUSentimentLexicon/NL-lexicon/Sentiment-Dutch-general.xml</p>
+
+<h6 id="section-1">#</h6>
+<p>````</p>
+
+<p>Then you can use the lexicon identifiers to select the proper lexicon, with the option –lexicon
+<code>shell
+cat my_input.nl.kaf | core/poltagger-basic-multi.py --lexicon general
+</code></p>
+
+<p>This command will call to the polarity tagger using the general lexicon for Dutch. The lexicon identifiers are unique only per language.
+If the lexicon id is not specified(you skip the –lexicon option), or you provide a wrong identifier, the default lexicon will be loaded.
+If there is no lexicon marked as default in the –show-lexicon options, the first one in the list will be used. Check the VU-sentiment-lexicon
+for further information about how to manage lexicons and add new ones</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Python 2.7.0 or newer</li>
+  <li>Ruby 1.9.2 or newer</li>
+  <li>pip</li>
+  <li>libxml2</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Using Bundler:</p>
+
+<pre><code>gem 'opener-polarity-tagger',
+  :git    =&gt; 'git@github.com:opener-project/polarity-tagger.git',
+  :branch =&gt; 'master'
+</code></pre>
+
+<p>Using <code>specific_install</code>:</p>
+
+<pre><code>gem install specific_install
+gem specific_install opener-polarity-tagger \
+    -l https://github.com/opener-project/polarity-tagger.git
+</code></pre>
+
+<p>Using regular RubyGems (once the Gem is available):</p>
+
+<pre><code>gem install opener-polarity-tagger
+</code></pre>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>First make sure all the required dependencies are installed:</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>Then download the required Python code:</p>
+
+<pre><code>bundle exec rake compile
+</code></pre>
+
+<p>Once this is done continue reading the sections below to get a better
+understanding about the repository structure.</p>
+
+<h2 id="structure">Structure</h2>
+
+<p>This repository comes in two parts: a collection of Python source files and
+Ruby source code. The Python code can be found in <code>core/</code>, the Ruby code can be
+found in the other directories (e.g. <code>lib/</code>).</p>
+
+<p>Required Python packages are installed locally in to <code>core/site-packages/X</code>
+where X is one of the following two:</p>
+
+<ul>
+  <li><code>pre_build</code>: contains packages that are installed before building the Gem,
+these packages are shipped with the Gem</li>
+</ul>
+
+<p>There are also two requirements files for pip:</p>
+
+<ul>
+  <li><code>pre_build_requirements.txt</code>: installs the requirements for the <code>pre_build</code>
+directory.</li>
+</ul>
+
+<p>To easily install all the required dependencies (required for running the tests
+for example) run the following:</p>
+
+<pre><code>bundle exec rake compile
+</code></pre>
+
+<p>This will take care of verifying the requirements and downloading and
+installing the Python packages.</p>
+
+<h2 id="testing">Testing</h2>
+
+<p>To run the tests (which are powered by Cucumber), simply run the following:</p>
+
+<pre><code>bundle exec rake
+</code></pre>
+
+<p>This will take care of verifying the requirements, installing the Python code
+and running the tests.</p>
+
+<p>For more information on the available Rake tasks run the following:</p>
+
+<pre><code>bundle exec rake -T
+</code></pre>
+
+<h2 id="contact">Contact</h2>
+<ul>
+  <li>Ruben Izquierdo</li>
+  <li>Vrije University of Amsterdam</li>
+  <li>ruben.izquierdobevia@vu.nl</li>
+</ul>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-2 bg-midnight-blue doc-bottom-margin">
+<div class="container">
+  <nav class="pull-left">
+  <ul>
+    <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+  </ul>
+  </nav>
+  <div class="social-btns pull-right">
+    <a href="#">
+      <div class="fui-vimeo"></div>
+      <div class="fui-vimeo"></div>
+    </a>
+    <a href="#">
+      <div class="fui-facebook"></div>
+      <div class="fui-facebook"></div>
+    </a>
+    <a href="#">
+      <div class="fui-twitter"></div>
+      <div class="fui-twitter"></div>
+    </a>
+  </div>
+  <div class="additional-links">
+    Be sure to take a look at our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/page-transitions.js"></script>
+<script src="/js/easing.min.js"></script>
+<script src="/js/jquery.svg.js"></script>
+<script src="/js/jquery.svganim.js"></script>
+<script src="/js/jquery.backgroundvideo.min.js"></script>
+<script src="/js/froogaloop.min.js"></script>
+<script src="/js/startup-kit.js"></script>
+
+  </body>
+</html>

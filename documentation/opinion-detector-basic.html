@@ -86,14 +86,18 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="vu-opinion-detector-basicenkernel">VU-opinion-detector-basic_EN_kernel</h1>
+<h1 id="opinion-detector-basic">Opinion Detector Basic</h1>
 
-<p>This module implements a opinion detector for English (also works for Dutch and German). The language
-is determined by the “xml:lang” attribut in the input KAF file. Depending on the value of this attribute,
-the corresponding lexicon will be loaded. This module detects three elements of the opinions:
-* Expression: the actual opinion expression
-* Target: about what is the previous expression
-* Holder: who is stating that expression</p>
+<p>This module implements a opinion detector for English (also works for Dutch and
+German). The language is determined by the “xml:lang” attribut in the input KAF
+file. Depending on the value of this attribute, the corresponding lexicon will
+be loaded. This module detects three elements of the opinions:</p>
+
+<ul>
+  <li>Expression: the actual opinion expression</li>
+  <li>Target: about what is the previous expression</li>
+  <li>Holder: who is stating that expression</li>
+</ul>
 
 <h2 id="requirements">Requirements</h2>
 <ul>
@@ -103,13 +107,14 @@ the corresponding lexicon will be loaded. This module detects three elements of 
 
 <h2 id="usage">Usage</h2>
 
-<p>The input KAF file has to be annotated with at least the term layer, with polarity information.
-Correct input files for this module are the output KAF files from the polarity tagger module</p>
+<p>The input KAF file has to be annotated with at least the term layer, with
+polarity information.  Correct input files for this module are the output KAF
+files from the polarity tagger module</p>
 
-<p>To tag an input KAF file example.kaf with opinions you can run:
-<code>shell
-$ cat example.with.polaritieskaf | core/opinion_detector_basic_multi.py &gt; output.with.opinions.kaf
-</code></p>
+<p>To tag an input KAF file example.kaf with opinions you can run:</p>
+
+<pre><code>$ cat example.with.polaritieskaf | core/opinion_detector_basic_multi.py &gt; output.with.opinions.kaf
+</code></pre>
 
 <p>The output will the input KAF file extended with the opinion layer.</p>
 

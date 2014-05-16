@@ -88,28 +88,24 @@
 
 <h1 id="property-tagger">property-tagger</h1>
 
-<h2 id="introduction">Introduction</h2>
-<p>This module implements a tagger for hotel properties for Dutch, English, French, Italian, Spanish and German, like words related with “room”, “cleanliness”, “staff” or “breakfast” for instance.
+<h1 id="introduction">Introduction</h1>
+
+<p>This module implements a tagger for hotel properties for Dutch, English, French, Italian, Spanish and German. It detects aspect words,
+for instance words related with “room”, “cleanliness”, “staff” or “breakfast” and links them with the correct aspect class.
 The input for this module has to be a valid KAF file with at lest the term layer, as the lemmas will be used for detecting the hotel properties. The output is also
-a KAF valid file extended with the property layer. This module works for English and Dutch, and the language is read from the input KAF file, from the lang attribute
-of the KAF element, so be sure your preprocessors set properly this value or you will get an error.
+a KAF valid file extended with the property layer. This module works for all the languages within the OpeNER project (en,de,nl,fr,es,it) and the language is read from
+the input KAF file, from the lang attribute of the KAF element  (make suresure your preprocessors set properly this value or you might use the resources for a wrong language)
 <code>shell
 &lt;KAF xml:lang="( en | nl | fr | it | de | es)"&gt;
 </code></p>
 
-<h2 id="requirements">Requirements</h2>
+<h1 id="requirements">Requirements</h1>
 <ul>
   <li>VUKafParserPy: parser in python for KAF files (https://github.com/opener-project/VU-kaf-parser)</li>
   <li>lxml: library for processing xml in python</li>
 </ul>
 
-<h2 id="installation">Installation</h2>
-<p>The installation of this module is very easy, just clone the repository to your local machine.
-<code>shell
-git clone git@github.com:opener-project/VU-hotel-property-tagger_NL_EN_kernel.git
-</code></p>
-
-<h2 id="how-to-run-the-module-with-python">How to run the module with Python</h2>
+<h1 id="how-to-run-the-module-with-python">How to run the module with Python</h1>
 <p>You can run this module from the command line using Python. The main script is core/hotel_property_tagger_nl_en.py. This reads
 and writes the output to the standard output, generating some log information in the standard error output. To process the file
 “input.kaf” just type:
@@ -118,6 +114,33 @@ cat input.kaf | core/hotel_property_tagger_nl_en.py &gt; output.kaf
 </code></p>
 
 <p>This will read the KAF file in “input.kaf” and will store the constituent trees in “input.tree”.</p>
+
+<p>The options of the program can be obtained calling to the program with the parameter -h:
+````shell
+core/hotel_property_tagger_nl_en.py -h
+usage: hotel_property_tagger_nl_en.py [-h] [–no-time] [–lexicon LEXICON]</p>
+
+<p>Tags a text with polarities at lemma level</p>
+
+<p>optional arguments:
+  -h, –help         show this help message and exit
+  –no-time          For not including timestamp in header
+  –lexicon LEXICON  Force to use this lexicon
+````</p>
+
+<p>The most important option is the –lexicon, which allows you to use your own lexicon with the program. The lexicon must be stored in a file and follow this format:
+````shell
+surf	verb	facilities
+surfer	noun	facilities
+surfing	verb	facilities
+```</p>
+
+<p>So, one aspect per line, with 3 fields separated by a tabulator, the first one is the word or span of words (in this case use whitespaces), then the part
+of speech (which actually it is not use, you can  include a dummy label) and finally the aspect class associated with the word. If you have created your lexicon
+in one file you could call to the program in this fashion:
+<code>shell
+$ cat my_input.kaf | python core/hotel_property_tagger_nl_en.py --lexicon path/to/your/lexicon/my_lexicon.txt &gt; my_output.kaf
+</code></p>
 
 <h2 id="contact">Contact</h2>
 <ul>
