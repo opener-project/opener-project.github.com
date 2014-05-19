@@ -86,68 +86,36 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="tokenizer">Tokenizer</h1>
+<h2 id="introduction">Introduction</h2>
 
-<p>Component that wraps the different existing tokenizers.</p>
+<p>The tokenizer tokenizes a text into sentences and words. </p>
 
-<h2 id="requirements">Requirements</h2>
+<h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<ul>
-  <li>Perl 5</li>
-  <li>Ruby 1.9.2 or newer</li>
-  <li>Make</li>
-</ul>
+<p>This software is part of a larger collection of natural language processing
+tools known as “the OpeNER project”. You can find more information about the
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+also find references to terms like KAF (an XML standard to represent linguistic
+annotations in texts), component, cores, scenario’s and pipelines.</p>
 
-<h2 id="developers">Developers</h2>
+<h2 id="quick-use-example">Quick Use Example</h2>
 
-<p>See how to edit / change / compile this gem at the bottom of this file.</p>
+<p>Installing the tokenizer can be done by executing:</p>
 
-<h2 id="installation">Installation</h2>
-
-<h3 id="as-part-of-a-gemfile-in-a-ruby-application">As part of a Gemfile in a Ruby application</h3>
-
-<p>Add this line to your application’s Gemfile:</p>
-
-<pre><code>gem 'opener-tokenizer',
-    :git=&gt;"git@github.com:opener-project/tokenizer.git"
+<pre><code>gem install tokenizer
 </code></pre>
 
-<p>And then execute:</p>
+<p>Please bare in mind that all components in OpeNER take KAF as an input and
+output KAF by default.</p>
 
-<pre><code>$ bundle install
-</code></pre>
+<h3 id="command-line-interface">Command line interface</h3>
 
-<h3 id="as-a-standalone-gem">As a standalone GEM:</h3>
-
-<p>Make sure you have the <code>specific_install</code> gem installed first by running</p>
-
-<pre><code>$ gem install specific_install
-</code></pre>
-
-<p>After that you can install the gem from the git repository like this:</p>
-
-<pre><code>$ gem specific_install opener-tokenizer \
-    -l https://github.com/opener-project/tokenizer.git
-</code></pre>
-
-<p>Once the gem is installed you have access to the following command from
-anywhere on your computer:</p>
-
-<pre><code>$ echo "this is an english text" | tokenizer -l en
-</code></pre>
-
-<p>or you can launch a webservice with</p>
-
-<pre><code>$ tokenizer-server
-</code></pre>
-
-<p>Enjoy!</p>
-
-<h2 id="usage">Usage</h2>
+<p>You should now be able to call the tokenizer as a regular shell
+command: by its name. Once installed the gem normalyl sits in your path so you can call it directly from anywhere.</p>
 
 <p>Tokenizing some text:</p>
 
-<pre><code>echo "This is English text" | tokenizer -l en
+<pre><code>echo "This is English text" | tokenizer -l en --no-kaf
 </code></pre>
 
 <p>Will result in</p>
@@ -171,11 +139,12 @@ anywhere on your computer:</p>
 
 <p>The available languages for tokenization are: English (en), German (de), Dutch (nl), French (fr), Spanish (es), Italian (it)</p>
 
-<h3 id="kaf-input-format">KAF input format</h3>
+<h4 id="kaf-input-format">KAF input format</h4>
 
-<p>The tokenizer is capable of taking KAF as input. You can do so like this:</p>
+<p>The tokenizer is capable of taking KAF as input, and actually does so by
+default. You can do so like this:</p>
 
-<pre><code>echo "&lt;?xml version='1.0' encoding='UTF-8' standalone='no'?&gt;&lt;KAF version='v1.opener' xml:lang='en'&gt;&lt;raw&gt;This is what I call, a test!&lt;/raw&gt;&lt;/KAF&gt;" | tokenizer -k
+<pre><code>echo "&lt;?xml version='1.0' encoding='UTF-8' standalone='no'?&gt;&lt;KAF version='v1.opener' xml:lang='en'&gt;&lt;raw&gt;This is what I call, a test!&lt;/raw&gt;&lt;/KAF&gt;" | tokenizer
 </code></pre>
 
 <p>Will result in</p>
@@ -200,19 +169,15 @@ anywhere on your computer:</p>
 
 <p>If the argument -k (–kaf) is passed, then the argument -l (–language) is ignored.</p>
 
-<h2 id="server">Server</h2>
+<h3 id="webservices">Webservices</h3>
 
-<p>The tokenizer comes equipped with a simple webservice. To start the
-webservice type:</p>
+<p>You can launch a language identification webservice by executing:</p>
 
 <pre><code>tokenizer-server
 </code></pre>
 
 <p>This will launch a mini webserver with the webservice. It defaults to port 9292,
-so you can access it at:</p>
-
-<pre><code>http://localhost:9292
-</code></pre>
+so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
 <p>To launch it on a different port provide the <code>-p [port-number]</code> option like
 this:</p>
@@ -220,27 +185,210 @@ this:</p>
 <pre><code>tokenizer-server -p 1234
 </code></pre>
 
-<p>It then launches at <code>http://localhost:1234</code></p>
+<p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
 
 <p>Documentation on the Webservice is provided by surfing to the urls provided
-above. </p>
+above. For more information on how to launch a webservice run the command with
+the <code>-h</code> option.</p>
+
+<h3 id="daemon">Daemon</h3>
+
+<p>Last but not least the tokenizer comes shipped with a daemon that
+can read jobs (and write) jobs to and from Amazon SQS queues. For more
+information type:</p>
+
+<pre><code>tokenizer-daemon -h
+</code></pre>
+
+<h2 id="description-of-dependencies">Description of dependencies</h2>
+
+<p>This component runs best if you run it in an environment suited for OpeNER
+components. You can find an installation guide and helper tools in the (OpeNER
+installer)[https://github.com/opener-project/opener-installer] and (an
+installation guide on the Opener
+Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+
+<p>At least you need the following system setup:</p>
+
+<h3 id="depenencies-for-normal-use">Depenencies for normal use:</h3>
+
+<ul>
+  <li>Perl 5</li>
+  <li>MRI 1.9.3</li>
+</ul>
+
+<h3 id="dependencies-if-you-want-to-modify-the-component">Dependencies if you want to modify the component:</h3>
+
+<ul>
+  <li>Maven (for building the Gem)</li>
+</ul>
+
+<h2 id="language-extension">Language Extension</h2>
+
+<p>TODO</p>
+
+<h2 id="the-core">The Core</h2>
+
+<p>The component is a fat wrapper around the actual language technology core. You
+can find the core technolies in the following repositories:</p>
+
+<ul>
+  <li>(tokenizer-base)[http://github.com/opener-project/tokenizer-base]</li>
+</ul>
+
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+
+<ul>
+  <li>Check (the project websitere)[http://opener-project.github.io]</li>
+  <li>(Checkout the webservice)[http://opener.olery.com/tokenizer]</li>
+</ul>
+
+<h2 id="report-problemget-help">Report problem/Get help</h2>
+
+<p>If you encounter problems, please email support@opener-project.eu or leave an
+issue in the (issue tracker)[https://github.com/opener-project/tokenizer/issues].</p>
 
 <h2 id="contributing">Contributing</h2>
 
-<h3 id="procedure">Procedure</h3>
-
 <ol>
-  <li>Pull it</li>
-  <li>Create your feature branch (<code>git checkout -b features/my-new-feature</code>)</li>
+  <li>Fork it ( http://github.com/opener-project/tokenizer/fork )</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
   <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
-  <li>Push to the branch (<code>git push origin features/my-new-feature</code>)</li>
-  <li>If you’re confident, merge your changes into master.</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create new Pull Request</li>
 </ol>
 
-<h1 id="whats-next">What’s next?</h1>
+<div id="reference"></div>
 
-<p>If you’re interested in the tokenizer, you also might want to check
-out opener-project/tokenizer.</p>
+<h2 id="reference">Reference</h2>
+
+<h3 id="command-line-interface-1">Command Line Interface</h3>
+
+<h4 id="examples">Examples:</h4>
+
+<h5 id="provide-subexamples">Provide subexamples</h5>
+
+<p>Tokenizing KAF:</p>
+
+<p><code>
+echo "&lt;?xml version='1.0' encoding='UTF-8' standalone='no'?&gt;&lt;KAF version='v1.opener' xml:lang='en'&gt;&lt;raw&gt;This is what I call, a test!&lt;/raw&gt;&lt;/KAF&gt;" | tokenizer
+</code></p>
+
+<p>Tokenizing some text:</p>
+
+<p><code>
+echo "This is English text" | tokenizer -l en --no-kaf
+</code></p>
+
+<h3 id="webservice">Webservice</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<p><code>
+tokenizer-server
+</code></p>
+
+<p>After launching the server, you can reach the webservice at
+<a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+webserver used by the component. The options are:</p>
+
+<p><code>
+    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+    -C, --config PATH                Load PATH as a config file
+        --control URL                The bind url to use for the control server
+                                     Use 'auto' to use temp unix server
+        --control-token TOKEN        The token to use as authentication for the control server
+    -d, --daemon                     Daemonize the server into the background
+        --debug                      Log lowlevel debugging information
+        --dir DIR                    Change to DIR before starting
+    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+    -I, --include PATH               Specify $LOAD_PATH directories
+    -p, --port PORT                  Define the TCP port to bind to
+                                     Use -b for more advanced options
+        --pidfile PATH               Use PATH as a pidfile
+        --preload                    Preload the app. Cluster mode only
+        --prune-bundler              Prune out the bundler env if possible
+    -q, --quiet                      Quiet down the output
+    -R, --restart-cmd CMD            The puma command to run during a hot restart
+                                     Default: inferred
+    -S, --state PATH                 Where to store the state details
+    -t, --threads INT                min:max threads to use (default 0:16)
+        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+    -V, --version                    Print the version information
+    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
+        --tag NAME                   Additional text to display in process listing
+    -h, --help                       Show help
+</code></p>
+
+<h3 id="daemon-1">Daemon</h3>
+
+<p>The daemon has the default OpeNER daemon options. Being:</p>
+
+<p>```
+Usage: tokenizer-daemon &lt;start|stop|restart&gt; [options]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>When calling tokenizer without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Daemon options:
+    -i, –input QUEUE_NAME           Input queue name
+    -o, –output QUEUE_NAME          Output queue name
+        –batch-size COUNT           Request x messages at once where x is between 1 and 10
+        –buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        –sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, –readers COUNT              number of reader threads
+    -w, –workers COUNT              number of worker thread
+    -p, –writers COUNT              number of writer / pusher threads
+    -l, –logfile, –log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, –pidfile, –pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        –pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by –pid if that option is present
+        –debug                      Turn on debug log level
+        –relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+```</p>
+
+<h4 id="environment-variables">Environment Variables</h4>
+
+<p>These daemons make use of Amazon SQS queues and other Amazon services.
+The access to these services and other environment variables can be configured
+using a .opener-daemons-env file in the home directory of the current user.</p>
+
+<p>It is also possible to provide the environment variables directly to the deamon.</p>
+
+<p>For example:</p>
+
+<p><code>
+AWS_REGION='eu-west-1' tokenizer start [other options]
+</code></p>
+
+<p>We advise to have the following environment variables available: </p>
+
+<ul>
+  <li>AWS_ACCESS_KEY_ID</li>
+  <li>AWS_SECRET_ACCESS_KEY</li>
+  <li>AWS_REGION</li>
+</ul>
+
+<h3 id="languages">Languages</h3>
+
+<p>The tokenizer currently supports the following languages:</p>
+
+<ul>
+  <li>Dutch (nl)</li>
+  <li>English (en)</li>
+  <li>French (fr)</li>
+  <li>German (de)</li>
+  <li>Italian (it)</li>
+  <li>Spanish (es)</li>
+</ul>
 
         </div>
       </div>
