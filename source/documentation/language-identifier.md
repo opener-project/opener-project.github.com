@@ -43,7 +43,7 @@ Make sure you run ```jruby``` since the language-identifier uses Java.
 You should now be able to call the language indentifier as a regular shell
 command, by its name. Once installed as a gem you can access the gem from
 anywhere. This aplication reads a text from standard input in order to
-tokenize.
+identify the language.
 
     echo "This is an English text." | language-identifier
 
