@@ -82,7 +82,7 @@
         
         
           <h3 id="input-tools">Input Tools</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <p>This collection of components is used to start OpeNER pipelines. For now a language identifier is available.</p>
           <ul>
             
             <li><a href="/documentation/language-identifier.html">Language Identifier</a></li>
@@ -96,7 +96,7 @@
         
         
           <h3 id="ner-ned-co-reference">NER/NED/Co-reference</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <p>Combined this group of components delivers you state of the art Named Entity Recognition and Named Entity Disambiguation.</p>
           <ul>
             
             <li><a href="/documentation/ner.html">NER</a></li>
@@ -105,6 +105,8 @@
             
             <li><a href="/documentation/coreference.html">Coreference</a></li>
             
+            <li><a href="/documentation/constituent-parser.html">Constituent Parser</a></li>
+            
           </ul>
         
       
@@ -113,15 +115,13 @@
       
         
         
-          <h3 id="polarity-opinions">Polarity / Opinions</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <h3 id="storage">Storage</h3>
+          <p>These components can store results of opener pipelines into the database or on amazon s3. You can use them as webservices, or use them as examples on how to build your own storage solutions.</p>
           <ul>
             
-            <li><a href="/documentation/opinion-detector-basic.html">Opinion Detector Basic</a></li>
+            <li><a href="/documentation/outlet.html">Outlet</a></li>
             
-            <li><a href="/documentation/opinion-detector-deluxe.html">Opinion Detector Deluxe</a></li>
-            
-            <li><a href="/documentation/polarity-tagger.html">Polarity Tagger</a></li>
+            <li><a href="/documentation/s3-outlet.html">S3 Outlet</a></li>
             
           </ul>
         
@@ -131,27 +131,16 @@
       
         
         
-          <h3 id="converters">Converters</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <h3 id="processors-aggregators">Processors / Aggregators</h3>
+          <p>These components aggregate, change, calculate or change the KAF document in any way. Where most other components have a KAF-in KAF-out policy the processors will output completely different formats.</p>
           <ul>
             
-            <li><a href="/documentation/kaf-to-json.html">kaf-to-json</a></li>
-            
-            <li><a href="/documentation/kaf-naf-parser.html">kaf-naf parser</a></li>
+            <li><a href="/documentation/sentiment-scores.html">Sentiment Scores</a></li>
             
           </ul>
         
       
         
-        
-      
-        
-        
-          <h3 id="toolkits">Toolkits</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
-          <ul>
-            
-          </ul>
         
       
     </div>
@@ -163,7 +152,7 @@
         
         
           <h3 id="basics">Basics</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <p>These components are the start of each OpeNER pipeline. Every further operation needs tokens, polarities and lemmas. For your convenience multiple POS taggers are available.</p>
           <ul>
             
             <li><a href="/documentation/tokenizer.html">Tokenizer</a></li>
@@ -180,12 +169,18 @@
       
         
         
-          <h3 id="property-tagger">Property Tagger</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <h3 id="polarity-properties-and-opinions">Polarity, Properties and Opinions</h3>
+          <p>Combined these components deliver you top notch opinion detection on texts in general, as well as on detected properties. The basic detector is rule based, and the deluxe detector is machine learned.</p>
           <ul>
             
             <li><a href="/documentation/property-tagger.html">Property Tagger</a></li>
             
+            <li><a href="/documentation/polarity-tagger.html">Polarity Tagger</a></li>
+            
+            <li><a href="/documentation/opinion-detector-basic.html">Opinion Detector Basic</a></li>
+            
+            <li><a href="/documentation/opinion-detector-deluxe.html">Opinion Detector Deluxe</a></li>
+            
           </ul>
         
       
@@ -194,13 +189,13 @@
       
         
         
-          <h3 id="storage">Storage</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <h3 id="converters">Converters</h3>
+          <p>KAF is a nice format, but there are others. JSON for example is well known, and often hooks into nice javascript visualisations. NAF is more like KAF evolved, used in several other NLP projects.</p>
           <ul>
             
-            <li><a href="/documentation/outlet.html">Outlet</a></li>
+            <li><a href="/documentation/kaf-to-json.html">kaf-to-json</a></li>
             
-            <li><a href="/documentation/s3-outlet.html">S3 Outlet</a></li>
+            <li><a href="/documentation/kaf-naf-parser.html">kaf-naf parser</a></li>
             
           </ul>
         
@@ -210,16 +205,21 @@
       
         
         
-          <h3 id="processors-aggregators">Processors / Aggregators</h3>
-          <p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+          <h3 id="toolkits">Toolkits</h3>
+          <p>While making all other components, we created several tools to annotate texts and to adapt components for different languages and domains. The most useful tools are listed below.</p>
           <ul>
             
-            <li><a href="/documentation/sentiment-scores.html">Sentiment Scores</a></li>
+            <li><a href="/documentation/brat-conversion-tools.html">Brat conversion tools</a></li>
+            
+            <li><a href="/documentation/opinion-miner-toolkit.html">Opinion miner toolkit</a></li>
+            
+            <li><a href="/documentation/lexical-acquisition-toolkit.html">Lexical acquisition toolkit</a></li>
+            
+            <li><a href="/documentation/lexicon-propagation-toolkit.html">Lexicon propagation toolkit</a></li>
+            
+            <li><a href="/documentation/domain-adaptation-toolkit.html">Domain adaptation toolkit</a></li>
             
           </ul>
-        
-      
-        
         
       
     </div>

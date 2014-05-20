@@ -105,27 +105,22 @@
       
         <li><a href="#coreference">Coreference</a></li>
       
+        <li><a href="#constituent-parser">Constituent Parser</a></li>
+      
     </ul>
   </li>
   
   <li>
-  <a href="#property-tagger">Property Tagger</a>
+  <a href="#polarity-properties-and-opinions">Polarity, Properties and Opinions</a>
     <ul class="nav nav-stacked">
       
         <li><a href="#property-tagger">Property Tagger</a></li>
       
-    </ul>
-  </li>
-  
-  <li>
-  <a href="#polarity-opinions">Polarity / Opinions</a>
-    <ul class="nav nav-stacked">
+        <li><a href="#polarity-tagger">Polarity Tagger</a></li>
       
         <li><a href="#opinion-detector-basic">Opinion Detector Basic</a></li>
       
         <li><a href="#opinion-detector-deluxe">Opinion Detector Deluxe</a></li>
-      
-        <li><a href="#polarity-tagger">Polarity Tagger</a></li>
       
     </ul>
   </li>
@@ -191,7 +186,7 @@
 
 <hr />
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>This collection of components is used to start OpeNER pipelines. For now a language identifier is available.</p>
 
 <div id="language-identifier"></div>
 
@@ -208,7 +203,7 @@
 
 <hr />
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>These components are the start of each OpeNER pipeline. Every further operation needs tokens, polarities and lemmas. For your convenience multiple POS taggers are available.</p>
 
 <div id="tokenizer"></div>
 
@@ -243,7 +238,7 @@
 
 <hr />
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>Combined this group of components delivers you state of the art Named Entity Recognition and Named Entity Disambiguation.</p>
 
 <div id="ner"></div>
 
@@ -272,30 +267,40 @@
 <p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/coreference">http://opener.olery.com/coreference</a>.</p>
 
-<div id="property-tagger"></div>
+<div id="constituent-parser"></div>
 
-<h2 id="property-tagger">Property Tagger</h2>
+<h3 id="constituent-parser">Constituent Parser</h3>
+
+<p>Parsing means providing the syntactic tree representation of a sentence. This component provides shift-reduced style constituent parsers for English, French, Italian and Spanish trained using the Apache OpenNLP API. Constituent parsing is primarily used in OpeNER as an input to the Coreference resolution system.</p>
+
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<a href="http://opener.olery.com/constituent-parser">http://opener.olery.com/constituent-parser</a>.</p>
+
+<div id="polarity-properties-and-opinions"></div>
+
+<h2 id="polarity-properties-and-opinions">Polarity, Properties and Opinions</h2>
 
 <hr />
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>Combined these components deliver you top notch opinion detection on texts in general, as well as on detected properties. The basic detector is rule based, and the deluxe detector is machine learned.</p>
 
 <div id="property-tagger"></div>
 
-<h3 id="property-tagger-1">Property Tagger</h3>
+<h3 id="property-tagger">Property Tagger</h3>
 
 <p>This module implements a tagger for hotel properties. It detects aspect words which represent aspect or properties of a hotel, and links them with the correct aspect class. These properties are important because they are usually the target of the opinions. For instance, it would detect that “bed” or “mattress” are hotel properties related to the aspect SLEEPING_COMFORT. It works for all the OpeNER languages and it is based on the KAF format for the input/output files.</p>
 
 <p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/property-tagger">http://opener.olery.com/property-tagger</a>.</p>
 
-<div id="polarity-opinions"></div>
+<div id="polarity-tagger"></div>
 
-<h2 id="polarity--opinions">Polarity / Opinions</h2>
+<h3 id="polarity-tagger">Polarity Tagger</h3>
 
-<hr />
+<p>The polarity tagger assigns polarity information to words on the text. This polarity information contains basically the positive/negative content of the word (good, cheap, clean can be positive words in the hotel domain), and words which are polarity modifiers (negators, intensifiers, …). This tool is based on a set of lexicons which contain the polarity information, but new custom lexicons can be added. The polarity information will be used to detect and extract complete opinions.</p>
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+<a href="http://opener.olery.com/polarity-tagger">http://opener.olery.com/polarity-tagger</a>.</p>
 
 <div id="opinion-detector-basic"></div>
 
@@ -315,22 +320,13 @@
 <p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/opinion-detector">http://opener.olery.com/opinion-detector</a>.</p>
 
-<div id="polarity-tagger"></div>
-
-<h3 id="polarity-tagger">Polarity Tagger</h3>
-
-<p>The polarity tagger assigns polarity information to words on the text. This polarity information contains basically the positive/negative content of the word (good, cheap, clean can be positive words in the hotel domain), and words which are polarity modifiers (negators, intensifiers, …). This tool is based on a set of lexicons which contain the polarity information, but new custom lexicons can be added. The polarity information will be used to detect and extract complete opinions.</p>
-
-<p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
-<a href="http://opener.olery.com/polarity-tagger">http://opener.olery.com/polarity-tagger</a>.</p>
-
 <div id="storage"></div>
 
 <h2 id="storage">Storage</h2>
 
 <hr />
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>These components can store results of opener pipelines into the database or on amazon s3. You can use them as webservices, or use them as examples on how to build your own storage solutions.</p>
 
 <div id="outlet"></div>
 
@@ -356,7 +352,7 @@
 
 <hr />
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>KAF is a nice format, but there are others. JSON for example is well known, and often hooks into nice javascript visualisations. NAF is more like KAF evolved, used in several other NLP projects.</p>
 
 <div id="kaf-to-json"></div>
 
@@ -371,7 +367,7 @@
 
 <h3 id="kaf-naf-parser">kaf-naf parser</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>The KAF-NAF parser can translate KAF to NAF, and NAF to KAF. KAF is the format used by OpeNER. NAF is a slightly different format used by for example the NewsReader project.</p>
 
 <p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/kaf-naf-parser">http://opener.olery.com/kaf-naf-parser</a>.</p>
@@ -382,13 +378,13 @@
 
 <hr />
 
-<p>This is a placeholder for a 2 to 5 line description of the cluster of components. Each cluster should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>These components aggregate, change, calculate or change the KAF document in any way. Where most other components have a KAF-in KAF-out policy the processors will output completely different formats.</p>
 
 <div id="sentiment-scores"></div>
 
 <h3 id="sentiment-scores">Sentiment Scores</h3>
 
-<p>This is a placeholder for a 2 to 5 line description of the component. Each component should have description like this. So that when we provide a nice overview page, then we can show a neat description.</p>
+<p>This component aggregates all sentiments found in a document and calculates an overall sentiment score as well as sentiment scores for the individual properties detected. The resulting score ranges from -1 to 1.</p>
 
 <p>More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
 <a href="http://opener.olery.com/scorer">http://opener.olery.com/scorer</a>.</p>
