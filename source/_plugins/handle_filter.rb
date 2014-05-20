@@ -2,6 +2,7 @@ module Jekyll
   module HandleFilter
 
     def handle(input)
+      return if input.nil?
       input.gsub(/\W/,'-').gsub(/-+/,'-').downcase
     end
 

@@ -134,88 +134,100 @@ components:
     repository: https://github.com/opener-project/kaf-naf-parser
     webservice: http://opener.olery.com/kaf-naf-parser
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      The KAF-NAF parser can translate KAF to NAF, and NAF to KAF. KAF is the
+      format used by OpeNER. NAF is a slightly different format used by
+      for example the NewsReader project.
   - &scorer
     name: Sentiment Scores
     repository: https://github.com/opener-project/scorer
     webservice: http://opener.olery.com/scorer
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      This component aggregates all sentiments found in a document and
+      calculates an overall sentiment score as well as sentiment scores for the
+      individual properties detected. The resulting score ranges from -1 to 1.
+
+toolkits: &toolkits
+  -
+    name: Brat conversion tools
+    partner: Vicom
+    person: Aitor
+  -
+    name: Opinion miner toolkit
+    partner: VU
+    person: Ruben
+  -
+    name: Lexical acquisition toolkit
+    partner: VU
+    person: Ruben
+  -
+    name: Lexicon propagation toolkit
+    partner: VU
+    person: Ruben
+  -
+    name: Domain adaptation toolkit
+    partner: Vicom
+    person: Andoni
 
 clusters:
   - &c_input_tools
     name: Input Tools
     components: [*language_identifier]
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      This collection of components is used to start OpeNER pipelines. For now a
+      language identifier is available.
   - &c_foundation
     name: Basics
     components: [*tokenizer, *pos_tagger, *tree_tagger]
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      These components are the start of each OpeNER pipeline. Every further operation
+      needs tokens, polarities and lemmas. For your convenience multiple POS taggers
+      are available.
   - &c_nerned
     name: NER/NED/Co-reference
-    components: [*ner, *ned, *coreference]
+    components: [*ner, *ned, *coreference, *constituent]
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
-  - &c_property
-    name: Property Tagger
-    components: [*property_tagger]
-    description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      Combined this group of components delivers you state of the art Named Entity
+      Recognition and Named Entity Disambiguation.
   - &c_polarity
-    name: Polarity / Opinions
-    components: [*opinion_detector_basic, *opinion_detector_deluxe, *polarity_tagger]
+    name: Polarity, Properties and Opinions
+    components: [*property_tagger, *polarity_tagger, *opinion_detector_basic, *opinion_detector_deluxe]
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      Combined these components deliver you top notch opinion detection on texts
+      in general, as well as on detected properties. The basic detector is rule based,
+      and the deluxe detector is machine learned.
   - &c_storage
     name: Storage
     components: [*outlet, *s3_outlet]
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      These components can store results of opener pipelines into the database
+      or on amazon s3. You can use them as webservices, or use them as examples
+      on how to build your own storage solutions.
   - &c_converters
     name: Converters
     components: [*kaf_to_json, *kaf_naf_parser]
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      KAF is a nice format, but there are others. JSON for example is well known,
+      and often hooks into nice javascript visualisations. NAF is more like
+      KAF evolved, used in several other NLP projects.
   - &c_processors
     name: Processors / Aggregators
     components: [*scorer]
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      These components aggregate, change, calculate or change the KAF document in
+      any way. Where most other components have a KAF-in KAF-out policy the processors
+      will output completely different formats.
   - &c_toolkits
     name: Toolkits
-    components: []
+    components: *toolkits
     description:
-      This is a placeholder for a 2 to 5 line description of the cluster of components.
-      Each cluster should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      While making all other components, we created several tools to annotate texts
+      and to adapt components for different languages and domains. The most useful
+      tools are listed below.
 
 webservices:
   - *c_input_tools
   - *c_foundation
   - *c_nerned
-  - *c_property
   - *c_polarity
   - *c_storage
   - *c_converters
@@ -248,27 +260,6 @@ webservices:
           Each component should have description like this. So that when we provide
           a nice overview page, then we can show a neat description.
 
-toolkits:
-  -
-    name: Brat conversion tools
-    partner: Vicom
-    person: Aitor
-  -
-    name: Opinion miner toolkit
-    partner: VU
-    person: Ruben
-  -
-    name: Lexical acquisition toolkit
-    partner: VU
-    person: Ruben
-  -
-    name: Lexicon propagation toolkit
-    partner: VU
-    person: Ruben
-  -
-    name: Domain adaptation toolkit
-    partner: Vicom
-    person: Andoni
 
 datasets: &datasets
   -
@@ -314,7 +305,6 @@ documentation:
     - *c_input_tools
     - *c_foundation
     - *c_nerned
-    - *c_property
     - *c_polarity
     - *c_storage
     - *c_converters
