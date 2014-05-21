@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/css/animations.css">
 <link rel="stylesheet" href="/css/style.css">
 
-    <title>Coreference</title>
+    <title>Constituent Parser</title>
   </head>
   <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
@@ -69,11 +69,11 @@
             
             <ul id="sidebar" class="nav bs-sidenav">
   <li>
-    <a href="#readme">Coreference</a>
+    <a href="#readme">Constituent Parser</a>
     <ul class="nav nav-stacked visible">
       <li><a href="#readme">Introduction</a></li>
       <li><a href="#reference">Reference</a></li>
-      <li><a href="http://opener.olery.com/coreference">Webservice</a></li>
+      <li><a href="http://opener.olery.com/constituent-parser">Webservice</a></li>
     </ul>
   </li>
   <li><a href="/documentation/">Other Components</a></li>
@@ -86,15 +86,20 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h2 id="coreference">Coreference</h2>
+<h2 id="constituent-parser">Constituent-Parser</h2>
 
-<p>This Gem provides coreference resolution for various languages (en, es, it, nl, de, fr).</p>
+<p>The constituent parser wraps several other constituent parsers into a component
+that parses the 6 main opener languages. Each language uses it’s own parser and
+core. For more information on the specific languages, please check the
+individual cores.</p>
 
-<p>The CorefGraph-en module provides an implementation of the Multi-Sieve Pass system for for Coreference Resolution system originally proposed by the Stanford NLP Group (Raghunathan et al., 2010; Lee et al., 2011) and (Lee et al., 2013). This system proposes a number of deterministic passes, ranging from high precision to higher recall, each dealing with a different manner in which coreference manifests itself in running text.</p>
-
-<p>Although more sieves are available, in order to facilitate the integration of the coreference system for the 6 languages of OpeNER we have included here 4 sieves: Exact String Matching, Precise Constructs, Strict Head Match and Pronoun Match (the sieve nomenclature follows Lee et al (2013)). Furthermore, as it has been reported, this sieves are responsible for most of the performance in the Stanford system.</p>
-
-<p>The implementation is a result of a collaboration between the IXA NLP (http://ixa.si.ehu.es) and LinguaMedia Groups (http://linguamedia.deusto.es).</p>
+<ul>
+  <li>(English, Spanish and French)[https://github.com/opener-project/constituent-parser-base] - OpeNER</li>
+  <li>(German)[https://github.com/opener-project/constituent-parser-de] - Stanford
+Based</li>
+  <li>(Dutch)[https://github.com/opener-project/constituent-parser-nl] - Alpino
+Based</li>
+</ul>
 
 <h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
@@ -106,9 +111,9 @@ annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h2 id="quick-use-example">Quick Use Example</h2>
 
-<p>Installing the coreference can be done by executing:</p>
+<p>Installing the constituent-parser can be done by executing:</p>
 
-<pre><code>gem install opener-coreference
+<pre><code>gem install opener-constituent-parser
 </code></pre>
 
 <p>Please bare in mind that all components in OpeNER take KAF as an input and
@@ -116,39 +121,50 @@ output KAF by default.</p>
 
 <h3 id="command-line-interface">Command line interface</h3>
 
-<p>You should now be able to call the coreference as a regular shell
+<p>You should now be able to call the constituent parser as a regular shell
 command: by its name. Once installed the gem normalyl sits in your path so you can call it directly from anywhere.</p>
 
 <p>This aplication reads a text from standard input in order to identify the language.</p>
 
-<pre><code>cat some_kind_of_kaf_file.kaf | coreference
+<pre><code>cat some_kind_of_kaf_file.kaf | constituent-parser
 </code></pre>
 
-<p>This will output:</p>
+<p>This is an excerpt of an example output:</p>
 
-<p><code>xml
-&lt;coref coid="co5"&gt;
-  &lt;!--Her father--&gt;
-  &lt;span&gt;
-    &lt;target id="t45"/&gt;
-    &lt;target id="t46"/&gt;
-  &lt;/span&gt;
-  &lt;!--him--&gt;
-  &lt;span&gt;
-    &lt;target id="t58"/&gt;
-  &lt;/span&gt;
-  &lt;!--his--&gt;
-  &lt;span&gt;
-    &lt;target id="t54"/&gt;
-  &lt;/span&gt;
-&lt;/coref&gt;
-</code></p>
+<p>```
+<!--he-->
+      <t id="ter761">
+        <span>
+          <target id="t761"></target>
+        </span>
+      </t>
+      <!--added-->
+      <t id="ter762">
+        <span>
+          <target id="t762"></target>
+        </span>
+      </t>
+      <!--.-->
+      <t id="ter763">
+        <span>
+          <target id="t763"></target>
+        </span>
+      </t>
+      <!--Tree edges-->
+      <edge id="tre2051" from="nter1328" to="nter1327"></edge>
+      <edge id="tre2052" from="nter1329" to="nter1328"></edge>
+      <edge id="tre2053" from="nter1330" to="nter1329"></edge>
+      <edge id="tre2054" from="nter1331" to="nter1330" head="yes"></edge>
+      <edge id="tre2055" from="nter1332" to="nter1331" head="yes"></edge>
+      <edge id="tre2056" from="nter1333" to="nter1332"></edge></p>
+
+<p>```</p>
 
 <h3 id="webservices">Webservices</h3>
 
 <p>You can launch a language identification webservice by executing:</p>
 
-<pre><code>coreference-server
+<pre><code>constituent-parser-server
 </code></pre>
 
 <p>This will launch a mini webserver with the webservice. It defaults to port 9292,
@@ -157,7 +173,7 @@ so you can access it at <a href="http://localhost:9292">http://localhost:9292</a
 <p>To launch it on a different port provide the <code>-p [port-number]</code> option like
 this:</p>
 
-<pre><code>coreference-server -p 1234
+<pre><code>constituent-parser-server -p 1234
 </code></pre>
 
 <p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
@@ -168,11 +184,11 @@ the <code>-h</code> option.</p>
 
 <h3 id="daemon">Daemon</h3>
 
-<p>Last but not least the coreference comes shipped with a daemon that
+<p>Last but not least the constituent parser comes shipped with a daemon that
 can read jobs (and write) jobs to and from Amazon SQS queues. For more
 information type:</p>
 
-<pre><code>coreference-daemon -h
+<pre><code>constituent-parser-daemon -h
 </code></pre>
 
 <h2 id="description-of-dependencies">Description of dependencies</h2>
@@ -188,74 +204,37 @@ Website)[http://opener-project.github.io/getting-started/how-to/local-installati
 <h3 id="depenencies-for-normal-use">Depenencies for normal use:</h3>
 
 <ul>
-  <li>Ruby (MRI) 1.9.3 or newer</li>
+  <li>Jruby (1.7.9 or newer)</li>
+  <li>Java 1.7 or newer (There are problems with encoding in older versions).</li>
   <li>Python 2.6</li>
 </ul>
 
-<h2 id="adapting-corefgraph-en-to-your-language">Adapting CorefGraph-en to your language</h2>
-
-<p>There are a number of changes needed to be made to make CorefGraph works for
-other languages. Although we have try to keep the language dependent features
-to a minimum, you will still need to create some dictionaries for your own
-language and make some very minor changes in the code. Here is the list of very
-file in the Corefgraph module that needs to be changed.  Every change except
-one (see below) to be done in the <strong>$project/core/corefgraph/resources</strong> directory:</p>
+<p>If you want to use the Dutch constituent parser you need to have:</p>
 
 <ul>
-  <li>dictionaries/$lang_determiners.py</li>
-  <li>dictionaries/$lang_pronouns.py</li>
-  <li>dictionaries/$lang_verbs.py</li>
-  <li>dictionaries/$lang_stopwords.py</li>
-  <li>
-    <p>dictionaries/$lang_temporals.py</p>
-  </li>
-  <li>tagset/$TAGSETNAME_pos.py</li>
-  <li>
-    <p>tagset/$TAGSETNAME_constituent.py</p>
-  </li>
-  <li>files/animate/$lang.animate.txt</li>
-  <li>
-    <p>files/animate/$lang.inanimate.txt</p>
-  </li>
-  <li>
-    <p>files/demonym/$lang.txt</p>
-  </li>
-  <li>files/gender/$lang.male.unigrams.txt</li>
-  <li>files/gender/$lang.female.unigrams.txt</li>
-  <li>files/gender/$lang.neutral.unigrams.txt</li>
-  <li>files/gender/$lang.namegender.combine.txt</li>
-  <li>
-    <p>files/gender/$lang.gender.data</p>
-  </li>
-  <li>files/number/$lang.plural.unigrams.txt</li>
-  <li>files/number/$lang.singular.unigrams.txt</li>
+  <li>Alpino (http://www.let.rug.nl/vannoord/alp/Alpino/AlpinoUserGuide.html)</li>
 </ul>
 
-<h2 id="the-core">The Core</h2>
+<h2 id="language-extension">Language Extension</h2>
 
-<p>The component is a fat wrapper around the actual language technology core. You
-can find the core technolies in the following repositories:</p>
-
-<ul>
-  <li>(Coreference-base)[https://github.com/opener-project/coreference-base]</li>
-</ul>
+<p>TODO</p>
 
 <h2 id="where-to-go-from-here">Where to go from here</h2>
 
 <ul>
   <li>Check (the project websitere)[http://opener-project.github.io]</li>
-  <li>(Checkout the webservice)[http://opener.olery.com/coreference]</li>
+  <li>(Checkout the webservice)[http://opener.olery.com/constituent-parser]</li>
 </ul>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
 <p>If you encounter problems, please email support@opener-project.eu or leave an
-issue in the (issue tracker)[https://github.com/opener-project/coreference/issues].</p>
+issue in the (issue tracker)[https://github.com/opener-project/constituent-parser/issues].</p>
 
 <h2 id="contributing">Contributing</h2>
 
 <ol>
-  <li>Fork it ( http://github.com/opener-project/coreference/fork )</li>
+  <li>Fork it ( http://github.com/opener-project/constituent-parser/fork )</li>
   <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
   <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
   <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
@@ -269,33 +248,46 @@ issue in the (issue tracker)[https://github.com/opener-project/coreference/issue
 <h3 id="command-line-interface-1">Command Line Interface</h3>
 
 <p><code>
-cat some_kind_of_kaf_file.kaf | coreference
+cat some_kind_of_kaf_file.kaf | constituent-parser
 </code></p>
 
-<p><code>xml
-&lt;coref coid="co5"&gt;
-  &lt;!--Her father--&gt;
-  &lt;span&gt;
-    &lt;target id="t45"/&gt;
-    &lt;target id="t46"/&gt;
-  &lt;/span&gt;
-  &lt;!--him--&gt;
-  &lt;span&gt;
-    &lt;target id="t58"/&gt;
-  &lt;/span&gt;
-  &lt;!--his--&gt;
-  &lt;span&gt;
-    &lt;target id="t54"/&gt;
-  &lt;/span&gt;
-&lt;/coref&gt;
-</code></p>
+<p>This is an excerpt of an example output:</p>
+
+<p>```
+<!--he-->
+      <t id="ter761">
+        <span>
+          <target id="t761"></target>
+        </span>
+      </t>
+      <!--added-->
+      <t id="ter762">
+        <span>
+          <target id="t762"></target>
+        </span>
+      </t>
+      <!--.-->
+      <t id="ter763">
+        <span>
+          <target id="t763"></target>
+        </span>
+      </t>
+      <!--Tree edges-->
+      <edge id="tre2051" from="nter1328" to="nter1327"></edge>
+      <edge id="tre2052" from="nter1329" to="nter1328"></edge>
+      <edge id="tre2053" from="nter1330" to="nter1329"></edge>
+      <edge id="tre2054" from="nter1331" to="nter1330" head="yes"></edge>
+      <edge id="tre2055" from="nter1332" to="nter1331" head="yes"></edge>
+      <edge id="tre2056" from="nter1333" to="nter1332"></edge></p>
+
+<p>```</p>
 
 <h3 id="webservice">Webservice</h3>
 
 <p>You can launch a webservice by executing:</p>
 
 <p><code>
-coreference-server
+constituent-parser-server
 </code></p>
 
 <p>After launching the server, you can reach the webservice at
@@ -337,12 +329,12 @@ webserver used by the component. The options are:</p>
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
 <p>```
-Usage: coreference-daemon &lt;start|stop|restart&gt; [options]</p>
+Usage: constituent-parser-daemon &lt;start|stop|restart&gt; [options]</p>
 
 <table>
   <tbody>
     <tr>
-      <td>When calling coreference without &lt;start</td>
+      <td>When calling constituent-parser without &lt;start</td>
       <td>stop</td>
       <td>restart&gt; the daemon will start as a foreground process</td>
     </tr>
@@ -376,7 +368,7 @@ using a .opener-daemons-env file in the home directory of the current user.</p>
 <p>For example:</p>
 
 <p><code>
-AWS_REGION='eu-west-1' coreference start [other options]
+AWS_REGION='eu-west-1' constituent-parser start [other options]
 </code></p>
 
 <p>We advise to have the following environment variables available:</p>
@@ -390,7 +382,7 @@ AWS_REGION='eu-west-1' coreference start [other options]
 <h3 id="languages">Languages</h3>
 
 <ul>
-  <li>Dutch (nl)</li>
+  <li>Dutch (nl) (If you have Alpino installed)</li>
   <li>English (en)</li>
   <li>French (fr)</li>
   <li>German (de)</li>

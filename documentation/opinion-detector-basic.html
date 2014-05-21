@@ -86,7 +86,7 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="opinion-detector-basic">Opinion Detector Basic</h1>
+<h2 id="opinion-detector-basic">Opinion Detector Basic</h2>
 
 <p>This module implements a opinion detector for English (also works for Dutch and
 German). The language is determined by the “xml:lang” attribut in the input KAF
@@ -99,13 +99,25 @@ be loaded. This module detects three elements of the opinions:</p>
   <li>Holder: who is stating that expression</li>
 </ul>
 
-<h2 id="requirements">Requirements</h2>
-<ul>
-  <li>VUKafParserPy: parser in python for KAF files</li>
-  <li>lxml: library for processing xml in python</li>
-</ul>
+<h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<h2 id="usage">Usage</h2>
+<p>This software is part of a larger collection of natural language processing
+tools known as “the OpeNER project”. You can find more information about the
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+also find references to terms like KAF (an XML standard to represent linguistic
+annotations in texts), component, cores, scenario’s and pipelines.</p>
+
+<h2 id="quick-use-example">Quick Use Example</h2>
+
+<p>Installing the opinion-detector-basic can be done by executing:</p>
+
+<pre><code>gem install opener-opinion-detector-basic
+</code></pre>
+
+<p>Please bare in mind that all components in OpeNER take KAF as an input and
+output KAF by default.</p>
+
+<h3 id="command-line-interface">Command line interface</h3>
 
 <p>The input KAF file has to be annotated with at least the term layer, with
 polarity information.  Correct input files for this module are the output KAF
@@ -117,6 +129,250 @@ files from the polarity tagger module</p>
 </code></pre>
 
 <p>The output will the input KAF file extended with the opinion layer.</p>
+
+<p>Excerpt of example output.</p>
+
+<p>```</p>
+<opinions>
+  <opinion oid="o1">
+    <opinion_target>
+      <!--hotel-->
+      <span>
+        <target id="t_6" />
+      </span>
+    </opinion_target>
+    <opinion_expression polarity="positive" strength="2">
+      <!--heel mooi-->
+      <span>
+        <target id="t_4" />
+        <target id="t_5" />
+      </span>
+    </opinion_expression>
+  </opinion>
+</opinions>
+<p>```</p>
+
+<h3 id="webservices">Webservices</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<pre><code>opinion-detector-basic-server
+</code></pre>
+
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292,
+so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
+this:</p>
+
+<pre><code>opinion-detector-basic-server -p 1234
+</code></pre>
+
+<p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
+
+<p>Documentation on the Webservice is provided by surfing to the urls provided
+above. For more information on how to launch a webservice run the command with
+the <code>-h</code> option.</p>
+
+<h3 id="daemon">Daemon</h3>
+
+<p>Last but not least the opinion detector basic comes shipped with a daemon that
+can read jobs (and write) jobs to and from Amazon SQS queues. For more
+information type:</p>
+
+<pre><code>opinion-detector-basic-daemon -h
+</code></pre>
+
+<h2 id="description-of-dependencies">Description of dependencies</h2>
+
+<p>This component runs best if you run it in an environment suited for OpeNER
+components. You can find an installation guide and helper tools in the (OpeNER
+installer)[https://github.com/opener-project/opener-installer] and (an
+installation guide on the Opener
+Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+
+<p>At least you need the following system setup:</p>
+
+<h3 id="depenencies-for-normal-use">Depenencies for normal use:</h3>
+
+<ul>
+  <li>Ruby 1.9.3 or newer</li>
+  <li>Python 2.6</li>
+  <li>lxml: library for processing xml in python</li>
+</ul>
+
+<h2 id="domain-adaption">Domain Adaption</h2>
+
+<p>TODO</p>
+
+<h2 id="language-extension">Language Extension</h2>
+
+<p>TODO</p>
+
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+
+<ul>
+  <li>Check (the project websitere)[http://opener-project.github.io]</li>
+  <li>(Checkout the webservice)[http://opener.olery.com/opinion-detector-basic]</li>
+</ul>
+
+<h2 id="report-problemget-help">Report problem/Get help</h2>
+
+<p>If you encounter problems, please email support@opener-project.eu or leave an
+issue in the (issue tracker)[https://github.com/opener-project/opinion-detector-basic/issues].</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork it ( http://github.com/opener-project/opinion-detector-basic/fork )</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create new Pull Request</li>
+</ol>
+
+<div id="reference"></div>
+
+<h2 id="reference">Reference</h2>
+
+<h3 id="command-line-interface-1">Command Line Interface</h3>
+
+<p>To tag an input KAF file example.kaf with opinions you can run:</p>
+
+<pre><code>cat example.with.polarities.kaf | core/opinion_detector_basic_multi.py &gt; output.with.opinions.kaf
+</code></pre>
+
+<p>The output will the input KAF file extended with the opinion layer.</p>
+
+<p>Excerpt of example output.</p>
+
+<p>```</p>
+<opinions>
+  <opinion oid="o1">
+    <opinion_target>
+      <!--hotel-->
+      <span>
+        <target id="t_6" />
+      </span>
+    </opinion_target>
+    <opinion_expression polarity="positive" strength="2">
+      <!--heel mooi-->
+      <span>
+        <target id="t_4" />
+        <target id="t_5" />
+      </span>
+    </opinion_expression>
+  </opinion>
+</opinions>
+<p>```</p>
+
+<h3 id="webservice">Webservice</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<p><code>
+opinion-detector-basic-server
+</code></p>
+
+<p>After launching the server, you can reach the webservice at
+<a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+webserver used by the component. The options are:</p>
+
+<p><code>
+    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+    -C, --config PATH                Load PATH as a config file
+        --control URL                The bind url to use for the control server
+                                     Use 'auto' to use temp unix server
+        --control-token TOKEN        The token to use as authentication for the control server
+    -d, --daemon                     Daemonize the server into the background
+        --debug                      Log lowlevel debugging information
+        --dir DIR                    Change to DIR before starting
+    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+    -I, --include PATH               Specify $LOAD_PATH directories
+    -p, --port PORT                  Define the TCP port to bind to
+                                     Use -b for more advanced options
+        --pidfile PATH               Use PATH as a pidfile
+        --preload                    Preload the app. Cluster mode only
+        --prune-bundler              Prune out the bundler env if possible
+    -q, --quiet                      Quiet down the output
+    -R, --restart-cmd CMD            The puma command to run during a hot restart
+                                     Default: inferred
+    -S, --state PATH                 Where to store the state details
+    -t, --threads INT                min:max threads to use (default 0:16)
+        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+    -V, --version                    Print the version information
+    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
+        --tag NAME                   Additional text to display in process listing
+    -h, --help                       Show help
+</code></p>
+
+<h3 id="daemon-1">Daemon</h3>
+
+<p>The daemon has the default OpeNER daemon options. Being:</p>
+
+<p>```
+Usage: opinion-detector-basic-daemon &lt;start|stop|restart&gt; [options]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>When calling opinion-detector-basic without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Daemon options:
+    -i, –input QUEUE_NAME           Input queue name
+    -o, –output QUEUE_NAME          Output queue name
+        –batch-size COUNT           Request x messages at once where x is between 1 and 10
+        –buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        –sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, –readers COUNT              number of reader threads
+    -w, –workers COUNT              number of worker thread
+    -p, –writers COUNT              number of writer / pusher threads
+    -l, –logfile, –log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, –pidfile, –pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        –pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by –pid if that option is present
+        –debug                      Turn on debug log level
+        –relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+```</p>
+
+<h4 id="environment-variables">Environment Variables</h4>
+
+<p>These daemons make use of Amazon SQS queues and other Amazon services.
+The access to these services and other environment variables can be configured
+using a .opener-daemons-env file in the home directory of the current user.</p>
+
+<p>It is also possible to provide the environment variables directly to the deamon.</p>
+
+<p>For example:</p>
+
+<p><code>
+AWS_REGION='eu-west-1' opinion-detector-basic start [other options]
+</code></p>
+
+<p>We advise to have the following environment variables available: </p>
+
+<ul>
+  <li>AWS_ACCESS_KEY_ID</li>
+  <li>AWS_SECRET_ACCESS_KEY</li>
+  <li>AWS_REGION</li>
+</ul>
+
+<h3 id="languages">Languages</h3>
+
+<ul>
+  <li>Dutch (nl)</li>
+  <li>English (en)</li>
+  <li>French (fr)</li>
+  <li>German (de)</li>
+  <li>Italian (it)</li>
+  <li>Spanish (es)</li>
+</ul>
 
 
         </div>

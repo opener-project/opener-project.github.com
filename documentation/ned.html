@@ -86,71 +86,287 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="ned">NED</h1>
+<h2 id="introduction">Introduction</h2>
 
 <p>This repository contains a Named Entity Disambiguation tool that queries a
 DBpedia spotlight server. The client takes KAF as input (containing
 <code>&lt;entities&gt;</code> nodes).</p>
 
-<h2 id="requirements">Requirements</h2>
+<h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<ul>
-  <li>Ruby 1.9.2 or newer</li>
-  <li>Java 1.7 or newer</li>
-</ul>
+<p>This software is part of a larger collection of natural language processing
+tools known as “the OpeNER project”. You can find more information about the
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+also find references to terms like KAF (an XML standard to represent linguistic
+annotations in texts), component, cores, scenario’s and pipelines.</p>
 
-<h2 id="installation">Installation</h2>
+<h2 id="quick-use-example">Quick Use Example</h2>
 
-<p>Installing as a regular Gem:</p>
+<p>Installing the ned can be done by executing:</p>
 
 <pre><code>gem install opener-ned
 </code></pre>
 
-<p>Using Bundler:</p>
+<p>Please bare in mind that all components in OpeNER take KAF as an input and
+output KAF by default.</p>
 
-<pre><code>gem 'opener-ned',
-  :git    =&gt; 'git@github.com:opener-project/constituent-parser-base.git',
-  :branch =&gt; 'master'
-</code></pre>
+<h3 id="command-line-interface">Command line interface</h3>
 
-<p>Using specific install:</p>
-
-<pre><code>gem install specific_install
-gem specific_install opener-ned \
-   -l https://github.com/opener-project/constituent-parser-base.git
-</code></pre>
-
-<h2 id="usage">Usage</h2>
-
-<p>The NED client requires a working DBpedia Spotlight server to be available. By
-default it tries to connect to http://localhost:2020 (English language) but you
-can change this using the <code>--host</code> and <code>--port</code> options in the CLI.</p>
+<p>The NED client connects to the (DBPedia spotlight demo servers)[http://dbpedia-spotlight.github.io/demo/].</p>
 
 <p>A simple example:</p>
 
-<pre><code>cat some_input_file.kaf | ned --host=http://example.com/ --port=1234
+<pre><code>cat some_input_file.kaf | ned
 </code></pre>
 
-<h2 id="contributing">Contributing</h2>
+<p>An example output (excerpt) could look like this:</p>
 
-<p>First make sure all the required dependencies are installed:</p>
+<p>```xml
+<entity eid="e3" type="organization"></entity></p>
+<references>
+    <!--North Yorkshire Police-->
+    <span>
+      <target id="t17" />
+      <target id="t18" />
+      <target id="t19" />
+    </span>
+  </references>
+<externalreferences>
+    <externalref resource="spotlight_v1" reference="http://dbpedia.org/resource/North_Yorkshire_Police" />
+  </externalreferences>
+<p>&lt;/entity&gt;
+```</p>
 
-<pre><code>bundle install
+<h3 id="webservices">Webservices</h3>
+
+<p>You can launch a language identification webservice by executing:</p>
+
+<pre><code>ned-server
 </code></pre>
 
-<p>Then compile the required Java code:</p>
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292,
+so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<pre><code>bundle exec rake compile
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
+this:</p>
+
+<pre><code>ned-server -p 1234
 </code></pre>
 
-<p>For this you’ll need to have Java 1.7 and Maven installed. These requirements
-are verified for you before the Rake task calls Maven.</p>
+<p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
 
-<h2 id="structure">Structure</h2>
+<p>Documentation on the Webservice is provided by surfing to the urls provided
+above. For more information on how to launch a webservice run the command with
+the <code>-h</code> option.</p>
+
+<h3 id="daemon">Daemon</h3>
+
+<p>Last but not least the NED comes shipped with a daemon that
+can read jobs (and write) jobs to and from Amazon SQS queues. For more
+information type:</p>
+
+<pre><code>ned-daemon -h
+</code></pre>
+
+<h2 id="description-of-dependencies">Description of dependencies</h2>
+
+<p>This component runs best if you run it in an environment suited for OpeNER
+components. You can find an installation guide and helper tools in the (OpeNER
+installer)[https://github.com/opener-project/opener-installer] and (an
+installation guide on the Opener
+Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+
+<p>At least you need the following system setup:</p>
+
+<h3 id="depenencies-for-normal-use">Depenencies for normal use:</h3>
+
+<ul>
+  <li>Jruby (1.7.9 or newer)</li>
+  <li>Java 1.7 or newer (There are problems with encoding in older versions).</li>
+</ul>
+
+<h3 id="dependencies-if-you-want-to-modify-the-component">Dependencies if you want to modify the component:</h3>
+
+<ul>
+  <li>Maven (for building the Gem)</li>
+</ul>
+
+<h3 id="structure">Structure</h3>
 
 <p>This repository comes in two parts: a collection of Java source files and Ruby
 source files. The Java code can be found in the <code>core/</code> directory, everything
 else will be Ruby source code.</p>
+
+<h2 id="language-extension">Language Extension</h2>
+
+<p>TODO</p>
+
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+
+<ul>
+  <li>Check (the project websitere)[http://opener-project.github.io]</li>
+  <li>(Checkout the webservice)[http://opener.olery.com/ned]</li>
+</ul>
+
+<h2 id="report-problemget-help">Report problem/Get help</h2>
+
+<p>If you encounter problems, please email support@opener-project.eu or leave an
+issue in the (issue tracker)[https://github.com/opener-project/ned/issues].</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork it ( http://github.com/opener-project/ned/fork )</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create new Pull Request</li>
+</ol>
+
+<div id="reference"></div>
+
+<h2 id="reference">Reference</h2>
+
+<h3 id="command-line-interface-1">Command Line Interface</h3>
+
+<h4 id="examples">Examples:</h4>
+
+<h3 id="command-line-interface-2">Command line interface</h3>
+
+<p>A simple example:</p>
+
+<pre><code>cat some_input_file.kaf | ned
+</code></pre>
+
+<p>An example output (excerpt) could look like this:</p>
+
+<p>```xml
+<entity eid="e3" type="organization"></entity></p>
+<references>
+    <!--North Yorkshire Police-->
+    <span>
+      <target id="t17" />
+      <target id="t18" />
+      <target id="t19" />
+    </span>
+  </references>
+<externalreferences>
+    <externalref resource="spotlight_v1" reference="http://dbpedia.org/resource/North_Yorkshire_Police" />
+  </externalreferences>
+<p>&lt;/entity&gt;
+```</p>
+
+<h3 id="webservice">Webservice</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<p><code>
+ner-server
+</code></p>
+
+<p>After launching the server, you can reach the webservice at
+<a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+webserver used by the component. The options are:</p>
+
+<p><code>
+    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+    -C, --config PATH                Load PATH as a config file
+        --control URL                The bind url to use for the control server
+                                     Use 'auto' to use temp unix server
+        --control-token TOKEN        The token to use as authentication for the control server
+    -d, --daemon                     Daemonize the server into the background
+        --debug                      Log lowlevel debugging information
+        --dir DIR                    Change to DIR before starting
+    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+    -I, --include PATH               Specify $LOAD_PATH directories
+    -p, --port PORT                  Define the TCP port to bind to
+                                     Use -b for more advanced options
+        --pidfile PATH               Use PATH as a pidfile
+        --preload                    Preload the app. Cluster mode only
+        --prune-bundler              Prune out the bundler env if possible
+    -q, --quiet                      Quiet down the output
+    -R, --restart-cmd CMD            The puma command to run during a hot restart
+                                     Default: inferred
+    -S, --state PATH                 Where to store the state details
+    -t, --threads INT                min:max threads to use (default 0:16)
+        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+    -V, --version                    Print the version information
+    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
+        --tag NAME                   Additional text to display in process listing
+    -h, --help                       Show help
+</code></p>
+
+<h3 id="daemon-1">Daemon</h3>
+
+<p>The daemon has the default OpeNER daemon options. Being:</p>
+
+<p>```
+Usage: ner-daemon &lt;start|stop|restart&gt; [options]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>When calling ner without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Daemon options:
+    -i, –input QUEUE_NAME           Input queue name
+    -o, –output QUEUE_NAME          Output queue name
+        –batch-size COUNT           Request x messages at once where x is between 1 and 10
+        –buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        –sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, –readers COUNT              number of reader threads
+    -w, –workers COUNT              number of worker thread
+    -p, –writers COUNT              number of writer / pusher threads
+    -l, –logfile, –log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, –pidfile, –pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        –pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by –pid if that option is present
+        –debug                      Turn on debug log level
+        –relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+```</p>
+
+<h4 id="environment-variables">Environment Variables</h4>
+
+<p>These daemons make use of Amazon SQS queues and other Amazon services.
+The access to these services and other environment variables can be configured
+using a .opener-daemons-env file in the home directory of the current user.</p>
+
+<p>It is also possible to provide the environment variables directly to the deamon.</p>
+
+<p>For example:</p>
+
+<p><code>
+AWS_REGION='eu-west-1' ner start [other options]
+</code></p>
+
+<p>We advise to have the following environment variables available: </p>
+
+<ul>
+  <li>AWS_ACCESS_KEY_ID</li>
+  <li>AWS_SECRET_ACCESS_KEY</li>
+  <li>AWS_REGION</li>
+</ul>
+
+<h3 id="languages">Languages</h3>
+
+<ul>
+  <li>English (en)</li>
+  <li>Dutch (nl)</li>
+  <li>French (fr)</li>
+  <li>German (de)</li>
+  <li>Spanish (es)</li>
+  <li>Italian (it)</li>
+  <li>Russian (ru)</li>
+  <li>Portuguese (pt)</li>
+  <li>Hungarian (hu)</li>
+  <li>Turkish (tr)</li>
+</ul>
 
         </div>
       </div>
