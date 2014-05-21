@@ -1,8 +1,8 @@
 ---
 layout: default
-title: S3 Outlet
+title: Constituent Parser
 sidebar: documentation
-webservice: http://opener.olery.com/s3-outlet
+webservice: http://opener.olery.com/constituent-parser
 
 ---
 
@@ -10,11 +10,20 @@ webservice: http://opener.olery.com/s3-outlet
 
 <div id='readme'></div>
 
-S3-Outlet
-------------
+Constituent-Parser
+------------------
 
-Component that stores results from the Opener Web Services chain into a SQLite 
-Database and shows them into your browser.
+The constituent parser wraps several other constituent parsers into a component
+that parses the 6 main opener languages. Each language uses it's own parser and
+core. For more information on the specific languages, please check the
+individual cores.
+
+* (English, Spanish and French)[https://github.com/opener-project/constituent-parser-base] - OpeNER
+* (German)[https://github.com/opener-project/constituent-parser-de] - Stanford
+  Based
+* (Dutch)[https://github.com/opener-project/constituent-parser-nl] - Alpino
+  Based
+
 
 ### Confused by some terminology?
 
@@ -27,18 +36,59 @@ annotations in texts), component, cores, scenario's and pipelines.
 Quick Use Example
 -----------------
 
-Installing the s3-outlet can be done by executing:
+Installing the constituent-parser can be done by executing:
 
-    gem install opener-s3-outlet
+    gem install opener-constituent-parser
 
 Please bare in mind that all components in OpeNER take KAF as an input and
 output KAF by default.
 
+### Command line interface
+
+You should now be able to call the constituent parser as a regular shell
+command: by its name. Once installed the gem normalyl sits in your path so you can call it directly from anywhere.
+
+This aplication reads a text from standard input in order to identify the language.
+
+    cat some_kind_of_kaf_file.kaf | constituent-parser
+
+
+This is an excerpt of an example output:
+
+```
+<!--he-->
+      <t id="ter761">
+        <span>
+          <target id="t761" />
+        </span>
+      </t>
+      <!--added-->
+      <t id="ter762">
+        <span>
+          <target id="t762" />
+        </span>
+      </t>
+      <!--.-->
+      <t id="ter763">
+        <span>
+          <target id="t763" />
+        </span>
+      </t>
+      <!--Tree edges-->
+      <edge id="tre2051" from="nter1328" to="nter1327" />
+      <edge id="tre2052" from="nter1329" to="nter1328" />
+      <edge id="tre2053" from="nter1330" to="nter1329" />
+      <edge id="tre2054" from="nter1331" to="nter1330" head="yes" />
+      <edge id="tre2055" from="nter1332" to="nter1331" head="yes" />
+      <edge id="tre2056" from="nter1333" to="nter1332" />
+
+```
+
 ### Webservices
 
-You can launch a webservice by executing:
+You can launch a language identification webservice by executing:
 
-    s3-outlet-server
+    constituent-parser-server
 
 This will launch a mini webserver with the webservice. It defaults to port 9292,
 so you can access it at <http://localhost:9292>.
@@ -46,7 +96,7 @@ so you can access it at <http://localhost:9292>.
 To launch it on a different port provide the `-p [port-number]` option like
 this:
 
-    s3-outlet-server -p 1234
+    constituent-parser-server -p 1234
 
 It then launches at <http://localhost:1234>
 
@@ -57,11 +107,11 @@ the ```-h``` option.
 
 ### Daemon
 
-Last but not least the s3-outlet comes shipped with a daemon that
+Last but not least the constituent parser comes shipped with a daemon that
 can read jobs (and write) jobs to and from Amazon SQS queues. For more
 information type:
 
-    s3-outlet-daemon -h
+    constituent-parser-daemon -h
 
 
 Description of dependencies
@@ -77,48 +127,44 @@ At least you need the following system setup:
 
 ### Depenencies for normal use:
 
-* JRuby 1.7.9 or newer
-* Ruby 1.9.3 or newer
+* Jruby (1.7.9 or newer)
+* Java 1.7 or newer (There are problems with encoding in older versions).
+* Python 2.6
 
-Domain Adaption
----------------
+If you want to use the Dutch constituent parser you need to have:
 
-  TODO
+* Alpino (http://www.let.rug.nl/vannoord/alp/Alpino/AlpinoUserGuide.html)
 
 Language Extension
 ------------------
 
   TODO
 
-The Core
---------
-
-The component is a fat wrapper around the actual language technology core. You
-can find the core technolies in the following repositories:
-
-* (link to) Related Core readmes
 
 Where to go from here
 ---------------------
 
 * Check (the project websitere)[http://opener-project.github.io]
-* (Checkout the webservice)[http://opener.olery.com/s3-outlet]
+* (Checkout the webservice)[http://opener.olery.com/constituent-parser]
 
 Report problem/Get help
 -----------------------
 
 If you encounter problems, please email support@opener-project.eu or leave an
-issue in the (issue tracker)[https://github.com/opener-project/s3-outlet/issues].
+issue in the (issue tracker)[https://github.com/opener-project/constituent-parser/issues].
 
 
 Contributing
 ------------
 
-1. Fork it ( http://github.com/opener-project/s3-outlet/fork )
+1. Fork it ( http://github.com/opener-project/constituent-parser/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+
+
 
 <div id='reference'></div>
 
@@ -126,12 +172,47 @@ Contributing
 
 ### Command Line Interface
 
+```
+cat some_kind_of_kaf_file.kaf | constituent-parser
+```
+
+This is an excerpt of an example output:
+
+```
+<!--he-->
+      <t id="ter761">
+        <span>
+          <target id="t761" />
+        </span>
+      </t>
+      <!--added-->
+      <t id="ter762">
+        <span>
+          <target id="t762" />
+        </span>
+      </t>
+      <!--.-->
+      <t id="ter763">
+        <span>
+          <target id="t763" />
+        </span>
+      </t>
+      <!--Tree edges-->
+      <edge id="tre2051" from="nter1328" to="nter1327" />
+      <edge id="tre2052" from="nter1329" to="nter1328" />
+      <edge id="tre2053" from="nter1330" to="nter1329" />
+      <edge id="tre2054" from="nter1331" to="nter1330" head="yes" />
+      <edge id="tre2055" from="nter1332" to="nter1331" head="yes" />
+      <edge id="tre2056" from="nter1333" to="nter1332" />
+
+```
+
 ### Webservice
 
 You can launch a webservice by executing:
 
 ```
-s3-outlet-server
+constituent-parser-server
 ```
 
 After launching the server, you can reach the webservice at
@@ -174,9 +255,9 @@ webserver used by the component. The options are:
 The daemon has the default OpeNER daemon options. Being:
 
 ```
-Usage: s3-outlet-daemon <start|stop|restart> [options]
+Usage: constituent-parser-daemon <start|stop|restart> [options]
 
-When calling s3-outlet without <start|stop|restart> the daemon will start as a foreground process
+When calling constituent-parser without <start|stop|restart> the daemon will start as a foreground process
 
 Daemon options:
     -i, --input QUEUE_NAME           Input queue name
@@ -205,11 +286,21 @@ It is also possible to provide the environment variables directly to the deamon.
 For example:
 
 ```
-AWS_REGION='eu-west-1' s3-outlet start [other options]
+AWS_REGION='eu-west-1' constituent-parser start [other options]
 ```
 
-We advise to have the following environment variables available: 
+We advise to have the following environment variables available:
 
 * AWS_ACCESS_KEY_ID
 * AWS_SECRET_ACCESS_KEY
 * AWS_REGION
+
+### Languages
+
+* Dutch (nl) (If you have Alpino installed)
+* English (en)
+* French (fr)
+* German (de)
+* Italian (it)
+* Spanish (es)
+

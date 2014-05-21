@@ -309,7 +309,6 @@ documentation:
     - *c_storage
     - *c_converters
     - *c_processors
-    - *c_toolkits
   lexicons: *lexicons
   datasets: *datasets
   other:

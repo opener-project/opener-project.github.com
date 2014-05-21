@@ -110,7 +110,6 @@ At least you need the following system setup:
 
 * Maven (for building the Gem)
 
-
 Domain Adaption
 ---------------
 
