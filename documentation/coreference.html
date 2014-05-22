@@ -99,10 +99,10 @@
 
 <h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<p>This software is part of a larger collection of natural language processing
-tools known as “the OpeNER project”. You can find more information about the
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can
-also find references to terms like KAF (an XML standard to represent linguistic
+<p>This software is part of a larger collection of natural language processing<br />
+tools known as “the OpeNER project”. You can find more information about the<br />
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can<br />
+also find references to terms like KAF (an XML standard to represent linguistic<br />
 annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h2 id="quick-use-example">Quick Use Example</h2>
@@ -112,12 +112,12 @@ annotations in texts), component, cores, scenario’s and pipelines.</p>
 <pre><code>gem install opener-coreference
 </code></pre>
 
-<p>Please bare in mind that all components in OpeNER take KAF as an input and
+<p>Please bare in mind that all components in OpeNER take KAF as an input and<br />
 output KAF by default.</p>
 
 <h3 id="command-line-interface">Command line interface</h3>
 
-<p>You should now be able to call the coreference as a regular shell
+<p>You should now be able to call the coreference as a regular shell<br />
 command: by its name. Once installed the gem normalyl sits in your path so you can call it directly from anywhere.</p>
 
 <p>This aplication reads a text from standard input in order to identify the language.</p>
@@ -127,23 +127,25 @@ command: by its name. Once installed the gem normalyl sits in your path so you c
 
 <p>This will output:</p>
 
-<p><code>xml
-&lt;coref coid="co5"&gt;
-  &lt;!--Her father--&gt;
-  &lt;span&gt;
-    &lt;target id="t45"/&gt;
-    &lt;target id="t46"/&gt;
-  &lt;/span&gt;
-  &lt;!--him--&gt;
-  &lt;span&gt;
-    &lt;target id="t58"/&gt;
-  &lt;/span&gt;
-  &lt;!--his--&gt;
-  &lt;span&gt;
-    &lt;target id="t54"/&gt;
-  &lt;/span&gt;
-&lt;/coref&gt;
-</code></p>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;coref</span> <span style="color:#b48">coid</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">co5</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#777">&lt;!--Her father--&gt;</span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t45</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t46</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>  <span style="color:#777">&lt;!--him--&gt;</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t58</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>  <span style="color:#777">&lt;!--his--&gt;</span>
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t54</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span><span style="color:#070;font-weight:bold">&lt;/coref&gt;</span>
+</pre></div>
+</div>
+</div>
 
 <h3 id="webservices">Webservices</h3>
 
@@ -152,10 +154,10 @@ command: by its name. Once installed the gem normalyl sits in your path so you c
 <pre><code>coreference-server
 </code></pre>
 
-<p>This will launch a mini webserver with the webservice. It defaults to port 9292,
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292,<br />
 so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like<br />
 this:</p>
 
 <pre><code>coreference-server -p 1234
@@ -163,14 +165,14 @@ this:</p>
 
 <p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
 
-<p>Documentation on the Webservice is provided by surfing to the urls provided
-above. For more information on how to launch a webservice run the command with
+<p>Documentation on the Webservice is provided by surfing to the urls provided<br />
+above. For more information on how to launch a webservice run the command with<br />
 the <code>-h</code> option.</p>
 
 <h3 id="daemon">Daemon</h3>
 
-<p>Last but not least the coreference comes shipped with a daemon that
-can read jobs (and write) jobs to and from Amazon SQS queues. For more
+<p>Last but not least the coreference comes shipped with a daemon that<br />
+can read jobs (and write) jobs to and from Amazon SQS queues. For more<br />
 information type:</p>
 
 <pre><code>coreference-daemon -h
@@ -178,10 +180,10 @@ information type:</p>
 
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
-<p>This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the (OpeNER
-installer)[https://github.com/opener-project/opener-installer] and (an
-installation guide on the Opener
+<p>This component runs best if you run it in an environment suited for OpeNER<br />
+components. You can find an installation guide and helper tools in the (OpeNER<br />
+installer)[https://github.com/opener-project/opener-installer] and (an<br />
+installation guide on the Opener<br />
 Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
 
 <p>At least you need the following system setup:</p>
@@ -195,11 +197,11 @@ Website)[http://opener-project.github.io/getting-started/how-to/local-installati
 
 <h2 id="adapting-corefgraph-en-to-your-language">Adapting CorefGraph-en to your language</h2>
 
-<p>There are a number of changes needed to be made to make CorefGraph works for
-other languages. Although we have try to keep the language dependent features
-to a minimum, you will still need to create some dictionaries for your own
-language and make some very minor changes in the code. Here is the list of very
-file in the Corefgraph module that needs to be changed.  Every change except
+<p>There are a number of changes needed to be made to make CorefGraph works for<br />
+other languages. Although we have try to keep the language dependent features<br />
+to a minimum, you will still need to create some dictionaries for your own<br />
+language and make some very minor changes in the code. Here is the list of very<br />
+file in the Corefgraph module that needs to be changed.  Every change except<br />
 one (see below) to be done in the <strong>$project/core/corefgraph/resources</strong> directory:</p>
 
 <ul>
@@ -234,7 +236,7 @@ one (see below) to be done in the <strong>$project/core/corefgraph/resources</st
 
 <h2 id="the-core">The Core</h2>
 
-<p>The component is a fat wrapper around the actual language technology core. You
+<p>The component is a fat wrapper around the actual language technology core. You<br />
 can find the core technolies in the following repositories:</p>
 
 <ul>
@@ -250,7 +252,7 @@ can find the core technolies in the following repositories:</p>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email support@opener-project.eu or leave an
+<p>If you encounter problems, please email support@opener-project.eu or leave an<br />
 issue in the (issue tracker)[https://github.com/opener-project/coreference/issues].</p>
 
 <h2 id="contributing">Contributing</h2>
@@ -269,44 +271,43 @@ issue in the (issue tracker)[https://github.com/opener-project/coreference/issue
 
 <h3 id="command-line-interface-1">Command Line Interface</h3>
 
-<p><code>
-cat some_kind_of_kaf_file.kaf | coreference
-</code></p>
+<pre><code>cat some_kind_of_kaf_file.kaf | coreference
+</code></pre>
 
-<p><code>xml
-&lt;coref coid="co5"&gt;
-  &lt;!--Her father--&gt;
-  &lt;span&gt;
-    &lt;target id="t45"/&gt;
-    &lt;target id="t46"/&gt;
-  &lt;/span&gt;
-  &lt;!--him--&gt;
-  &lt;span&gt;
-    &lt;target id="t58"/&gt;
-  &lt;/span&gt;
-  &lt;!--his--&gt;
-  &lt;span&gt;
-    &lt;target id="t54"/&gt;
-  &lt;/span&gt;
-&lt;/coref&gt;
-</code></p>
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;coref</span> <span style="color:#b48">coid</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">co5</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#777">&lt;!--Her father--&gt;</span>
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t45</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t46</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>  <span style="color:#777">&lt;!--him--&gt;</span>
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t58</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>  <span style="color:#777">&lt;!--his--&gt;</span>
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t54</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+<span class="line-numbers"><a href="#n14" name="n14">14</a></span>  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span class="line-numbers"><a href="#n15" name="n15">15</a></span><span style="color:#070;font-weight:bold">&lt;/coref&gt;</span>
+</pre></div>
+</div>
+</div>
 
 <h3 id="webservice">Webservice</h3>
 
 <p>You can launch a webservice by executing:</p>
 
-<p><code>
-coreference-server
-</code></p>
+<pre><code>coreference-server
+</code></pre>
 
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the<br />
 webserver used by the component. The options are:</p>
 
-<p><code>
-    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+<pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
     -C, --config PATH                Load PATH as a config file
         --control URL                The bind url to use for the control server
                                      Use 'auto' to use temp unix server
@@ -331,54 +332,44 @@ webserver used by the component. The options are:</p>
     -w, --workers COUNT              Activate cluster mode: How many worker processes to create
         --tag NAME                   Additional text to display in process listing
     -h, --help                       Show help
-</code></p>
+</code></pre>
 
 <h3 id="daemon-1">Daemon</h3>
 
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
-<p>```
-Usage: coreference-daemon &lt;start|stop|restart&gt; [options]</p>
+<pre><code>Usage: coreference-daemon &lt;start|stop|restart&gt; [options]
 
-<table>
-  <tbody>
-    <tr>
-      <td>When calling coreference without &lt;start</td>
-      <td>stop</td>
-      <td>restart&gt; the daemon will start as a foreground process</td>
-    </tr>
-  </tbody>
-</table>
+When calling coreference without &lt;start|stop|restart&gt; the daemon will start as a foreground process
 
-<p>Daemon options:
-    -i, –input QUEUE_NAME           Input queue name
-    -o, –output QUEUE_NAME          Output queue name
-        –batch-size COUNT           Request x messages at once where x is between 1 and 10
-        –buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
-        –sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
-    -r, –readers COUNT              number of reader threads
-    -w, –workers COUNT              number of worker thread
-    -p, –writers COUNT              number of writer / pusher threads
-    -l, –logfile, –log FILENAME    Filename and path of logfile. Defaults to STDOUT
-    -P, –pidfile, –pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
-        –pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by –pid if that option is present
-        –debug                      Turn on debug log level
-        –relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
-```</p>
+Daemon options:
+    -i, --input QUEUE_NAME           Input queue name
+    -o, --output QUEUE_NAME          Output queue name
+        --batch-size COUNT           Request x messages at once where x is between 1 and 10
+        --buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        --sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, --readers COUNT              number of reader threads
+    -w, --workers COUNT              number of worker thread
+    -p, --writers COUNT              number of writer / pusher threads
+    -l, --logfile, --log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, --pidfile, --pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        --pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by --pid if that option is present
+        --debug                      Turn on debug log level
+        --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+</code></pre>
 
 <h4 id="environment-variables">Environment Variables</h4>
 
-<p>These daemons make use of Amazon SQS queues and other Amazon services.
-The access to these services and other environment variables can be configured
+<p>These daemons make use of Amazon SQS queues and other Amazon services.<br />
+The access to these services and other environment variables can be configured<br />
 using a .opener-daemons-env file in the home directory of the current user.</p>
 
 <p>It is also possible to provide the environment variables directly to the deamon.</p>
 
 <p>For example:</p>
 
-<p><code>
-AWS_REGION='eu-west-1' coreference start [other options]
-</code></p>
+<pre><code>AWS_REGION='eu-west-1' coreference start [other options]
+</code></pre>
 
 <p>We advise to have the following environment variables available:</p>
 

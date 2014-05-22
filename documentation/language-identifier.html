@@ -91,19 +91,19 @@
 
 <h1 id="language-identifier">Language Identifier</h1>
 
-<p>The language identifier takes raw text and tries to figure out what language it
-was written in. The output can either be a plain-text i18n language code or a basic
+<p>The language identifier takes raw text and tries to figure out what language it<br />
+was written in. The output can either be a plain-text i18n language code or a basic<br />
 KAF document containing the language and raw input text.</p>
 
-<p>The output of the language identifier can then be used to drive further text
+<p>The output of the language identifier can then be used to drive further text<br />
 analysis of for example sentiments and or entities.</p>
 
 <h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<p>This software is part of a larger collection of natural language processing
-tools known as “the OpeNER project”. You can find more information about the
-project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can
-also find references to terms like KAF (an XML standard to represent linguistic
+<p>This software is part of a larger collection of natural language processing<br />
+tools known as “the OpeNER project”. You can find more information about the<br />
+project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can<br />
+also find references to terms like KAF (an XML standard to represent linguistic<br />
 annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h2 id="quick-use-example">Quick Use Example</h2>
@@ -117,7 +117,7 @@ annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h3 id="command-line-interface">Command line interface</h3>
 
-<p>You should now be able to call the language indentifier as a regular shell
+<p>You should now be able to call the language indentifier as a regular shell<br />
 command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
 
 <p>This aplication reads a text from standard input in order to identify the language.</p>
@@ -133,7 +133,7 @@ command: by its name. Once installed the gem normally sits in your path so you c
 &lt;/KAF&gt;
 </code></pre>
 
-<p>If you just want the language code returned add the <code>--no-kaf</code> option like
+<p>If you just want the language code returned add the <code>--no-kaf</code> option like<br />
 this</p>
 
 <pre><code>echo "This is an English text." | language-identifier --no-kaf
@@ -151,10 +151,10 @@ this</p>
 <pre><code>$ language-identifier-server
 </code></pre>
 
-<p>This will launch a mini webserver with the webservice. It defaults to port 9292,
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292,<br />
 so you can access it at <a href="http://localhost:9292/">http://localhost:9292/</a>.</p>
 
-<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like<br />
 this:</p>
 
 <pre><code>language-identifier-server -p 1234
@@ -162,14 +162,14 @@ this:</p>
 
 <p>It then launches at <a href="http://localhost:1234/">http://localhost:1234/</a></p>
 
-<p>Documentation on the Webservice is provided by surfing to the urls provided
-above. For more information on how to launch a webservice run the command with
+<p>Documentation on the Webservice is provided by surfing to the urls provided<br />
+above. For more information on how to launch a webservice run the command with<br />
 the <code>-h</code> option.</p>
 
 <h3 id="daemon">Daemon</h3>
 
-<p>Last but not least the language identifier comes shipped with a daemon that
-can read jobs (and write) jobs to and from Amazon SQS queues. For more
+<p>Last but not least the language identifier comes shipped with a daemon that<br />
+can read jobs (and write) jobs to and from Amazon SQS queues. For more<br />
 information type:</p>
 
 <pre><code>$ language-identifier-daemon -h
@@ -177,7 +177,7 @@ information type:</p>
 
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
-<p>This component runs best if you run it in an environment suited for OpeNER
+<p>This component runs best if you run it in an environment suited for OpeNER<br />
 components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">an installation guide on the OpenerWebsite</a></p>
 
 <p>At least you need the following system setup:</p>
@@ -198,13 +198,13 @@ components. You can find an installation guide and helper tools in the <a href="
 
 <h2 id="language-extension">Language Extension</h2>
 
-<p>The internal library that actually performs the language identification already supports a lot of languages. 
+<p>The internal library that actually performs the language identification already supports a lot of languages. <br />
 For more information about how to extends it for more languages or functionalities, please, visit the website of the tool at <a href="https://code.google.com/p/language-detection/">https://code.google.com/p/language-detection/</a></p>
 
 <h2 id="the-core">The Core</h2>
 
-<p>The component is a fat wrapper around the actual language technology core.
-Written in Java. Checkout the core/src directory of the package to get to the
+<p>The component is a fat wrapper around the actual language technology core.<br />
+Written in Java. Checkout the core/src directory of the package to get to the<br />
 actual working component.</p>
 
 <h2 id="where-to-go-from-here">Where to go from here</h2>
@@ -216,7 +216,7 @@ actual working component.</p>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email support@opener-project.eu or leave an
+<p>If you encounter problems, please email support@opener-project.eu or leave an<br />
 issue in the <a href="https://github.com/opener-project/language-identifier/issues">issue tracker</a>. </p>
 
 <h2 id="contributing">Contributing</h2>
@@ -235,117 +235,95 @@ issue in the <a href="https://github.com/opener-project/language-identifier/issu
 
 <h3 id="command-line-interface-1">Command Line Interface</h3>
 
-<p><code>
-Usage: language-identifier [options]
+<pre><code>Usage: language-identifier [options]
   -v, --version                    Shows the current version
   -k, --[no-]kaf                   Output the language as KAF
   -p, --probs                      Provide probabilities, assumes --no-kaf
-</code></p>
+</code></pre>
 
 <h4 id="examples">Examples:</h4>
 
 <h5 id="basic-usage">Basic Usage</h5>
-<p><code>
-cat example_text.txt | language-identifier    # Basic detection
-</code></p>
+
+<pre><code>cat example_text.txt | language-identifier    # Basic detection
+</code></pre>
 
 <h5 id="kaf-is-the-default-output">KAF is the default output</h5>
 
-<p><code>
-echo "This is english text." | language-identifier    # Defaults to KAF output
-</code></p>
+<pre><code>echo "This is english text." | language-identifier    # Defaults to KAF output
+</code></pre>
 
-<p><code>xml
-    &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
-    &lt;KAF xml:lang="en" version="2.1"&gt;  
-        &lt;raw&gt;This is english text.
-    &lt;/raw&gt;
-    &lt;/KAF&gt;
-</code></p>
+<pre><code>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;KAF xml:lang="en" version="2.1"&gt;  
+    &lt;raw&gt;This is english text.&lt;/raw&gt;
+&lt;/KAF&gt;
+</code></pre>
 
 <h5 id="output-probabilities">Output Probabilities</h5>
 
-<p><code>
-echo "This is een mix van Nederlandse and English text" | language-identifier --probs    # output probabilities
-</code></p>
-
-<p><code>
-[nl:0.8579977424996601, en:0.14200189400782184]
-</code></p>
+<pre><code>echo "This is een mix van Nederlandse and English text" | language-identifier --probs    # output probabilities            [nl:0.8579977424996601, en:0.14200189400782184]
+</code></pre>
 
 <h3 id="webservice-1">Webservice</h3>
 
 <p>You can launch a webservice by executing:</p>
 
-<p><code>
-language-identifier-server
-</code></p>
+<pre><code>language-identifier-server
+</code></pre>
 
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the<br />
 webserver used by the component. The options are:</p>
 
-<pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
-    -C, --config PATH                Load PATH as a config file
-        --control URL                The bind url to use for the control server
+<pre><code>-b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+-C, --config PATH                Load PATH as a config file
+    --control URL                The bind url to use for the control server
                                      Use 'auto' to use temp unix server
-        --control-token TOKEN        The token to use as authentication for the control server
-    -d, --daemon                     Daemonize the server into the background
-        --debug                      Log lowlevel debugging information
-        --dir DIR                    Change to DIR before starting
-    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
-    -I, --include PATH               Specify $LOAD_PATH directories
-    -p, --port PORT                  Define the TCP port to bind to
-                                     Use -b for more advanced options
-        --pidfile PATH               Use PATH as a pidfile
-        --preload                    Preload the app. Cluster mode only
-        --prune-bundler              Prune out the bundler env if possible
-    -q, --quiet                      Quiet down the output
-    -R, --restart-cmd CMD            The puma command to run during a hot restart
-                                     Default: inferred
-    -S, --state PATH                 Where to store the state details
-    -t, --threads INT                min:max threads to use (default 0:16)
-        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
-    -V, --version                    Print the version information
-    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
-        --tag NAME                   Additional text to display in process listing
-    -h, --help                       Show help
+    --control-token TOKEN        The token to use as authentication for the control server
+-d, --daemon                     Daemonize the server into the background
+    --debug                      Log lowlevel debugging information
+    --dir DIR                    Change to DIR before starting
+-e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+-I, --include PATH               Specify $LOAD_PATH directories
+-p, --port PORT                  Define the TCP port to bind to
+                                 Use -b for more advanced options
+    --pidfile PATH               Use PATH as a pidfile
+    --preload                    Preload the app. Cluster mode only
+    --prune-bundler              Prune out the bundler env if possible
+-q, --quiet                      Quiet down the output
+-R, --restart-cmd CMD            The puma command to run during a hot restart
+                                 Default: inferred
+-S, --state PATH                 Where to store the state details
+-t, --threads INT                min:max threads to use (default 0:16)
+    --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+-V, --version                    Print the version information
+-w, --workers COUNT              Activate cluster mode: How many worker processes to create
+    --tag NAME                   Additional text to display in process listing
+-h, --help                       Show help
 </code></pre>
 
 <h3 id="daemon-1">Daemon</h3>
 
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
-<p>```
- Usage: language-identifier &lt;start|stop|restart&gt; [options]</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>When calling language-identifier without &lt;start</td>
-      <td>stop</td>
-      <td>restart&gt; the daemon will start as a foreground process</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>```</p>
+<pre><code>Usage: language-identifier &lt;start|stop|restart&gt; [options]
+When calling language-identifier without &lt;start|stop|restart&gt; the daemon will start as a foreground process
+</code></pre>
 
 <h4 id="environment-variables">Environment Variables</h4>
 
-<p>These daemons make use of Amazon SQS queues and other Amazon services.
-The access to these services and other environment variables can be configured
+<p>These daemons make use of Amazon SQS queues and other Amazon services.<br />
+The access to these services and other environment variables can be configured<br />
 using a .opener-daemons-env file in the home directory of the current user.</p>
 
 <p>It is also possible to provide the environment variables directly to the deamon.</p>
 
 <p>For example:</p>
 
-<p><code>
-AWS_REGION='eu-west-1' language-identifier start [other options]
-</code></p>
+<pre><code>AWS_REGION='eu-west-1' language-identifier start [other options]
+</code></pre>
 
 <p>We advise to have the following environment variables available: </p>
 
@@ -357,19 +335,19 @@ AWS_REGION='eu-west-1' language-identifier start [other options]
 
 <h4 id="daemon-options">Daemon Options</h4>
 
-<pre><code>    -i, --input QUEUE_NAME           Input queue name
-    -o, --output QUEUE_NAME          Output queue name
-        --batch-size COUNT           Request x messages at once where x is between 1 and 10
-        --buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
-        --sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
-    -r, --readers COUNT              number of reader threads
-    -w, --workers COUNT              number of worker thread
-    -p, --writers COUNT              number of writer / pusher threads
-    -l, --logfile, --log FILENAME    Filename and path of logfile. Defaults to STDOUT
-    -P, --pidfile, --pid FILENAME    Filename and path of pidfile. Defaults to /var/run/language-identifier.pid
-        --pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by --pid if that option is present
-        --debug                      Turn on debug log level
-        --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+<pre><code>-i, --input QUEUE_NAME           Input queue name
+-o, --output QUEUE_NAME          Output queue name
+    --batch-size COUNT           Request x messages at once where x is between 1 and 10
+    --buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+    --sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+-r, --readers COUNT              number of reader threads
+-w, --workers COUNT              number of worker thread
+-p, --writers COUNT              number of writer / pusher threads
+-l, --logfile, --log FILENAME    Filename and path of logfile. Defaults to STDOUT
+-P, --pidfile, --pid FILENAME    Filename and path of pidfile. Defaults to /var/run/language-identifier.pid
+    --pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by --pid if that option is present
+    --debug                      Turn on debug log level
+    --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
 </code></pre>
 
 <h3 id="languages">Languages</h3>

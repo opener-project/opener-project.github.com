@@ -92,7 +92,7 @@
 <p>This repository contains the code for the OpeNER polarity tagger. This tool tags words in a KAF file with polarity information, which basically is:</p>
 
 <ul>
-  <li>Polarity information, which represents positive or negative facts in a certain domain. Good, cheap and clean can be positive words in a hotel domain, while
+  <li>Polarity information, which represents positive or negative facts in a certain domain. Good, cheap and clean can be positive words in a hotel domain, while<br />
 bad, expensive and dirty could be negative ones.</li>
   <li>Sentiment modifiers, which modify the polarity of a surrounding polarity word. For instance very or no are sentiment modifiers</li>
 </ul>
@@ -110,10 +110,10 @@ bad, expensive and dirty could be negative ones.</li>
 
 <h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<p>This software is part of a larger collection of natural language processing
-tools known as “the OpeNER project”. You can find more information about the
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can
-also find references to terms like KAF (an XML standard to represent linguistic
+<p>This software is part of a larger collection of natural language processing<br />
+tools known as “the OpeNER project”. You can find more information about the<br />
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can<br />
+also find references to terms like KAF (an XML standard to represent linguistic<br />
 annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h2 id="quick-use-example">Quick Use Example</h2>
@@ -123,15 +123,15 @@ annotations in texts), component, cores, scenario’s and pipelines.</p>
 <pre><code>gem install opener-polarity-tagger
 </code></pre>
 
-<p>The polarity tagger uses python. So it is advised to run a virtualenv before
+<p>The polarity tagger uses python. So it is advised to run a virtualenv before<br />
 installing the gem.</p>
 
-<p>Please bare in mind that all components in OpeNER take KAF as an input and
+<p>Please bare in mind that all components in OpeNER take KAF as an input and<br />
 output KAF by default.</p>
 
 <h3 id="command-line-interface">Command line interface</h3>
 
-<p>You should now be able to call the polarity tagger as a regular shell
+<p>You should now be able to call the polarity tagger as a regular shell<br />
 command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
 
 <p>This aplication reads a text from standard input in order process it.</p>
@@ -141,15 +141,14 @@ command: by its name. Once installed the gem normally sits in your path so you c
 
 <p>This will output:</p>
 
-<p><code>
-&lt;term lemma="donner" morphofeat="VP3s" pos="V" tid="t119" type="open"&gt;
+<pre><code>&lt;term lemma="donner" morphofeat="VP3s" pos="V" tid="t119" type="open"&gt;
   &lt;span&gt;
     &lt;!--donne--&gt;
     &lt;target id="w119"/&gt;
   &lt;/span&gt;
   &lt;sentiment polarity="neutral" resource="General domain lexicon for French . Vicomtech_general_lexicon_french"/&gt;
 &lt;/term&gt;
-</code></p>
+</code></pre>
 
 <h3 id="webservices">Webservices</h3>
 
@@ -158,10 +157,10 @@ command: by its name. Once installed the gem normally sits in your path so you c
 <pre><code>polarity-tagger-server
 </code></pre>
 
-<p>This will launch a mini webserver with the webservice. It defaults to port 9292,
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292,<br />
 so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like<br />
 this:</p>
 
 <pre><code>polarity-tagger-server -p 1234
@@ -169,14 +168,14 @@ this:</p>
 
 <p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
 
-<p>Documentation on the Webservice is provided by surfing to the urls provided
-above. For more information on how to launch a webservice run the command with
+<p>Documentation on the Webservice is provided by surfing to the urls provided<br />
+above. For more information on how to launch a webservice run the command with<br />
 the <code>-h</code> option.</p>
 
 <h3 id="daemon">Daemon</h3>
 
-<p>Last but not least the polarity tagger comes shipped with a daemon that
-can read jobs (and write) jobs to and from Amazon SQS queues. For more
+<p>Last but not least the polarity tagger comes shipped with a daemon that<br />
+can read jobs (and write) jobs to and from Amazon SQS queues. For more<br />
 information type:</p>
 
 <pre><code>polarity-tagger-daemon -h
@@ -184,10 +183,10 @@ information type:</p>
 
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
-<p>This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the (OpeNER
-installer)[https://github.com/opener-project/opener-installer] and (an
-installation guide on the Opener
+<p>This component runs best if you run it in an environment suited for OpeNER<br />
+components. You can find an installation guide and helper tools in the (OpeNER<br />
+installer)[https://github.com/opener-project/opener-installer] and (an<br />
+installation guide on the Opener<br />
 Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
 
 <p>At least you need the following system setup:</p>
@@ -210,7 +209,7 @@ Website)[http://opener-project.github.io/getting-started/how-to/local-installati
 
 <h2 id="the-core">The Core</h2>
 
-<p>The component is a fat wrapper around the actual language technology core. You
+<p>The component is a fat wrapper around the actual language technology core. You<br />
 can find the core technolies in the <code>core/</code> folder.</p>
 
 <h2 id="where-to-go-from-here">Where to go from here</h2>
@@ -222,7 +221,7 @@ can find the core technolies in the <code>core/</code> folder.</p>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email support@opener-project.eu or leave an
+<p>If you encounter problems, please email support@opener-project.eu or leave an<br />
 issue in the (issue tracker)[https://github.com/opener-project/polarity-tagger/issues].</p>
 
 <h2 id="contributing">Contributing</h2>
@@ -243,9 +242,8 @@ issue in the (issue tracker)[https://github.com/opener-project/polarity-tagger/i
 
 <h5 id="simple-polarity-tagging">Simple polarity tagging</h5>
 
-<p><code>
-cat some-kaf-file.kaf | polarity-tagger
-</code></p>
+<pre><code>cat some-kaf-file.kaf | polarity-tagger
+</code></pre>
 
 <p>Partial output
 <code>
@@ -260,103 +258,97 @@ cat some-kaf-file.kaf | polarity-tagger
 
 <h4 id="switching-to-another-lexicon">Switching to another lexicon</h4>
 
-<p><code>
-cat some-kaf-file.kaf | polarity-tagger --resource-path path/to/lexicon
-</code></p>
+<pre><code>cat some-kaf-file.kaf | polarity-tagger --resource-path path/to/lexicon
+</code></pre>
 
 <h4 id="downloading-and-switching-to-lexicon">Downloading and switching to lexicon</h4>
 
-<p><code>
-cat some-kaf-file.kaf | polarity-tagger --resource_path path/to/extract/lexicon \
+<pre><code>cat some-kaf-file.kaf | polarity-tagger --resource_path path/to/extract/lexicon \
   --resource-url http://some.kind.of/zip-file.zip
-</code></p>
+</code></pre>
 
 <h4 id="disabling-pos-matching">Disabling pos matching</h4>
 
 <p>To push options to the python core use a double dash (–)</p>
 
-<p><code>
-cat some-kaf.kaf | polarity-tagger -- --no-pos
-</code></p>
+<pre><code>cat some-kaf.kaf | polarity-tagger -- --no-pos
+</code></pre>
 
 <h4 id="getting-to-the-core">Getting to the core</h4>
 
-<p>The main script of this tool is a python file, which accepts a set of parameters to determine which features
-or options we want to use. The language is read from the KAF file, so it doesn’t need to be specified as a parameter.
-The program reads a KAF file from the standard input and writes the resulting KAf in the standard output.
-To see the options you can call to the main script with the -h or –help option
-````shell
-polarity-tagger – -h
-usage: poltagger-basic-multi.py [-h] [–no-time] [–ignore-pos]
-                                [–show-lexicons {nl,en,de,es,it,fr}]
+<p>The main script of this tool is a python file, which accepts a set of parameters to determine which features<br />
+or options we want to use. The language is read from the KAF file, so it doesn’t need to be specified as a parameter.<br />
+The program reads a KAF file from the standard input and writes the resulting KAf in the standard output.<br />
+To see the options you can call to the main script with the -h or –help option<br />
+````shell<br />
+polarity-tagger – -h<br />
+usage: poltagger-basic-multi.py [-h] [–no-time] [–ignore-pos]<br />
+                                [–show-lexicons {nl,en,de,es,it,fr}]<br />
                                 [–lexicon LEXICON] [–silent] [–version]</p>
 
 <p>Tags a text with polarities at lemma level</p>
 
-<p>optional arguments:
-  -h, –help            show this help message and exit
-  –no-time             For not including timestamp in header
-  –ignore-pos          Ignore the pos labels
-  –show-lexicons {nl,en,de,es,it,fr}
-                        Show lexicons for the given language and exit
-  –lexicon LEXICON     Lexicon identifier, check with –show-lexicons LANG
-                        for options
-  –silent              Turn off debug info
-  –version             show program’s version number and exit
+<p>optional arguments:<br />
+  -h, –help            show this help message and exit<br />
+  –no-time             For not including timestamp in header<br />
+  –ignore-pos          Ignore the pos labels<br />
+  –show-lexicons {nl,en,de,es,it,fr}<br />
+                        Show lexicons for the given language and exit<br />
+  –lexicon LEXICON     Lexicon identifier, check with –show-lexicons LANG<br />
+                        for options<br />
+  –silent              Turn off debug info<br />
+  –version             show program’s version number and exit<br />
 ````</p>
 
-<p>The <code>--ignore-pos</code> parameter must be used when want to ignore the part-of-speech information assigned to the lemmas, and we want to assign polarities
-just to the lemmas, not considering the POS tag. This could be useful when the information provided by the pos-tagger is not accurate or the pos-tagging
+<p>The <code>--ignore-pos</code> parameter must be used when want to ignore the part-of-speech information assigned to the lemmas, and we want to assign polarities<br />
+just to the lemmas, not considering the POS tag. This could be useful when the information provided by the pos-tagger is not accurate or the pos-tagging<br />
 has not been processed.</p>
 
-<p>The main options are those concerning with the usage of different lexicons. The lexicons are provided by the
-VU-sentiment-lexicon library (https://github.com/opener-project/VU-sentiment-lexicon), which needs to be installed.
-You can see what the lexicons available for a given language are by calling to the program with the option –show-lexicons LANG,
-for instance:
-````shell
+<p>The main options are those concerning with the usage of different lexicons. The lexicons are provided by the<br />
+VU-sentiment-lexicon library (https://github.com/opener-project/VU-sentiment-lexicon), which needs to be installed.<br />
+You can see what the lexicons available for a given language are by calling to the program with the option –show-lexicons LANG,<br />
+for instance:<br />
+````shell<br />
 polarity-tagger – –show-lexicons nl</p>
 
 <h6 id="section">#</h6>
-<p>Available lexicons for nl
-  Identifier: “hotel” (Default)
-    Desc: Hotel domain lexicon for Dutch
-     Res: VUA_olery_lexicon_nl_lmf
+<p>Available lexicons for nl<br />
+  Identifier: “hotel” (Default)<br />
+    Desc: Hotel domain lexicon for Dutch<br />
+     Res: VUA_olery_lexicon_nl_lmf<br />
     File: /Users/ruben/python_envs/python2.7/lib/python2.7/VUSentimentLexicon/NL-lexicon/Sentiment-Dutch-HotelDomain.xml</p>
 
-<p>Identifier:”general”
-    Desc: General lexicon for Dutch
-     Res: VUA_olery_lexicon_nl_lmf
+<p>Identifier:”general”<br />
+    Desc: General lexicon for Dutch<br />
+     Res: VUA_olery_lexicon_nl_lmf<br />
     File: /Users/ruben/python_envs/python2.7/lib/python2.7/VUSentimentLexicon/NL-lexicon/Sentiment-Dutch-general.xml</p>
 
 <h6 id="section-1">#</h6>
-<p>````</p>
-
-<p>Then you can use the lexicon identifiers to select the proper lexicon, with the option –lexicon
-<code>shell
+<pre><code>
+Then you can use the lexicon identifiers to select the proper lexicon, with the option --lexicon
+````shell
 cat my_input.nl.kaf | polarity-tagger -- --lexicon general
-</code></p>
+</code></pre>
 
-<p>This command will call to the polarity tagger using the general lexicon for Dutch. The lexicon identifiers are unique only per language.
-If the lexicon id is not specified(you skip the –lexicon option), or you provide a wrong identifier, the default lexicon will be loaded.
-If there is no lexicon marked as default in the –show-lexicon options, the first one in the list will be used. Check the VU-sentiment-lexicon
+<p>This command will call to the polarity tagger using the general lexicon for Dutch. The lexicon identifiers are unique only per language.<br />
+If the lexicon id is not specified(you skip the –lexicon option), or you provide a wrong identifier, the default lexicon will be loaded.<br />
+If there is no lexicon marked as default in the –show-lexicon options, the first one in the list will be used. Check the VU-sentiment-lexicon<br />
 for further information about how to manage lexicons and add new ones</p>
 
 <h3 id="webservice">Webservice</h3>
 
 <p>You can launch a webservice by executing:</p>
 
-<p><code>
-component-name-server
-</code></p>
+<pre><code>component-name-server
+</code></pre>
 
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the<br />
 webserver used by the component. The options are:</p>
 
-<p><code>
-    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+<pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
     -C, --config PATH                Load PATH as a config file
         --control URL                The bind url to use for the control server
                                      Use 'auto' to use temp unix server
@@ -381,54 +373,44 @@ webserver used by the component. The options are:</p>
     -w, --workers COUNT              Activate cluster mode: How many worker processes to create
         --tag NAME                   Additional text to display in process listing
     -h, --help                       Show help
-</code></p>
+</code></pre>
 
 <h3 id="daemon-1">Daemon</h3>
 
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
-<p>```
-Usage: component-name-daemon &lt;start|stop|restart&gt; [options]</p>
+<pre><code>Usage: component-name-daemon &lt;start|stop|restart&gt; [options]
 
-<table>
-  <tbody>
-    <tr>
-      <td>When calling component-name without &lt;start</td>
-      <td>stop</td>
-      <td>restart&gt; the daemon will start as a foreground process</td>
-    </tr>
-  </tbody>
-</table>
+When calling component-name without &lt;start|stop|restart&gt; the daemon will start as a foreground process
 
-<p>Daemon options:
-    -i, –input QUEUE_NAME           Input queue name
-    -o, –output QUEUE_NAME          Output queue name
-        –batch-size COUNT           Request x messages at once where x is between 1 and 10
-        –buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
-        –sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
-    -r, –readers COUNT              number of reader threads
-    -w, –workers COUNT              number of worker thread
-    -p, –writers COUNT              number of writer / pusher threads
-    -l, –logfile, –log FILENAME    Filename and path of logfile. Defaults to STDOUT
-    -P, –pidfile, –pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
-        –pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by –pid if that option is present
-        –debug                      Turn on debug log level
-        –relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
-```</p>
+Daemon options:
+    -i, --input QUEUE_NAME           Input queue name
+    -o, --output QUEUE_NAME          Output queue name
+        --batch-size COUNT           Request x messages at once where x is between 1 and 10
+        --buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        --sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, --readers COUNT              number of reader threads
+    -w, --workers COUNT              number of worker thread
+    -p, --writers COUNT              number of writer / pusher threads
+    -l, --logfile, --log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, --pidfile, --pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        --pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by --pid if that option is present
+        --debug                      Turn on debug log level
+        --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+</code></pre>
 
 <h4 id="environment-variables">Environment Variables</h4>
 
-<p>These daemons make use of Amazon SQS queues and other Amazon services.
-The access to these services and other environment variables can be configured
+<p>These daemons make use of Amazon SQS queues and other Amazon services.<br />
+The access to these services and other environment variables can be configured<br />
 using a .opener-daemons-env file in the home directory of the current user.</p>
 
 <p>It is also possible to provide the environment variables directly to the deamon.</p>
 
 <p>For example:</p>
 
-<p><code>
-AWS_REGION='eu-west-1' component-name start [other options]
-</code></p>
+<pre><code>AWS_REGION='eu-west-1' component-name start [other options]
+</code></pre>
 
 <p>We advise to have the following environment variables available:</p>
 

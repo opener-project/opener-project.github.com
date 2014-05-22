@@ -89,22 +89,22 @@
 
 <h1 id="vu-lexicon-propagationkernel">VU-lexicon-propagation_kernel</h1>
 
-<p>These scripts implement the propagation algorithm for automatically generation of sentiment lexicons from WordNet.
-There are two main scripts to generate a lexicon:
-1) propagate_wn.py –&gt; this script propagates a list of seeds over WordNet and generates and intermediate CSV format
+<p>These scripts implement the propagation algorithm for automatically generation of sentiment lexicons from WordNet.<br />
+There are two main scripts to generate a lexicon:<br />
+1) propagate_wn.py –&gt; this script propagates a list of seeds over WordNet and generates and intermediate CSV format<br />
 2) from_csv_to_lmf.py –&gt; this script reads the previous CSV format and generates the final Opener-LMF lexicon</p>
 
-<p>Some other scripts are included in the repository:
-1) csv_from_synset_to_lemma.py –&gt; transforms a synset-based CSV into a lemma-based CSV lexicon
+<p>Some other scripts are included in the repository:<br />
+1) csv_from_synset_to_lemma.py –&gt; transforms a synset-based CSV into a lemma-based CSV lexicon<br />
 2) validate.py –&gt; validate a LMF lexicon against the opener_lmf.dtd DTD</p>
 
 <h2 id="installation-and-requirements">Installation and requirements</h2>
 
-<p>The scripts are Python, so you need to have Python installed in your machine (version &gt;=2.6). Also you need the lxml library for XML
+<p>The scripts are Python, so you need to have Python installed in your machine (version &gt;=2.6). Also you need the lxml library for XML<br />
 processing. To install this requirement, you can just run:
 <code>shell
 $ pip install -r requirements.txt
-</code>
+</code><br />
 There is nothing else required to run these scripts.</p>
 
 <h2 id="general-approach">General Approach</h2>
@@ -123,37 +123,37 @@ There is nothing else required to run these scripts.</p>
 
 <h2 id="seed-list">Seed list</h2>
 
-<p>The seed list has to be stored in a file, wit a seed per line, with the format:
+<p>The seed list has to be stored in a file, wit a seed per line, with the format:<br />
 synset/polarity/pos</p>
 
-<p>For instance:<br />
-n_n-531677/negative/n<br />
-n_n-531685/neutral/n<br />
-n_n-531697/positive/n<br />
-n_n-531759/negative/n<br />
-n_n-531792/neutral/n<br />
-n_n-531952/neutral/n<br />
+<p>For instance:  <br />
+n_n-531677/negative/n  <br />
+n_n-531685/neutral/n  <br />
+n_n-531697/positive/n  <br />
+n_n-531759/negative/n  <br />
+n_n-531792/neutral/n  <br />
+n_n-531952/neutral/n  
 ……</p>
 
-<p>The seed list can be based also in sense identifiers instead of synset identifiers, but the use of synsets ids
+<p>The seed list can be based also in sense identifiers instead of synset identifiers, but the use of synsets ids<br />
 is strongly recommended.</p>
 
 <h2 id="relations-file">Relations file</h2>
 
-<p>The WordNet relations that you want to use for the propagation have to be stored in a file. You have to be sure that the
-labels for the relations match with the labels of the relations in your WordNet. You have to associate a weight to each
-relation, that will represent how the strength of a polarity is modified when it is propagated through that relation. For
-instance: we have a synset with a positive polarity with strength 3, and we propagate this positive polarity to all its
-hyponyms. In the relations file we defined a weight to 0.1 for HYPONYMY, so all the hyponyms will get a positive polarity
-with a weight of 0.3 (3*0.1). If the weight is negative, we will invert the polarity when propagation throught that kind
+<p>The WordNet relations that you want to use for the propagation have to be stored in a file. You have to be sure that the<br />
+labels for the relations match with the labels of the relations in your WordNet. You have to associate a weight to each<br />
+relation, that will represent how the strength of a polarity is modified when it is propagated through that relation. For<br />
+instance: we have a synset with a positive polarity with strength 3, and we propagate this positive polarity to all its<br />
+hyponyms. In the relations file we defined a weight to 0.1 for HYPONYMY, so all the hyponyms will get a positive polarity<br />
+with a weight of 0.3 (3*0.1). If the weight is negative, we will invert the polarity when propagation throught that kind<br />
 of relations</p>
 
-<p>In our experiments, we have used the following configuration for the relations file with good results, so it could be a good
+<p>In our experiments, we have used the following configuration for the relations file with good results, so it could be a good<br />
 idea to use also these relations addapted to your own labels in case they differ.  </p>
 
-<p>NEAR_SYNONYM 2<br />
-NEAR_ANTONYM -2<br />
-HAS_HYPONYM 1<br />
+<p>NEAR_SYNONYM 2  <br />
+NEAR_ANTONYM -2  <br />
+HAS_HYPONYM 1  <br />
 HAS_HYPERONYM 0.5  </p>
 
 <h2 id="script-propagatewnpy">Script propagate_wn.py</h2>
@@ -163,12 +163,12 @@ HAS_HYPERONYM 0.5  </p>
 $ python propagate_wn.py -h
 </code></p>
 
-<p>The options and parameters for this script are the following:
-* Required:
-  *  –wn=FILE file with wordnet in LMF format
-  *  –seed-list=FILE file with list of seeds with polarities
-  *  –relations=FILE file with relations and weights
-  *  –out=FILE file to store the results in CSV format
+<p>The options and parameters for this script are the following:<br />
+* Required:<br />
+  *  –wn=FILE file with wordnet in LMF format<br />
+  *  –seed-list=FILE file with list of seeds with polarities<br />
+  *  –relations=FILE file with relations and weights<br />
+  *  –out=FILE file to store the results in CSV format<br />
   *  –seed-sense In case your seed list is based on senses and not synsets</p>
 
 <ul>
@@ -186,8 +186,8 @@ $ python propagate_wn.py  --wn=cornetto.lmf.xml --seed-list=file_seeds.txt --rel
 </code></p>
 
 <h2 id="script-csvfromsynsettolemmapy">Script csv_from_synset_to_lemma.py</h2>
-<p>This script reads the synset based CSV and generates the a CSV based on lemmas. For this, the different polarities assigned
-to each synset for a specific lemma are collected and some heuristic is applied to generate an accumulated. Two heuristics
+<p>This script reads the synset based CSV and generates the a CSV based on lemmas. For this, the different polarities assigned<br />
+to each synset for a specific lemma are collected and some heuristic is applied to generate an accumulated. Two heuristics<br />
 have been implemented:</p>
 
 <ul>
@@ -195,7 +195,7 @@ have been implemented:</p>
   <li>Most confidence: the polarity with a higher confidence is assigned</li>
 </ul>
 
-<p>This script reads from the standard input and writes to the standard output, and also generates some log information
+<p>This script reads from the standard input and writes to the standard output, and also generates some log information<br />
 on the error output, so for calling it from the command line:
 <code>shell
 $ cat polarities-synset.csv | python csv_from_synset_to_lemma.py &gt; polarities-lemma.csv 2&gt; polarities-lemma.log
@@ -213,32 +213,32 @@ $ cat my_output.csv | python from_csv_to_lmf.py &gt; my_lexicon.lmf
 $ cat my_output.csv | python from_csv_to_lmf.py -verbose &gt; my_lexicon.lmf
 </code></p>
 
-<p>With the verbose option we will create one lexical entry for each lemma. So for instance if we have in our CSV output:
+<p>With the verbose option we will create one lexical entry for each lemma. So for instance if we have in our CSV output:<br />
 n_n-526797;N;neutral;0.5;scheepmaker,scheepsbouwer,scheepsmaker</p>
 
-<p>This means that the synset n_n-526797, which is a noun (N), has a neutral polarity with strength 0.5, and the words in this synset
-are three:scheepmaker, scheepsbouwer and scheepsmaker.
-If we create the LMF lexicon without the verbos option, there will be only one lexical entry for scheepmaker, with the synset
-n_n-526797 and the neutral polarity associated (The polarity actually is linked to the synset and not to the word).
+<p>This means that the synset n_n-526797, which is a noun (N), has a neutral polarity with strength 0.5, and the words in this synset<br />
+are three:scheepmaker, scheepsbouwer and scheepsmaker.<br />
+If we create the LMF lexicon without the verbos option, there will be only one lexical entry for scheepmaker, with the synset<br />
+n_n-526797 and the neutral polarity associated (The polarity actually is linked to the synset and not to the word).<br />
 With the verbose option, we will have three lexical entries, one for each word in the synset, with the same information.</p>
 
-<p>This scripts generates LMF lexicons that comply with the DTD included in the repository (opener_lmf.dtd). If you want to check
+<p>This scripts generates LMF lexicons that comply with the DTD included in the repository (opener_lmf.dtd). If you want to check<br />
 that the lexicon generate is really following the structure defined in the DTD, you can use the script validate.py:
 <code>shell
 $ cat lexicon.lmf | validate.py
-</code>
+</code><br />
 You will get a message with the status of the validation, and the errors in case there is something wrong.</p>
 
 <h2 id="sentiment-modifiers">Sentiment modifiers</h2>
-<p>The previous script from_csv_to_lmf.py also consider that the input CSV can contain sentiment modifiers like polarity
-shifters, intensifiers or weakeners, so all this information will be stored in the final LMF lexicon.
-To incorporate this information to the CSV files, we should include one extra line for each modifier, with the following
+<p>The previous script from_csv_to_lmf.py also consider that the input CSV can contain sentiment modifiers like polarity<br />
+shifters, intensifiers or weakeners, so all this information will be stored in the final LMF lexicon.<br />
+To incorporate this information to the CSV files, we should include one extra line for each modifier, with the following<br />
 information and format:
 <code>shell
 unknown;ADV;neutral;1;very;-1;intensifier
-</code>
-So the format is the same as for polarity words, but with one extra field at the end containing the modifier for the word.
-In this case the synset(unknown), the polarity(neutral) and the score(1) specified in the CSV will not be used in the LMF,
+</code><br />
+So the format is the same as for polarity words, but with one extra field at the end containing the modifier for the word.<br />
+In this case the synset(unknown), the polarity(neutral) and the score(1) specified in the CSV will not be used in the LMF,<br />
 and the lexical entry will appear as a manual annotation.</p>
 
 <h2 id="contact">Contact</h2>

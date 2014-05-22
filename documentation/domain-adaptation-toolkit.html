@@ -121,7 +121,7 @@
 <pre><code>    ./INSTALL.sh
 </code></pre>
 
-<p>This will install both the required custom <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/">libSVM library</a> and the
+<p>This will install both the required custom <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/">libSVM library</a> and the<br />
 domain adatation tool.</p>
 
 <h2 id="configure">Configure</h2>
@@ -161,13 +161,12 @@ domain adatation tool.</p>
 
 <p>As previouly said, NP rules are not required if all features are not needed. For the NP rules files, NP rules are sets of PoS tags. The rules are processed in descending order, and first matching rule is choosen. For the head of each rule, put a ‘*’ character after the PoS tag. The PoS tags are the following:</p>
 
-<p><code>
-    N: Common noun    V: Verb
+<pre><code>    N: Common noun    V: Verb
     R: Proper noun    P: Preposition
     Q: Pronoun        A: Adverb
     D: Determiner     C: Conjunction
     G: Adjective      O: Other
-</code></p>
+</code></pre>
 
 <p>If there is more than one option for a PoS tag, put a ‘/’ char between each PoS tag.</p>
 
@@ -189,17 +188,16 @@ domain adatation tool.</p>
 
 <p>To execute the Domain Adaptation Tool execute this command:</p>
 
-<p><code>
-    java -jar target/Bootstrapping-0.0.1.jar [OPTIONS]
-</code>
-The <em>-h</em> or <em>–help</em> option will display the help information.</p>
+<pre><code>    java -jar target/Bootstrapping-0.0.1.jar [OPTIONS]
+</code></pre>
+<p>The <em>-h</em> or <em>–help</em> option will display the help information.</p>
 
 <p>To classify instances there are 3 steps: parse corpus to vectors, train classifiers, and process KAF files.</p>
 
 <h3 id="parse-corpus-to-vectors">Parse corpus to vectors</h3>
 
-<p>Before training the classifiers, we need to parse the input corpus to vertors. For that purpose, the corpus must be at Conll format with these columns:
-```
+<p>Before training the classifiers, we need to parse the input corpus to vertors. For that purpose, the corpus must be at Conll format with these columns:<br />
+```<br />
     index   word_form   lemma       pos head    ne(optional)</p>
 
 <pre><code>1       El          el          D	2
@@ -211,8 +209,8 @@ The <em>-h</em> or <em>–help</em> option will display the help information.</p
 7       .           .           O	4 ``` The ne column is only used to evaluate models at training step.
 </code></pre>
 
-<p>You will also need a seed file for the bootstrapping process. The seed file is a raw text file with these columns:
-```
+<p>You will also need a seed file for the bootstrapping process. The seed file is a raw text file with these columns:<br />
+```<br />
     seed    category</p>
 
 <pre><code>Alaska  location
@@ -225,8 +223,7 @@ CDC     organization ```
 
 <p>Below you can see the options for the parsing step:</p>
 
-<p><code>
-    Parse corpus in order to use SVMs
+<pre><code>    Parse corpus in order to use SVMs
       -parse -l language -name corpusName -trainC trainCorpus
                 -seeds seedFile [OPTIONS...]
       ARGUMENTS:
@@ -249,8 +246,8 @@ CDC     organization ```
         [-all | -all_no_chunk]       -all:          all features are extracted,
                                      -all_no_chunk: all features except chunking are extracted
                                      Default option is '-all' .
-</code>
-<strong>Important</strong>. Note that at parsing and processing steps you have to use same <em>window</em>, <em>modSize</em>, <em>tfidf</em> and <em>all</em> or <em>all_no_chunk</em> options.</p>
+</code></pre>
+<p><strong>Important</strong>. Note that at parsing and processing steps you have to use same <em>window</em>, <em>modSize</em>, <em>tfidf</em> and <em>all</em> or <em>all_no_chunk</em> options.</p>
 
 <p>This step will create the vectors files explained below:</p>
 
@@ -270,24 +267,22 @@ CDC     organization ```
     Usage: perl ancora2conll.pl corpus_input_dir corpus_output_dir -ne 0|1
                 -ne 0: does not parse named entites
                     1: parses named entites for test purposes
-</code>
+</code><br />
 The seed list is at <em>test/seeds</em> folder with <em>person, location and organization</em> categories.</p>
 
 <p>To parse the corpus to vectors, use this command:</p>
 
-<p><code>
-    java -jar target/Bootstrapping-0.0.1.jar -parse \
+<pre><code>    java -jar target/Bootstrapping-0.0.1.jar -parse \
                                              -trainC ancora/train \
                                              -seeds test/seeds/seed-list.data \
                                              -name ancora -all -balanced -l es
-</code></p>
+</code></pre>
 
 <h3 id="train-classifiers">Train classifiers</h3>
 
 <p>Vector files created at the previous step are processed to create the classifiers. Below you can see the options for the parsing step:</p>
 
-<p><code>
-    Train SVM classifiers
+<pre><code>    Train SVM classifiers
       -train -labelled labelledData -unlabelled unlabelledData [OPTIONS...]
       ARGUMENTS:
         -labelled    labelledData,      A list of data files used to train the classifier.
@@ -303,8 +298,8 @@ The seed list is at <em>test/seeds</em> folder with <em>person, location and org
         -th          threshold,         Beginning threshold to add instances from the    
                                         unlabelled data. Default value is '0.95'.
         -tfidf       threshold,         Changes tf-idf threshold, default value is '0.55'.
-</code>
-Labelled data files are the <em>name.category.train</em> files, and the unlabelled data is the <em>name.train</em> file.</p>
+</code></pre>
+<p>Labelled data files are the <em>name.category.train</em> files, and the unlabelled data is the <em>name.train</em> file.</p>
 
 <p>Note that the TF-IDF threshold is only use in case of you choose TF-IDF option at parsing step. If <em>-tfidf</em> option is used, a <em>.tfidf.dic</em> and <em>.tfidf.dbin</em> file will be created. The <em>.tfidf.dic</em> file is the TF-IDF dictionary, and the <em>.tfidf.dbin</em> file is the binarized TF-IDF dictionary.</p>
 
@@ -312,20 +307,18 @@ Labelled data files are the <em>name.category.train</em> files, and the unlabell
 
 <p>If you want to try training classifiers, there are vector files and dictionaries at <em>test/vectors</em> folder. To use them execute this command:</p>
 
-<p><code>
-    java -jar target/Bootstrapping-0.0.1.jar -train \
+<pre><code>    java -jar target/Bootstrapping-0.0.1.jar -train \
                                              -labelled test/vectors/ancora.person.train \
                                                        test/vectors/ancora.location.train \
                                                        test/vectors/ancora.organization.train \
                                              -unlabelled test/vectors/ancora.train
-</code></p>
+</code></pre>
 
 <h3 id="process-kaf-files">Process KAF files</h3>
 
 <p>Input KAF files are processed, and the detected named entities are written at output KAF file. Below you can see the options for the processing step:</p>
 
-<p><code>
-    Classify SVM instances
+<pre><code>    Classify SVM instances
       -classify -in input.kaf -out output.kaf -classifier [classifier...] [OPTIONS...] -dic dictionary
       ARGUMENTS:
         -in         input.kaf,         Input KAF file with terms
@@ -341,8 +334,8 @@ Labelled data files are the <em>name.category.train</em> files, and the unlabell
         [-all | -all_no_chunk]         -all:          all features are extracted,
                                        -all_no_chunk: all features except chunking are extracted
                                        Default option is '-all' .
-</code>
-<strong>Important</strong>. Note that at parsing and processing steps you have to use same <em>window</em>, <em>modSize</em>, <em>tfidf</em> and <em>all</em> or <em>all_no_chunk</em> options.</p>
+</code></pre>
+<p><strong>Important</strong>. Note that at parsing and processing steps you have to use same <em>window</em>, <em>modSize</em>, <em>tfidf</em> and <em>all</em> or <em>all_no_chunk</em> options.</p>
 
 <p>If TF-IDF option was especified at parsing step, the TF-IDF dictionary is required. You need also use same features at parsing and processing steps.</p>
 
@@ -350,8 +343,7 @@ Labelled data files are the <em>name.category.train</em> files, and the unlabell
 
 <p>You can try with provided models in <em>test/models</em> folder and the dictionaries in <em>test/dictionaries</em> folder. There is a test file at <em>test/files</em> folder. To use them execute this command:</p>
 
-<p><code>
-    java -jar target/Bootstrapping-0.0.1.jar -classify \
+<pre><code>    java -jar target/Bootstrapping-0.0.1.jar -classify \
                                              -in test/files/sample.kaf \
                                              -out test/files/sample.out.kaf \
                                              -dic test/dictionaries/ancora.dbin \
@@ -360,7 +352,7 @@ Labelled data files are the <em>name.category.train</em> files, and the unlabell
                                                      test/models/ancora.organization.bin \
                                              -tfidf test/dictionaries/ancora.tfidf.dbin \
                                              -all
-</code></p>
+</code></pre>
 
 <h3 id="log-files">Log files</h3>
 
@@ -384,9 +376,9 @@ Labelled data files are the <em>name.category.train</em> files, and the unlabell
   <li>
     <p><strong>kaf-conll-0.0.1-SNAPSHOT.jar</strong></p>
 
-    <p>It parses KAF files to conll. This is the usage:
-```
-     Usage: java -jar kaf-conll-0.0.1-SNAPSHOT.jar [OPTIONS…]
+    <p>It parses KAF files to conll. This is the usage:<br />
+```<br />
+     Usage: java -jar kaf-conll-0.0.1-SNAPSHOT.jar [OPTIONS…]<br />
      Reads text from standard input and writes result at standard output.</p>
 
     <pre><code>   OPTIONS:
