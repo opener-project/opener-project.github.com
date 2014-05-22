@@ -20,7 +20,7 @@ The tokenizer tokenizes a text into sentences and words.
 
 This software is part of a larger collection of natural language processing
 tools known as "the OpeNER project". You can find more information about the
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+project at [the OpeNER portal](http://opener-project.github.io). There you can
 also find references to terms like KAF (an XML standard to represent linguistic
 annotations in texts), component, cores, scenario's and pipelines.
 
@@ -125,10 +125,7 @@ Description of dependencies
 ---------------------------
 
 This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the (OpeNER
-installer)[https://github.com/opener-project/opener-installer] and (an
-installation guide on the Opener
-Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]
+components. You can find an installation guide and helper tools in the [OpeNER installer](https://github.com/opener-project/opener-installer) and [an installation guide on the Opener Website](http://opener-project.github.io/getting-started/how-to/local-installation.html)
 
 At least you need the following system setup:
 
@@ -152,13 +149,13 @@ The Core
 
 The component is a fat wrapper around the actual language technology core. The core is a rule based tokenizer implemented in Perl. You can find the core technologies in the following repositories:
 
-* (tokenizer-base)[http://github.com/opener-project/tokenizer-base]
+* [tokenizer-base](http://github.com/opener-project/tokenizer-base)
 
 Where to go from here
 ---------------------
 
-* Check (the project website)[http://opener-project.github.io]
-* (Checkout the webservice)[http://opener.olery.com/tokenizer]
+* [Check the project website](http://opener-project.github.io)
+* [Checkout the webservice](http://opener.olery.com/tokenizer)
 
 Report problem/Get help
 -----------------------

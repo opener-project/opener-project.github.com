@@ -222,32 +222,77 @@ webservices:
 
 datasets: &datasets
   -
-    name: Sentiment Lexicons WordNet propagation (Es,En,Nl,Fr,It)
-    location:
-    documentation:
-  -
-    name: Sentiment Lexicon Tourist Domain (Es,En,Nl,De,Fr,It)
-    partner: VU
-  -
-    name: Hotel Reviews Metadata (Es,En,Nl,De,Fr,It)
-    partner: VU
-  -
-    name: Attraction Reviews Metadata (Es,En,Nl,De,Fr,It)
-    partner: VU
-  -
-    name: News Articles Annotated Metadata (Es,En,Nl,De,Fr,It)
-    partner: VU
-  -
-    name: Ent-Itup Social and Mass Media Analysis application
-    partner: Synthema
-  -
-    name: Tourpedia Named Entities LOD dataset
-    documentation: http://tour-pedia.org
+    name: Sentiment on Social Media Classifier training sets
+    documentation: http://wafi.iit.cnr.it/openervm/weka/results/FB.php
+    filetype: ARFF
   -
     name: Tourpedia Named Entities OD dataset
     documentation: http://tour-pedia.org
+    filetype: JSON, CSV
   -
-    name: Sentiment on Social Media Classifier training sets
+    name: Tourpedia Named Entities LOD dataset
+    documentation: http://tour-pedia.org
+    filetype: RDF
+  -
+    name: Entity Resource Linker (Tour-pedia api)
+    documentation:  http://tour-pedia.org/api
+    filetype: Api
+  -
+    name: "Ent-i-tUp: Social and Media Analysis and Monitoring application"
+    documentation: http://128.65.123.12/entitup/login.php
+    filetype: Mongodump
+  -
+   name: ESTHER Corpus
+   documentation: http://catalog.elra.info/product_info.php?products_id=999
+   filetype: XML
+  -
+   name: French Treebank
+   documentation: http://www.llf.cnrs.fr/Gens/Abeille/French-Treebank-fr.php
+   filetype: XML
+  -
+   name: French MWN Laporte
+   documentation: http://infolingu.univ-mlv.fr/english/
+   filetype: XML
+
+   name: WOLF french WordNET
+   documentation: http://alpage.inria.fr/~sagot/wolf-en.html
+   filetype: XML
+  -
+   name: MCR 3.0
+   documentation: adimen.si.ehu.es/web/MCR
+   filetype: CSV database
+  -
+   name: Reuters corpus
+   documentation: http://trec.nist.gov/data/reuters/reuters.html
+   filetype:
+  -
+   name: ECI Multilingual Corpus
+   documentation: http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC94T5
+   filetype:
+  -
+   name: I-CAB
+   documentation: http://ontotext.fbk.eu/i-cab/download-icab.html
+   filetype:
+  -
+   name: CoNLL 2002
+   documentation: http://www.cnts.ua.ac.be/conll2002/ner/
+   filetype:
+  -
+   name: Ontonotes 4.0
+   documentation: https://catalog.ldc.upenn.edu/LDC2011T03
+   filetype:
+  -
+   name: Penn Treebank
+   documentation: http://www.cis.upenn.edu/~treebank/home.html
+   filetype:
+  -
+   name: Ancora
+   documentation: http://clic.ub.edu/corpus/ancora
+   filetype:
+  -
+   name: SemEval Coreference 2010
+   documentation: http://stel.ub.edu/semeval2010-coref/
+   filetype:
 
 lexicons: &lexicons
   -
