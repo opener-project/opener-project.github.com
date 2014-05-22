@@ -50,12 +50,12 @@ This aplication reads a text from standard input in order to identify the langua
 
 This will output:
 
-```xml
+~~~~
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <KAF xml:lang="en" version="2.1">
         <raw>This is an English text.</raw>
     </KAF>
-```
+~~~~
 
 If you just want the language code returned add the ```--no-kaf``` option like
 this
@@ -174,11 +174,11 @@ echo "This is english text." | language-identifier    # Defaults to KAF output
 ```
 
 ```xml
- <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
- <KAF xml:lang="en" version="2.1">
-   <raw>This is english text.
- </raw>
- </KAF>
+    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    <KAF xml:lang="en" version="2.1">  
+        <raw>This is english text.
+    </raw>
+    </KAF>
 ```
 
 ##### Output Probabilities
@@ -205,7 +205,7 @@ After launching the server, you can reach the webservice at
 The webservice takes several options that get passed along to (Puma)[http://puma.io], the
 webserver used by the component. The options are:
 
-```
+~~~~
     -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
     -C, --config PATH                Load PATH as a config file
         --control URL                The bind url to use for the control server
@@ -231,7 +231,7 @@ webserver used by the component. The options are:
     -w, --workers COUNT              Activate cluster mode: How many worker processes to create
         --tag NAME                   Additional text to display in process listing
     -h, --help                       Show help
-```
+~~~~
 
 
 ### Daemon
@@ -267,7 +267,7 @@ We advise to have the following environment variables available:
 
 #### Daemon Options
 
-```
+~~~~
     -i, --input QUEUE_NAME           Input queue name
     -o, --output QUEUE_NAME          Output queue name
         --batch-size COUNT           Request x messages at once where x is between 1 and 10
@@ -281,7 +281,7 @@ We advise to have the following environment variables available:
         --pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by --pid if that option is present
         --debug                      Turn on debug log level
         --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
-```
+~~~~
 
 
 ### Languages

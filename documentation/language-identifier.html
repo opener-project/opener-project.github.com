@@ -127,12 +127,11 @@ command: by its name. Once installed the gem normally sits in your path so you c
 
 <p>This will output:</p>
 
-<p><code>xml
-    &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+<pre><code>    &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
     &lt;KAF xml:lang="en" version="2.1"&gt;
         &lt;raw&gt;This is an English text.&lt;/raw&gt;
     &lt;/KAF&gt;
-</code></p>
+</code></pre>
 
 <p>If you just want the language code returned add the <code>--no-kaf</code> option like
 this</p>
@@ -256,13 +255,13 @@ cat example_text.txt | language-identifier    # Basic detection
 echo "This is english text." | language-identifier    # Defaults to KAF output
 </code></p>
 
-<p>```xml
- <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
- <kaf xml:lang="en" version="2.1"></kaf></p>
-<raw>This is english text.
- </raw>
-<p>&lt;/KAF&gt;
-```</p>
+<p><code>xml
+    &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+    &lt;KAF xml:lang="en" version="2.1"&gt;  
+        &lt;raw&gt;This is english text.
+    &lt;/raw&gt;
+    &lt;/KAF&gt;
+</code></p>
 
 <h5 id="output-probabilities">Output Probabilities</h5>
 
@@ -288,8 +287,7 @@ language-identifier-server
 <p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
 webserver used by the component. The options are:</p>
 
-<p><code>
-    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+<pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
     -C, --config PATH                Load PATH as a config file
         --control URL                The bind url to use for the control server
                                      Use 'auto' to use temp unix server
@@ -314,7 +312,7 @@ webserver used by the component. The options are:</p>
     -w, --workers COUNT              Activate cluster mode: How many worker processes to create
         --tag NAME                   Additional text to display in process listing
     -h, --help                       Show help
-</code></p>
+</code></pre>
 
 <h3 id="daemon-1">Daemon</h3>
 
@@ -359,8 +357,7 @@ AWS_REGION='eu-west-1' language-identifier start [other options]
 
 <h4 id="daemon-options">Daemon Options</h4>
 
-<p><code>
-    -i, --input QUEUE_NAME           Input queue name
+<pre><code>    -i, --input QUEUE_NAME           Input queue name
     -o, --output QUEUE_NAME          Output queue name
         --batch-size COUNT           Request x messages at once where x is between 1 and 10
         --buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
@@ -373,7 +370,7 @@ AWS_REGION='eu-west-1' language-identifier start [other options]
         --pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by --pid if that option is present
         --debug                      Turn on debug log level
         --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
-</code></p>
+</code></pre>
 
 <h3 id="languages">Languages</h3>
 
