@@ -19,10 +19,9 @@ This module implements a wrapper to process text with the PoS tagger TreeTagger.
 This module takes KAF as input, with the token layer created (for instance by one of our tokenizer modules) and outputs KAF with a new term layer. It is important to note
 that the token layer in the input is not modified in the output, so the program takes care of performing the correct matching between the term and the token layer.
 
-The language of the input KAF text has to be specified through the attribute xml:lang in the main KAF element.
-This module works for text in all the languages covered by the OpeNER project (English, Dutch,German,
+The language of the input KAF text has to be specified through the attribute xml:lang in the main KAF element. This module works for text in all the languages covered by the OpeNER project (English, Dutch,German,
 Italian, Spanish and French). It can be easily extended to other languages by downloading the specific TreeTagger
-models for that language and providing a mapping from the tagset used by these models to the tagset defined in KAF.
+models for that language and providing a mapping from the tagset used by these models to the tagset defined in KAF. 
 
 ### Confused by some terminology?
 
@@ -44,7 +43,7 @@ that you set the path to the tree-tagger in the TREE_TAGGER_PATH environment
 variable.
 
 Besides that, make sure you install lxml. You can probably achieve this by
-typing
+typing 
 
     pip install lxml
 
@@ -109,7 +108,7 @@ At least you need the following system setup:
 
 ### Depenencies for normal use:
 
-* Ruby (Tested on MRI and JRuby) 1.9.3
+* Ruby (Tested on MRI and JRuby) 1.9.3 
 * Python 2.6
 * LXML installed
 * This module has a dependency on the following external module: TreeTagger (http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/) More information is further down in this document.
@@ -266,7 +265,7 @@ For example:
 AWS_REGION='eu-west-1' tree-tagger start [other options]
 ```
 
-We advise to have the following environment variables available:
+We advise to have the following environment variables available: 
 
 * AWS_ACCESS_KEY_ID
 * AWS_SECRET_ACCESS_KEY

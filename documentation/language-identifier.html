@@ -74,6 +74,7 @@
       <li><a href="#readme">Introduction</a></li>
       <li><a href="#reference">Reference</a></li>
       <li><a href="http://opener.olery.com/language-identifier">Webservice</a></li>
+      <li><a href="">View Source code</a></li>
     </ul>
   </li>
   <li><a href="/documentation/">Other Components</a></li>
@@ -101,7 +102,7 @@ analysis of for example sentiments and or entities.</p>
 
 <p>This software is part of a larger collection of natural language processing
 tools known as “the OpeNER project”. You can find more information about the
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can
 also find references to terms like KAF (an XML standard to represent linguistic
 annotations in texts), component, cores, scenario’s and pipelines.</p>
 
@@ -126,13 +127,13 @@ command: by its name. Once installed the gem normally sits in your path so you c
 
 <p>This will output:</p>
 
-<p>```
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<kaf xml:lang="en" version="2.1"></kaf></p>
-<raw>This is an English text.
-</raw>
-<p>&lt;/KAF&gt;
-```</p>
+<p><code>
+    &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+    &lt;KAF xml:lang="en" version="2.1"&gt;
+         &lt;raw&gt;This is an English text.
+    &lt;/raw&gt;
+    &lt;/KAF&gt;
+</code></p>
 
 <p>If you just want the language code returned add the <code>--no-kaf</code> option like
 this</p>
@@ -153,7 +154,7 @@ this</p>
 </code></pre>
 
 <p>This will launch a mini webserver with the webservice. It defaults to port 9292,
-so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
+so you can access it at <a href="http://localhost:9292/">http://localhost:9292/</a>.</p>
 
 <p>To launch it on a different port provide the <code>-p [port-number]</code> option like
 this:</p>
@@ -161,7 +162,7 @@ this:</p>
 <pre><code>language-identifier-server -p 1234
 </code></pre>
 
-<p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
+<p>It then launches at <a href="http://localhost:1234/">http://localhost:1234/</a></p>
 
 <p>Documentation on the Webservice is provided by surfing to the urls provided
 above. For more information on how to launch a webservice run the command with
@@ -179,10 +180,7 @@ information type:</p>
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
 <p>This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the (OpeNER
-installer)[https://github.com/opener-project/opener-installer] and (an
-installation guide on the Opener
-Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">an installation guide on the OpenerWebsite</a></p>
 
 <p>At least you need the following system setup:</p>
 
@@ -214,19 +212,19 @@ actual working component.</p>
 <h2 id="where-to-go-from-here">Where to go from here</h2>
 
 <ul>
-  <li>Check (the project website)[http://opener-project.github.io]</li>
-  <li>(Checkout the webservice)[http://opener.olery.com/language-identifier]</li>
+  <li><a href="http://opener-project.github.io">Check the project website</a></li>
+  <li><a href="http://opener.olery.com/language-identifier">Checkout the webservice</a></li>
 </ul>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
 <p>If you encounter problems, please email support@opener-project.eu or leave an
-issue in the (issue tracker)[https://github.com/opener-project/language-identifier/issues]. </p>
+issue in the <a href="https://github.com/opener-project/language-identifier/issues">issue tracker</a>. </p>
 
 <h2 id="contributing">Contributing</h2>
 
 <ol>
-  <li>Fork it ( http://github.com/opener-project/language-identifier/fork )</li>
+  <li>Fork it <a href="http://github.com/opener-project/language-identifier/fork">http://github.com/opener-project/language-identifier/fork</a></li>
   <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
   <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
   <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
