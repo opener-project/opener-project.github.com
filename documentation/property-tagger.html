@@ -86,67 +86,364 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="property-tagger">property-tagger</h1>
-
-<h1 id="introduction">Introduction</h1>
+<h2 id="property-tagger">Property Tagger</h2>
 
 <p>This module implements a tagger for hotel properties for Dutch, English, French, Italian, Spanish and German. It detects aspect words,
 for instance words related with “room”, “cleanliness”, “staff” or “breakfast” and links them with the correct aspect class.
 The input for this module has to be a valid KAF file with at lest the term layer, as the lemmas will be used for detecting the hotel properties. The output is also
 a KAF valid file extended with the property layer. This module works for all the languages within the OpeNER project (en,de,nl,fr,es,it) and the language is read from
-the input KAF file, from the lang attribute of the KAF element  (make suresure your preprocessors set properly this value or you might use the resources for a wrong language)
-<code>shell
-&lt;KAF xml:lang="( en | nl | fr | it | de | es)"&gt;
-</code></p>
+the input KAF file, from the lang attribute of the KAF element  (make sure your preprocessors set properly this value or you might use the resources for a wrong language)</p>
 
-<h1 id="requirements">Requirements</h1>
+<h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
+
+<p>This software is part of a larger collection of natural language processing
+tools known as “the OpeNER project”. You can find more information about the
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+also find references to terms like KAF (an XML standard to represent linguistic
+annotations in texts), component, cores, scenario’s and pipelines.</p>
+
+<h2 id="quick-use-example">Quick Use Example</h2>
+
+<p>Keep in mind that this component uses PYTHON so it’s advised to make sure you
+have a virtualenv activated before installing.</p>
+
+<p>Installing the property-tagger can be done by executing:</p>
+
+<pre><code>gem install opener-property-tagger
+</code></pre>
+
+<p>Please bare in mind that all components in OpeNER take KAF as an input and
+output KAF by default.</p>
+
+<h3 id="command-line-interface">Command line interface</h3>
+
+<p>You should now be able to call the property tagger as a regular shell
+command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
+
+<p>This application reads a text from standard input in order process it.</p>
+
+<pre><code>cat some_kind_of_kaf_file.kaf | property-tagger --resource-path /path/to/lexicons/
+</code></pre>
+
+<p>The property tagger will search in the resource-path for files named
+<code>{language_code}.txt</code>, for example <code>en.txt</code>.</p>
+
+<p>An excerpt of a potential output would than be:</p>
+
+<p>```</p>
+<features>
+    <properties>
+      <property pid="p1" lemma="cleanliness">
+        <references>
+          <!--dirty-->
+          <span>
+            <target id="t_12" />
+          </span>
+        </references>
+      </property>
+      <property pid="p2" lemma="sleeping_comfort">
+        <references>
+          <!--bed-->
+          <span>
+            <target id="t_10" />
+          </span>
+        </references>
+      </property>
+      <property pid="p3" lemma="staff">
+        <references>
+          <!--staff-->
+          <span>
+            <target id="t_16" />
+          </span>
+          <!--friendly-->
+          <span>
+            <target id="t_20" />
+          </span>
+        </references>
+      </property>
+    </properties>
+  </features>
+<p>```</p>
+
+<h3 id="webservices">Webservices</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<pre><code>property-tagger-server --resource-path /path/to/resources
+</code></pre>
+
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292,
+so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
+this:</p>
+
+<pre><code>property-tagger-server -p 1234
+</code></pre>
+
+<p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
+
+<p>Documentation on the Webservice is provided by surfing to the urls provided
+above. For more information on how to launch a webservice run the command with
+the <code>-h</code> option.</p>
+
+<h3 id="daemon">Daemon</h3>
+
+<p>Last but not least the property tagger comes shipped with a daemon that
+can read jobs (and write) jobs to and from Amazon SQS queues. For more
+information type:</p>
+
+<pre><code>property-tagger-daemon -h
+</code></pre>
+
+<h2 id="description-of-dependencies">Description of dependencies</h2>
+
+<p>This component runs best if you run it in an environment suited for OpeNER
+components. You can find an installation guide and helper tools in the (OpeNER
+installer)[https://github.com/opener-project/opener-installer] and (an
+installation guide on the Opener
+Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+
+<p>At least you need the following system setup:</p>
+
+<h3 id="depenencies-for-normal-use">Depenencies for normal use:</h3>
+
 <ul>
-  <li>VUKafParserPy: parser in python for KAF files (https://github.com/opener-project/VU-kaf-parser)</li>
-  <li>lxml: library for processing xml in python</li>
+  <li>Ruby 1.9.3 or newer</li>
+  <li>Python 2.6</li>
+  <li>lxml installed</li>
 </ul>
 
-<h1 id="how-to-run-the-module-with-python">How to run the module with Python</h1>
-<p>You can run this module from the command line using Python. The main script is core/hotel_property_tagger_nl_en.py. This reads
-and writes the output to the standard output, generating some log information in the standard error output. To process the file
-“input.kaf” just type:
-<code>shell
-cat input.kaf | core/hotel_property_tagger_nl_en.py &gt; output.kaf
-</code></p>
+<h3 id="dependencies-if-you-want-to-modify-the-component">Dependencies if you want to modify the component:</h3>
 
-<p>This will read the KAF file in “input.kaf” and will store the constituent trees in “input.tree”.</p>
+<ul>
+  <li>Maven (for building the Gem)</li>
+</ul>
 
-<p>The options of the program can be obtained calling to the program with the parameter -h:
-````shell
-core/hotel_property_tagger_nl_en.py -h
-usage: hotel_property_tagger_nl_en.py [-h] [–no-time] [–lexicon LEXICON]</p>
+<h2 id="domain-adaption-and-language-extension">Domain Adaption and Language Extension</h2>
 
-<p>Tags a text with polarities at lemma level</p>
+<p>The lexicons in the resource path must be stored in a file and follow this format:</p>
 
-<p>optional arguments:
-  -h, –help         show this help message and exit
-  –no-time          For not including timestamp in header
-  –lexicon LEXICON  Force to use this lexicon
-````</p>
-
-<p>The most important option is the –lexicon, which allows you to use your own lexicon with the program. The lexicon must be stored in a file and follow this format:
-````shell
+<p>````shell
 surf	verb	facilities
 surfer	noun	facilities
 surfing	verb	facilities
 ```</p>
 
 <p>So, one aspect per line, with 3 fields separated by a tabulator, the first one is the word or span of words (in this case use whitespaces), then the part
-of speech (which actually it is not use, you can  include a dummy label) and finally the aspect class associated with the word. If you have created your lexicon
-in one file you could call to the program in this fashion:
-<code>shell
-$ cat my_input.kaf | python core/hotel_property_tagger_nl_en.py --lexicon path/to/your/lexicon/my_lexicon.txt &gt; my_output.kaf
+of speech (which actually it is not use, you can  include a dummy label) and finally the aspect class associated with the word.</p>
+
+<h2 id="the-core">The Core</h2>
+
+<p>The component is a fat wrapper around the actual language technology core. You
+can find the core technolies (python) in the <code>/core</code> directory.</p>
+
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+
+<ul>
+  <li>Check (the project websitere)[http://opener-project.github.io]</li>
+  <li>(Checkout the webservice)[http://opener.olery.com/property-tagger]</li>
+</ul>
+
+<h2 id="report-problemget-help">Report problem/Get help</h2>
+
+<p>If you encounter problems, please email support@opener-project.eu or leave an
+issue in the (issue tracker)[https://github.com/opener-project/property-tagger/issues].</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork it ( http://github.com/opener-project/property-tagger/fork )</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create new Pull Request</li>
+</ol>
+
+<div id="reference"></div>
+
+<h2 id="reference">Reference</h2>
+
+<h3 id="command-line-interface-1">Command Line Interface</h3>
+
+<h4 id="examples">Examples:</h4>
+
+<h5 id="tagging-a-text">Tagging a Text</h5>
+
+<p>This application reads a text from standard input in order process it.</p>
+
+<pre><code>cat some_kind_of_kaf_file.kaf | property-tagger --resource-path /path/to/lexicons/
+</code></pre>
+
+<p>The property tagger will search in the resource-path for files named
+<code>{language_code}.txt</code>, for example <code>en.txt</code>.</p>
+
+<p>An excerpt of a potential output would than be:</p>
+
+<p>```</p>
+<features>
+    <properties>
+      <property pid="p1" lemma="cleanliness">
+        <references>
+          <!--dirty-->
+          <span>
+            <target id="t_12" />
+          </span>
+        </references>
+      </property>
+      <property pid="p2" lemma="sleeping_comfort">
+        <references>
+          <!--bed-->
+          <span>
+            <target id="t_10" />
+          </span>
+        </references>
+      </property>
+      <property pid="p3" lemma="staff">
+        <references>
+          <!--staff-->
+          <span>
+            <target id="t_16" />
+          </span>
+          <!--friendly-->
+          <span>
+            <target id="t_20" />
+          </span>
+        </references>
+      </property>
+    </properties>
+  </features>
+<p>```</p>
+
+<h4 id="downloading-resources-on-the-fly">Downloading resources on the fly</h4>
+
+<p>You can also download resources on the fly at boot time. This is particularly
+interesting when launching a daemon or webservice, but it might also be useful
+from the command line.</p>
+
+<p>When given the <code>--resource-url</code> option the software will download the file
+given (.zip or .tar.gz) into the /tmp folder and extract it into the <code>resource-path</code> folder.
+Subsequently it will use that resource-path to do its work.</p>
+
+<p>If the resource has been downloaded before, and it is detected that the
+downloaded file is the same as the file on the url location, it will not
+download the file again, but will simply re-extract the file.</p>
+
+<p><code>
+cat some-kind-of-kaf.kaf | property-tagger \
+  --resource-path ~/resources/property-tagger \
+  --resource-url http://some.location.com/property-lexicons.zip
 </code></p>
 
-<h2 id="contact">Contact</h2>
+<h3 id="webservice">Webservice</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<p><code>
+property-tagger-server --resource-path /path/to/resources
+</code></p>
+
+<p>After launching the server, you can reach the webservice at
+<a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+webserver used by the component. The options are:</p>
+
+<p><code>
+    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+    -C, --config PATH                Load PATH as a config file
+        --control URL                The bind url to use for the control server
+                                     Use 'auto' to use temp unix server
+        --control-token TOKEN        The token to use as authentication for the control server
+    -d, --daemon                     Daemonize the server into the background
+        --debug                      Log lowlevel debugging information
+        --dir DIR                    Change to DIR before starting
+    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+    -I, --include PATH               Specify $LOAD_PATH directories
+    -p, --port PORT                  Define the TCP port to bind to
+                                     Use -b for more advanced options
+        --pidfile PATH               Use PATH as a pidfile
+        --preload                    Preload the app. Cluster mode only
+        --prune-bundler              Prune out the bundler env if possible
+    -q, --quiet                      Quiet down the output
+    -R, --restart-cmd CMD            The puma command to run during a hot restart
+                                     Default: inferred
+    -S, --state PATH                 Where to store the state details
+    -t, --threads INT                min:max threads to use (default 0:16)
+        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+    -V, --version                    Print the version information
+    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
+        --tag NAME                   Additional text to display in process listing
+    -h, --help                       Show help
+</code></p>
+
+<h3 id="daemon-1">Daemon</h3>
+
+<p>The daemon has the default OpeNER daemon options. Being:</p>
+
+<p>```
+Usage: property-tagger-daemon &lt;start|stop|restart&gt; [options]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>When calling property-tagger without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Daemon options:
+    -i, –input QUEUE_NAME           Input queue name
+    -o, –output QUEUE_NAME          Output queue name
+        –batch-size COUNT           Request x messages at once where x is between 1 and 10
+        –buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        –sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, –readers COUNT              number of reader threads
+    -w, –workers COUNT              number of worker thread
+    -p, –writers COUNT              number of writer / pusher threads
+    -l, –logfile, –log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, –pidfile, –pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        –pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by –pid if that option is present
+        –debug                      Turn on debug log level
+        –relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+```</p>
+
+<h4 id="environment-variables">Environment Variables</h4>
+
+<p>These daemons make use of Amazon SQS queues and other Amazon services.
+The access to these services and other environment variables can be configured
+using a .opener-daemons-env file in the home directory of the current user.</p>
+
+<p>It is also possible to provide the environment variables directly to the deamon.</p>
+
+<p>For example:</p>
+
+<p><code>
+AWS_REGION='eu-west-1' property-tagger start [other options]
+</code></p>
+
+<p>We advise to have the following environment variables available:</p>
+
 <ul>
-  <li>Ruben Izquierdo</li>
-  <li>Vrije University of Amsterdam</li>
-  <li>ruben.izquierdobevia@vu.nl</li>
+  <li>AWS_ACCESS_KEY_ID</li>
+  <li>AWS_SECRET_ACCESS_KEY</li>
+  <li>AWS_REGION</li>
+</ul>
+
+<h3 id="languages">Languages</h3>
+
+<p>That depends on your lexicons. The project will soon open up News lexicons for
+the following languages:</p>
+
+<ul>
+  <li>Dutch (nl)</li>
+  <li>English (en)</li>
+  <li>French (fr)</li>
+  <li>German (de)</li>
+  <li>Italian (it)</li>
+  <li>Spanish (es)</li>
 </ul>
 
 

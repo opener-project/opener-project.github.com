@@ -86,9 +86,8 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="polarity-tagger">Polarity tagger</h1>
-
 <h2 id="introduction">Introduction</h2>
+
 <p>This repository contains the code for the OpeNER polarity tagger. This tool tags words in a KAF file with polarity information, which basically is:</p>
 
 <ul>
@@ -108,19 +107,185 @@ bad, expensive and dirty could be negative ones.</li>
   <li>Spanish</li>
 </ul>
 
-<p>The most simple way to call to the tagger is:
-<code>shell
-cat my_input.nl.kaf | core/poltagger-basic-multi.py
+<h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
+
+<p>This software is part of a larger collection of natural language processing
+tools known as “the OpeNER project”. You can find more information about the
+project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+also find references to terms like KAF (an XML standard to represent linguistic
+annotations in texts), component, cores, scenario’s and pipelines.</p>
+
+<h2 id="quick-use-example">Quick Use Example</h2>
+
+<p>Installing the polarity-tagger can be done by executing:</p>
+
+<pre><code>gem install opener-polarity-tagger
+</code></pre>
+
+<p>The polarity tagger uses python. So it is advised to run a virtualenv before
+installing the gem.</p>
+
+<p>Please bare in mind that all components in OpeNER take KAF as an input and
+output KAF by default.</p>
+
+<h3 id="command-line-interface">Command line interface</h3>
+
+<p>You should now be able to call the polarity tagger as a regular shell
+command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
+
+<p>This aplication reads a text from standard input in order process it.</p>
+
+<pre><code>cat some_kind_of_kaf_file.kaf | polarity-tagger
+</code></pre>
+
+<p>This will output:</p>
+
+<p><code>
+&lt;term lemma="donner" morphofeat="VP3s" pos="V" tid="t119" type="open"&gt;
+  &lt;span&gt;
+    &lt;!--donne--&gt;
+    &lt;target id="w119"/&gt;
+  &lt;/span&gt;
+  &lt;sentiment polarity="neutral" resource="General domain lexicon for French . Vicomtech_general_lexicon_french"/&gt;
+&lt;/term&gt;
 </code></p>
 
-<h2 id="how-to">How-to</h2>
+<h3 id="webservices">Webservices</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<pre><code>polarity-tagger-server
+</code></pre>
+
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292,
+so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
+this:</p>
+
+<pre><code>polarity-tagger-server -p 1234
+</code></pre>
+
+<p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
+
+<p>Documentation on the Webservice is provided by surfing to the urls provided
+above. For more information on how to launch a webservice run the command with
+the <code>-h</code> option.</p>
+
+<h3 id="daemon">Daemon</h3>
+
+<p>Last but not least the polarity tagger comes shipped with a daemon that
+can read jobs (and write) jobs to and from Amazon SQS queues. For more
+information type:</p>
+
+<pre><code>polarity-tagger-daemon -h
+</code></pre>
+
+<h2 id="description-of-dependencies">Description of dependencies</h2>
+
+<p>This component runs best if you run it in an environment suited for OpeNER
+components. You can find an installation guide and helper tools in the (OpeNER
+installer)[https://github.com/opener-project/opener-installer] and (an
+installation guide on the Opener
+Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+
+<p>At least you need the following system setup:</p>
+
+<h3 id="depenencies-for-normal-use">Depenencies for normal use:</h3>
+
+<ul>
+  <li>Ruby 1.9.3 or newer</li>
+  <li>Python 2.6 or newer</li>
+  <li>Lxml installed</li>
+</ul>
+
+<h2 id="domain-adaption">Domain Adaption</h2>
+
+<p>TODO</p>
+
+<h2 id="language-extension">Language Extension</h2>
+
+<p>TODO</p>
+
+<h2 id="the-core">The Core</h2>
+
+<p>The component is a fat wrapper around the actual language technology core. You
+can find the core technolies in the <code>core/</code> folder.</p>
+
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+
+<ul>
+  <li>Check (the project websitere)[http://opener-project.github.io]</li>
+  <li>(Checkout the webservice)[http://opener.olery.com/polarity-tagger]</li>
+</ul>
+
+<h2 id="report-problemget-help">Report problem/Get help</h2>
+
+<p>If you encounter problems, please email support@opener-project.eu or leave an
+issue in the (issue tracker)[https://github.com/opener-project/polarity-tagger/issues].</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork it ( http://github.com/opener-project/polarity-tagger/fork )</li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create new Pull Request</li>
+</ol>
+
+<div id="reference"></div>
+
+<h2 id="reference">Reference</h2>
+
+<h4 id="examples">Examples:</h4>
+
+<h5 id="simple-polarity-tagging">Simple polarity tagging</h5>
+
+<p><code>
+cat some-kaf-file.kaf | polarity-tagger
+</code></p>
+
+<p>Partial output
+<code>
+&lt;term lemma="donner" morphofeat="VP3s" pos="V" tid="t119" type="open"&gt;
+  &lt;span&gt;
+    &lt;!--donne--&gt;
+    &lt;target id="w119"/&gt;
+  &lt;/span&gt;
+  &lt;sentiment polarity="neutral" resource="General domain lexicon for French . Vicomtech_general_lexicon_french"/&gt;
+&lt;/term&gt;
+</code></p>
+
+<h4 id="switching-to-another-lexicon">Switching to another lexicon</h4>
+
+<p><code>
+cat some-kaf-file.kaf | polarity-tagger --resource-path path/to/lexicon
+</code></p>
+
+<h4 id="downloading-and-switching-to-lexicon">Downloading and switching to lexicon</h4>
+
+<p><code>
+cat some-kaf-file.kaf | polarity-tagger --resource_path path/to/extract/lexicon \
+  --resource-url http://some.kind.of/zip-file.zip
+</code></p>
+
+<h4 id="disabling-pos-matching">Disabling pos matching</h4>
+
+<p>To push options to the python core use a double dash (–)</p>
+
+<p><code>
+cat some-kaf.kaf | polarity-tagger -- --no-pos
+</code></p>
+
+<h4 id="getting-to-the-core">Getting to the core</h4>
 
 <p>The main script of this tool is a python file, which accepts a set of parameters to determine which features
 or options we want to use. The language is read from the KAF file, so it doesn’t need to be specified as a parameter.
 The program reads a KAF file from the standard input and writes the resulting KAf in the standard output.
 To see the options you can call to the main script with the -h or –help option
 ````shell
-$ python core/poltagger-basic-multi.py -h
+polarity-tagger – -h
 usage: poltagger-basic-multi.py [-h] [–no-time] [–ignore-pos]
                                 [–show-lexicons {nl,en,de,es,it,fr}]
                                 [–lexicon LEXICON] [–silent] [–version]</p>
@@ -148,7 +313,7 @@ VU-sentiment-lexicon library (https://github.com/opener-project/VU-sentiment-lex
 You can see what the lexicons available for a given language are by calling to the program with the option –show-lexicons LANG,
 for instance:
 ````shell
-core/poltagger-basic-multi.py –show-lexicons nl</p>
+polarity-tagger – –show-lexicons nl</p>
 
 <h6 id="section">#</h6>
 <p>Available lexicons for nl
@@ -167,7 +332,7 @@ core/poltagger-basic-multi.py –show-lexicons nl</p>
 
 <p>Then you can use the lexicon identifiers to select the proper lexicon, with the option –lexicon
 <code>shell
-cat my_input.nl.kaf | core/poltagger-basic-multi.py --lexicon general
+cat my_input.nl.kaf | polarity-tagger -- --lexicon general
 </code></p>
 
 <p>This command will call to the polarity tagger using the general lexicon for Dutch. The lexicon identifiers are unique only per language.
@@ -175,101 +340,112 @@ If the lexicon id is not specified(you skip the –lexicon option), or you provi
 If there is no lexicon marked as default in the –show-lexicon options, the first one in the list will be used. Check the VU-sentiment-lexicon
 for further information about how to manage lexicons and add new ones</p>
 
-<h2 id="requirements">Requirements</h2>
+<h3 id="webservice">Webservice</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<p><code>
+component-name-server
+</code></p>
+
+<p>After launching the server, you can reach the webservice at
+<a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+webserver used by the component. The options are:</p>
+
+<p><code>
+    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+    -C, --config PATH                Load PATH as a config file
+        --control URL                The bind url to use for the control server
+                                     Use 'auto' to use temp unix server
+        --control-token TOKEN        The token to use as authentication for the control server
+    -d, --daemon                     Daemonize the server into the background
+        --debug                      Log lowlevel debugging information
+        --dir DIR                    Change to DIR before starting
+    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+    -I, --include PATH               Specify $LOAD_PATH directories
+    -p, --port PORT                  Define the TCP port to bind to
+                                     Use -b for more advanced options
+        --pidfile PATH               Use PATH as a pidfile
+        --preload                    Preload the app. Cluster mode only
+        --prune-bundler              Prune out the bundler env if possible
+    -q, --quiet                      Quiet down the output
+    -R, --restart-cmd CMD            The puma command to run during a hot restart
+                                     Default: inferred
+    -S, --state PATH                 Where to store the state details
+    -t, --threads INT                min:max threads to use (default 0:16)
+        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+    -V, --version                    Print the version information
+    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
+        --tag NAME                   Additional text to display in process listing
+    -h, --help                       Show help
+</code></p>
+
+<h3 id="daemon-1">Daemon</h3>
+
+<p>The daemon has the default OpeNER daemon options. Being:</p>
+
+<p>```
+Usage: component-name-daemon &lt;start|stop|restart&gt; [options]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>When calling component-name without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Daemon options:
+    -i, –input QUEUE_NAME           Input queue name
+    -o, –output QUEUE_NAME          Output queue name
+        –batch-size COUNT           Request x messages at once where x is between 1 and 10
+        –buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        –sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, –readers COUNT              number of reader threads
+    -w, –workers COUNT              number of worker thread
+    -p, –writers COUNT              number of writer / pusher threads
+    -l, –logfile, –log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, –pidfile, –pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        –pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by –pid if that option is present
+        –debug                      Turn on debug log level
+        –relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+```</p>
+
+<h4 id="environment-variables">Environment Variables</h4>
+
+<p>These daemons make use of Amazon SQS queues and other Amazon services.
+The access to these services and other environment variables can be configured
+using a .opener-daemons-env file in the home directory of the current user.</p>
+
+<p>It is also possible to provide the environment variables directly to the deamon.</p>
+
+<p>For example:</p>
+
+<p><code>
+AWS_REGION='eu-west-1' component-name start [other options]
+</code></p>
+
+<p>We advise to have the following environment variables available:</p>
 
 <ul>
-  <li>Python 2.7.0 or newer</li>
-  <li>Ruby 1.9.2 or newer</li>
-  <li>pip</li>
-  <li>libxml2</li>
+  <li>AWS_ACCESS_KEY_ID</li>
+  <li>AWS_SECRET_ACCESS_KEY</li>
+  <li>AWS_REGION</li>
 </ul>
 
-<h2 id="installation">Installation</h2>
-
-<p>Using Bundler:</p>
-
-<pre><code>gem 'opener-polarity-tagger',
-  :git    =&gt; 'git@github.com:opener-project/polarity-tagger.git',
-  :branch =&gt; 'master'
-</code></pre>
-
-<p>Using <code>specific_install</code>:</p>
-
-<pre><code>gem install specific_install
-gem specific_install opener-polarity-tagger \
-    -l https://github.com/opener-project/polarity-tagger.git
-</code></pre>
-
-<p>Using regular RubyGems (once the Gem is available):</p>
-
-<pre><code>gem install opener-polarity-tagger
-</code></pre>
-
-<h2 id="contributing">Contributing</h2>
-
-<p>First make sure all the required dependencies are installed:</p>
-
-<pre><code>bundle install
-</code></pre>
-
-<p>Then download the required Python code:</p>
-
-<pre><code>bundle exec rake compile
-</code></pre>
-
-<p>Once this is done continue reading the sections below to get a better
-understanding about the repository structure.</p>
-
-<h2 id="structure">Structure</h2>
-
-<p>This repository comes in two parts: a collection of Python source files and
-Ruby source code. The Python code can be found in <code>core/</code>, the Ruby code can be
-found in the other directories (e.g. <code>lib/</code>).</p>
-
-<p>Required Python packages are installed locally in to <code>core/site-packages/X</code>
-where X is one of the following two:</p>
+<h3 id="languages">Languages</h3>
 
 <ul>
-  <li><code>pre_build</code>: contains packages that are installed before building the Gem,
-these packages are shipped with the Gem</li>
-</ul>
-
-<p>There are also two requirements files for pip:</p>
-
-<ul>
-  <li><code>pre_build_requirements.txt</code>: installs the requirements for the <code>pre_build</code>
-directory.</li>
-</ul>
-
-<p>To easily install all the required dependencies (required for running the tests
-for example) run the following:</p>
-
-<pre><code>bundle exec rake compile
-</code></pre>
-
-<p>This will take care of verifying the requirements and downloading and
-installing the Python packages.</p>
-
-<h2 id="testing">Testing</h2>
-
-<p>To run the tests (which are powered by Cucumber), simply run the following:</p>
-
-<pre><code>bundle exec rake
-</code></pre>
-
-<p>This will take care of verifying the requirements, installing the Python code
-and running the tests.</p>
-
-<p>For more information on the available Rake tasks run the following:</p>
-
-<pre><code>bundle exec rake -T
-</code></pre>
-
-<h2 id="contact">Contact</h2>
-<ul>
-  <li>Ruben Izquierdo</li>
-  <li>Vrije University of Amsterdam</li>
-  <li>ruben.izquierdobevia@vu.nl</li>
+  <li>Dutch (nl)</li>
+  <li>English (en)</li>
+  <li>French (fr)</li>
+  <li>German (de)</li>
+  <li>Italian (it)</li>
+  <li>Spanish (es)</li>
 </ul>
 
 

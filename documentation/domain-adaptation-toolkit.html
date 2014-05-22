@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/flat-ui.css">
+<link rel="stylesheet" href="/css/icon-font.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>Domain adaptation toolkit</title>
+  </head>
+  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <header class="header-2">
+<div class="container">
+  <div class="row">
+    <nav class="navbar col-sm-12" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"></button>
+      <a class="brand" href="/"><img src="/images/opener_log.png" width="125" height="58" alt=""> </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav pull-right">
+        <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+      </ul>
+      <ul class="subnav">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+</header>
+
+
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <!--Nav Bar -->
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+            
+            <ul id="sidebar" class="nav bs-sidenav">
+  <li>
+    <a href="#readme">Domain adaptation toolkit</a>
+    <ul class="nav nav-stacked visible">
+      <li><a href="#readme">Introduction</a></li>
+      <li><a href="#reference">Reference</a></li>
+      <li><a href="http://opener.olery.com/domain-adaptation-toolkit">Webservice</a></li>
+    </ul>
+  </li>
+  <li><a href="/documentation/">Other Components</a></li>
+</ul>
+
+
+          </div>
+        </div>
+        <!--Main Content -->
+        <div class="col-sm-8 col-sm-offset-1 content">
+          <div id="readme"></div>
+
+<h1 id="domain-adaptator">DOMAIN ADAPTATOR</h1>
+
+<p>This repository contains the source code used for performing Domanin Adaptation for the following languages:</p>
+
+<ul>
+  <li>Dutch</li>
+  <li>English</li>
+  <li>German</li>
+  <li>Italian</li>
+  <li>Spanish</li>
+  <li>French</li>
+</ul>
+
+<p>We implemented a custom version of the method presented by <a href="http://delivery.acm.org/10.1145/1860000/1858710/p275-huang.pdf?ip=150.241.253.10&amp;id=1858710&amp;acc=OPEN&amp;key=4D4702B0C3E38B35.4D4702B0C3E38B35.4D4702B0C3E38B35.6D218144511F3437&amp;CFID=314915979&amp;CFTOKEN=99523175&amp;__acm__=1396886139_82f995a50474f2117a0cc7a7e6302132">Huang, R and &amp; Riloff, E. (2010, July)</a>.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ul>
+  <li>Java 1.7 or newer</li>
+</ul>
+
+<p>Development requirements:</p>
+
+<ul>
+  <li>Maven</li>
+</ul>
+
+<h2 id="installation">Installation</h2>
+
+<p>Execute the <em>./INSTALL.sh</em> file:</p>
+
+<pre><code>    ./INSTALL.sh
+</code></pre>
+
+<p>This will install both the required custom <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/">libSVM library</a> and the
+domain adatation tool.</p>
+
+<h2 id="configure">Configure</h2>
+
+<p>In the <em>config</em> folder, there are some configuration files:</p>
+
+<ul>
+  <li>language.conf: this file configures the languages supported by the Domain Adaptation Tool. Each line must be formatted like this:
+<code>
+      LANGUAGE=ISO_639-1_Code
+</code>
+            For example:
+<code>
+      ENGLISH=en
+</code></li>
+  <li>
+    <p>ner.conf: This file configures location ner model paths for each language. Location ner model paths are used for gazetteer feature extraction. Each line must be formatted like this:
+<code>
+      LANGUAGE=model_path
+</code>
+            For example:
+<code>
+      ENGLISH=./ner_models/en-ner.bin
+</code></p>
+  </li>
+  <li>np_rules.conf: This file configures NP rule paths for each language. It is not required if all features are not needed. Each line must be formatted like this:
+<code>
+      LANGUAGE=np_rule_path
+</code>
+            For example:
+<code>
+      ENGLISH=./np_rules/en_np.rules
+</code></li>
+</ul>
+
+<h3 id="np-rules">NP rules</h3>
+
+<p>As previouly said, NP rules are not required if all features are not needed. For the NP rules files, NP rules are sets of PoS tags. The rules are processed in descending order, and first matching rule is choosen. For the head of each rule, put a ‘*’ character after the PoS tag. The PoS tags are the following:</p>
+
+<p><code>
+    N: Common noun    V: Verb
+    R: Proper noun    P: Preposition
+    Q: Pronoun        A: Adverb
+    D: Determiner     C: Conjunction
+    G: Adjective      O: Other
+</code></p>
+
+<p>If there is more than one option for a PoS tag, put a ‘/’ char between each PoS tag.</p>
+
+<p>For example:
+<code>
+    D D N/R*
+</code></p>
+
+<h3 id="named-entity-rules">Named Entity rules</h3>
+
+<p>At <em>src/main/resources/entity.rules</em> file, there are several rules to detect entities compound by several terms. These rules are sets of PoS rules. You can change them as you wish.</p>
+
+<p>For example:
+<code>
+    R R
+</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<p>To execute the Domain Adaptation Tool execute this command:</p>
+
+<p><code>
+    java -jar target/Bootstrapping-0.0.1.jar [OPTIONS]
+</code>
+The <em>-h</em> or <em>–help</em> option will display the help information.</p>
+
+<p>To classify instances there are 3 steps: parse corpus to vectors, train classifiers, and process KAF files.</p>
+
+<h3 id="parse-corpus-to-vectors">Parse corpus to vectors</h3>
+
+<p>Before training the classifiers, we need to parse the input corpus to vertors. For that purpose, the corpus must be at Conll format with these columns:
+```
+    index   word_form   lemma       pos head    ne(optional)</p>
+
+<pre><code>1       El          el          D	2
+2       chico       chico       N	4
+3       fue         ser         V	4
+4       entregado   entregar    V	0
+5       al          al          P	4
+6       TAS         TAS         R	5	    ne=organization
+7       .           .           O	4 ``` The ne column is only used to evaluate models at training step.
+</code></pre>
+
+<p>You will also need a seed file for the bootstrapping process. The seed file is a raw text file with these columns:
+```
+    seed    category</p>
+
+<pre><code>Alaska  location
+Detroit location
+Gore    person
+McCain  person
+BMW     organization
+CDC     organization ```
+</code></pre>
+
+<p>Below you can see the options for the parsing step:</p>
+
+<p><code>
+    Parse corpus in order to use SVMs
+      -parse -l language -name corpusName -trainC trainCorpus
+                -seeds seedFile [OPTIONS...]
+      ARGUMENTS:
+        -name      corpusName,       Corpus output name.
+        -trainC    trainCorpus,      Train corpus, can be a file or a directory.
+        -seeds     seedFile,         File with the seed-list.
+      OPTIONS:
+        -devC      devCorpus,        Dev corpus, can be a file or a directory.
+        -testC     testCorpus,       Test corpus, can be a file or a directory.
+        -window    windowSize,       Token window size for each entity,
+                                     default value is '3'.
+        -modSize   modifierSize,     How much modifiers will be used for NPs    
+                                     default value is '5'.
+        -balanced                    Uses balanced classifier training files.
+                                     Without this flag each instance of each classifier
+                                     is added as negative instance to the other
+                                     classifiers, but with the '-balanced' flag,
+                                     each instance is added only to one other classifier.
+        -tfidf                       Creates tf-idf features.
+        [-all | -all_no_chunk]       -all:          all features are extracted,
+                                     -all_no_chunk: all features except chunking are extracted
+                                     Default option is '-all' .
+</code>
+<strong>Important</strong>. Note that at parsing and processing steps you have to use same <em>window</em>, <em>modSize</em>, <em>tfidf</em> and <em>all</em> or <em>all_no_chunk</em> options.</p>
+
+<p>This step will create the vectors files explained below:</p>
+
+<ul>
+  <li><em>name.category.train</em>: labelled data for each category.</li>
+  <li><em>name.train</em>: unlabelled data.</li>
+</ul>
+
+<p>Dictionary files <em>.dic</em> and <em>.dbin</em> are also created. The <em>.dic</em> file, is a raw text dictionary, and the <em>.dbin</em> file the binarized dictionary file.</p>
+
+<p>It is recomended to use both all and the <strong>balanced</strong> options. TF-IDF feature could be usefull with seeds that share some word forms like <em>Londres <strong>Hotel</strong>, Grand Plaza <strong>Hotel</strong>, National <strong>Bank</strong>, British <strong>Bank</strong></em>…</p>
+
+<h4 id="test">Test</h4>
+
+<p>If your want to try parsing ancora corpus to vectors, you can download the <a href="http://clic.ub.edu/corpus/en">AnCora Spanish Dependencies corpus</a> and parse to conll with the provided <em>scripts/ancora2conll.pl</em> script. This is the usage:
+<code>
+    Usage: perl ancora2conll.pl corpus_input_dir corpus_output_dir -ne 0|1
+                -ne 0: does not parse named entites
+                    1: parses named entites for test purposes
+</code>
+The seed list is at <em>test/seeds</em> folder with <em>person, location and organization</em> categories.</p>
+
+<p>To parse the corpus to vectors, use this command:</p>
+
+<p><code>
+    java -jar target/Bootstrapping-0.0.1.jar -parse \
+                                             -trainC ancora/train \
+                                             -seeds test/seeds/seed-list.data \
+                                             -name ancora -all -balanced -l es
+</code></p>
+
+<h3 id="train-classifiers">Train classifiers</h3>
+
+<p>Vector files created at the previous step are processed to create the classifiers. Below you can see the options for the parsing step:</p>
+
+<p><code>
+    Train SVM classifiers
+      -train -labelled labelledData -unlabelled unlabelledData [OPTIONS...]
+      ARGUMENTS:
+        -labelled    labelledData,      A list of data files used to train the classifier.
+                                        A classifier will be learned for each labelled
+                                        data file.
+        -unlabelled  unlabelledData,    The data file used to boostrapping.
+      OPTIONS:
+        -ratio       negativeInstances, Negative:Positive instance ratio for labelled data,
+                                        the ratio is 'negativeInstances':1.
+                                        Default value is '2'.
+        -testC       testCorpus,        Test corpus to output Precision, Recall and
+                                        F1-score during the boostrapping.
+        -th          threshold,         Beginning threshold to add instances from the    
+                                        unlabelled data. Default value is '0.95'.
+        -tfidf       threshold,         Changes tf-idf threshold, default value is '0.55'.
+</code>
+Labelled data files are the <em>name.category.train</em> files, and the unlabelled data is the <em>name.train</em> file.</p>
+
+<p>Note that the TF-IDF threshold is only use in case of you choose TF-IDF option at parsing step. If <em>-tfidf</em> option is used, a <em>.tfidf.dic</em> and <em>.tfidf.dbin</em> file will be created. The <em>.tfidf.dic</em> file is the TF-IDF dictionary, and the <em>.tfidf.dbin</em> file is the binarized TF-IDF dictionary.</p>
+
+<h4 id="test-1">Test</h4>
+
+<p>If you want to try training classifiers, there are vector files and dictionaries at <em>test/vectors</em> folder. To use them execute this command:</p>
+
+<p><code>
+    java -jar target/Bootstrapping-0.0.1.jar -train \
+                                             -labelled test/vectors/ancora.person.train \
+                                                       test/vectors/ancora.location.train \
+                                                       test/vectors/ancora.organization.train \
+                                             -unlabelled test/vectors/ancora.train
+</code></p>
+
+<h3 id="process-kaf-files">Process KAF files</h3>
+
+<p>Input KAF files are processed, and the detected named entities are written at output KAF file. Below you can see the options for the processing step:</p>
+
+<p><code>
+    Classify SVM instances
+      -classify -in input.kaf -out output.kaf -classifier [classifier...] [OPTIONS...] -dic dictionary
+      ARGUMENTS:
+        -in         input.kaf,         Input KAF file with terms
+        -out        output.kaf,        Output KAF file
+        -models     [model...],        Model list to classify instances.
+        -dic        dictionary,        Binarized dictionary file (.dbin extension).
+      OPTIONS:
+        -window     windowSize,        Token window size for each entity used when training,
+                                       default value is '3'.
+        -modSize    modifierSize,      How much modifiers had for NPs when training.
+                                       default value is '5'.
+        -tfidf      dictionary,        Binarized tf-idf dictionary file (.tfidf.dbin extension).
+        [-all | -all_no_chunk]         -all:          all features are extracted,
+                                       -all_no_chunk: all features except chunking are extracted
+                                       Default option is '-all' .
+</code>
+<strong>Important</strong>. Note that at parsing and processing steps you have to use same <em>window</em>, <em>modSize</em>, <em>tfidf</em> and <em>all</em> or <em>all_no_chunk</em> options.</p>
+
+<p>If TF-IDF option was especified at parsing step, the TF-IDF dictionary is required. You need also use same features at parsing and processing steps.</p>
+
+<h4 id="test-2">Test</h4>
+
+<p>You can try with provided models in <em>test/models</em> folder and the dictionaries in <em>test/dictionaries</em> folder. There is a test file at <em>test/files</em> folder. To use them execute this command:</p>
+
+<p><code>
+    java -jar target/Bootstrapping-0.0.1.jar -classify \
+                                             -in test/files/sample.kaf \
+                                             -out test/files/sample.out.kaf \
+                                             -dic test/dictionaries/ancora.dbin \
+                                             -models test/models/ancora.person.bin \
+                                                     test/models/ancora.location.bin \
+                                                     test/models/ancora.organization.bin \
+                                             -tfidf test/dictionaries/ancora.tfidf.dbin \
+                                             -all
+</code></p>
+
+<h3 id="log-files">Log files</h3>
+
+<p>With each execution, a log file is created and saved at <em>log</em> folder. Log filenames start with the executed step followed by the timestamp (e.g. <em>train.2014-04-03.18:08.log</em>).</p>
+
+<h2 id="scripts">Scripts</h2>
+
+<p>There are two scripts within <em>scripts</em> directory:</p>
+
+<ol>
+  <li>
+    <p><strong>ancora2conll.pl</strong></p>
+
+    <p>It parses the <a href="http://clic.ub.edu/corpus/en">AnCora Dependencies corpus</a> to conll. This is the usage:
+<code>
+     Usage: perl ancora2conll.pl corpus_input_dir corpus_output_dir -ne 0|1
+                 -ne 0: does not parse named entites
+                     1: parses named entites for test purposes
+</code></p>
+  </li>
+  <li>
+    <p><strong>kaf-conll-0.0.1-SNAPSHOT.jar</strong></p>
+
+    <p>It parses KAF files to conll. This is the usage:
+```
+     Usage: java -jar kaf-conll-0.0.1-SNAPSHOT.jar [OPTIONS…]
+     Reads text from standard input and writes result at standard output.</p>
+
+    <pre><code>   OPTIONS:
+     -h, --help       shows this help ```
+</code></pre>
+  </li>
+</ol>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Pull it</li>
+  <li>Create your feature branch (<code>git checkout -b features/my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin features/my-new-feature</code>)</li>
+  <li>If you’re confident, merge your changes into master.</li>
+</ol>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-2 bg-midnight-blue doc-bottom-margin">
+<div class="container">
+  <nav class="pull-left">
+  <ul>
+    <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+  </ul>
+  </nav>
+  <div class="social-btns pull-right">
+    <a href="#">
+      <div class="fui-vimeo"></div>
+      <div class="fui-vimeo"></div>
+    </a>
+    <a href="#">
+      <div class="fui-facebook"></div>
+      <div class="fui-facebook"></div>
+    </a>
+    <a href="#">
+      <div class="fui-twitter"></div>
+      <div class="fui-twitter"></div>
+    </a>
+  </div>
+  <div class="additional-links">
+    Be sure to take a look at our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/page-transitions.js"></script>
+<script src="/js/easing.min.js"></script>
+<script src="/js/jquery.svg.js"></script>
+<script src="/js/jquery.svganim.js"></script>
+<script src="/js/jquery.backgroundvideo.min.js"></script>
+<script src="/js/froogaloop.min.js"></script>
+<script src="/js/startup-kit.js"></script>
+
+  </body>
+</html>

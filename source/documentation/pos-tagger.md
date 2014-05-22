@@ -13,7 +13,7 @@ webservice: http://opener.olery.com/pos-tagger
 POS-tagger
 ------------
 
-Component that wraps the different existing POS Taggers based on OpenNLP.
+Component that wraps the different existing POS Taggers.
 
 ### Confused by some terminology?
 

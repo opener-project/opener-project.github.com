@@ -110,25 +110,23 @@ components:
     repository: https://github.com/opener-project/outlet
     webservice: http://opener.olery.com/outlet
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      The outlet is a component that stores its inputs into a MySQL database.
+      Given the right unique id it also retrieves the files from the database.
   - &s3_outlet
     name: S3 Outlet
     repository: https://github.com/opener-project/s3-outlet
     webservice: http://opener.olery.com/s3-outlet
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      The S3 outlet is a modified version of the normal outlet. It uses
+      Amazon S3 to store the input. When using the S3 outlet you can specify specific
+      buckets and directories.
   - &kaf_to_json
     name: kaf-to-json
     repository: https://github.com/opener-project/kaf-to-json
     webservice: http://opener.olery.com/kaf-to-json
     description:
-      This is a placeholder for a 2 to 5 line description of the component.
-      Each component should have description like this. So that when we provide
-      a nice overview page, then we can show a neat description.
+      XML is not always the best format to display results. That's why there is a
+      kaf-to-json parser that transforms any KAF document to a rougly equivalent JSON object.
   - &kaf_naf_parser
     name: kaf-naf parser
     repository: https://github.com/opener-project/kaf-naf-parser
@@ -148,25 +146,14 @@ components:
 
 toolkits: &toolkits
   -
-    name: Brat conversion tools
-    partner: Vicom
-    person: Aitor
-  -
-    name: Opinion miner toolkit
-    partner: VU
-    person: Ruben
-  -
     name: Lexical acquisition toolkit
-    partner: VU
-    person: Ruben
+    repository: https://github.com/opener-project/opinion-domain-lexicon-acquisition
   -
     name: Lexicon propagation toolkit
-    partner: VU
-    person: Ruben
+    repository: https://github.com/opener-project/VU-lexicon-propagation_kernel
   -
     name: Domain adaptation toolkit
-    partner: Vicom
-    person: Andoni
+    repository: https://github.com/opener-project/domain-adaptation-tool
 
 clusters:
   - &c_input_tools
@@ -232,34 +219,6 @@ webservices:
   - *c_storage
   - *c_converters
   - *c_processors
-  -
-    name: Scenarios
-    components:
-      -
-        name: Basic Opinions
-        webservice: /webservices/scenarios/basic-opinions.html
-        documentation: /getting-started/scenarios/basic-opinions.html
-        description:
-          This is a placeholder for a 2 to 5 line description of the component.
-          Each component should have description like this. So that when we provide
-          a nice overview page, then we can show a neat description.
-      -
-        name: Named Entity Disambiguation
-        webservice: /webservices/scenarios/named-entity-disambiguation.html
-        documentation: /getting-started/scenarios/named-entity-disambiguation.html
-        description:
-          This is a placeholder for a 2 to 5 line description of the component.
-          Each component should have description like this. So that when we provide
-          a nice overview page, then we can show a neat description.
-      -
-        name: Full Pipeline
-        webservice: /webservices/scenarios/full-pipeline.html
-        documentation: /getting-started/scenarios/full-pipeline.html
-        description:
-          This is a placeholder for a 2 to 5 line description of the component.
-          Each component should have description like this. So that when we provide
-          a nice overview page, then we can show a neat description.
-
 
 datasets: &datasets
   -
@@ -309,6 +268,7 @@ documentation:
     - *c_storage
     - *c_converters
     - *c_processors
+    - *c_toolkits
   lexicons: *lexicons
   datasets: *datasets
   other:

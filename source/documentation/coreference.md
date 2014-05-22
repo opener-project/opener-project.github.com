@@ -15,7 +15,7 @@ Coreference
 
 This Gem provides coreference resolution for various languages (en, es, it, nl, de, fr).
 
-The CorefGraph-en module provides an implementation of the Multi-Sieve Pass system for for Coreference Resolution system originally proposed by the Stanford NLP Group (Raghunathan et al., 2010; Lee et al., 2011) and (Lee et al., 2013). This system proposes a number of deterministic passes, ranging from high precision to higher recall, each dealing with a different manner in which coreference manifests itself in running text.
+The CorefGraph module provides an implementation of the Multi-Sieve Pass system for for Coreference Resolution system originally proposed by the Stanford NLP Group (Lee et al., 2013). This system proposes a number of deterministic passes, ranging from high precision to higher recall, each dealing with a different manner in which coreference manifests itself in running text.
 
 Although more sieves are available, in order to facilitate the integration of the coreference system for the 6 languages of OpeNER we have included here 4 sieves: Exact String Matching, Precise Constructs, Strict Head Match and Pronoun Match (the sieve nomenclature follows Lee et al (2013)). Furthermore, as it has been reported, this sieves are responsible for most of the performance in the Stanford system.
 

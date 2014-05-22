@@ -294,13 +294,11 @@ echo "This is just an example, of how we tokenize. Bye, bye" | language-identifi
 
 <h4 id="technical-characteristics-2">Technical characteristics</h4>
 
-<p>This component provides Part of Speech probabilistic models trained using the Apache OpeNLP
-API. This component relates a word with its part of speech given a context. The component is the same for all the languages in the consortium, the only differences are the models which depend on the languages (are trained according to the linguistic features of each language) and the lemmatizers. Lemmatization is dictionary-based. To perform English lemmatization the module uses three different methods for English and two for Spanish:</p>
+<p>This component is based on Apache OpeNLP component and contains one module that relates a word with its part of speech given a context. The component is the same for all the languages in the consortium, the only differences are the models which depend on the languages (are trained according to the linguistic features of each language) and the lemmatizers. Lemmatization is dictionary-based. To perform English lemmatization the module uses three different methods for English and two for Spanish:</p>
 
 <p>English has two possible lemmatizers. One is based on WordNet-3.0 and the other is based on pain text dictionary (en-lemmas.dict is a “Word POStag lemma” dictionary in plain text to perform lemmatization).
-Also, there is Morfologik-stemming: english.dict is the same as en-lemmas.dict
-but binarized as a finite state automata using the morfologik-stemming project
-(see NOTICE file for details) This method uses considerable less RAM with respect to the plain text dictionary.</p>
+Also, there is Morfologik-stemming: english.dict is the same as en-lemmas.dict but binarized as a finite state automata using the morfologik-stemming project (see NOTICE file for details) This method uses 10% of RAM with
+respect to the plain text dictionary and works 2x faster.</p>
 
 <p>Spanish has a plain text dictionary: es-lemmas.dict and it uses the Morfologik stemming: spanish.dict.
 For the rest of the languages they also include a file inside the repository which lemmatizes the output and maps a form to a lemma.</p>

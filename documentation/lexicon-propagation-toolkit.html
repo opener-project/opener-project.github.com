@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/flat-ui.css">
+<link rel="stylesheet" href="/css/icon-font.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>Lexicon propagation toolkit</title>
+  </head>
+  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <header class="header-2">
+<div class="container">
+  <div class="row">
+    <nav class="navbar col-sm-12" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"></button>
+      <a class="brand" href="/"><img src="/images/opener_log.png" width="125" height="58" alt=""> </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav pull-right">
+        <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+      </ul>
+      <ul class="subnav">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+</header>
+
+
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <!--Nav Bar -->
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+            
+            <ul id="sidebar" class="nav bs-sidenav">
+  <li>
+    <a href="#readme">Lexicon propagation toolkit</a>
+    <ul class="nav nav-stacked visible">
+      <li><a href="#readme">Introduction</a></li>
+      <li><a href="#reference">Reference</a></li>
+      <li><a href="http://opener.olery.com/lexicon-propagation-toolkit">Webservice</a></li>
+    </ul>
+  </li>
+  <li><a href="/documentation/">Other Components</a></li>
+</ul>
+
+
+          </div>
+        </div>
+        <!--Main Content -->
+        <div class="col-sm-8 col-sm-offset-1 content">
+          <div id="readme"></div>
+
+<h1 id="vu-lexicon-propagationkernel">VU-lexicon-propagation_kernel</h1>
+
+<p>These scripts implement the propagation algorithm for automatically generation of sentiment lexicons from WordNet.
+There are two main scripts to generate a lexicon:
+1) propagate_wn.py –&gt; this script propagates a list of seeds over WordNet and generates and intermediate CSV format
+2) from_csv_to_lmf.py –&gt; this script reads the previous CSV format and generates the final Opener-LMF lexicon</p>
+
+<p>Some other scripts are included in the repository:
+1) csv_from_synset_to_lemma.py –&gt; transforms a synset-based CSV into a lemma-based CSV lexicon
+2) validate.py –&gt; validate a LMF lexicon against the opener_lmf.dtd DTD</p>
+
+<h2 id="installation-and-requirements">Installation and requirements</h2>
+
+<p>The scripts are Python, so you need to have Python installed in your machine (version &gt;=2.6). Also you need the lxml library for XML
+processing. To install this requirement, you can just run:
+<code>shell
+$ pip install -r requirements.txt
+</code>
+There is nothing else required to run these scripts.</p>
+
+<h2 id="general-approach">General Approach</h2>
+
+<p>The general approach to generate a lexicon these are the required steps:</p>
+
+<ol>
+  <li>Get the WordNet in LMF format for your language</li>
+  <li>Generate/translate a list of seeds</li>
+  <li>Create the list with the relations you want to use for the propagation</li>
+  <li>Run the script propagate_wn.py to generate the CSV file</li>
+  <li>Optionally convert the synset-based CSV file into a lemma-based CSV file with the script (csv_from_synset_to_lemma.py)</li>
+  <li>Manually check the most frequent words of your language and modify that CSV file</li>
+  <li>From the corrected CSV, with the from_csv_to_lmf.py script, generate the final LMF lexicon</li>
+</ol>
+
+<h2 id="seed-list">Seed list</h2>
+
+<p>The seed list has to be stored in a file, wit a seed per line, with the format:
+synset/polarity/pos</p>
+
+<p>For instance:<br />
+n_n-531677/negative/n<br />
+n_n-531685/neutral/n<br />
+n_n-531697/positive/n<br />
+n_n-531759/negative/n<br />
+n_n-531792/neutral/n<br />
+n_n-531952/neutral/n<br />
+……</p>
+
+<p>The seed list can be based also in sense identifiers instead of synset identifiers, but the use of synsets ids
+is strongly recommended.</p>
+
+<h2 id="relations-file">Relations file</h2>
+
+<p>The WordNet relations that you want to use for the propagation have to be stored in a file. You have to be sure that the
+labels for the relations match with the labels of the relations in your WordNet. You have to associate a weight to each
+relation, that will represent how the strength of a polarity is modified when it is propagated through that relation. For
+instance: we have a synset with a positive polarity with strength 3, and we propagate this positive polarity to all its
+hyponyms. In the relations file we defined a weight to 0.1 for HYPONYMY, so all the hyponyms will get a positive polarity
+with a weight of 0.3 (3*0.1). If the weight is negative, we will invert the polarity when propagation throught that kind
+of relations</p>
+
+<p>In our experiments, we have used the following configuration for the relations file with good results, so it could be a good
+idea to use also these relations addapted to your own labels in case they differ.  </p>
+
+<p>NEAR_SYNONYM 2<br />
+NEAR_ANTONYM -2<br />
+HAS_HYPONYM 1<br />
+HAS_HYPERONYM 0.5  </p>
+
+<h2 id="script-propagatewnpy">Script propagate_wn.py</h2>
+
+<p>You can get the usage of this script by simply running:
+<code>shell
+$ python propagate_wn.py -h
+</code></p>
+
+<p>The options and parameters for this script are the following:
+* Required:
+  *  –wn=FILE file with wordnet in LMF format
+  *  –seed-list=FILE file with list of seeds with polarities
+  *  –relations=FILE file with relations and weights
+  *  –out=FILE file to store the results in CSV format
+  *  –seed-sense In case your seed list is based on senses and not synsets</p>
+
+<ul>
+  <li>Optional:
+    <ul>
+      <li>–log=FILE Filename where store the log (default no log)</li>
+      <li>–max-depth=INT Maximum depth in number of relations to expand each synset (default 5) </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Example:
+<code>shell
+$ python propagate_wn.py  --wn=cornetto.lmf.xml --seed-list=file_seeds.txt --relations=my_rels.txt --out my_output.csv
+</code></p>
+
+<h2 id="script-csvfromsynsettolemmapy">Script csv_from_synset_to_lemma.py</h2>
+<p>This script reads the synset based CSV and generates the a CSV based on lemmas. For this, the different polarities assigned
+to each synset for a specific lemma are collected and some heuristic is applied to generate an accumulated. Two heuristics
+have been implemented:</p>
+
+<ul>
+  <li>Average: the average for each polarity is obtained using the confidence for each synset of the lemma</li>
+  <li>Most confidence: the polarity with a higher confidence is assigned</li>
+</ul>
+
+<p>This script reads from the standard input and writes to the standard output, and also generates some log information
+on the error output, so for calling it from the command line:
+<code>shell
+$ cat polarities-synset.csv | python csv_from_synset_to_lemma.py &gt; polarities-lemma.csv 2&gt; polarities-lemma.log
+</code></p>
+
+<h2 id="script-fromcsvtolmfpy">Script from_csv_to_lmf.py</h2>
+
+<p>This script reads the CSV and generates the final Opener-LMF format. To run the program:
+<code>shell
+$ cat my_output.csv | python from_csv_to_lmf.py &gt; my_lexicon.lmf
+</code></p>
+
+<p>There is one option (-verbose) you can set to the program:
+<code>shell
+$ cat my_output.csv | python from_csv_to_lmf.py -verbose &gt; my_lexicon.lmf
+</code></p>
+
+<p>With the verbose option we will create one lexical entry for each lemma. So for instance if we have in our CSV output:
+n_n-526797;N;neutral;0.5;scheepmaker,scheepsbouwer,scheepsmaker</p>
+
+<p>This means that the synset n_n-526797, which is a noun (N), has a neutral polarity with strength 0.5, and the words in this synset
+are three:scheepmaker, scheepsbouwer and scheepsmaker.
+If we create the LMF lexicon without the verbos option, there will be only one lexical entry for scheepmaker, with the synset
+n_n-526797 and the neutral polarity associated (The polarity actually is linked to the synset and not to the word).
+With the verbose option, we will have three lexical entries, one for each word in the synset, with the same information.</p>
+
+<p>This scripts generates LMF lexicons that comply with the DTD included in the repository (opener_lmf.dtd). If you want to check
+that the lexicon generate is really following the structure defined in the DTD, you can use the script validate.py:
+<code>shell
+$ cat lexicon.lmf | validate.py
+</code>
+You will get a message with the status of the validation, and the errors in case there is something wrong.</p>
+
+<h2 id="sentiment-modifiers">Sentiment modifiers</h2>
+<p>The previous script from_csv_to_lmf.py also consider that the input CSV can contain sentiment modifiers like polarity
+shifters, intensifiers or weakeners, so all this information will be stored in the final LMF lexicon.
+To incorporate this information to the CSV files, we should include one extra line for each modifier, with the following
+information and format:
+<code>shell
+unknown;ADV;neutral;1;very;-1;intensifier
+</code>
+So the format is the same as for polarity words, but with one extra field at the end containing the modifier for the word.
+In this case the synset(unknown), the polarity(neutral) and the score(1) specified in the CSV will not be used in the LMF,
+and the lexical entry will appear as a manual annotation.</p>
+
+<h2 id="contact">Contact</h2>
+<ul>
+  <li>Ruben Izquierdo</li>
+  <li>Vrije University of Amsterdam</li>
+  <li>ruben.izquierdobevia@vu.nl</li>
+</ul>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-2 bg-midnight-blue doc-bottom-margin">
+<div class="container">
+  <nav class="pull-left">
+  <ul>
+    <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+  </ul>
+  </nav>
+  <div class="social-btns pull-right">
+    <a href="#">
+      <div class="fui-vimeo"></div>
+      <div class="fui-vimeo"></div>
+    </a>
+    <a href="#">
+      <div class="fui-facebook"></div>
+      <div class="fui-facebook"></div>
+    </a>
+    <a href="#">
+      <div class="fui-twitter"></div>
+      <div class="fui-twitter"></div>
+    </a>
+  </div>
+  <div class="additional-links">
+    Be sure to take a look at our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/page-transitions.js"></script>
+<script src="/js/easing.min.js"></script>
+<script src="/js/jquery.svg.js"></script>
+<script src="/js/jquery.svganim.js"></script>
+<script src="/js/jquery.backgroundvideo.min.js"></script>
+<script src="/js/froogaloop.min.js"></script>
+<script src="/js/startup-kit.js"></script>
+
+  </body>
+</html>

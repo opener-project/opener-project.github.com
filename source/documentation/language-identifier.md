@@ -41,9 +41,9 @@ Make sure you run ```jruby``` since the language-identifier uses Java.
 ### Command line interface
 
 You should now be able to call the language indentifier as a regular shell
-command, by its name. Once installed as a gem you can access the gem from
-anywhere. This aplication reads a text from standard input in order to
-identify the language.
+command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.
+
+This aplication reads a text from standard input in order to identify the language.
 
     echo "This is an English text." | language-identifier
 
@@ -105,12 +105,11 @@ Website)[http://opener-project.github.io/getting-started/how-to/local-installati
 
 At least you need the following system setup:
 
-### Depenencies for normal use:
+### Dependencies for normal use:
 
 * Python 2.6 - PIP, possibly VirtualEnv
-* MRI 1.9.3 / Jruby
+* Jruby
 * Java 1.7 or newer (There are problems with encoding in older versions).
-* Ruby 1.9.3 or newer
 
 ### Dependencies if you want to modify the component:
 
@@ -119,19 +118,20 @@ At least you need the following system setup:
 Language Extension
 ------------------
 
-  TODO
+The internal library that actually performs the language identification already supports a lot of languages. 
+For more information about how to extends it for more languages or functionalities, please, visit the website of the tool at <a href="https://code.google.com/p/language-detection/">https://code.google.com/p/language-detection/</a>
 
 The Core
 --------
   
 The component is a fat wrapper around the actual language technology core.
-Written Java. Checkout the core/src directory of the package to get to the
+Written in Java. Checkout the core/src directory of the package to get to the
 actual working component.
 
 Where to go from here
 ---------------------
 
-* Check (the project websitere)[http://opener-project.github.io]
+* Check (the project website)[http://opener-project.github.io]
 * (Checkout the webservice)[http://opener.olery.com/language-identifier]
 
 Report problem/Get help
