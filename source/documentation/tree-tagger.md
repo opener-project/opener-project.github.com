@@ -3,6 +3,7 @@ layout: default
 title: Tree Tagger
 sidebar: documentation
 webservice: http://opener.olery.com/tree-tagger
+repository: https://github.com/opener-project/opener-tree-tagger
 
 ---
 

@@ -3,6 +3,7 @@ layout: default
 title: kaf-naf parser
 sidebar: documentation
 webservice: http://opener.olery.com/kaf-naf-parser
+repository: https://github.com/opener-project/kaf-naf-parser
 
 ---
 

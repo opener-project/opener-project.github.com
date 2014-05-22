@@ -74,7 +74,7 @@
       <li><a href="#readme">Introduction</a></li>
       <li><a href="#reference">Reference</a></li>
       <li><a href="http://opener.olery.com/language-identifier">Webservice</a></li>
-      <li><a href="">View Source code</a></li>
+      <li><a href="https://github.com/opener-project/language-identifier">View Source code</a></li>
     </ul>
   </li>
   <li><a href="/documentation/">Other Components</a></li>
@@ -127,11 +127,10 @@ command: by its name. Once installed the gem normally sits in your path so you c
 
 <p>This will output:</p>
 
-<p><code>
+<p><code>xml
     &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
     &lt;KAF xml:lang="en" version="2.1"&gt;
-         &lt;raw&gt;This is an English text.
-    &lt;/raw&gt;
+        &lt;raw&gt;This is an English text.&lt;/raw&gt;
     &lt;/KAF&gt;
 </code></p>
 
@@ -258,10 +257,10 @@ echo "This is english text." | language-identifier    # Defaults to KAF output
 </code></p>
 
 <p>```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<kaf xml:lang="en" version="2.1"></kaf></p>
+ <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ <kaf xml:lang="en" version="2.1"></kaf></p>
 <raw>This is english text.
-</raw>
+ </raw>
 <p>&lt;/KAF&gt;
 ```</p>
 
@@ -322,7 +321,7 @@ webserver used by the component. The options are:</p>
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
 <p>```
-Usage: language-identifier &lt;start|stop|restart&gt; [options]</p>
+ Usage: language-identifier &lt;start|stop|restart&gt; [options]</p>
 
 <table>
   <tbody>

@@ -3,6 +3,7 @@ layout: default
 title: Language Identifier
 sidebar: documentation
 webservice: http://opener.olery.com/language-identifier
+repository: https://github.com/opener-project/language-identifier
 
 ---
 
@@ -49,11 +50,10 @@ This aplication reads a text from standard input in order to identify the langua
 
 This will output:
 
-```
+```xml
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <KAF xml:lang="en" version="2.1">
-         <raw>This is an English text.
-    </raw>
+        <raw>This is an English text.</raw>
     </KAF>
 ```
 
@@ -174,11 +174,11 @@ echo "This is english text." | language-identifier    # Defaults to KAF output
 ```
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<KAF xml:lang="en" version="2.1">
-  <raw>This is english text.
-</raw>
-</KAF>
+ <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+ <KAF xml:lang="en" version="2.1">
+   <raw>This is english text.
+ </raw>
+ </KAF>
 ```
 
 ##### Output Probabilities
@@ -239,9 +239,9 @@ webserver used by the component. The options are:
 The daemon has the default OpeNER daemon options. Being:
 
 ```
-Usage: language-identifier <start|stop|restart> [options]
+ Usage: language-identifier <start|stop|restart> [options]
 
-When calling language-identifier without <start|stop|restart> the daemon will start as a foreground process
+ When calling language-identifier without <start|stop|restart> the daemon will start as a foreground process
 
 ```
 
@@ -282,6 +282,7 @@ We advise to have the following environment variables available:
         --debug                      Turn on debug log level
         --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
 ```
+
 
 ### Languages
 

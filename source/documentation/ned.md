@@ -3,6 +3,7 @@ layout: default
 title: NED
 sidebar: documentation
 webservice: http://opener.olery.com/ned
+repository: https://github.com/opener-project/ned
 
 ---
 

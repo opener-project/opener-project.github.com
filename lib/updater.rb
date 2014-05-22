@@ -16,7 +16,7 @@ class Updater
     documentation["components"].flat_map{|c| c["components"]}.each do |component|
       owner, repo = component["repository"].split("/")[-2..-1]
       repo = [owner,repo].join("/")
-      contents = yaml_front_matter(component["name"])
+      contents = yaml_front_matter(component["name"], repo)
 
       files.each do |filename|
         begin
@@ -48,11 +48,12 @@ class Updater
 
   private
 
-  def yaml_front_matter(component="OpeNER")
+  def yaml_front_matter(component="OpeNER", repo="opener-project/")
     options = {"layout"=>"default",
                "title"=>component,
                "sidebar"=>"documentation",
-               "webservice"=>"http://opener.olery.com/#{identify(component)}"}
+               "webservice"=>"http://opener.olery.com/#{identify(component)}",
+               "repository"=>"https://github.com/#{repo}"}
     yaml = YAML.dump(options)
     yaml << "\n---\n\n"
   end

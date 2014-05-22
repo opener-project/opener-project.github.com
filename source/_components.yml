@@ -223,7 +223,8 @@ webservices:
 datasets: &datasets
   -
     name: Sentiment Lexicons WordNet propagation (Es,En,Nl,Fr,It)
-    partner: VU
+    location:
+    documentation:
   -
     name: Sentiment Lexicon Tourist Domain (Es,En,Nl,De,Fr,It)
     partner: VU

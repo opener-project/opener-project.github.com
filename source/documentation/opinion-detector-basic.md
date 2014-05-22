@@ -3,6 +3,7 @@ layout: default
 title: Opinion Detector Basic
 sidebar: documentation
 webservice: http://opener.olery.com/opinion-detector-basic
+repository: https://github.com/opener-project/opinion-detector-basic
 
 ---
 

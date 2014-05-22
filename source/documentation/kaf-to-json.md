@@ -3,6 +3,7 @@ layout: default
 title: kaf-to-json
 sidebar: documentation
 webservice: http://opener.olery.com/kaf-to-json
+repository: https://github.com/opener-project/kaf-to-json
 
 ---
 

@@ -3,6 +3,7 @@ layout: default
 title: Outlet
 sidebar: documentation
 webservice: http://opener.olery.com/outlet
+repository: https://github.com/opener-project/outlet
 
 ---
 

@@ -3,6 +3,7 @@ layout: default
 title: Constituent Parser
 sidebar: documentation
 webservice: http://opener.olery.com/constituent-parser
+repository: https://github.com/opener-project/constituent-parser
 
 ---
 

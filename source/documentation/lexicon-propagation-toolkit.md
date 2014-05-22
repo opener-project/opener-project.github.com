@@ -3,6 +3,7 @@ layout: default
 title: Lexicon propagation toolkit
 sidebar: documentation
 webservice: http://opener.olery.com/lexicon-propagation-toolkit
+repository: https://github.com/opener-project/VU-lexicon-propagation_kernel
 
 ---
 

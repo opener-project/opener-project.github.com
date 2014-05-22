@@ -3,6 +3,7 @@ layout: default
 title: Sentiment Scores
 sidebar: documentation
 webservice: http://opener.olery.com/sentiment-scores
+repository: https://github.com/opener-project/scorer
 
 ---
 

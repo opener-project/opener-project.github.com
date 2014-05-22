@@ -3,6 +3,7 @@ layout: default
 title: POS Tagger
 sidebar: documentation
 webservice: http://opener.olery.com/pos-tagger
+repository: https://github.com/opener-project/pos-tagger
 
 ---
 
