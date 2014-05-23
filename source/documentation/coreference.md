@@ -24,11 +24,8 @@ The implementation is a result of a collaboration between the IXA NLP <http://ix
 
 ### Confused by some terminology?
 
-This software is part of a larger collection of natural language processing
-tools known as "the OpeNER project". You can find more information about the
-project at [the OpeNER portal](http://opener-project.github.io). There you can
-also find references to terms like KAF (an XML standard to represent linguistic
-annotations in texts), component, cores, scenario's and pipelines.
+This software is part of a larger collection of natural language processing tools known as "the OpeNER project". You can find more information about the project at [the OpeNER portal](http://opener-project.github.io). There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario's and pipelines.
+
 
 Quick Use Example
 -----------------
@@ -37,13 +34,11 @@ Installing the coreference can be done by executing:
 
     gem install opener-coreference
 
-Please bare in mind that all components in OpeNER take KAF as an input and
-output KAF by default.
+Please bare in mind that all components in OpeNER take KAF as an input and output KAF by default.
 
 ### Command line interface
 
-You should now be able to call the coreference as a regular shell
-command: by its name. Once installed the gem normalyl sits in your path so you can call it directly from anywhere.
+You should now be able to call the coreference as a regular shell command: by its name. Once installed the gem normalyl sits in your path so you can call it directly from anywhere.
 
 This aplication reads a text from standard input in order to identify the language.
 
@@ -75,26 +70,20 @@ You can launch a language identification webservice by executing:
 
     coreference-server
 
-This will launch a mini webserver with the webservice. It defaults to port 9292,
-so you can access it at <http://localhost:9292>.
+This will launch a mini webserver with the webservice. It defaults to port 9292, so you can access it at <http://localhost:9292>.
 
-To launch it on a different port provide the `-p [port-number]` option like
-this:
+To launch it on a different port provide the `-p [port-number]` option like this:
 
     coreference-server -p 1234
 
 It then launches at <http://localhost:1234>
 
-Documentation on the Webservice is provided by surfing to the urls provided
-above. For more information on how to launch a webservice run the command with
-the ```-h``` option.
+Documentation on the Webservice is provided by surfing to the urls provided above. For more information on how to launch a webservice run the command with the ```-h``` option.
 
 
 ### Daemon
 
-Last but not least the coreference comes shipped with a daemon that
-can read jobs (and write) jobs to and from Amazon SQS queues. For more
-information type:
+Last but not least the coreference comes shipped with a daemon that can read jobs (and write) jobs to and from Amazon SQS queues. For more information type:
 
     coreference-daemon -h
 
@@ -102,8 +91,7 @@ information type:
 Description of dependencies
 ---------------------------
 
-This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the [OpeNER installer](https://github.com/opener-project/opener-installer) and an
+This component runs best if you run it in an environment suited for OpeNER components. You can find an installation guide and helper tools in the [OpeNER installer](https://github.com/opener-project/opener-installer) and an
 [installation guide on the Opener Website](http://opener-project.github.io/getting-started/how-to/local-installation.html)
 
 At least you need the following system setup:
@@ -116,12 +104,7 @@ At least you need the following system setup:
 Adapting CorefGraph-en to your language
 ---------------------------------------
 
-There are a number of changes needed to be made to make CorefGraph works for
-other languages. Although we have try to keep the language dependent features
-to a minimum, you will still need to create some dictionaries for your own
-language and make some very minor changes in the code. Here is the list of very
-file in the Corefgraph module that needs to be changed.  Every change except
-one (see below) to be done in the **$project/core/corefgraph/resources** directory:
+There are a number of changes needed to be made to make CorefGraph works for other languages. Although we have try to keep the language dependent features to a minimum, you will still need to create some dictionaries for your own language and make some very minor changes in the code. Here is the list of very file in the Corefgraph module that needs to be changed. Every change except one (see below) to be done in the **$project/core/corefgraph/resources** directory:
 
 * dictionaries/$lang\_determiners.py
 * dictionaries/$lang\_pronouns.py
@@ -150,8 +133,7 @@ one (see below) to be done in the **$project/core/corefgraph/resources** directo
 The Core
 --------
 
-The component is a fat wrapper around the actual language technology core. You
-can find the core technolies in the following repositories:
+The component is a fat wrapper around the actual language technology core. You can find the core technolies in the following repositories:
 
 * [Coreference-base](https://github.com/opener-project/coreference-base)
 
@@ -164,8 +146,8 @@ Where to go from here
 Report problem/Get help
 -----------------------
 
-If you encounter problems, please email <support@opener-project.eu> or leave an
-issue in the [issue tracker](https://github.com/opener-project/coreference/issues).
+If you encounter problems, please email <support@opener-project.eu> or leave an issue in the 
+[issue tracker](https://github.com/opener-project/coreference/issues).
 
 
 Contributing
@@ -217,8 +199,7 @@ coreference-server
 After launching the server, you can reach the webservice at
 <http://localhost:9292>.
 
-The webservice takes several options that get passed along to [Puma](http://puma.io), the
-webserver used by the component. The options are:
+The webservice takes several options that get passed along to [Puma](http://puma.io), the webserver used by the component. The options are:
 
 ```
     -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
@@ -276,9 +257,7 @@ Daemon options:
 
 #### Environment Variables
 
-These daemons make use of Amazon SQS queues and other Amazon services.
-The access to these services and other environment variables can be configured
-using a .opener-daemons-env file in the home directory of the current user.
+These daemons make use of Amazon SQS queues and other Amazon services. The access to these services and other environment variables can be configured using a .opener-daemons-env file in the home directory of the current user.
 
 It is also possible to provide the environment variables directly to the deamon.
 

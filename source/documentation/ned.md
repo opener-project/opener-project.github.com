@@ -14,17 +14,12 @@ repository: https://github.com/opener-project/ned
 Introduction
 ------------
 
-This repository contains a Named Entity Disambiguation tool that queries a
-DBpedia spotlight server. The client takes KAF as input (containing
-`<entities>` nodes).
+This repository contains a Named Entity Disambiguation tool that queries a DBpedia spotlight server. The client takes KAF as input (containing `<entities>` nodes).
 
 ### Confused by some terminology?
 
-This software is part of a larger collection of natural language processing
-tools known as "the OpeNER project". You can find more information about the
-project at [the OpeNER portal](http://opener-project.github.io). There you can
-also find references to terms like KAF (an XML standard to represent linguistic
-annotations in texts), component, cores, scenario's and pipelines.
+This software is part of a larger collection of natural language processing tools known as "the OpeNER project". You can find more information about the project at [the OpeNER portal](http://opener-project.github.io). There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario's and pipelines.
+
 
 Quick Use Example
 -----------------
@@ -33,8 +28,7 @@ Installing the ned can be done by executing:
 
     gem install opener-ned
 
-Please bare in mind that all components in OpeNER take KAF as an input and
-output KAF by default.
+Please bare in mind that all components in OpeNER take KAF as an input and output KAF by default.
 
 
 ### Command line interface
@@ -69,26 +63,20 @@ You can launch a language identification webservice by executing:
 
     ned-server
 
-This will launch a mini webserver with the webservice. It defaults to port 9292,
-so you can access it at <http://localhost:9292>.
+This will launch a mini webserver with the webservice. It defaults to port 9292, so you can access it at <http://localhost:9292>.
 
-To launch it on a different port provide the `-p [port-number]` option like
-this:
+To launch it on a different port provide the `-p [port-number]` option like this:
 
     ned-server -p 1234
 
 It then launches at <http://localhost:1234>
 
-Documentation on the Webservice is provided by surfing to the urls provided
-above. For more information on how to launch a webservice run the command with
-the ```-h``` option.
+Documentation on the Webservice is provided by surfing to the urls provided above. For more information on how to launch a webservice run the command with the ```-h``` option.
 
 
 ### Daemon
 
-Last but not least the NED comes shipped with a daemon that
-can read jobs (and write) jobs to and from Amazon SQS queues. For more
-information type:
+Last but not least the NED comes shipped with a daemon that can read jobs (and write) jobs to and from Amazon SQS queues. For moreinformation type:
 
     ned-daemon -h
 
@@ -96,8 +84,7 @@ information type:
 Description of dependencies
 ---------------------------
 
-This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the [OpeNER installer](ttps://github.com/opener-project/opener-installer) and an
+This component runs best if you run it in an environment suited for OpeNER components. You can find an installation guide and helper tools in the [OpeNER installer](ttps://github.com/opener-project/opener-installer) and an
 [installation guide on the Opener Website](http://opener-project.github.io/getting-started/how-to/local-installation.html)
 
 At least you need the following system setup:
@@ -113,9 +100,7 @@ At least you need the following system setup:
 
 ### Structure
 
-This repository comes in two parts: a collection of Java source files and Ruby
-source files. The Java code can be found in the `core/` directory, everything
-else will be Ruby source code.
+This repository comes in two parts: a collection of Java source files and Ruby source files. The Java code can be found in the `core/` directory, everything else will be Ruby source code.
 
 Language Extension
 ------------------
@@ -131,8 +116,8 @@ Where to go from here
 Report problem/Get help
 -----------------------
 
-If you encounter problems, please email <support@opener-project.eu> or leave an
-issue in the [issue tracker](https://github.com/opener-project/ned/issue).
+If you encounter problems, please email <support@opener-project.eu> or leave an issue in the 
+[issue tracker](https://github.com/opener-project/ned/issue).
 
 
 Contributing
@@ -189,8 +174,7 @@ ner-server
 After launching the server, you can reach the webservice at
 <http://localhost:9292>.
 
-The webservice takes several options that get passed along to [Puma](http://puma.io), the
-webserver used by the component. The options are:
+The webservice takes several options that get passed along to [Puma](http://puma.io), the webserver used by the component. The options are:
 
 ```
     -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
@@ -248,9 +232,7 @@ Daemon options:
 
 #### Environment Variables
 
-These daemons make use of Amazon SQS queues and other Amazon services.
-The access to these services and other environment variables can be configured
-using a .opener-daemons-env file in the home directory of the current user.
+These daemons make use of Amazon SQS queues and other Amazon services. The access to these services and other environment variables can be configured using a .opener-daemons-env file in the home directory of the current user.
 
 It is also possible to provide the environment variables directly to the deamon.
 

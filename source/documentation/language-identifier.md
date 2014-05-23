@@ -15,12 +15,9 @@ repository: https://github.com/opener-project/language-identifier
 
 # Language Identifier
 
-The language identifier takes raw text and tries to figure out what language it
-was written in. The output can either be a plain-text i18n language code or a basic
-KAF document containing the language and raw input text.
+The language identifier takes raw text and tries to figure out what language it was written in. The output can either be a plain-text i18n language code or a basic KAF document containing the language and raw input text.
 
-The output of the language identifier can then be used to drive further text
-analysis of for example sentiments and or entities.
+The output of the language identifier can then be used to drive further text analysis of for example sentiments and or entities.
 
 ### Confused by some terminology?
 
@@ -185,7 +182,7 @@ You can launch a webservice by executing:
 After launching the server, you can reach the webservice at
 <http://localhost:9292>.
 
-The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+The webservice takes several options that get passed along to [Puma](http://puma.io), the
 webserver used by the component. The options are:
 
 ~~~~

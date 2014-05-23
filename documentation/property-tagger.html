@@ -89,45 +89,33 @@
 
 <h2 id="property-tagger">Property Tagger</h2>
 
-<p>This module implements a tagger for hotel properties for Dutch, English, French, Italian, Spanish and German. It detects aspect words,<br />
-for instance words related with “room”, “cleanliness”, “staff” or “breakfast” and links them with the correct aspect class.<br />
-The input for this module has to be a valid KAF file with at lest the term layer, as the lemmas will be used for detecting the hotel properties. The output is also<br />
-a KAF valid file extended with the property layer. This module works for all the languages within the OpeNER project (en,de,nl,fr,es,it) and the language is read from<br />
-the input KAF file, from the lang attribute of the KAF element  (make sure your preprocessors set properly this value or you might use the resources for a wrong language)</p>
+<p>This module implements a tagger for hotel properties for Dutch, English, French, Italian, Spanish and German. It detects aspect words, for instance words related with “room”, “cleanliness”, “staff” or “breakfast” and links them with the correct aspect class. The input for this module has to be a valid KAF file with at lest the term layer, as the lemmas will be used for detecting the hotel properties. The output is also a KAF valid file extended with the property layer. This module works for all the languages within the OpeNER project (en,de,nl,fr,es,it) and the language is read from the input KAF file, from the lang attribute of the KAF element  (make sure your preprocessors set properly this value or you might use the resources for a wrong language)</p>
 
 <h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<p>This software is part of a larger collection of natural language processing<br />
-tools known as “the OpeNER project”. You can find more information about the<br />
-project at the <a href="http://opener-project.github.io">OpeNER portal</a>. There you can<br />
-also find references to terms like KAF (an XML standard to represent linguistic<br />
-annotations in texts), component, cores, scenario’s and pipelines.</p>
+<p>This software is part of a larger collection of natural language processing tools known as “the OpeNER project”. You can find more information about the project at the <a href="http://opener-project.github.io">OpeNER portal</a>. There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h2 id="quick-use-example">Quick Use Example</h2>
 
-<p>Keep in mind that this component uses PYTHON so it’s advised to make sure you<br />
-have a virtualenv activated before installing.</p>
+<p>Keep in mind that this component uses PYTHON so it’s advised to make sure you have a virtualenv activated before installing.</p>
 
 <p>Installing the property-tagger can be done by executing:</p>
 
 <pre><code>gem install opener-property-tagger
 </code></pre>
 
-<p>Please keep in mind that all components in OpeNER take KAF as an input and<br />
-output KAF by default.</p>
+<p>Please keep in mind that all components in OpeNER take KAF as an input and output KAF by default.</p>
 
 <h3 id="command-line-interface">Command line interface</h3>
 
-<p>You should now be able to call the property tagger as a regular shell<br />
-command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
+<p>You should now be able to call the property tagger as a regular shell command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
 
 <p>This application reads a text from standard input in order process it.</p>
 
 <pre><code>cat some_kind_of_kaf_file.kaf | property-tagger --resource-path /path/to/lexicons/
 </code></pre>
 
-<p>The property tagger will search in the resource-path for files named
-<code>{language_code}.txt</code>, for example <code>en.txt</code>.</p>
+<p>The property tagger will search in the resource-path for files named <code>{language_code}.txt</code>, for example <code>en.txt</code>.</p>
 
 <p>An excerpt of a potential output would than be:</p>
 
@@ -172,35 +160,27 @@ command: by its name. Once installed the gem normally sits in your path so you c
 <pre><code>property-tagger-server --resource-path /path/to/resources
 </code></pre>
 
-<p>This will launch a mini webserver with the webservice. It defaults to port 9292,<br />
-so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292, so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>To launch it on a different port provide the <code>-p [port-number]</code> option like<br />
-this:</p>
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like this:</p>
 
 <pre><code>property-tagger-server -p 1234
 </code></pre>
 
 <p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
 
-<p>Documentation on the Webservice is provided by surfing to the urls provided<br />
-above. For more information on how to launch a webservice run the command with<br />
-the <code>-h</code> option.</p>
+<p>Documentation on the Webservice is provided by surfing to the urls provided above. For more information on how to launch a webservice run the command with the <code>-h</code> option.</p>
 
 <h3 id="daemon">Daemon</h3>
 
-<p>Last but not least the property tagger comes shipped with a daemon that<br />
-can read jobs (and write) jobs to and from Amazon SQS queues. For more<br />
-information type:</p>
+<p>Last but not least the property tagger comes shipped with a daemon that can read jobs (and write) jobs to and from Amazon SQS queues. For more information type:</p>
 
 <pre><code>property-tagger-daemon -h
 </code></pre>
 
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
-<p>This component runs best if you run it in an environment suited for OpeNER<br />
-components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and an
-<a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the Opener Website</a></p>
+<p>This component runs best if you run it in an environment suited for OpeNER components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and an<a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the Opener Website</a></p>
 
 <p>At least you need the following system setup:</p>
 
@@ -228,13 +208,11 @@ surfer	noun	facilities
 surfing	verb	facilities
 </code></pre>
 
-<p>So, one aspect per line, with 3 fields separated by a tabulator, the first one is the word or span of words (in this case use whitespaces), then the part<br />
-of speech (which actually it is not use, you can  include a dummy label) and finally the aspect class associated with the word.</p>
+<p>So, one aspect per line, with 3 fields separated by a tabulator, the first one is the word or span of words (in this case use whitespaces), then the part of speech (which actually it is not use, you can  include a dummy label) and finally the aspect class associated with the word.</p>
 
 <h2 id="the-core">The Core</h2>
 
-<p>The component is a fat wrapper around the actual language technology core. You<br />
-can find the core technolies (python) in the <code>/core</code> directory.</p>
+<p>The component is a fat wrapper around the actual language technology core. You can find the core technolies (python) in the <code>/core</code> directory.</p>
 
 <h2 id="where-to-go-from-here">Where to go from here</h2>
 
@@ -245,8 +223,8 @@ can find the core technolies (python) in the <code>/core</code> directory.</p>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;</a> or leave an<br />
-issue in the <a href="https://github.com/opener-project/property-tagger/issues">issue tracker</a>.</p>
+<p>If you encounter problems, please email <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;</a> or leave an issue in the 
+<a href="https://github.com/opener-project/property-tagger/issues">issue tracker</a>.</p>
 
 <h2 id="contributing">Contributing</h2>
 
@@ -277,8 +255,7 @@ issue in the <a href="https://github.com/opener-project/property-tagger/issues">
 <pre><code>cat some_kind_of_kaf_file.kaf | property-tagger --resource-path /path/to/lexicons/
 </code></pre>
 
-<p>The property tagger will search in the resource-path for files named
-<code>{language_code}.txt</code>, for example <code>en.txt</code>.</p>
+<p>The property tagger will search in the resource-path for files named <code>{language_code}.txt</code>, for example <code>en.txt</code>.</p>
 
 <p>An excerpt of a potential output would than be:</p>
 
@@ -318,17 +295,11 @@ issue in the <a href="https://github.com/opener-project/property-tagger/issues">
 
 <h4 id="downloading-resources-on-the-fly">Downloading resources on the fly</h4>
 
-<p>You can also download resources on the fly at boot time. This is particularly<br />
-interesting when launching a daemon or webservice, but it might also be useful<br />
-from the command line.</p>
+<p>You can also download resources on the fly at boot time. This is particularly interesting when launching a daemon or webservice, but it might also be useful from the command line.</p>
 
-<p>When given the <code>--resource-url</code> option the software will download the file<br />
-given (.zip or .tar.gz) into the /tmp folder and extract it into the <code>resource-path</code> folder.<br />
-Subsequently it will use that resource-path to do its work.</p>
+<p>When given the <code>--resource-url</code> option the software will download the file given (.zip or .tar.gz) into the /tmp folder and extract it into the <code>resource-path</code> folder. Subsequently it will use that resource-path to do its work.</p>
 
-<p>If the resource has been downloaded before, and it is detected that the<br />
-downloaded file is the same as the file on the url location, it will not<br />
-download the file again, but will simply re-extract the file.</p>
+<p>If the resource has been downloaded before, and it is detected that the downloaded file is the same as the file on the url location, it will not download the file again, but will simply re-extract the file.</p>
 
 <pre><code>cat some-kind-of-kaf.kaf | property-tagger \
   --resource-path ~/resources/property-tagger \
@@ -345,8 +316,7 @@ download the file again, but will simply re-extract the file.</p>
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the<br />
-webserver used by the component. The options are:</p>
+<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the webserver used by the component. The options are:</p>
 
 <pre><code>-b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
 -C, --config PATH                Load PATH as a config file
@@ -401,9 +371,7 @@ Daemon options:
 
 <h4 id="environment-variables">Environment Variables</h4>
 
-<p>These daemons make use of Amazon SQS queues and other Amazon services.<br />
-The access to these services and other environment variables can be configured<br />
-using a .opener-daemons-env file in the home directory of the current user.</p>
+<p>These daemons make use of Amazon SQS queues and other Amazon services. The access to these services and other environment variables can be configured using a .opener-daemons-env file in the home directory of the current user.</p>
 
 <p>It is also possible to provide the environment variables directly to the deamon.</p>
 
@@ -422,8 +390,7 @@ using a .opener-daemons-env file in the home directory of the current user.</p>
 
 <h3 id="languages">Languages</h3>
 
-<p>That depends on your lexicons. The project will soon open up News lexicons for<br />
-the following languages:</p>
+<p>That depends on your lexicons. The project will soon open up News lexicons for the following languages:</p>
 
 <ul>
   <li>Dutch (nl)</li>

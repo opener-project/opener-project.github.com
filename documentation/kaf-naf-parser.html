@@ -93,20 +93,13 @@ kaf-naf-parser</p>
 
 <h2 id="introduction">Introduction</h2>
 
-<p>This library converts KAF to NAF and NAF to KAF. It also contains a webservice<br />
-for doing exactly this.</p>
+<p>This library converts KAF to NAF and NAF to KAF. It also contains a webservice for doing exactly this.</p>
 
-<p>It uses slightly altered <br />
-distributions of the VUA_pylib and KafNafParserPy but it keeps the external <br />
-libraries contained, so that shouldn’t influence anything on your system.</p>
+<p>It uses slightly altered distributions of the VUA_pylib and KafNafParserPy but it keeps the external libraries contained, so that shouldn’t influence anything on your system.</p>
 
 <h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<p>This software is part of a larger collection of natural language processing<br />
-tools known as “the OpeNER project”. You can find more information about the<br />
-project at the <a href="http://opener-project.github.io">OpeNER portal</a>. There you can<br />
-also find references to terms like KAF (an XML standard to represent linguistic<br />
-annotations in texts), component, cores, scenario’s and pipelines.</p>
+<p>This software is part of a larger collection of natural language processing tools known as “the OpeNER project”. You can find more information about the project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h2 id="quick-use-example">Quick Use Example</h2>
 
@@ -115,8 +108,7 @@ annotations in texts), component, cores, scenario’s and pipelines.</p>
 <pre><code>gem install opener-kaf-naf-parser
 </code></pre>
 
-<p>Please bare in mind that all components in OpeNER take KAF as an input and<br />
-output KAF by default.</p>
+<p>Please bare in mind that all components in OpeNER take KAF as an input and output KAF by default.</p>
 
 <p>It ships with 3 command line tools and a webservice:</p>
 
@@ -144,17 +136,14 @@ cat some_kaf.kaf | kaf-naf-parser --tonaf &gt; output.naf
 
 <h3 id="daemon">Daemon</h3>
 
-<p>Last but not least the kaf-naf-parser comes shipped with a daemon that<br />
-can read jobs (and write) jobs to and from Amazon SQS queues. For more<br />
-information type:</p>
+<p>Last but not least the kaf-naf-parser comes shipped with a daemon that can read jobs (and write) jobs to and from Amazon SQS queues. For more information type:</p>
 
 <pre><code>kaf-naf-parser-daemon -h
 </code></pre>
 
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
-<p>This component runs best if you run it in an environment suited for OpeNER<br />
-components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and an <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the Opener Website</a></p>
+<p>This component runs best if you run it in an environment suited for OpeNER components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and an <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the Opener Website</a></p>
 
 <p>At least you need the following system setup:</p>
 
@@ -174,8 +163,8 @@ components. You can find an installation guide and helper tools in the <a href="
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email support@opener-project.eu or leave an<br />
-issue in the <a href="https://github.com/opener-project/kaf-naf-parser/issues">issue tracker</a>.</p>
+<p>If you encounter problems, please email support@opener-project.eu or leave an issue in the 
+<a href="https://github.com/opener-project/kaf-naf-parser/issues">issue tracker</a>.</p>
 
 <h2 id="contributing">Contributing</h2>
 
@@ -213,8 +202,7 @@ cat some_kaf.kaf | kaf-naf-parser --tonaf &gt; output.naf
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the<br />
-webserver used by the component. The options are:</p>
+<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the webserver used by the component. The options are:</p>
 
 <pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
     -C, --config PATH                Load PATH as a config file
@@ -269,9 +257,7 @@ Daemon options:
 
 <h4 id="environment-variables">Environment Variables</h4>
 
-<p>These daemons make use of Amazon SQS queues and other Amazon services.<br />
-The access to these services and other environment variables can be configured<br />
-using a .opener-daemons-env file in the home directory of the current user.</p>
+<p>These daemons make use of Amazon SQS queues and other Amazon services. The access to these services and other environment variables can be configured using a .opener-daemons-env file in the home directory of the current user.</p>
 
 <p>It is also possible to provide the environment variables directly to the deamon.</p>
 
