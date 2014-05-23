@@ -24,11 +24,7 @@ analysis of for example sentiments and or entities.
 
 ### Confused by some terminology?
 
-This software is part of a larger collection of natural language processing
-tools known as "the OpeNER project". You can find more information about the
-project at [the OpeNER portal](http://opener-project.github.io). There you can
-also find references to terms like KAF (an XML standard to represent linguistic
-annotations in texts), component, cores, scenario's and pipelines.
+This software is part of a larger collection of natural language processing tools known as "the OpeNER project". You can find more information about the project at [the OpeNER portal](http://opener-project.github.io). There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario's and pipelines.
 
 Quick Use Example
 -----------------
@@ -41,8 +37,7 @@ Make sure you run ```jruby``` since the language-identifier uses Java.
 
 ### Command line interface
 
-You should now be able to call the language indentifier as a regular shell
-command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.
+You should now be able to call the language indentifier as a regular shell command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.
 
 This aplication reads a text from standard input in order to identify the language.
 
@@ -57,8 +52,7 @@ This will output:
 </KAF>
 ~~~~
 
-If you just want the language code returned add the ```--no-kaf``` option like
-this
+If you just want the language code returned add the ```--no-kaf``` option like this
 
     echo "This is an English text." | language-identifier --no-kaf
 
@@ -72,8 +66,7 @@ You can launch a language identification webservice by executing:
 
     $ language-identifier-server
 
-This will launch a mini webserver with the webservice. It defaults to port 9292,
-so you can access it at <http://localhost:9292/>.
+This will launch a mini webserver with the webservice. It defaults to port 9292, so you can access it at <http://localhost:9292/>.
 
 To launch it on a different port provide the `-p [port-number]` option like
 this:
