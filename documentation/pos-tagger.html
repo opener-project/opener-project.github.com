@@ -95,7 +95,7 @@
 
 <p>This software is part of a larger collection of natural language processing<br />
 tools known as “the OpeNER project”. You can find more information about the<br />
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can<br />
+project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can<br />
 also find references to terms like KAF (an XML standard to represent linguistic<br />
 annotations in texts), component, cores, scenario’s and pipelines.</p>
 
@@ -205,10 +205,7 @@ information type:</p>
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
 <p>This component runs best if you run it in an environment suited for OpeNER<br />
-components. You can find an installation guide and helper tools in the (OpeNER<br />
-installer)[https://github.com/opener-project/opener-installer] and (an<br />
-installation guide on the Opener<br />
-Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and an <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the Opener Website</a></p>
 
 <p>At least you need the following system setup:</p>
 
@@ -232,24 +229,26 @@ Website)[http://opener-project.github.io/getting-started/how-to/local-installati
 <h2 id="the-core">The Core</h2>
 
 <p>The component is a fat wrapper around the actual language technology core. You<br />
-can find the core technolies in the following repositories: (https://github.com/opener-project/?query=pos)[https://github.com/opener-project/?query=pos]</p>
+can find the core technolies in the following repositories: 
+<a href="https://github.com/opener-project/?query=pos">https://github.com/opener-project/?query=pos</a>
+<a href="https://github.com/opener-project/?query=pos">https://github.com/opener-project/?query=pos</a></p>
 
 <h2 id="where-to-go-from-here">Where to go from here</h2>
 
 <ul>
-  <li>Check (the project websitere)[http://opener-project.github.io]</li>
-  <li>(Checkout the webservice)[http://opener.olery.com/pos-tagger]</li>
+  <li><a href="http://opener-project.github.io">Check the project websitere</a></li>
+  <li><a href="http://opener.olery.com/pos-tagger">Checkout the webservice</a></li>
 </ul>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email support@opener-project.eu or leave an<br />
-issue in the (issue tracker)[https://github.com/opener-project/pos-tagger/issues].</p>
+<p>If you encounter problems, please email <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;</a> or leave an<br />
+issue in the <a href="https://github.com/opener-project/pos-tagger/issues">issue tracker</a>.</p>
 
 <h2 id="contributing">Contributing</h2>
 
 <ol>
-  <li>Fork it ( http://github.com/opener-project/pos-tagger/fork )</li>
+  <li>Fork it <a href="http://github.com/opener-project/pos-tagger/fork">http://github.com/opener-project/pos-tagger/fork</a></li>
   <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
   <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
   <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
@@ -271,52 +270,52 @@ issue in the (issue tracker)[https://github.com/opener-project/pos-tagger/issues
 
 <p>Will result in:</p>
 
-<pre><code>    &lt;?xml version='1.0' encoding='UTF-8'?&gt;
-    &lt;KAF version="v1.opener" xml:lang="en"&gt;
-      &lt;kafHeader&gt;
-        &lt;linguisticProcessors layer="text"&gt;
-          &lt;lp name="opennlp-en-tok" timestamp="2013-06-11T13:41:37Z" version="1.0"/&gt;
-          &lt;lp name="opennlp-en-sent" timestamp="2013-06-11T13:41:37Z" version="1.0"/&gt;
-        &lt;/linguisticProcessors&gt;
-        &lt;linguisticProcessor layer="term"&gt;
-          &lt;lp timestamp="2013-06-12T15:18:03CEST" version="1.0" name="Open nlp pos tagger"/&gt;
-        &lt;/linguisticProcessor&gt;
-      &lt;/kafHeader&gt;
-      &lt;text&gt;
-        &lt;wf length="4" offset="0" para="1" sent="1" wid="w1"&gt;this&lt;/wf&gt;
-        &lt;wf length="2" offset="5" para="1" sent="1" wid="w2"&gt;is&lt;/wf&gt;
-        &lt;wf length="2" offset="8" para="1" sent="1" wid="w3"&gt;an&lt;/wf&gt;
-        &lt;wf length="7" offset="11" para="1" sent="1" wid="w4"&gt;english&lt;/wf&gt;
-        &lt;wf length="4" offset="19" para="1" sent="1" wid="w5"&gt;text&lt;/wf&gt;
-      &lt;/text&gt;
-      &lt;terms&gt;
-        &lt;term lemma="this" morphofeat="FM" pos="O" tid="t_1" type="open"&gt;
-          &lt;span&gt;
-            &lt;target id="w1"/&gt;
-          &lt;/span&gt;
-        &lt;/term&gt;
-        &lt;term lemma="is" morphofeat="FM" pos="O" tid="t_2" type="open"&gt;
-          &lt;span&gt;
-            &lt;target id="w2"/&gt;
-          &lt;/span&gt;
-        &lt;/term&gt;
-        &lt;term lemma="an" morphofeat="APPR" pos="P" tid="t_3" type="close"&gt;
-          &lt;span&gt;
-            &lt;target id="w3"/&gt;
-          &lt;/span&gt;
-        &lt;/term&gt;
-        &lt;term lemma="english" morphofeat="FM" pos="O" tid="t_4" type="open"&gt;
-          &lt;span&gt;
-            &lt;target id="w4"/&gt;
-          &lt;/span&gt;
-        &lt;/term&gt;
-        &lt;term lemma="text" morphofeat="FM" pos="O" tid="t_5" type="open"&gt;
-          &lt;span&gt;
-            &lt;target id="w5"/&gt;
-          &lt;/span&gt;
-        &lt;/term&gt;
-      &lt;/terms&gt;
-    &lt;/KAF&gt;
+<pre><code>&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;KAF version="v1.opener" xml:lang="en"&gt;
+  &lt;kafHeader&gt;
+    &lt;linguisticProcessors layer="text"&gt;
+      &lt;lp name="opennlp-en-tok" timestamp="2013-06-11T13:41:37Z" version="1.0"/&gt;
+      &lt;lp name="opennlp-en-sent" timestamp="2013-06-11T13:41:37Z" version="1.0"/&gt;
+    &lt;/linguisticProcessors&gt;
+    &lt;linguisticProcessor layer="term"&gt;
+      &lt;lp timestamp="2013-06-12T15:18:03CEST" version="1.0" name="Open nlp pos tagger"/&gt;
+    &lt;/linguisticProcessor&gt;
+  &lt;/kafHeader&gt;
+  &lt;text&gt;
+    &lt;wf length="4" offset="0" para="1" sent="1" wid="w1"&gt;this&lt;/wf&gt;
+    &lt;wf length="2" offset="5" para="1" sent="1" wid="w2"&gt;is&lt;/wf&gt;
+    &lt;wf length="2" offset="8" para="1" sent="1" wid="w3"&gt;an&lt;/wf&gt;
+    &lt;wf length="7" offset="11" para="1" sent="1" wid="w4"&gt;english&lt;/wf&gt;
+    &lt;wf length="4" offset="19" para="1" sent="1" wid="w5"&gt;text&lt;/wf&gt;
+  &lt;/text&gt;
+  &lt;terms&gt;
+    &lt;term lemma="this" morphofeat="FM" pos="O" tid="t_1" type="open"&gt;
+      &lt;span&gt;
+        &lt;target id="w1"/&gt;
+      &lt;/span&gt;
+    &lt;/term&gt;
+    &lt;term lemma="is" morphofeat="FM" pos="O" tid="t_2" type="open"&gt;
+      &lt;span&gt;
+        &lt;target id="w2"/&gt;
+      &lt;/span&gt;
+    &lt;/term&gt;
+    &lt;term lemma="an" morphofeat="APPR" pos="P" tid="t_3" type="close"&gt;
+      &lt;span&gt;
+        &lt;target id="w3"/&gt;
+      &lt;/span&gt;
+    &lt;/term&gt;
+    &lt;term lemma="english" morphofeat="FM" pos="O" tid="t_4" type="open"&gt;
+      &lt;span&gt;
+        &lt;target id="w4"/&gt;
+      &lt;/span&gt;
+    &lt;/term&gt;
+    &lt;term lemma="text" morphofeat="FM" pos="O" tid="t_5" type="open"&gt;
+      &lt;span&gt;
+        &lt;target id="w5"/&gt;
+      &lt;/span&gt;
+    &lt;/term&gt;
+  &lt;/terms&gt;
+&lt;/KAF&gt;
 </code></pre>
 
 <h3 id="webservice">Webservice</h3>
@@ -329,34 +328,34 @@ issue in the (issue tracker)[https://github.com/opener-project/pos-tagger/issues
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the<br />
+<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the<br />
 webserver used by the component. The options are:</p>
 
-<pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
-    -C, --config PATH                Load PATH as a config file
-        --control URL                The bind url to use for the control server
-                                     Use 'auto' to use temp unix server
-        --control-token TOKEN        The token to use as authentication for the control server
-    -d, --daemon                     Daemonize the server into the background
-        --debug                      Log lowlevel debugging information
-        --dir DIR                    Change to DIR before starting
-    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
-    -I, --include PATH               Specify $LOAD_PATH directories
-    -p, --port PORT                  Define the TCP port to bind to
-                                     Use -b for more advanced options
-        --pidfile PATH               Use PATH as a pidfile
-        --preload                    Preload the app. Cluster mode only
-        --prune-bundler              Prune out the bundler env if possible
-    -q, --quiet                      Quiet down the output
-    -R, --restart-cmd CMD            The puma command to run during a hot restart
-                                     Default: inferred
-    -S, --state PATH                 Where to store the state details
-    -t, --threads INT                min:max threads to use (default 0:16)
-        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
-    -V, --version                    Print the version information
-    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
-        --tag NAME                   Additional text to display in process listing
-    -h, --help                       Show help
+<pre><code>-b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+-C, --config PATH                Load PATH as a config file
+    --control URL                The bind url to use for the control server
+                                 Use 'auto' to use temp unix server
+    --control-token TOKEN        The token to use as authentication for the control server
+-d, --daemon                     Daemonize the server into the background
+    --debug                      Log lowlevel debugging information
+    --dir DIR                    Change to DIR before starting
+-e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+-I, --include PATH               Specify $LOAD_PATH directories
+-p, --port PORT                  Define the TCP port to bind to
+                                 Use -b for more advanced options
+    --pidfile PATH               Use PATH as a pidfile
+    --preload                    Preload the app. Cluster mode only
+    --prune-bundler              Prune out the bundler env if possible
+-q, --quiet                      Quiet down the output
+-R, --restart-cmd CMD            The puma command to run during a hot restart
+                                 Default: inferred
+-S, --state PATH                 Where to store the state details
+-t, --threads INT                min:max threads to use (default 0:16)
+    --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+-V, --version                    Print the version information
+-w, --workers COUNT              Activate cluster mode: How many worker processes to create
+    --tag NAME                   Additional text to display in process listing
+-h, --help                       Show help
 </code></pre>
 
 <h3 id="daemon-1">Daemon</h3>
@@ -364,10 +363,19 @@ webserver used by the component. The options are:</p>
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
 <pre><code>Usage: pos-tagger-daemon &lt;start|stop|restart&gt; [options]
+</code></pre>
 
-When calling pos-tagger without &lt;start|stop|restart&gt; the daemon will start as a foreground process
+<table>
+  <tbody>
+    <tr>
+      <td>When calling pos-tagger without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
 
-Daemon options:
+<pre><code>Daemon options:
     -i, --input QUEUE_NAME           Input queue name
     -o, --output QUEUE_NAME          Output queue name
         --batch-size COUNT           Request x messages at once where x is between 1 and 10

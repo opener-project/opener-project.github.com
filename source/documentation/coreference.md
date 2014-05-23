@@ -18,15 +18,15 @@ This Gem provides coreference resolution for various languages (en, es, it, nl, 
 
 The CorefGraph module provides an implementation of the Multi-Sieve Pass system for for Coreference Resolution system originally proposed by the Stanford NLP Group (Lee et al., 2013). This system proposes a number of deterministic passes, ranging from high precision to higher recall, each dealing with a different manner in which coreference manifests itself in running text.
 
-Although more sieves are available, in order to facilitate the integration of the coreference system for the 6 languages of OpeNER we have included here 4 sieves: Exact String Matching, Precise Constructs, Strict Head Match and Pronoun Match (the sieve nomenclature follows Lee et al (2013)). Furthermore, as it has been reported, this sieves are responsible for most of the performance in the Stanford system.
+Although more sieves are available, in order to facilitate the integration of the coreference system for the 6 languages of OpeNER we have included here 4 sieves: Exact String Matching, Precise Constructs, Strict Head Match and Pronoun Match (the sieve nomenclature follows Lee et al (2013). Furthermore, as it has been reported, this sieves are responsible for most of the performance in the Stanford system.
 
-The implementation is a result of a collaboration between the IXA NLP (http://ixa.si.ehu.es) and LinguaMedia Groups (http://linguamedia.deusto.es).
+The implementation is a result of a collaboration between the IXA NLP <http://ixa.si.ehu.es> and LinguaMedia Groups <http://linguamedia.deusto.es>.
 
 ### Confused by some terminology?
 
 This software is part of a larger collection of natural language processing
 tools known as "the OpeNER project". You can find more information about the
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+project at [the OpeNER portal](http://opener-project.github.io). There you can
 also find references to terms like KAF (an XML standard to represent linguistic
 annotations in texts), component, cores, scenario's and pipelines.
 
@@ -103,10 +103,8 @@ Description of dependencies
 ---------------------------
 
 This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the (OpeNER
-installer)[https://github.com/opener-project/opener-installer] and (an
-installation guide on the Opener
-Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]
+components. You can find an installation guide and helper tools in the [OpeNER installer](https://github.com/opener-project/opener-installer) and an
+[installation guide on the Opener Website](http://opener-project.github.io/getting-started/how-to/local-installation.html)
 
 At least you need the following system setup:
 
@@ -155,25 +153,25 @@ The Core
 The component is a fat wrapper around the actual language technology core. You
 can find the core technolies in the following repositories:
 
-* (Coreference-base)[https://github.com/opener-project/coreference-base]
+* [Coreference-base](https://github.com/opener-project/coreference-base)
 
 Where to go from here
 ---------------------
 
-* Check (the project websitere)[http://opener-project.github.io]
-* (Checkout the webservice)[http://opener.olery.com/coreference]
+* [Check the project websitere](http://opener-project.github.io)
+* [Checkout the webservice](http://opener.olery.com/coreference)
 
 Report problem/Get help
 -----------------------
 
-If you encounter problems, please email support@opener-project.eu or leave an
-issue in the (issue tracker)[https://github.com/opener-project/coreference/issues].
+If you encounter problems, please email <support@opener-project.eu> or leave an
+issue in the [issue tracker](https://github.com/opener-project/coreference/issues).
 
 
 Contributing
 ------------
 
-1. Fork it ( http://github.com/opener-project/coreference/fork )
+1. Fork it <http://github.com/opener-project/coreference/fork>
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -219,7 +217,7 @@ coreference-server
 After launching the server, you can reach the webservice at
 <http://localhost:9292>.
 
-The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+The webservice takes several options that get passed along to [Puma](http://puma.io), the
 webserver used by the component. The options are:
 
 ```

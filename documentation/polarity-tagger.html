@@ -112,7 +112,7 @@ bad, expensive and dirty could be negative ones.</li>
 
 <p>This software is part of a larger collection of natural language processing<br />
 tools known as “the OpeNER project”. You can find more information about the<br />
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can<br />
+project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can<br />
 also find references to terms like KAF (an XML standard to represent linguistic<br />
 annotations in texts), component, cores, scenario’s and pipelines.</p>
 
@@ -184,10 +184,8 @@ information type:</p>
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
 <p>This component runs best if you run it in an environment suited for OpeNER<br />
-components. You can find an installation guide and helper tools in the (OpeNER<br />
-installer)[https://github.com/opener-project/opener-installer] and (an<br />
-installation guide on the Opener<br />
-Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and an
+<a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the Opener Website</a></p>
 
 <p>At least you need the following system setup:</p>
 
@@ -215,19 +213,19 @@ can find the core technolies in the <code>core/</code> folder.</p>
 <h2 id="where-to-go-from-here">Where to go from here</h2>
 
 <ul>
-  <li>Check (the project websitere)[http://opener-project.github.io]</li>
-  <li>(Checkout the webservice)[http://opener.olery.com/polarity-tagger]</li>
+  <li><a href="http://opener-project.github.io">Check the project websitere</a></li>
+  <li><a href="http://opener.olery.com/polarity-tagger">Checkout the webservice</a></li>
 </ul>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email support@opener-project.eu or leave an<br />
-issue in the (issue tracker)[https://github.com/opener-project/polarity-tagger/issues].</p>
+<p>If you encounter problems, please email <a href="&#109;&#097;&#105;&#108;&#116;&#111;:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#064;&#111;&#112;&#101;&#110;&#101;&#114;&#045;&#112;&#114;&#111;&#106;&#101;&#099;&#116;&#046;&#101;&#117;</a> or leave an<br />
+issue in the <a href="https://github.com/opener-project/polarity-tagger/issues">issue tracker</a>.</p>
 
 <h2 id="contributing">Contributing</h2>
 
 <ol>
-  <li>Fork it ( http://github.com/opener-project/polarity-tagger/fork )</li>
+  <li>Fork it <a href="http://github.com/opener-project/polarity-tagger/fork">http://github.com/opener-project/polarity-tagger/fork</a></li>
   <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
   <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
   <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
@@ -245,16 +243,16 @@ issue in the (issue tracker)[https://github.com/opener-project/polarity-tagger/i
 <pre><code>cat some-kaf-file.kaf | polarity-tagger
 </code></pre>
 
-<p>Partial output
-<code>
-&lt;term lemma="donner" morphofeat="VP3s" pos="V" tid="t119" type="open"&gt;
-  &lt;span&gt;
-    &lt;!--donne--&gt;
-    &lt;target id="w119"/&gt;
-  &lt;/span&gt;
-  &lt;sentiment polarity="neutral" resource="General domain lexicon for French . Vicomtech_general_lexicon_french"/&gt;
-&lt;/term&gt;
-</code></p>
+<p>Partial output<br />
+~~~~
+<term lemma="donner" morphofeat="VP3s" pos="V" tid="t119" type="open">
+  <span>
+    <!--donne-->
+    <target id="w119"></target>
+  </span>
+  <sentiment polarity="neutral" resource="General domain lexicon for French . Vicomtech_general_lexicon_french"></sentiment>
+</term><br />
+~~~~</p>
 
 <h4 id="switching-to-another-lexicon">Switching to another lexicon</h4>
 
@@ -279,16 +277,19 @@ issue in the (issue tracker)[https://github.com/opener-project/polarity-tagger/i
 <p>The main script of this tool is a python file, which accepts a set of parameters to determine which features<br />
 or options we want to use. The language is read from the KAF file, so it doesn’t need to be specified as a parameter.<br />
 The program reads a KAF file from the standard input and writes the resulting KAf in the standard output.<br />
-To see the options you can call to the main script with the -h or –help option<br />
-````shell<br />
-polarity-tagger – -h<br />
-usage: poltagger-basic-multi.py [-h] [–no-time] [–ignore-pos]<br />
-                                [–show-lexicons {nl,en,de,es,it,fr}]<br />
-                                [–lexicon LEXICON] [–silent] [–version]</p>
+To see the options you can call to the main script with the -h or –help option</p>
+
+<pre><code>shell
+polarity-tagger -- -h
+usage: poltagger-basic-multi.py [-h] [--no-time] [--ignore-pos]
+                            [--show-lexicons {nl,en,de,es,it,fr}]
+                            [--lexicon LEXICON] [--silent] [--version]
+</code></pre>
 
 <p>Tags a text with polarities at lemma level</p>
 
 <p>optional arguments:<br />
+~~~~<br />
   -h, –help            show this help message and exit<br />
   –no-time             For not including timestamp in header<br />
   –ignore-pos          Ignore the pos labels<br />
@@ -298,7 +299,7 @@ usage: poltagger-basic-multi.py [-h] [–no-time] [–ignore-pos]<br />
                         for options<br />
   –silent              Turn off debug info<br />
   –version             show program’s version number and exit<br />
-````</p>
+~~~~</p>
 
 <p>The <code>--ignore-pos</code> parameter must be used when want to ignore the part-of-speech information assigned to the lemmas, and we want to assign polarities<br />
 just to the lemmas, not considering the POS tag. This could be useful when the information provided by the pos-tagger is not accurate or the pos-tagging<br />
@@ -307,11 +308,12 @@ has not been processed.</p>
 <p>The main options are those concerning with the usage of different lexicons. The lexicons are provided by the<br />
 VU-sentiment-lexicon library (https://github.com/opener-project/VU-sentiment-lexicon), which needs to be installed.<br />
 You can see what the lexicons available for a given language are by calling to the program with the option –show-lexicons LANG,<br />
-for instance:<br />
-````shell<br />
-polarity-tagger – –show-lexicons nl</p>
+for instance:</p>
 
-<h6 id="section">#</h6>
+<pre><code>shell
+polarity-tagger -- --show-lexicons nl
+</code></pre>
+
 <p>Available lexicons for nl<br />
   Identifier: “hotel” (Default)<br />
     Desc: Hotel domain lexicon for Dutch<br />
@@ -323,10 +325,9 @@ polarity-tagger – –show-lexicons nl</p>
      Res: VUA_olery_lexicon_nl_lmf<br />
     File: /Users/ruben/python_envs/python2.7/lib/python2.7/VUSentimentLexicon/NL-lexicon/Sentiment-Dutch-general.xml</p>
 
-<h6 id="section-1">#</h6>
-<pre><code>
-Then you can use the lexicon identifiers to select the proper lexicon, with the option --lexicon
-````shell
+<p>Then you can use the lexicon identifiers to select the proper lexicon, with the option –lexicon</p>
+
+<pre><code>shell
 cat my_input.nl.kaf | polarity-tagger -- --lexicon general
 </code></pre>
 
@@ -345,34 +346,34 @@ for further information about how to manage lexicons and add new ones</p>
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the<br />
+<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the<br />
 webserver used by the component. The options are:</p>
 
-<pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
-    -C, --config PATH                Load PATH as a config file
-        --control URL                The bind url to use for the control server
-                                     Use 'auto' to use temp unix server
-        --control-token TOKEN        The token to use as authentication for the control server
-    -d, --daemon                     Daemonize the server into the background
-        --debug                      Log lowlevel debugging information
-        --dir DIR                    Change to DIR before starting
-    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
-    -I, --include PATH               Specify $LOAD_PATH directories
-    -p, --port PORT                  Define the TCP port to bind to
-                                     Use -b for more advanced options
-        --pidfile PATH               Use PATH as a pidfile
-        --preload                    Preload the app. Cluster mode only
-        --prune-bundler              Prune out the bundler env if possible
-    -q, --quiet                      Quiet down the output
-    -R, --restart-cmd CMD            The puma command to run during a hot restart
-                                     Default: inferred
-    -S, --state PATH                 Where to store the state details
-    -t, --threads INT                min:max threads to use (default 0:16)
-        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
-    -V, --version                    Print the version information
-    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
-        --tag NAME                   Additional text to display in process listing
-    -h, --help                       Show help
+<pre><code>-b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+-C, --config PATH                Load PATH as a config file
+    --control URL                The bind url to use for the control server
+                                 Use 'auto' to use temp unix server
+    --control-token TOKEN        The token to use as authentication for the control server
+-d, --daemon                     Daemonize the server into the background
+    --debug                      Log lowlevel debugging information
+    --dir DIR                    Change to DIR before starting
+-e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+-I, --include PATH               Specify $LOAD_PATH directories
+-p, --port PORT                  Define the TCP port to bind to
+                                 Use -b for more advanced options
+    --pidfile PATH               Use PATH as a pidfile
+    --preload                    Preload the app. Cluster mode only
+    --prune-bundler              Prune out the bundler env if possible
+-q, --quiet                      Quiet down the output
+-R, --restart-cmd CMD            The puma command to run during a hot restart
+                                 Default: inferred
+-S, --state PATH                 Where to store the state details
+-t, --threads INT                min:max threads to use (default 0:16)
+    --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+-V, --version                    Print the version information
+-w, --workers COUNT              Activate cluster mode: How many worker processes to create
+    --tag NAME                   Additional text to display in process listing
+-h, --help                       Show help
 </code></pre>
 
 <h3 id="daemon-1">Daemon</h3>
@@ -380,10 +381,19 @@ webserver used by the component. The options are:</p>
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
 <pre><code>Usage: component-name-daemon &lt;start|stop|restart&gt; [options]
+</code></pre>
 
-When calling component-name without &lt;start|stop|restart&gt; the daemon will start as a foreground process
+<table>
+  <tbody>
+    <tr>
+      <td>When calling component-name without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
 
-Daemon options:
+<pre><code>Daemon options:
     -i, --input QUEUE_NAME           Input queue name
     -o, --output QUEUE_NAME          Output queue name
         --batch-size COUNT           Request x messages at once where x is between 1 and 10

@@ -103,7 +103,7 @@ models for that language and providing a mapping from the tagset used by these m
 
 <p>This software is part of a larger collection of natural language processing<br />
 tools known as “the OpeNER project”. You can find more information about the<br />
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can<br />
+project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can<br />
 also find references to terms like KAF (an XML standard to represent linguistic<br />
 annotations in texts), component, cores, scenario’s and pipelines.</p>
 
@@ -124,8 +124,7 @@ typing </p>
 <pre><code>pip install lxml
 </code></pre>
 
-<p>If that doesn’t work, please check the (installation guide on the OpeNER<br />
-portal)[http://opener-project.github.io/getting-started/how-to/local-installation.html].</p>
+<p>If that doesn’t work, please check the <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the OpeNER portal</a>.</p>
 
 <p>Please bare in mind that all components in OpeNER take KAF as an input and<br />
 output KAF by default.</p>
@@ -176,10 +175,8 @@ information type:</p>
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
 <p>This component runs best if you run it in an environment suited for OpeNER<br />
-components. You can find an installation guide and helper tools in the (OpeNER<br />
-installer)[https://github.com/opener-project/opener-installer] and (an<br />
-installation guide on the Opener<br />
-Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]</p>
+components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and [an<br />
+installation guide on the <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">Opener Website</a></p>
 
 <p>At least you need the following system setup:</p>
 
@@ -195,7 +192,7 @@ variable.</li>
 </ul>
 
 <p>If TreeTagger is not installed in your machine<br />
-you can download it from http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/ and follow the installation instructions. To indicate to our scripts where<br />
+you can download it from <a href="http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/">http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/</a> and follow the installation instructions. To indicate to our scripts where<br />
 TreeTagger is located, you have to set an environment variable with the<br />
 location:</p>
 
@@ -222,8 +219,8 @@ can find the core technolies in the core directory of this repository.</p>
 <h2 id="where-to-go-from-here">Where to go from here</h2>
 
 <ul>
-  <li>Check (the project websitere)[http://opener-project.github.io]</li>
-  <li>(Checkout the webservice)[http://opener.olery.com/tree-tagger]</li>
+  <li><a href="http://opener-project.github.io">Check the project websitere</a></li>
+  <li><a href="http://opener.olery.com/tree-tagger">Checkout the webservice</a></li>
 </ul>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
@@ -234,7 +231,7 @@ issue in the (issue tracker)[https://github.com/opener-project/tree-tagger/issue
 <h2 id="contributing">Contributing</h2>
 
 <ol>
-  <li>Fork it ( http://github.com/opener-project/tree-tagger/fork )</li>
+  <li>Fork it <a href="http://github.com/opener-project/tree-tagger/fork">http://github.com/opener-project/tree-tagger/fork</a></li>
   <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
   <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
   <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
@@ -270,7 +267,7 @@ Examples:
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to (Puma)[http://puma.io], the<br />
+<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the<br />
 webserver used by the component. The options are:</p>
 
 <pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
@@ -305,10 +302,19 @@ webserver used by the component. The options are:</p>
 <p>The daemon has the default OpeNER daemon options. Being:</p>
 
 <pre><code>Usage: tree-tagger-daemon &lt;start|stop|restart&gt; [options]
+</code></pre>
 
-When calling tree-tagger without &lt;start|stop|restart&gt; the daemon will start as a foreground process
+<table>
+  <tbody>
+    <tr>
+      <td>When calling tree-tagger without &lt;start</td>
+      <td>stop</td>
+      <td>restart&gt; the daemon will start as a foreground process</td>
+    </tr>
+  </tbody>
+</table>
 
-Daemon options:
+<pre><code>Daemon options:
     -i, --input QUEUE_NAME           Input queue name
     -o, --output QUEUE_NAME          Output queue name
         --batch-size COUNT           Request x messages at once where x is between 1 and 10

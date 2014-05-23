@@ -19,10 +19,10 @@ that parses the 6 main opener languages. Each language uses it's own parser and
 core. For more information on the specific languages, please check the
 individual cores.
 
-* (English, Spanish and French)[https://github.com/opener-project/constituent-parser-base] - OpeNER
-* (German)[https://github.com/opener-project/constituent-parser-de] - Stanford
+* [English, Spanish and French](https://github.com/opener-project/constituent-parser-base) - OpeNER
+* [German](https://github.com/opener-project/constituent-parser-de) - Stanford
   Based
-* (Dutch)[https://github.com/opener-project/constituent-parser-nl] - Alpino
+* [Dutch)](https://github.com/opener-project/constituent-parser-nl-) Alpino
   Based
 
 
@@ -30,7 +30,7 @@ individual cores.
 
 This software is part of a larger collection of natural language processing
 tools known as "the OpeNER project". You can find more information about the
-project at (the OpeNER portal)[http://opener-project.github.io]. There you can
+project at [the OpeNER portal](http://opener-project.github.io). There you can
 also find references to terms like KAF (an XML standard to represent linguistic
 annotations in texts), component, cores, scenario's and pipelines.
 
@@ -119,10 +119,8 @@ Description of dependencies
 ---------------------------
 
 This component runs best if you run it in an environment suited for OpeNER
-components. You can find an installation guide and helper tools in the (OpeNER
-installer)[https://github.com/opener-project/opener-installer] and (an
-installation guide on the Opener
-Website)[http://opener-project.github.io/getting-started/how-to/local-installation.html]
+components. You can find an installation guide and helper tools in the [OpeNER installer](https://github.com/opener-project/opener-installer) and an
+[installation guide on the Opener Website](http://opener-project.github.io/getting-started/how-to/local-installation.html)
 
 At least you need the following system setup:
 
@@ -134,7 +132,7 @@ At least you need the following system setup:
 
 If you want to use the Dutch constituent parser you need to have:
 
-* Alpino (http://www.let.rug.nl/vannoord/alp/Alpino/AlpinoUserGuide.html)
+* Alpino <http://www.let.rug.nl/vannoord/alp/Alpino/AlpinoUserGuide.html>
 
 Language Extension
 ------------------
@@ -145,20 +143,20 @@ Language Extension
 Where to go from here
 ---------------------
 
-* Check (the project websitere)[http://opener-project.github.io]
-* (Checkout the webservice)[http://opener.olery.com/constituent-parser]
+* [Check the project websitere](http://opener-project.github.io)
+* [Checkout the webservice](http://opener.olery.com/constituent-parser)
 
 Report problem/Get help
 -----------------------
 
 If you encounter problems, please email support@opener-project.eu or leave an
-issue in the (issue tracker)[https://github.com/opener-project/constituent-parser/issues].
+issue in the [issue tracker](https://github.com/opener-project/constituent-parser/issues).
 
 
 Contributing
 ------------
 
-1. Fork it ( http://github.com/opener-project/constituent-parser/fork )
+1. Fork it <http://github.com/opener-project/constituent-parser/fork>
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -219,7 +217,7 @@ constituent-parser-server
 After launching the server, you can reach the webservice at
 <http://localhost:9292>.
 
-The webservice takes several options that get passed along to (Puma)[http://puma.io], the
+The webservice takes several options that get passed along to [Puma](http://puma.io), the
 webserver used by the component. The options are:
 
 ```
