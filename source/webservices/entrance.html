@@ -1,7 +1,340 @@
 <html>
   <head>
+    <title>Opener Webservices</title>
+    <style type="text/css">
+      form p {
+        width: 500px;
+      }
+
+      ul.components {
+        clear: both;
+        list-style-type: none;
+      }
+
+      li.block {
+        border: 1px solid #CCC;
+        border-bottom: 2px solid #CCC;
+        border-right: 2px solid #CCC;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        margin: 1em;
+        padding: .5em;
+        height: 25;
+        width: 150px;
+        float: left;
+      }
+
+      .clear {
+        clear: both;
+      }
+
+      input[type=submit] {
+        font-size: 18px;
+        padding: 0.5em;
+      }
+    </style>
   </head>
-<body>
-  Somethign Here.
-</body>
+  <body>
+    <h1>Opener Webservices</h1>
+    <p>This is the entry page to the OpeNER webservices. It provides you with links to each individual webservice
+    as well as an integrated test, <a href="#test">right here on this page</a>.
+    These webservices are a work in process and might change without any up front notification. </p>
+
+    <p>More information on OpeNER can be found here: <a href="http://www.opener-project.eu">www.opener-project.eu</a>.</p>
+
+    <h2>Feedback</h2>
+    <p>Please provide uw with feedback on how we can improve the webservices by filling in our <a href="https://docs.google.com/a/olery.com/forms/d/10XwnygIyWRgs6QpnW9Fou3WM8o_xm-HjHeBENHYpaxo/viewform">feedback form</a>.</p>
+
+    <h2>Available Webservices</h2>
+    <p>The following webservices are available. If you click on a link you'll be taken to
+    a page with more detailed information on the specific webservice.</p>
+    <p>
+    <ul class="components">
+      
+        <li class="block"><a href="http://opener.olery.com/language-identifier">language-identifier</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/tokenizer">tokenizer</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/pos-tagger">POS-tagger</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/tree-tagger">tree-tagger</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/constituent-parser">constituent-parser</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/ner">ner</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/ned">ned</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/coreference">coreference</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/polarity-tagger">polarity-tagger</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/property-tagger">property-tagger</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/opinion-detector">opinion-detector</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/opinion-detector-basic">opinion-detector-basic</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/kaf_to_json">kaf_to_json</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/scorer">scorer</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/outlet">outlet</a></li>
+      
+        <li class="block"><a href="http://opener.olery.com/s3-outlet">s3-outlet</a></li>
+      
+    </ul>
+    <div class="clear">
+    <a name="test"></a>
+    <h2 name="test">Test Drive</h2>
+    <form action="/language-identifier" method="post">
+      <p>Paste a text below and check the checkboxes of the services you want to chain together.
+      Once you press submit you will see a URL where (after several seconds) you can ask for the result of your analysis.
+      The full OpeNER chain can take more than 30 seconds, so please be patient if you decide to check all boxes.</p>
+      <div>
+        <label for="input"/>Type your (plain, non-kaf) text here*</label>
+        <br/>
+
+        <textarea name="input" id="text" rows="10" cols="50"/></textarea>
+      </div>
+
+      <dl>
+      
+        <dt>
+          <label for="language-identifier">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/language-identifier"
+                   checked disabled
+                   checked
+            />
+            language-identifier
+          </label>
+        </dt>
+        <dd> </dd>
+      
+        <dt>
+          <label for="tokenizer">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/tokenizer"
+                   
+                   checked
+            />
+            tokenizer
+          </label>
+        </dt>
+        <dd> required step (unless you paste in KAF and know what you're doing)</dd>
+      
+        <dt>
+          <label for="tree-tagger">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/tree-tagger"
+                   
+                   
+            />
+            tree-tagger
+          </label>
+        </dt>
+        <dd> please select either tree OR pos-tagger</dd>
+      
+        <dt>
+          <label for="pos-tagger">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/pos-tagger"
+                   
+                   checked
+            />
+            pos-tagger
+          </label>
+        </dt>
+        <dd> please select either tree OR pos-tagger</dd>
+      
+        <dt>
+          <label for="polarity-tagger">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/polarity-tagger"
+                   
+                   checked
+            />
+            polarity-tagger
+          </label>
+        </dt>
+        <dd> detects if words are positive or negative</dd>
+      
+        <dt>
+          <label for="property-tagger">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/property-tagger"
+                   
+                   checked
+            />
+            property-tagger
+          </label>
+        </dt>
+        <dd> detects hotel specific topics like 'room' and 'value for money'</dd>
+      
+        <dt>
+          <label for="constituent-parser">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/constituent-parser"
+                   
+                   checked
+            />
+            constituent-parser
+          </label>
+        </dt>
+        <dd> required for Coreference Resolution</dd>
+      
+        <dt>
+          <label for="ner">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/ner"
+                   
+                   checked
+            />
+            ner
+          </label>
+        </dt>
+        <dd> detects named entities, required for NED</dd>
+      
+        <dt>
+          <label for="coreference">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/coreference"
+                   
+                   checked
+            />
+            coreference
+          </label>
+        </dt>
+        <dd> Co-reference resolution</dd>
+      
+        <dt>
+          <label for="ned">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/ned"
+                   
+                   checked
+            />
+            ned
+          </label>
+        </dt>
+        <dd> disambiguates named entities</dd>
+      
+        <dt>
+          <label for="opinion-detector">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/opinion-detector"
+                   
+                   checked
+            />
+            opinion-detector
+          </label>
+        </dt>
+        <dd> detects opinions, works best with all other options turned on.</dd>
+      
+        <dt>
+          <label for="opinion-detector-basic">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/opinion-detector-basic"
+                   
+                   
+            />
+            opinion-detector-basic
+          </label>
+        </dt>
+        <dd> detects opinions, works best if the text has gone through the polarity-tagger.</dd>
+      
+        <dt>
+          <label for="kaf_to_json">
+            <input type="checkbox"
+                   name="callbacks[]"
+                   value="http://opener.olery.com/kaf_to_json"
+                   
+                   
+            />
+            kaf_to_json
+          </label>
+        </dt>
+        <dd> Converts KAF to JSON. Don't use with scorer.</dd>
+      
+
+      <p> Select which kind of outlet you want to use. An outlet stores the result of the pipeline
+      so that you can request the results of your analysis after a couple of seconds.</p>
+
+      <dl>
+        
+          <dt>
+            <label for="scorer">
+              <input type="radio"
+                     name="callbacks[]"
+                     value="http://opener.olery.com/scorer"
+                     />
+                     scorer
+            </label>
+          </dt>
+          <dd>aggregates the opinions from the opinion-detector into values between -1 and 1</dd>
+        
+          <dt>
+            <label for="outlet">
+              <input type="radio"
+                     name="callbacks[]"
+                     value="http://opener.olery.com/outlet"
+                     checked/>
+                     outlet
+            </label>
+          </dt>
+          <dd>stores a KAF document in the database for later retrieval</dd>
+        
+          <dt>
+            <label for="s3-outlet">
+              <input type="radio"
+                     name="callbacks[]"
+                     value="http://opener.olery.com/s3-outlet"
+                     />
+                     s3-outlet
+            </label>
+          </dt>
+          <dd>stores the KAF document in S3. If you have OpeNER credentials this makes it easy to retrieve the files from disk</dd>
+        
+      </dl>
+
+      <div>
+        <p> In case an error occurs the system can post the error message to a place on the internet.
+        If you provide a URL below we will post the error straight to your systems. It's ok to leave this field empty though.</p>
+        <label for="error_callback">Error Callback</label>
+        <br />
+
+        <input id="error_callback" type="text" name="error_callback" />
+      </div>
+
+      <div>
+        <p> Once you click this button, you'll see a JSON response that contains
+        a URL for the outlet you selected. You can copy paste that url in your
+        url bar, or click the URL of your browser supports that. Processing your
+        text may take up several seconds. So please be patient.
+        </p>
+        <p><em>Please visit the URL presented to you on the next page</em></p>
+        <p>
+          <input type="submit" value="Submit" />
+        </p>
+
+      </div>
+    </form>
+
+
+  </body>
 </html>
+
