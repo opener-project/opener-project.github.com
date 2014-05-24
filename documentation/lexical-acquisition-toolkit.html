@@ -109,28 +109,25 @@ a set of KAF/NAF files annotated with opinions (targets, holders and expressions
 output files with the most relevant expressions and targets. You can call directly to the script with<br />
 the option -h or –help to see the parameters:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>$ acquire_from_annotated_data.py -h
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>usage: acquire_from_annotated_data.py [-h] (-l file_with_list | -f folder)
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>                                      -exp_csv expressions_file.csv -tar_csv
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>                                      targets_file.csv
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>Extract expressions and targets from annotated data
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>optional arguments:
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  -h, --help            show this help message and exit
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  -l file_with_list, --list file_with_list
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>                        A file with a list of paths to KAF/NAF files
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  -f folder, --folder folder
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>                        A folder with KAF/NAF files
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>  -exp_csv expressions_file.csv
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>                        CSV file to store the expressions
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>  -tar_csv targets_file.csv
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>                        CSV file to store the targets
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-shell">$ acquire_from_annotated_data.py -h
+usage: acquire_from_annotated_data.py [-h] (-l file_with_list | -f folder)
+                                      -exp_csv expressions_file.csv -tar_csv
+                                      targets_file.csv
+
+Extract expressions and targets from annotated data
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -l file_with_list, --list file_with_list
+                        A file with a list of paths to KAF/NAF files
+  -f folder, --folder folder
+                        A folder with KAF/NAF files
+  -exp_csv expressions_file.csv
+                        CSV file to store the expressions
+  -tar_csv targets_file.csv
+                        CSV file to store the targets
+
+</code></pre>
 
 <p>The input KAF/NAF files can be specified using in 2 exclusive ways:<br />
 * Providing a file which contains a list of paths to the annotated files (one per line) (option -l / –list)<br />
@@ -143,11 +140,8 @@ options -exp_cvs and -tar_csv. </p>
 <p>The script also prints the lexicons on the standard output in a more user readable way, as well as some debugging<br />
 information on the error output. One example of usage of this program would be:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_csv my_targets.csv &gt; log.out 2&gt; log.err
-</pre></div>
-</div>
-</div>
+<pre><code class="language-shell">acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_csv my_targets.csv &gt; log.out 2&gt; log.err
+</code></pre>
 
 <p>This would read all the KAF/NAF files in the folder ~/data/hole and store the output in the file log.out, the debugging information in the file log.err, and the resulting<br />
 lexicons in CSV format on the files my_expressions.csv and my_targets.csv respectively.</p>
@@ -175,43 +169,40 @@ This step needs to be performed just once, so when you create the indexes from y
 the queries more efficiently. The script which implements this is “create_index.py”. It accepts a list of parameters to customize the indexes, you can check the accepted parameters by calling to the script<br />
 with the option -h:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>create_index.py -h
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>usage: create_index.py [-h]
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>                       (-input_file file_with_list | -input_folder folder)
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>                       -output folder
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>                       [-punc punctuation_symbols default &quot;.?;!&quot;)] [-no_lower]
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>                       [-max_ngram integer (default 3)]
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>                       [-min_ngram integer (default 1)] [-no_sent_borders]
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>                       [-no_remove_out] [-min_freq integer (default 1]
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>Create n-gram indexes from a set of KAF/NAF files
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>optional arguments:
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span>  -h, --help            show this help message and exit
-<span class="line-numbers"><a href="#n14" name="n14">14</a></span>  -punc punctuation_symbols (default &quot;.?;!&quot;)
-<span class="line-numbers"><a href="#n15" name="n15">15</a></span>                        Symbols to be considered as punctuation
-<span class="line-numbers"><a href="#n16" name="n16">16</a></span>  -no_lower             Tokens are NOT converted to lowercase (by default they
-<span class="line-numbers"><a href="#n17" name="n17">17</a></span>                        are)
-<span class="line-numbers"><a href="#n18" name="n18">18</a></span>  -max_ngram integer (default 3)
-<span class="line-numbers"><a href="#n19" name="n19">19</a></span>                        Maximum size of n-grams to create
-<span class="line-numbers"><strong><a href="#n20" name="n20">20</a></strong></span>  -min_ngram integer (default 1)
-<span class="line-numbers"><a href="#n21" name="n21">21</a></span>                        Mininum size of n-grams to create
-<span class="line-numbers"><a href="#n22" name="n22">22</a></span>  -no_sent_borders      Sentence delimiters are NOT included (by default they
-<span class="line-numbers"><a href="#n23" name="n23">23</a></span>                        are)
-<span class="line-numbers"><a href="#n24" name="n24">24</a></span>  -no_remove_out        Output folder is not removed if exists
-<span class="line-numbers"><a href="#n25" name="n25">25</a></span>  -min_freq integer (default 1)
-<span class="line-numbers"><a href="#n26" name="n26">26</a></span>                        Minimum frequency allowed for ngram
-<span class="line-numbers"><a href="#n27" name="n27">27</a></span>
-<span class="line-numbers"><a href="#n28" name="n28">28</a></span>Required arguments:
-<span class="line-numbers"><a href="#n29" name="n29">29</a></span>  -input_file file_with_list
-<span class="line-numbers"><strong><a href="#n30" name="n30">30</a></strong></span>                        File with a list of paths to KAF/NAF files, one per
-<span class="line-numbers"><a href="#n31" name="n31">31</a></span>                        line
-<span class="line-numbers"><a href="#n32" name="n32">32</a></span>  -input_folder folder  Folder with a set of KAF/NAF files
-<span class="line-numbers"><a href="#n33" name="n33">33</a></span>  -output folder        Output folder to store the indexes
-</pre></div>
-</div>
-</div>
+<pre><code class="language-shell">create_index.py -h
+usage: create_index.py [-h]
+                       (-input_file file_with_list | -input_folder folder)
+                       -output folder
+                       [-punc punctuation_symbols default ".?;!")] [-no_lower]
+                       [-max_ngram integer (default 3)]
+                       [-min_ngram integer (default 1)] [-no_sent_borders]
+                       [-no_remove_out] [-min_freq integer (default 1]
+
+Create n-gram indexes from a set of KAF/NAF files
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -punc punctuation_symbols (default ".?;!")
+                        Symbols to be considered as punctuation
+  -no_lower             Tokens are NOT converted to lowercase (by default they
+                        are)
+  -max_ngram integer (default 3)
+                        Maximum size of n-grams to create
+  -min_ngram integer (default 1)
+                        Mininum size of n-grams to create
+  -no_sent_borders      Sentence delimiters are NOT included (by default they
+                        are)
+  -no_remove_out        Output folder is not removed if exists
+  -min_freq integer (default 1)
+                        Minimum frequency allowed for ngram
+
+Required arguments:
+  -input_file file_with_list
+                        File with a list of paths to KAF/NAF files, one per
+                        line
+  -input_folder folder  Folder with a set of KAF/NAF files
+  -output folder        Output folder to store the indexes
+</code></pre>
 
 <p>The only required arguments are those to specify the input files (via a folder or via a file with a list of paths to your KAF files), and the name of the output folder where you want to store the new indexes. The rest<br />
 of parameters are used to specify some characteristics of your ngram indexes, like the maximum length of the ngram (-max_ngram), the minimum frequency allowed for an ngram in your index (-min_freq). So considering<br />
@@ -234,14 +225,11 @@ files that you can use as an start or modify to suit your needs. These are the t
 
 <p>This is an example the polarity seed file, where there is a polarity word per line and a symbol + or - depending on the polarity of this word:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>good +
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>bad -
-<span class="line-numbers"><a href="#n3" name="n3">3</a></span>nice +
-<span class="line-numbers"><a href="#n4" name="n4">4</a></span>ugly -
-</pre></div>
-</div>
-</div>
+<pre><code class="language-shell">good +
+bad -
+nice +
+ugly -
+</code></pre>
 
 <p>This is an example of the relational patterns. Each line contains a pattern with the placeholders [EXP] representing the polarity word and [TAR] standing for the target or aspect
 <code>shell

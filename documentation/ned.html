@@ -115,23 +115,20 @@
 
 <p>An example output (excerpt) could look like this:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;entity</span> <span style="color:#b48">eid</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">e3</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">organization</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#070;font-weight:bold">&lt;references&gt;</span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#777">&lt;!--North Yorkshire Police--&gt;</span>
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>      <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t17</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>      <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t18</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>      <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t19</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  <span style="color:#070;font-weight:bold">&lt;/references&gt;</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  <span style="color:#070;font-weight:bold">&lt;externalReferences&gt;</span>
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>    <span style="color:#070;font-weight:bold">&lt;externalRef</span> <span style="color:#b48">resource</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">spotlight_v1</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">reference</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://dbpedia.org/resource/North_Yorkshire_Police</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span style="color:#070;font-weight:bold">&lt;/externalReferences&gt;</span>
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span><span style="color:#070;font-weight:bold">&lt;/entity&gt;</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-xml">&lt;entity eid="e3" type="organization"&gt;
+  &lt;references&gt;
+    &lt;!--North Yorkshire Police--&gt;
+    &lt;span&gt;
+      &lt;target id="t17" /&gt;
+      &lt;target id="t18" /&gt;
+      &lt;target id="t19" /&gt;
+    &lt;/span&gt;
+  &lt;/references&gt;
+  &lt;externalReferences&gt;
+    &lt;externalRef resource="spotlight_v1" reference="http://dbpedia.org/resource/North_Yorkshire_Police" /&gt;
+  &lt;/externalReferences&gt;
+&lt;/entity&gt;
+</code></pre>
 
 <h3 id="webservices">Webservices</h3>
 
@@ -225,23 +222,20 @@
 
 <p>An example output (excerpt) could look like this:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;entity</span> <span style="color:#b48">eid</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">e3</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">type</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">organization</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#070;font-weight:bold">&lt;references&gt;</span>
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#777">&lt;!--North Yorkshire Police--&gt;</span>
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>      <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t17</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>      <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t18</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>      <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t19</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>  <span style="color:#070;font-weight:bold">&lt;/references&gt;</span>
-<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>  <span style="color:#070;font-weight:bold">&lt;externalReferences&gt;</span>
-<span class="line-numbers"><a href="#n11" name="n11">11</a></span>    <span style="color:#070;font-weight:bold">&lt;externalRef</span> <span style="color:#b48">resource</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">spotlight_v1</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">reference</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://dbpedia.org/resource/North_Yorkshire_Police</span><span style="color:#710">&quot;</span></span> <span style="color:#070;font-weight:bold">/&gt;</span>
-<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span style="color:#070;font-weight:bold">&lt;/externalReferences&gt;</span>
-<span class="line-numbers"><a href="#n13" name="n13">13</a></span><span style="color:#070;font-weight:bold">&lt;/entity&gt;</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-xml">&lt;entity eid="e3" type="organization"&gt;
+  &lt;references&gt;
+    &lt;!--North Yorkshire Police--&gt;
+    &lt;span&gt;
+      &lt;target id="t17" /&gt;
+      &lt;target id="t18" /&gt;
+      &lt;target id="t19" /&gt;
+    &lt;/span&gt;
+  &lt;/references&gt;
+  &lt;externalReferences&gt;
+    &lt;externalRef resource="spotlight_v1" reference="http://dbpedia.org/resource/North_Yorkshire_Police" /&gt;
+  &lt;/externalReferences&gt;
+&lt;/entity&gt;
+</code></pre>
 
 <h3 id="webservice">Webservice</h3>
 
