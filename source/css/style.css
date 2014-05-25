@@ -1910,3 +1910,17 @@ h1[id] {
 .basic footer {
   margin-top: 0;
 }
+
+
+form#test textarea {
+  width: 800px;
+}
+
+form#test label {
+  font-weight: bold;
+}
+
+form#test dd {
+  margin-left: 30px;
+  margin-bottom: 2em;
+}

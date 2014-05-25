@@ -72,7 +72,7 @@
   <a href="/getting-started#introduction">Getting Started</a>
     <ul class="nav nav-stacked visible">
       <li><a href="#what-is-opener">What is OpeNER</a></li>
-      <li><a href="#quick-start-guide">Quick Start Guide</a></li>
+      <li><a href="/getting-started/how-to/quick-start.html">Quick Start Guide</a></li>
       <li><a href="#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
       <li><a href="#what-technology-is-used">What technology is used</a></li>
       <li>
@@ -96,6 +96,7 @@
       <li><a
         href="/getting-started/scenarios/named-entity-disambiguation.html">Named Entities</a></li>
       <li><a href="/getting-started/scenarios/full-pipeline.html">Full Pipeline</a></li>
+      <li><a href="/getting-started/how-to/quick-start.html">Create your own pipeline</a></li>
     </ul>
   </li>
   <li>
@@ -215,7 +216,7 @@ Polarity tagger</a>.</p>
 <p>An example of the expected input and output is as follows:</p>
 
 <div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>$ echo &quot;this is an english text.&quot; | language-identifier
+  <div class="code"><pre>$ echo &quot;this is an english text.&quot; | language-identifier
 </pre></div>
 </div>
 </div>
@@ -223,9 +224,9 @@ Polarity tagger</a>.</p>
 <p>and the response is</p>
 
 <div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span><span style="color:#070;font-weight:bold">&lt;KAF</span> <span style="color:#b48">xml:lang</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">en</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">version</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">2.1</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
-<span class="line-numbers"><a href="#n2" name="n2">2</a></span>  <span style="color:#070;font-weight:bold">&lt;raw&gt;</span>This is an english text.<span style="color:#070;font-weight:bold">&lt;/raw&gt;</span>
-<span class="line-numbers"><a href="#n3" name="n3">3</a></span><span style="color:#070;font-weight:bold">&lt;/KAF&gt;</span>
+  <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;KAF</span> <span style="color:#b48">xml:lang</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">en</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">version</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">2.1</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;raw&gt;</span>This is an english text.<span style="color:#070;font-weight:bold">&lt;/raw&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/KAF&gt;</span>
 </pre></div>
 </div>
 </div>

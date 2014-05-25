@@ -1,56 +1,186 @@
-<h1>Opener Webservices</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/flat-ui.css">
+<link rel="stylesheet" href="/css/icon-font.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>The OpeNER Web Services</title>
+  </head>
+  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <header class="header-2">
+<div class="container">
+  <div class="row">
+    <nav class="navbar col-sm-12" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"></button>
+      <a class="brand" href="/"><img src="/images/opener_log.png" width="125" height="58" alt=""> </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav pull-right">
+        <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+      </ul>
+      <ul class="subnav">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+</header>
+
+
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <!--Nav Bar -->
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+            
+            <ul id="sidebar" class="nav bs-sidenav">
+  <li>
+    <a href="#introduction">Webservices</a>
+  </li>
+  <li>
+    <a href="/webservices/entrance.html">Try it out!</a>
+  </li>
+
+  
+  <li>
+  <a href="/webservices/index.html#input-tools">Input Tools</a>
+    <ul class="nav nav-stacked">
+      
+        <li><a href="/webservices/index.html#language-identifier">Language Identifier</a></li>
+      
+    </ul>
+  </li>
+  
+  <li>
+  <a href="/webservices/index.html#basics">Basics</a>
+    <ul class="nav nav-stacked">
+      
+        <li><a href="/webservices/index.html#tokenizer">Tokenizer</a></li>
+      
+        <li><a href="/webservices/index.html#pos-tagger">POS Tagger</a></li>
+      
+        <li><a href="/webservices/index.html#tree-tagger">Tree Tagger</a></li>
+      
+    </ul>
+  </li>
+  
+  <li>
+  <a href="/webservices/index.html#ner-ned-co-reference">NER/NED/Co-reference</a>
+    <ul class="nav nav-stacked">
+      
+        <li><a href="/webservices/index.html#ner">NER</a></li>
+      
+        <li><a href="/webservices/index.html#ned">NED</a></li>
+      
+        <li><a href="/webservices/index.html#coreference">Coreference</a></li>
+      
+        <li><a href="/webservices/index.html#constituent-parser">Constituent Parser</a></li>
+      
+    </ul>
+  </li>
+  
+  <li>
+  <a href="/webservices/index.html#polarity-properties-and-opinions">Polarity, Properties and Opinions</a>
+    <ul class="nav nav-stacked">
+      
+        <li><a href="/webservices/index.html#property-tagger">Property Tagger</a></li>
+      
+        <li><a href="/webservices/index.html#polarity-tagger">Polarity Tagger</a></li>
+      
+        <li><a href="/webservices/index.html#opinion-detector-basic">Opinion Detector Basic</a></li>
+      
+        <li><a href="/webservices/index.html#opinion-detector-deluxe">Opinion Detector Deluxe</a></li>
+      
+    </ul>
+  </li>
+  
+  <li>
+  <a href="/webservices/index.html#storage">Storage</a>
+    <ul class="nav nav-stacked">
+      
+        <li><a href="/webservices/index.html#outlet">Outlet</a></li>
+      
+        <li><a href="/webservices/index.html#s3-outlet">S3 Outlet</a></li>
+      
+    </ul>
+  </li>
+  
+  <li>
+  <a href="/webservices/index.html#converters">Converters</a>
+    <ul class="nav nav-stacked">
+      
+        <li><a href="/webservices/index.html#kaf2json">kaf2json</a></li>
+      
+        <li><a href="/webservices/index.html#kaf-naf-parser">kaf-naf parser</a></li>
+      
+    </ul>
+  </li>
+  
+  <li>
+  <a href="/webservices/index.html#processors-aggregators">Processors / Aggregators</a>
+    <ul class="nav nav-stacked">
+      
+        <li><a href="/webservices/index.html#sentiment-scores">Sentiment Scores</a></li>
+      
+    </ul>
+  </li>
+  
+</ul>
+
+          </div>
+        </div>
+        <!--Main Content -->
+        <div class="col-sm-8 col-sm-offset-1 content">
+          <h1>Opener Webservices</h1>
 <p>This is the entry page to the OpeNER webservices. It provides you with links to each individual webservice
 as well as an integrated test, <a href="#test">right here on this page</a>.
 These webservices are a work in process and might change without any up front notification. </p>
 
-<p>More information on OpeNER can be found here: <a href="http://www.opener-project.eu">www.opener-project.eu</a>.</p>
-
 <h2>Feedback</h2>
-<p>Please provide uw with feedback on how we can improve the webservices by filling in our <a href="https://docs.google.com/a/olery.com/forms/d/10XwnygIyWRgs6QpnW9Fou3WM8o_xm-HjHeBENHYpaxo/viewform">feedback form</a>.</p>
+<p>Please provide us with feedback on how we can improve the webservices by filling in our <a href="https://docs.google.com/a/olery.com/forms/d/10XwnygIyWRgs6QpnW9Fou3WM8o_xm-HjHeBENHYpaxo/viewform">feedback form</a>.</p>
 
 <h2>Available Webservices</h2>
-<p>The following webservices are available. If you click on a link you'll be taken to
-a page with more detailed information on the specific webservice.</p>
-<p>
-<ul class="components">
-  
-    <li class="block"><a href="http://opener.olery.com/language-identifier">language-identifier</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/tokenizer">tokenizer</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/pos-tagger">POS-tagger</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/tree-tagger">tree-tagger</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/constituent-parser">constituent-parser</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/ner">ner</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/ned">ned</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/coreference">coreference</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/polarity-tagger">polarity-tagger</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/property-tagger">property-tagger</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/opinion-detector">opinion-detector</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/opinion-detector-basic">opinion-detector-basic</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/kaf_to_json">kaf_to_json</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/scorer">scorer</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/outlet">outlet</a></li>
-  
-    <li class="block"><a href="http://opener.olery.com/s3-outlet">s3-outlet</a></li>
-  
-</ul>
+
+<p>For a list of all available webservices. Checkout the <a
+  href="/webservices">webservices index page</a>.
 <div class="clear">
 <a name="test"></a>
-<h2 name="test">Test Drive</h2>
-<form action="http://opener.olery.com/language-identifier" method="post">
+<h2 name="test">Try it out!</h2>
+<form id="test" action="http://opener.olery.com/language-identifier" method="post">
   <p>Paste a text below and check the checkboxes of the services you want to chain together.
   Once you press submit you will see a URL where (after several seconds) you can ask for the result of your analysis.
   The full OpeNER chain can take more than 30 seconds, so please be patient if you decide to check all boxes.</p>
@@ -62,7 +192,7 @@ a page with more detailed information on the specific webservice.</p>
   </div>
 
   <dl>
-  
+
     <dt>
       <label for="language-identifier">
         <input type="checkbox"
@@ -75,169 +205,169 @@ a page with more detailed information on the specific webservice.</p>
       </label>
     </dt>
     <dd> </dd>
-  
+
     <dt>
       <label for="tokenizer">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/tokenizer"
-               
+
                checked
         />
         tokenizer
       </label>
     </dt>
     <dd> required step (unless you paste in KAF and know what you're doing)</dd>
-  
+
     <dt>
       <label for="tree-tagger">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/tree-tagger"
-               
-               
+
+
         />
         tree-tagger
       </label>
     </dt>
     <dd> please select either tree OR pos-tagger</dd>
-  
+
     <dt>
       <label for="pos-tagger">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/pos-tagger"
-               
+
                checked
         />
         pos-tagger
       </label>
     </dt>
     <dd> please select either tree OR pos-tagger</dd>
-  
+
     <dt>
       <label for="polarity-tagger">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/polarity-tagger"
-               
+
                checked
         />
         polarity-tagger
       </label>
     </dt>
     <dd> detects if words are positive or negative</dd>
-  
+
     <dt>
       <label for="property-tagger">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/property-tagger"
-               
+
                checked
         />
         property-tagger
       </label>
     </dt>
     <dd> detects hotel specific topics like 'room' and 'value for money'</dd>
-  
+
     <dt>
       <label for="constituent-parser">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/constituent-parser"
-               
+
                checked
         />
         constituent-parser
       </label>
     </dt>
     <dd> required for Coreference Resolution</dd>
-  
+
     <dt>
       <label for="ner">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/ner"
-               
+
                checked
         />
         ner
       </label>
     </dt>
     <dd> detects named entities, required for NED</dd>
-  
+
     <dt>
       <label for="coreference">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/coreference"
-               
+
                checked
         />
         coreference
       </label>
     </dt>
     <dd> Co-reference resolution</dd>
-  
+
     <dt>
       <label for="ned">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/ned"
-               
+
                checked
         />
         ned
       </label>
     </dt>
     <dd> disambiguates named entities</dd>
-  
+
     <dt>
       <label for="opinion-detector">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/opinion-detector"
-               
+
                checked
         />
         opinion-detector
       </label>
     </dt>
     <dd> detects opinions, works best with all other options turned on.</dd>
-  
+
     <dt>
       <label for="opinion-detector-basic">
         <input type="checkbox"
                name="callbacks[]"
                value="http://opener.olery.com/opinion-detector-basic"
-               
-               
+
+
         />
         opinion-detector-basic
       </label>
     </dt>
     <dd> detects opinions, works best if the text has gone through the polarity-tagger.</dd>
-  
+
     <dt>
-      <label for="kaf_to_json">
+      <label for="kaf2json">
         <input type="checkbox"
                name="callbacks[]"
-               value="http://opener.olery.com/kaf_to_json"
-               
-               
+               value="http://opener.olery.com/kaf2json"
+
+
         />
-        kaf_to_json
+        kaf2json
       </label>
     </dt>
     <dd> Converts KAF to JSON. Don't use with scorer.</dd>
-  
+
 
   <p> Select which kind of outlet you want to use. An outlet stores the result of the pipeline
   so that you can request the results of your analysis after a couple of seconds.</p>
 
   <dl>
-    
+
       <dt>
         <label for="scorer">
           <input type="radio"
@@ -248,7 +378,7 @@ a page with more detailed information on the specific webservice.</p>
         </label>
       </dt>
       <dd>aggregates the opinions from the opinion-detector into values between -1 and 1</dd>
-    
+
       <dt>
         <label for="outlet">
           <input type="radio"
@@ -259,18 +389,6 @@ a page with more detailed information on the specific webservice.</p>
         </label>
       </dt>
       <dd>stores a KAF document in the database for later retrieval</dd>
-    
-      <dt>
-        <label for="s3-outlet">
-          <input type="radio"
-                 name="callbacks[]"
-                 value="http://opener.olery.com/s3-outlet"
-                 />
-                 s3-outlet
-        </label>
-      </dt>
-      <dd>stores the KAF document in S3. If you have OpeNER credentials this makes it easy to retrieve the files from disk</dd>
-    
   </dl>
 
   <div>
@@ -296,3 +414,57 @@ a page with more detailed information on the specific webservice.</p>
   </div>
 </form>
 
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-2 bg-midnight-blue doc-bottom-margin">
+<div class="container">
+  <nav class="pull-left">
+  <ul>
+    <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+  </ul>
+  </nav>
+  <div class="social-btns pull-right">
+    <a href="#">
+      <div class="fui-vimeo"></div>
+      <div class="fui-vimeo"></div>
+    </a>
+    <a href="#">
+      <div class="fui-facebook"></div>
+      <div class="fui-facebook"></div>
+    </a>
+    <a href="#">
+      <div class="fui-twitter"></div>
+      <div class="fui-twitter"></div>
+    </a>
+  </div>
+  <div class="additional-links">
+    Be sure to take a look at our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/page-transitions.js"></script>
+<script src="/js/easing.min.js"></script>
+<script src="/js/jquery.svg.js"></script>
+<script src="/js/jquery.svganim.js"></script>
+<script src="/js/jquery.backgroundvideo.min.js"></script>
+<script src="/js/froogaloop.min.js"></script>
+<script src="/js/startup-kit.js"></script>
+
+  </body>
+</html>

@@ -2,13 +2,16 @@
   <li>
     <a href="#introduction">Webservices</a>
   </li>
+  <li>
+    <a href="/webservices/entrance.html">Try it out!</a>
+  </li>
 
   {% for cluster in page.clusters %}
   <li>
-  <a href="#{{ cluster.name | handleize }}">{{ cluster.name }}</a>
+  <a href="/webservices/index.html#{{ cluster.name | handleize }}">{{ cluster.name }}</a>
     <ul class="nav nav-stacked">
       {% for component in cluster.components %}
-        <li><a href="#{{ component.name | identify }}">{{ component.name }}</a></li>
+        <li><a href="/webservices/index.html#{{ component.name | identify }}">{{ component.name }}</a></li>
       {% endfor %}
     </ul>
   </li>

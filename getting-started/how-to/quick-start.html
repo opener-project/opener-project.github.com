@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="/css/animations.css">
 <link rel="stylesheet" href="/css/style.css">
 
-    <title>Basic Opinions</title>
+    <title>Getting started with OpeNER</title>
   </head>
   <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
@@ -114,16 +114,64 @@
         </div>
         <!--Main Content -->
         <div class="col-sm-8 col-sm-offset-1 content">
-          <h1 id="getting-started-with-basic-opinion-detection">Getting started with basic opinion detection</h1>
+          <h1 id="opener-webservices-quick-start-with-curl">Opener Webservices Quick Start with CURL</h1>
 
-<p>Checkout the <a href="/getting-started/how-to/quick-start.html">Quick Start Guide</a> for a<br />
-general overview of the technology.</p>
+<p>You can try the webservices using the popular command line tool CURL.<br />
+For the best result, put your text in a textfile, for the example called
+<code>some_file.txt</code> and then pass it through the webservices like this:</p>
 
-<h2 id="basic-opinions">Basic Opinions</h2>
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
+?callbacks\[\]=http://opener.olery.com/tokenizer\
+&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
 
-<p>Using Curl as an example you can get basic opinion detection using the following<br />
-command. This assumes you have your text in a text file called
-<code>some_file.txt</code>.</p>
+<p>The trick here is to use curls <code>-F</code> option with <code>input=&lt;-</code> as argument.<br />
+The <code>&lt;-</code> in this case means it reads from STDIN and posts it to the<br />
+webservices.</p>
+
+<p>An alternative way is to use <code>-F 'input=&lt;some_file.txt'</code>. Both options read<br />
+the textfile and put them through the webservices.</p>
+
+<h2 id="chaining-webservices">Chaining Webservices</h2>
+
+<p>You can chain multiple webservices together by adding <code>callbacks[]=</code> to the<br />
+current request. The more callbacks you add the longer your pipeline will be.</p>
+
+<p>Beware that when you use curl from bash, you need to escape the <code>[]</code> and they<br />
+become <code>\[\]</code>. Also put your url in between double quotes.</p>
+
+<p>So the structure of the curl request looks like this:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
+?callbacks\[\]=http://opener.olery.com/tokenizer\
+&amp;callbacks\[\]=http://opener.olery.com/extra_callback1\
+&amp;callbacks\[\]=http://opener.olery.com/extra_callback2\
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
+
+<p><strong>ALWAYS end your callbacks with the outlet. Else there is no spot to “catch” your<br />
+results</strong></p>
+
+<p>After you do this request you’ll get a response containing a URL which you can<br />
+poll to catch your result. Don’t worry if it’s not immediately there. It might<br />
+take a couple of seconds. If the document is not done processing yet, you will<br />
+get a message stating <code>no document found</code>.</p>
+
+<h2 id="returning-json">Returning JSON</h2>
+
+<p>If you prefer to receive JSON instead of KAF at the end of the pipline. Append
+“.json” to the outlet URL. For example:</p>
+
+<p>If you do the following request:</p>
 
 <div><div class="CodeRay">
   <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
@@ -159,16 +207,16 @@ command. This assumes you have your text in a text file called
 <p>You will get a JSON representation of the KAF file. Generating the JSON does<br />
 take a little longer though.</p>
 
-<h2 id="more-detailed-opinions">More detailed opinions</h2>
+<h2 id="examples">Examples</h2>
 
-<p>By using the full pipeline the opinion detection should become better. In this<br />
-case you will need the NER and NED and their support endpoints. Like this:</p>
+<h3 id="a-full-pipeline">A Full Pipeline</h3>
 
 <div><div class="CodeRay">
   <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
 &quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
+&amp;callbacks\[\]=http://opener.olery.com/constituent-parser\
 &amp;callbacks\[\]=http://opener.olery.com/ner\
 &amp;callbacks\[\]=http://opener.olery.com/ned\
 &amp;callbacks\[\]=http://opener.olery.com/coreference\
@@ -180,7 +228,23 @@ case you will need the NER and NED and their support endpoints. Like this:</p>
 </div>
 </div>
 
-<h2 id="aggregating-sentiment-scores">Aggregating Sentiment Scores</h2>
+<h3 id="rule-based-opinion-detection">Rule based opinion detection</h3>
+
+<p>The opinion-detector endpoint is based on machine learning. The<br />
+opinion-detector-basic however is rule base. Feel free to swap the one for the<br />
+other.</p>
+
+<p>to do so use:</p>
+
+<pre><code>&amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
+</code></pre>
+
+<p>instead of</p>
+
+<pre><code>&amp;callbacks\[\]=http://opener.olery.com/opinion-detector\
+</code></pre>
+
+<h3 id="you-can-aggregate-sentiment-scores-using-the-scorer">You can aggregate sentiment scores using the scorer</h3>
 
 <p>In order to do so, make sure your pipeline includes:</p>
 
@@ -226,6 +290,105 @@ topics. Like this:</p>
 </pre></div>
 </div>
 </div>
+
+<h3 id="use-the-tree-tagger-instead-of-the-pos-tagger">Use the tree tagger instead of the pos-tagger</h3>
+
+<pre><code>&amp;callbacks\[\]=http://opener.olery.com/tree-tagger\
+</code></pre>
+
+<p>Beware: the tree tagger is considerably slower and less stable than the standard<br />
+pos-tagger. If after ± 10 seconds your document is not ready yet, it probably<br />
+failed.</p>
+
+<h2 id="list-of-services-with-their-endpoints">List of services with their endpoints</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Endpoint</th>
+      <th>Languages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>language-identifier</td>
+      <td>http://opener.olery.com/language-identifier</td>
+      <td>a lot</td>
+    </tr>
+    <tr>
+      <td>tokenizer</td>
+      <td>http://opener.olery.com/tokenizer</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>pos-tagger</td>
+      <td>http://opener.olery.com/pos-tagger</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>tree-tagger</td>
+      <td>http://opener.olery.com/tree-tagger</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>constituent-parser</td>
+      <td>http://opener.olery.com/constituent-parser</td>
+      <td>en, es, fr, it</td>
+    </tr>
+    <tr>
+      <td>ner</td>
+      <td>http://opener.olery.com/ner</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>ned</td>
+      <td>http://opener.olery.com/ned</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>coreference</td>
+      <td>http://opener.olery.com/coreference</td>
+      <td>de, en, es, fr, it, nl</td>
+    </tr>
+    <tr>
+      <td>polarity-tagger</td>
+      <td>http://opener.olery.com/polarity-tagger</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>property-tagger</td>
+      <td>http://opener.olery.com/property-tagger</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>opinion-detector</td>
+      <td>http://opener.olery.com/opinion-detector</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>opinion-detector-basic</td>
+      <td>http://opener.olery.com/opinion-detector-basic</td>
+      <td>en, nl, de, es, it, fr</td>
+    </tr>
+    <tr>
+      <td>kaf2json</td>
+      <td>http://opener.olery.com/kaf2json</td>
+      <td>n.a.</td>
+    </tr>
+    <tr>
+      <td>outlet</td>
+      <td>http://opener.olery.com/outlet</td>
+      <td>n.a.</td>
+    </tr>
+    <tr>
+      <td>scorer</td>
+      <td>http://opener.olery.com/scorer</td>
+      <td>n.a.</td>
+    </tr>
+  </tbody>
+</table>
+
 
         </div>
       </div>

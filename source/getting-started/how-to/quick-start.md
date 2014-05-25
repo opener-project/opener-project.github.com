@@ -1,3 +1,9 @@
+---
+layout: default
+title: Getting started with OpeNER
+sidebar: getting_started
+---
+
 # Opener Webservices Quick Start with CURL
 
 You can try the webservices using the popular command line tool CURL.

@@ -7,7 +7,10 @@ sidebar: webservices
 <div id="introduction"></div>
 
 # Webservices
-Put some generic text on the webservices here. Foo
+
+Go to the [Entrace page of the webservices to try the webservices immediately](/webservices/entrance.html). There
+you will find a form where you can copy paste some text, press a button, and be
+up and running in no-time.
 
 {% for cluster in page.clusters %}
 

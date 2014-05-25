@@ -72,7 +72,7 @@
   <a href="/getting-started#introduction">Getting Started</a>
     <ul class="nav nav-stacked visible">
       <li><a href="#what-is-opener">What is OpeNER</a></li>
-      <li><a href="#quick-start-guide">Quick Start Guide</a></li>
+      <li><a href="/getting-started/how-to/quick-start.html">Quick Start Guide</a></li>
       <li><a href="#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
       <li><a href="#what-technology-is-used">What technology is used</a></li>
       <li>
@@ -96,6 +96,7 @@
       <li><a
         href="/getting-started/scenarios/named-entity-disambiguation.html">Named Entities</a></li>
       <li><a href="/getting-started/scenarios/full-pipeline.html">Full Pipeline</a></li>
+      <li><a href="/getting-started/how-to/quick-start.html">Create your own pipeline</a></li>
     </ul>
   </li>
   <li>
@@ -121,15 +122,15 @@ general overview of the technology.</p>
 <p>In order to use the NED and NED you can take a look at this example:</p>
 
 <div><div class="CodeRay">
-  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>cat some_file.txt | curl -F 'input=&lt;-' \
-<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>&quot;http://opener.olery.com/language-identifier\
-<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>?callbacks\[\]=http://opener.olery.com/tokenizer\
-<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
-<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>&amp;callbacks\[\]=http://opener.olery.com/constituent-parser\
-<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>&amp;callbacks\[\]=http://opener.olery.com/ner\
-<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>&amp;callbacks\[\]=http://opener.olery.com/ned\
-<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>&amp;callbacks\[\]=http://opener.olery.com/coreference\
-<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
+?callbacks\[\]=http://opener.olery.com/tokenizer\
+&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
+&amp;callbacks\[\]=http://opener.olery.com/constituent-parser\
+&amp;callbacks\[\]=http://opener.olery.com/ner\
+&amp;callbacks\[\]=http://opener.olery.com/ned\
+&amp;callbacks\[\]=http://opener.olery.com/coreference\
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
 </pre></div>
 </div>
 </div>

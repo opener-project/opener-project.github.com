@@ -121,9 +121,9 @@ components:
       Amazon S3 to store the input. When using the S3 outlet you can specify specific
       buckets and directories.
   - &kaf_to_json
-    name: kaf-to-json
-    repository: https://github.com/opener-project/kaf-to-json
-    webservice: http://opener.olery.com/kaf-to-json
+    name: kaf2json
+    repository: https://github.com/opener-project/kaf2json
+    webservice: http://opener.olery.com/kaf2json
     description:
       XML is not always the best format to display results. That's why there is a
       kaf-to-json parser that transforms any KAF document to a rougly equivalent JSON object.
@@ -323,7 +323,7 @@ documentation:
       documentation: https://github.com/opener-project/kaf/wiki/KAF-structure-overview
     -
       name: KAF JSON
-      documentation: https://github.com/opener-project/kaf-to-json
+      documentation: https://github.com/opener-project/kaf2json
     -
       name: OpeNER LMF
       documentation: https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.31.pdf
