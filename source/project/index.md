@@ -35,7 +35,7 @@ The OpeNER project will provide a rich Named Entity Data Source in a simple, str
 
 
 
-<div id="objectives"</div>
+<div id="objectives"></div>
 
 ## Objectives
 
