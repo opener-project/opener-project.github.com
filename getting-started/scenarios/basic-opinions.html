@@ -96,7 +96,6 @@
       <li><a
         href="/getting-started/scenarios/named-entity-disambiguation.html">Named Entities</a></li>
       <li><a href="/getting-started/scenarios/full-pipeline.html">Full Pipeline</a></li>
-      <li><a href="/getting-started/scenarios/create-your-own-scenario.html">Create your own</a></li>
     </ul>
   </li>
   <li>
@@ -116,8 +115,116 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <h1 id="getting-started-with-basic-opinion-detection">Getting started with basic opinion detection</h1>
 
-<p>Follow the steps here.</p>
+<p>Checkout the <a href="/getting-started/how-to/quick-start.html">Quick Start Guide</a> for a<br />
+general overview of the technology.</p>
 
+<h2 id="basic-opinions">Basic Opinions</h2>
+
+<p>Using Curl as an example you can get basic opinion detection using the following<br />
+command. This assumes you have your text in a text file called
+<code>some_file.txt</code>.</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>cat some_file.txt | curl -F 'input=&lt;-' \
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>&quot;http://opener.olery.com/language-identifier\
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>?callbacks\[\]=http://opener.olery.com/tokenizer\
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span>&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
+<span class="line-numbers"><a href="#n5" name="n5">5</a></span>&amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span>&amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
+<span class="line-numbers"><a href="#n7" name="n7">7</a></span>&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
+
+<p>You will get a return that looks like this:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>{
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>  <span style="color:#606"><span style="color:#404">&quot;</span><span>output_url</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>,
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>  <span style="color:#606"><span style="color:#404">&quot;</span><span>request_id</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span>}
+</pre></div>
+</div>
+</div>
+
+<p>If you then append <code>.json</code> to the output url and do a request like this:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>curl http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99.json
+</pre></div>
+</div>
+</div>
+
+<p>You will get a JSON representation of the KAF file. Generating the JSON does<br />
+take a little longer though.</p>
+
+<h2 id="more-detailed-opinions">More detailed opinions</h2>
+
+<p>By using the full pipeline the opinion detection should become better. In this<br />
+case you will need the NER and NED and their support endpoints. Like this:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>cat some_file.txt | curl -F 'input=&lt;-' \
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>&quot;http://opener.olery.com/language-identifier\
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>?callbacks\[\]=http://opener.olery.com/tokenizer\
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>&amp;callbacks\[\]=http://opener.olery.com/ner\
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>&amp;callbacks\[\]=http://opener.olery.com/ned\
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>&amp;callbacks\[\]=http://opener.olery.com/coreference\
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>&amp;callbacks\[\]=http://opener.olery.com/property-tagger\
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>&amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>&amp;callbacks\[\]=http://opener.olery.com/opinion-detector\
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
+
+<h2 id="aggregating-sentiment-scores">Aggregating Sentiment Scores</h2>
+
+<p>In order to do so, make sure your pipeline includes:</p>
+
+<ul>
+  <li>the property tagger</li>
+  <li>the polarity-tagger</li>
+  <li>an opinion-detector (the standard one or the basic one)</li>
+</ul>
+
+<p>Then at the end put the scorer instead of the outlet. Resulting in this request:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"><a href="#n1" name="n1">1</a></span>cat some_file.txt | curl -F 'input=&lt;-' \
+<span class="line-numbers"><a href="#n2" name="n2">2</a></span>&quot;http://opener.olery.com/language-identifier\
+<span class="line-numbers"><a href="#n3" name="n3">3</a></span>?callbacks\[\]=http://opener.olery.com/tokenizer\
+<span class="line-numbers"><a href="#n4" name="n4">4</a></span>&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
+<span class="line-numbers"><a href="#n5" name="n5">5</a></span>&amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
+<span class="line-numbers"><a href="#n6" name="n6">6</a></span>&amp;callbacks\[\]=http://opener.olery.com/property-tagger\
+<span class="line-numbers"><a href="#n7" name="n7">7</a></span>&amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
+<span class="line-numbers"><a href="#n8" name="n8">8</a></span>&amp;callbacks\[\]=http://opener.olery.com/scorer&quot;
+</pre></div>
+</div>
+</div>
+
+<p>This will also provide you with an output_url. However, this url will give you<br />
+back a JSON object with sentiment values between -1 and 1 on the detected<br />
+topics. Like this:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre><span class="line-numbers"> <a href="#n1" name="n1">1</a></span>{
+<span class="line-numbers"> <a href="#n2" name="n2">2</a></span>  <span style="color:#606"><span style="color:#404">&quot;</span><span>scores</span><span style="color:#404">&quot;</span></span>: {
+<span class="line-numbers"> <a href="#n3" name="n3">3</a></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>breakfast</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
+<span class="line-numbers"> <a href="#n4" name="n4">4</a></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>location</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
+<span class="line-numbers"> <a href="#n5" name="n5">5</a></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>cleanliness</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+<span class="line-numbers"> <a href="#n6" name="n6">6</a></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>restaurant</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+<span class="line-numbers"> <a href="#n7" name="n7">7</a></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>room</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+<span class="line-numbers"> <a href="#n8" name="n8">8</a></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>bathroom</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+<span class="line-numbers"> <a href="#n9" name="n9">9</a></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>value_for_money</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
+<span class="line-numbers"><strong><a href="#n10" name="n10">10</a></strong></span>    <span style="color:#606"><span style="color:#404">&quot;</span><span>overall</span><span style="color:#404">&quot;</span></span>: <span style="color:#60E">0.5</span>
+<span class="line-numbers"><a href="#n11" name="n11">11</a></span>  },
+<span class="line-numbers"><a href="#n12" name="n12">12</a></span>  <span style="color:#606"><span style="color:#404">&quot;</span><span>uuid</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">74c63ace-4402-4352-a94f-32ecf3bdc433</span><span style="color:#710">&quot;</span></span>
+<span class="line-numbers"><a href="#n13" name="n13">13</a></span>}
+</pre></div>
+</div>
+</div>
 
         </div>
       </div>
