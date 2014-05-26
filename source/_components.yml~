@@ -259,7 +259,7 @@ datasets: &datasets
    filetype: XML
   -
    name: MCR 3.0
-   documentation: adimen.si.ehu.es/web/MCR
+   documentation: http://adimen.si.ehu.es/web/MCR
    filetype: CSV database
   -
    name: Reuters corpus

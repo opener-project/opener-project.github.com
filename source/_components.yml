@@ -122,7 +122,7 @@ components:
       buckets and directories.
   - &kaf_to_json
     name: kaf2json
-    repository: https://github.com/opener-project/kaf2json
+    repository: https://github.com/opener-project/kaf-to-json
     webservice: http://opener.olery.com/kaf2json
     description:
       XML is not always the best format to display results. That's why there is a
