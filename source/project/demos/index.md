@@ -18,3 +18,6 @@ Once analysed, each review is associated to a rate, which ranges from 0 to 100.
 The sentiment of each place is calculated as a function of all the sentiments of reviews on that place. 
 As a result, TourPedia shows all the places and their users' sentiments on a map. 
 			
+## Ent-i-tUp: Social and Media Analysis and Monitoring application
+
+[Link](http://128.65.123.12/entitup/login.php)
