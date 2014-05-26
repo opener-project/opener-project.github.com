@@ -238,10 +238,6 @@ datasets: &datasets
     documentation:  http://tour-pedia.org/api
     filetype: Api
   -
-    name: "Ent-i-tUp: Social and Media Analysis and Monitoring application"
-    documentation: http://128.65.123.12/entitup/login.php
-    filetype: Mongodump
-  -
    name: ESTHER Corpus
    documentation: http://catalog.elra.info/product_info.php?products_id=999
    filetype: XML
