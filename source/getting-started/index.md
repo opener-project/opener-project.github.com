@@ -16,6 +16,7 @@ sidebar: getting_started
     - [Language Detection](#language-detection)
     - [Tokenization](#tokenization)
     - [Part of Speech Tagging](#part-of-speech-tagging)
+	- [Constituent parser](#constituent-parser)
     - [Named Entity Resolution](#named-entity-resolution)
     - [Polarity Tagging](#polarity-tagging)
     - [Opinion Detection](#opinion-detection)
@@ -196,6 +197,17 @@ An example of the expected input and output is as follows:
     $ cat kaf-pos-tagger.kaf | pos-tagger
 
 [The response can be seen here](/examples/kaf-pos-tagger-out.kaf).
+
+
+<div id="constituent-parser"></div>
+
+### Constituent parser
+
+
+
+#### Technical characteristics
+
+
 
 <div id="named-entity-resolution"></div>
 
