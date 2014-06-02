@@ -28,6 +28,9 @@ The polarity tagger supports the following languages:
 * Italian
 * Spanish
 
+The polarity tagger does not store any lexicon, it makes use of another repository that manages the lexicon (https://github.com/opener-project/VU-sentiment-lexicon), and you will
+need to have the lexicons installed on your computer in order to use them with the polarity tagger.
+
 ### Confused by some terminology?
 
 This software is part of a larger collection of natural language processing tools known as "the OpeNER project". You can find more information about the project at [the OpeNER portal](http://opener-project.github.io). There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario's and pipelines.
