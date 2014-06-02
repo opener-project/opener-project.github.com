@@ -20,6 +20,9 @@ This module implements a opinion detector for English (also works for Dutch and 
 * Target: about what is the previous expression
 * Holder: who is stating that expression
 
+This module is based on a set of rules for extracting the opinion expressions first (taking into account polarity words and sentiment modifiers) and then other
+rules to determine the targets and holders for those expressions. The input KAF file needs to be processed at least with the tokenizer, pos-tagger and polarity-tagger.
+
 ### Confused by some terminology?
 
 This software is part of a larger collection of natural language processing tools known as "the OpeNER project". You can find more information about the project at [the OpeNER portal](http://opener-project.github.io). There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario's and pipelines.
