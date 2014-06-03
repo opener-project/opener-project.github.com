@@ -14,7 +14,8 @@ repository: https://github.com/opener-project/opinion-detector-basic
 Opinion Detector Basic
 ---------------------
 
-This module implements a opinion detector for English (also works for Dutch and German). The language is determined by the "xml:lang" attribut in the input KAF file. Depending on the value of this attribute, the corresponding lexicon will be loaded. This module detects three elements of the opinions:
+This module implements a opinion detector for all the languages covered in the OpeNER project (English, Dutch, German, Italian,
+Spanish and French). The language is determined by the "xml:lang" attribut in the input KAF file. Depending on the value of this attribute, the corresponding lexicon will be loaded. This module detects three elements of the opinions:
 
 * Expression: the actual opinion expression
 * Target: about what is the previous expression

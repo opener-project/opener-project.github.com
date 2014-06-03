@@ -117,15 +117,21 @@ Before training the classifiers, we need to parse the input corpus to vertors. F
 ```
     index   word_form   lemma       pos head    ne(optional)
     
-    1       El          el          D	2
-    2       chico       chico       N	4
-    3       fue         ser         V	4
-    4       entregado   entregar    V	0
-    5       al          al          P	4
-    6       TAS         TAS         R	5	    ne=organization
-    7       .           .           O	4
+    1       El          el          D	2       O
+    2       chico       chico       N	4       O
+    3       fue         ser         V	4       O
+    4       entregado   entregar    V	0       O
+    5       al          al          P	4       O
+    6       TAS         TAS         R	5	    I-organization
+    7       .           .           O	4       O
 ```
-The ne column is only used to evaluate models at training step.
+Notes:
+
+* If your dataset does not provide dependency information, you can put any value at the head column.
+
+* The ne column must be at Conll 2003 format, which is BIO format (see <a href="http://www.cnts.ua.ac.be/conll2003/ner/">http://www.cnts.ua.ac.be/conll2003/ner/</a> for more information).
+
+* The ne column is only used to evaluate models at training step.
 
 You will also need a seed file for the bootstrapping process. The seed file is a raw text file with these columns:
 ```
