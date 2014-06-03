@@ -74,7 +74,7 @@
       <li><a href="#readme">Introduction</a></li>
       <li><a href="#reference">Reference</a></li>
       <li><a href="http://opener.olery.com/kaf2json">Webservice</a></li>
-      <li><a href="https://github.com/opener-project/kaf-to-json">View Source code</a></li>
+      <li><a href="https://github.com/opener-project/kaf2json">View Source code</a></li>
     </ul>
   </li>
   <li><a href="/documentation/">Other Components</a></li>
@@ -87,21 +87,227 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="kaf-to-json">KAF to JSON</h1>
+<h2 id="kaf2json">kaf2json</h2>
 
-<p>Even if KAF is the true OpeNER data representation format, it is not very friendly for humans. It is also difficult to parse and work with it, specially for new users that are not familiarized with KAF.</p>
+<p>Even if KAF is the true OpeNER data representation format, it is not very friendly for humans. It is also difficult to parse and work with it, specially for new users that are not familiarized with KAF. This is part of the feedback we got from the OpeNER hackathon held in Amsterdam during first days of July. To ease the post-processing of the results by any potential user, we are designing an alternative JSON format to output translate KAF, and turn its complexity into a much more usable format. Although, the specification for this JSON is currently work in progress, we have already a version that covers the most relevant parts from the KAF representation.</p>
 
-<p>This is part of the feedback we got from the OpeNER hackathon held in Amsterdam during first days of July.</p>
+<h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
 
-<p>To ease the post-processing of the results by any potential user, we are designing an alternative JSON format to output translate KAF, and turn its complexity into a much more usable format.</p>
+<p>This software is part of a larger collection of natural language processing tools known as “the OpeNER project”. You can find more information about the project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario’s and pipelines.</p>
 
-<p>Although, the specification for this JSON is currently work in progress, we have already a version that covers the most relevant parts from the KAF representation.</p>
+<h2 id="quick-use-example">Quick Use Example</h2>
 
-<p>The following files:</p>
+<p>Installing the kaf2json can be done by executing:</p>
+
+<pre><code>gem install opener-kaf2json
+</code></pre>
+
+<p>Please bare in mind that all components in OpeNER take KAF as an input and output KAF by default.</p>
+
+<h3 id="command-line-interface">Command line interface</h3>
+
+<p>You should now be able to call the kaf2json as a regular shell command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
+
+<p>This aplication reads a text from standard input in order to convert it to JSON.</p>
+
+<pre><code>cat some_kind_of_kaf_file.kaf | kaf2json
+</code></pre>
+
+<p>This will output (JSON Format):</p>
+
+<pre><code>{
+	"text"      : "Beatrix Wilhelmina Armgard van Oranje -Nassau (Baarn , 31 januari 1938 ) is sinds 30 april 1980 koningin van het Koninkrijk der Nederlandén ",
+	"language"  : "nl",
+	"terms"     : {},
+	"sentiments": [],
+	"entities"  : {},
+	"opinions"  : {}
+}
+</code></pre>
+
+<h3 id="webservices">Webservices</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<pre><code>kaf2json-server
+</code></pre>
+
+<p>This will launch a mini webserver with the webservice. It defaults to port 9292, so you can access it at <a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like this:</p>
+
+<pre><code>kaf2json-server -p 1234
+</code></pre>
+
+<p>It then launches at <a href="http://localhost:1234">http://localhost:1234</a></p>
+
+<p>Documentation on the Webservice is provided by surfing to the urls provided above. For more information on how to launch a webservice run the command with the <code>-h</code> option.</p>
+
+<h3 id="daemon">Daemon</h3>
+
+<p>Last but not least the kaf2json comes shipped with a daemon that can read jobs (and write) jobs to and from Amazon SQS queues. For more information type:</p>
+
+<pre><code>kaf2json-daemon -h
+</code></pre>
+
+<h2 id="description-of-dependencies">Description of dependencies</h2>
+
+<p>This component runs best if you run it in an environment suited for OpeNER components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and an
+<a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">installation guide on the Opener Website</a></p>
+
+<p>At least you need the following system setup:</p>
+
+<h3 id="depenencies-for-normal-use">Depenencies for normal use:</h3>
 
 <ul>
-  <li><a href="kaf1.xml">kaf1.xml</a>: Contains an example of the KAF file.</li>
-  <li><a href="kaf2json.xsl">kaf2json.xsl</a>: Contains the xsl schema that converts KAF to JSON.</li>
+  <li>JRuby 1.7.9 or newer</li>
+</ul>
+
+<h2 id="domain-adaption">Domain Adaption</h2>
+
+<p>TODO</p>
+
+<h2 id="language-extension">Language Extension</h2>
+
+<p>TODO</p>
+
+<h2 id="the-core">The Core</h2>
+
+<p>The component is a fat wrapper around the actual language technology core. You can find the core technolies in the following repositories:</p>
+
+<ul>
+  <li>(link to) Related Core readmes</li>
+</ul>
+
+<h2 id="where-to-go-from-here">Where to go from here</h2>
+
+<ul>
+  <li><a href="http://opener-project.github.io">Check the project websitere</a></li>
+  <li><a href="http://opener.olery.com/kaf2json">Checkout the webservice</a></li>
+</ul>
+
+<h2 id="report-problemget-help">Report problem/Get help</h2>
+
+<p>If you encounter problems, please email support@opener-project.eu or leave an
+<a href="https://github.com/opener-project/kaf2json/issues">issue tracker</a>.</p>
+
+<h2 id="contributing">Contributing</h2>
+
+<ol>
+  <li>Fork it <a href="http://github.com/opener-project/kaf2json/fork">http://github.com/opener-project/kaf2json/fork</a></li>
+  <li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+  <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+  <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+  <li>Create new Pull Request</li>
+</ol>
+
+<div id="reference"></div>
+
+<h2 id="reference">Reference</h2>
+
+<h3 id="command-line-interface-1">Command Line Interface</h3>
+
+<h4 id="examples">Examples:</h4>
+
+<h5 id="provide-subexamples">Provide subexamples</h5>
+
+<p>This aplication reads a text from standard input in order to convert it to JSON.</p>
+
+<pre><code>cat some_kind_of_kaf_file.kaf | kaf2json
+</code></pre>
+
+<p>This will output (JSON Format):</p>
+
+<pre><code>{
+	"text"      : "Beatrix Wilhelmina Armgard van Oranje -Nassau (Baarn , 31 januari 1938 ) is sinds 30 april 1980 koningin van het Koninkrijk der Nederlandén ",
+	"language"  : "nl",
+	"terms"     : {},
+	"sentiments": [],
+	"entities"  : {},
+	"opinions"  : {}
+}
+</code></pre>
+
+<h3 id="webservice">Webservice</h3>
+
+<p>You can launch a webservice by executing:</p>
+
+<pre><code>kaf2json-server
+</code></pre>
+
+<p>After launching the server, you can reach the webservice at
+<a href="http://localhost:9292">http://localhost:9292</a>.</p>
+
+<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the webserver used by the component. The options are:</p>
+
+<pre><code>    -b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
+    -C, --config PATH                Load PATH as a config file
+        --control URL                The bind url to use for the control server
+                                     Use 'auto' to use temp unix server
+        --control-token TOKEN        The token to use as authentication for the control server
+    -d, --daemon                     Daemonize the server into the background
+        --debug                      Log lowlevel debugging information
+        --dir DIR                    Change to DIR before starting
+    -e, --environment ENVIRONMENT    The environment to run the Rack app on (default development)
+    -I, --include PATH               Specify $LOAD_PATH directories
+    -p, --port PORT                  Define the TCP port to bind to
+                                     Use -b for more advanced options
+        --pidfile PATH               Use PATH as a pidfile
+        --preload                    Preload the app. Cluster mode only
+        --prune-bundler              Prune out the bundler env if possible
+    -q, --quiet                      Quiet down the output
+    -R, --restart-cmd CMD            The puma command to run during a hot restart
+                                     Default: inferred
+    -S, --state PATH                 Where to store the state details
+    -t, --threads INT                min:max threads to use (default 0:16)
+        --tcp-mode                   Run the app in raw TCP mode instead of HTTP mode
+    -V, --version                    Print the version information
+    -w, --workers COUNT              Activate cluster mode: How many worker processes to create
+        --tag NAME                   Additional text to display in process listing
+    -h, --help                       Show help
+</code></pre>
+
+<h3 id="daemon-1">Daemon</h3>
+
+<p>The daemon has the default OpeNER daemon options. Being:</p>
+
+<pre><code>Usage: kaf2json-daemon &lt;start|stop|restart&gt; [options]
+
+When calling kaf2json without &lt;start|stop|restart&gt; the daemon will start as a foreground process
+
+Daemon options:
+    -i, --input QUEUE_NAME           Input queue name
+    -o, --output QUEUE_NAME          Output queue name
+        --batch-size COUNT           Request x messages at once where x is between 1 and 10
+        --buffer-size COUNT          Size of input and output buffer. Defaults to 4 * batch-size
+        --sleep-interval SECONDS     The interval to sleep when the queue is empty (seconds)
+    -r, --readers COUNT              number of reader threads
+    -w, --workers COUNT              number of worker thread
+    -p, --writers COUNT              number of writer / pusher threads
+    -l, --logfile, --log FILENAME    Filename and path of logfile. Defaults to STDOUT
+    -P, --pidfile, --pid FILENAME    Filename and path of pidfile. Defaults to /var/run/tokenizer.pid
+        --pidpath DIRNAME            Directory where to put the PID file. Is Overwritten by --pid if that option is present
+        --debug                      Turn on debug log level
+        --relentless                 Be relentless, fail fast, fail hard, do not continue processing when encountering component errors
+</code></pre>
+
+<h4 id="environment-variables">Environment Variables</h4>
+
+<p>These daemons make use of Amazon SQS queues and other Amazon services. The access to these services and other environment variables can be configured using a .opener-daemons-env file in the home directory of the current user.</p>
+
+<p>It is also possible to provide the environment variables directly to the deamon.</p>
+
+<p>For example:</p>
+
+<pre><code>AWS_REGION='eu-west-1' kaf2json start [other options]
+</code></pre>
+
+<p>We advise to have the following environment variables available: </p>
+
+<ul>
+  <li>AWS_ACCESS_KEY_ID</li>
+  <li>AWS_SECRET_ACCESS_KEY</li>
+  <li>AWS_REGION</li>
 </ul>
 
         </div>

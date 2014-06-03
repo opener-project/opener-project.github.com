@@ -11,10 +11,6 @@ repository: https://github.com/opener-project/kaf-naf-parser
 
 <div id='readme'></div>
 
-replace:
-kaf-naf-parser
-kaf-naf-parser
-
 Introduction
 ------------
 
