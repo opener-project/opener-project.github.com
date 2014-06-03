@@ -82,16 +82,6 @@ At least you need the following system setup:
 
 * JRuby 1.7.9 or newer
 
-Domain Adaption
----------------
-
-  TODO
-
-Language Extension
-------------------
-
-  TODO
-
 The Core
 --------
 
