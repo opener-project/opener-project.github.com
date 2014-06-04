@@ -1924,3 +1924,12 @@ form#test dd {
   margin-left: 30px;
   margin-bottom: 2em;
 }
+
+.eu-notice {
+  padding-top: .5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+  background-color: #FFF;
+  font-size: 12px;
+  color: #666;
+}
