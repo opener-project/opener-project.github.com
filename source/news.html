@@ -1,0 +1,15 @@
+---
+layout: documentation
+title: News and Events
+---
+
+<h1>News &amp; Events</h1>
+
+<p>Below you find a selection of news and event related to the OpeNER
+project</p>
+
+{% for post in site.posts %}
+<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+{{ post.excerpt }}
+<a href="{{ post.url }}">read more...</a>
+{% endfor %}

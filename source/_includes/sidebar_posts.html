@@ -1,0 +1,8 @@
+<h3>Recent news</h3>
+<ul id="sidebar" class="nav bs-sidenav">
+  {% for post in site.posts limit:10%}
+    <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  <li><a href="/news.html">More news</a></li>
+</ul>
+

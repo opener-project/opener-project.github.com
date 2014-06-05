@@ -1926,7 +1926,7 @@ form#test dd {
 }
 
 .eu-notice {
-  padding-top: .5em;
+  padding-top: 1em;
   padding-bottom: 0.5em;
   text-align: center;
   background-color: #FFF;
