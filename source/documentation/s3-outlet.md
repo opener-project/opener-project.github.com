@@ -77,7 +77,7 @@ The component is a fat wrapper around the actual language technology core. You c
 Where to go from here
 ---------------------
 
-* [Check the project websitere](http://opener-project.github.io)
+* [Check the project website](http://opener-project.github.io)
 * [Checkout the webservice](http://opener.olery.com/s3-outlet)
 
 Report problem/Get help

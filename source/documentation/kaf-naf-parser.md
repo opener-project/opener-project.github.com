@@ -81,7 +81,7 @@ At least you need the following system setup:
 Where to go from here
 ---------------------
 
-* [Check the project websitere](http://opener-project.github.io)
+* [Check the project website](http://opener-project.github.io)
 * [Checkout the webservice](http://opener.olery.com/kaf-naf-parser)
 
 Report problem/Get help
