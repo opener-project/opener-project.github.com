@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: The OpeNER team in Iceland: LREC2014
+title: The OpeNER team in Iceland, LREC2014
 sidebar: posts
 ---
 

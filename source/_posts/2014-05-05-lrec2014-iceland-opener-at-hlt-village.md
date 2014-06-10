@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: LREC2014 Iceland: OpeNER at the HLT Projects Village
+title: LREC2014 Iceland, OpeNER at the HLT Projects Village
 sidebar: posts
 ---
 Come visit the OpeNER project booth at HLT Village (LREC 2014). You can meet the OpeNER project team on May 28, 29 and 30, 2014.
