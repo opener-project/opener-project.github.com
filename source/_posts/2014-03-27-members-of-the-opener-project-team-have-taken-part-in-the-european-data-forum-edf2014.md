@@ -2,6 +2,7 @@
 layout: posts
 title: Members of the OpeNER project team have taken part in the European Data Forum (EDF) 2014
 sidebar: posts
+excerpt: The European Data Forum has taken place on March 19-20, 2014 in Athens, Greece
 ---
 The European Data Forum has taken place on March 19-20, 2014 in Athens, Greece
 The OpeNER project members, Fabio Valsecchi and Andrea D’Errico have taken active part in the exhibition area presenting the results of the project.
