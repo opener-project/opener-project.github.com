@@ -2,6 +2,8 @@
 layout: posts
 title: Success in BTO2013, the international event about online tourism
 sidebar: posts
+excerpt: More than 7000 visitors, during 3rd and 4th December 2013 at BTO; with more than 95 scheduled meetings, more than 200 journalists and 140 bloggers. USA, Canada, Germany, Spain, France and Switzerland were within the countries represented at BTO.
+
 ---
 More than 7000 visitors, during 3rd and 4th December 2013 at BTO; with more than 95 scheduled meetings, more than 200 journalists and 140 bloggers. USA, Canada, Germany, Spain, France and Switzerland were within the countries represented at BTO.
 BTO- Buy Tourism Online, educational and international event promoted by Toscana Region, Toscana Promozione and Camera di Commercio di Firenze, organized by Fondazione Sistema Toscana e Metropoli-Azienda Speciale della Camera di Commercio di Firenze.
