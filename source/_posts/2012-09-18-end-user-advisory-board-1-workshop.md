@@ -2,6 +2,7 @@
 layout: posts
 title: End User Advisory Board, 1st Workshop
 sidebar: posts
+excerpt: The End User Advisory Board shapes the creation of OpeNER, giving feedback on users’ functional needs and evaluating the product. It consists of Tourist Boards, travel portals and industry experts, who explained their current challenges in opinion mining.
 ---
 
 The End User Advisory Board shapes the creation of OpeNER, giving feedback on users’ functional needs and evaluating the product. It consists of Tourist Boards, travel portals and industry experts, who explained their current challenges in opinion mining.
@@ -11,16 +12,16 @@ The End User Advisory Board (EUAB) comprises tourism organizations, tourism port
 EUAB members are shaping the development of the OpeNER suite. They provide insight about their functional needs as end users, and evaluate to what an extent the products created within OpeNER respond to those needs. The EUAB’s feedback is one of the factors that informs project decisions.
 The EUAB is composed of the following members:
 Tourism Boards at National, Regional and Local levels
-+ Segittur: the State Agency for Tourism in Spain.
-+ Fondazione Sistema Toscana: Official Tourism Agency for the Region of Tuscany, Italy.
-+ Amsterdam Tourism and Convention Board: Local Tourism Agency.
-+ Tourism Portals
-+ TripAdvisor
-+ Trivago
+* Segittur: the State Agency for Tourism in Spain.
+* Fondazione Sistema Toscana: Official Tourism Agency for the Region of Tuscany, Italy.
+* Amsterdam Tourism and Convention Board: Local Tourism Agency.
+* Tourism Portals
+* TripAdvisor
+* Trivago
 Additional Experts
-+ Yahoo Research
-+ Ispra JRC: EU’s Joint Research Commission site at Ispra, Italy
-+ Bitext: provider of Natural Language Processing Technologies
+* Yahoo Research
+* Ispra JRC: EU’s Joint Research Commission site at Ispra, Italy
+* Bitext: provider of Natural Language Processing Technologies
 What was the Workshop about?
 
 EUAB members are facing challenges monitoring and analyzing opinions coming from their portals and from social media channels. Each member presented their current social media monitoring practices and their needs in terms of sentiment analysis and opinion mining.

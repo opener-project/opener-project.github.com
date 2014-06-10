@@ -2,6 +2,8 @@
 layout: posts
 title: Olery announces their partnership in OpeNER, February 2013
 sidebar: posts
+excerpt: Olery announced their participation in the OpeNER project in their recent press release.
+
 ---
 Olery announced their participation in the OpeNER project in their recent press release.
 Here’s an excerpt from the press release:

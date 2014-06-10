@@ -2,6 +2,7 @@
 layout: posts
 title: OpeNER hackathon in Amsterdam (1st-2nd of July 2013)
 sidebar: posts
+excerpt: A Hackathon took place 1st and 2nd of July. The Hackathon word stands for “Hacking Marathon”, and its purpose is to introduce some technology or software toolkit to the attendees, and let then “play” and develop ideas around it.
 ---
 
 A Hackathon took place 1st and 2nd of July. The Hackathon word stands for “Hacking Marathon”, and its purpose is to introduce some technology or software toolkit to the attendees, and let then “play” and develop ideas around it.
