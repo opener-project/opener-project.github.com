@@ -4,3 +4,4 @@ markdown: kramdown
 kramdown:
   input: GFM
   coderay_line_numbers:
+  hard_wrap: false
