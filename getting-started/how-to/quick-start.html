@@ -114,7 +114,7 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <h1 id="opener-webservices-quick-start-with-curl">Opener Webservices Quick Start with CURL</h1>
 
-<p>You can try the webservices using the popular command line tool CURL.<br />
+<p>You can try the webservices using the popular command line tool CURL.
 For the best result, put your text in a textfile, for the example called
 <code>some_file.txt</code> and then pass it through the webservices like this:</p>
 
@@ -128,19 +128,19 @@ For the best result, put your text in a textfile, for the example called
 </div>
 </div>
 
-<p>The trick here is to use curls <code>-F</code> option with <code>input=&lt;-</code> as argument.<br />
-The <code>&lt;-</code> in this case means it reads from STDIN and posts it to the<br />
+<p>The trick here is to use curls <code>-F</code> option with <code>input=&lt;-</code> as argument.
+The <code>&lt;-</code> in this case means it reads from STDIN and posts it to the
 webservices.</p>
 
-<p>An alternative way is to use <code>-F 'input=&lt;some_file.txt'</code>. Both options read<br />
+<p>An alternative way is to use <code>-F 'input=&lt;some_file.txt'</code>. Both options read
 the textfile and put them through the webservices.</p>
 
 <h2 id="chaining-webservices">Chaining Webservices</h2>
 
-<p>You can chain multiple webservices together by adding <code>callbacks[]=</code> to the<br />
+<p>You can chain multiple webservices together by adding <code>callbacks[]=</code> to the
 current request. The more callbacks you add the longer your pipeline will be.</p>
 
-<p>Beware that when you use curl from bash, you need to escape the <code>[]</code> and they<br />
+<p>Beware that when you use curl from bash, you need to escape the <code>[]</code> and they
 become <code>\[\]</code>. Also put your url in between double quotes.</p>
 
 <p>So the structure of the curl request looks like this:</p>
@@ -156,12 +156,12 @@ become <code>\[\]</code>. Also put your url in between double quotes.</p>
 </div>
 </div>
 
-<p><strong>ALWAYS end your callbacks with the outlet. Else there is no spot to “catch” your<br />
+<p><strong>ALWAYS end your callbacks with the outlet. Else there is no spot to “catch” your
 results</strong></p>
 
-<p>After you do this request you’ll get a response containing a URL which you can<br />
-poll to catch your result. Don’t worry if it’s not immediately there. It might<br />
-take a couple of seconds. If the document is not done processing yet, you will<br />
+<p>After you do this request you’ll get a response containing a URL which you can
+poll to catch your result. Don’t worry if it’s not immediately there. It might
+take a couple of seconds. If the document is not done processing yet, you will
 get a message stating <code>no document found</code>.</p>
 
 <h2 id="returning-json">Returning JSON</h2>
@@ -202,7 +202,7 @@ get a message stating <code>no document found</code>.</p>
 </div>
 </div>
 
-<p>You will get a JSON representation of the KAF file. Generating the JSON does<br />
+<p>You will get a JSON representation of the KAF file. Generating the JSON does
 take a little longer though.</p>
 
 <h2 id="examples">Examples</h2>
@@ -228,8 +228,8 @@ take a little longer though.</p>
 
 <h3 id="rule-based-opinion-detection">Rule based opinion detection</h3>
 
-<p>The opinion-detector endpoint is based on machine learning. The<br />
-opinion-detector-basic however is rule base. Feel free to swap the one for the<br />
+<p>The opinion-detector endpoint is based on machine learning. The
+opinion-detector-basic however is rule base. Feel free to swap the one for the
 other.</p>
 
 <p>to do so use:</p>
@@ -267,8 +267,8 @@ other.</p>
 </div>
 </div>
 
-<p>This will also provide you with an output_url. However, this url will give you<br />
-back a JSON object with sentiment values between -1 and 1 on the detected<br />
+<p>This will also provide you with an output_url. However, this url will give you
+back a JSON object with sentiment values between -1 and 1 on the detected
 topics. Like this:</p>
 
 <div><div class="CodeRay">
@@ -294,8 +294,8 @@ topics. Like this:</p>
 <pre><code>&amp;callbacks\[\]=http://opener.olery.com/tree-tagger\
 </code></pre>
 
-<p>Beware: the tree tagger is considerably slower and less stable than the standard<br />
-pos-tagger. If after ± 10 seconds your document is not ready yet, it probably<br />
+<p>Beware: the tree tagger is considerably slower and less stable than the standard
+pos-tagger. If after ± 10 seconds your document is not ready yet, it probably
 failed.</p>
 
 <h2 id="list-of-services-with-their-endpoints">List of services with their endpoints</h2>

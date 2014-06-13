@@ -122,12 +122,12 @@
   <li>Try some examples</li>
 </ol>
 
-<p>The OpeNER toolchain consists of a broad mix of technologies glued together<br />
-using Ruby. Most of these requirements are already present on up-to-date unix like<br />
+<p>The OpeNER toolchain consists of a broad mix of technologies glued together
+using Ruby. Most of these requirements are already present on up-to-date unix like
 installations (including Mac OSX) or can be easily upgraded.</p>
 
-<p>Every part of the OpeNER toolchain has individual dependencies. Most of which<br />
-are included in the components themselves. Check out the individual manual pages<br />
+<p>Every part of the OpeNER toolchain has individual dependencies. Most of which
+are included in the components themselves. Check out the individual manual pages
 of the components to for the specifics.</p>
 
 <h2 id="opener-requirements">OpeNER requirements</h2>
@@ -159,11 +159,11 @@ of the components to for the specifics.</p>
 
 <h4 id="virtual-environment">Virtual environment</h4>
 
-<p>We highly recommend using a python virtualenv environment. A convenient way to<br />
-get that working is by visiting the <a href="https://github.com/brainsik/virtualenv-burrito">virtualenv-burrito<br />
+<p>We highly recommend using a python virtualenv environment. A convenient way to
+get that working is by visiting the <a href="https://github.com/brainsik/virtualenv-burrito">virtualenv-burrito
 project</a> over at Github.</p>
 
-<p>Once you have the virtualenv-burrito installed you can for example create an<br />
+<p>Once you have the virtualenv-burrito installed you can for example create an
 OpeNER environment using:</p>
 
 <pre><code>mkvirtualenv opener
@@ -174,28 +174,28 @@ OpeNER environment using:</p>
 <pre><code>workon opener
 </code></pre>
 
-<p>If you make sure that you activate your <code>opener</code> enviroment before<br />
-installing any OpeNER components. We can more or less guarantee you a smooth<br />
+<p>If you make sure that you activate your <code>opener</code> enviroment before
+installing any OpeNER components. We can more or less guarantee you a smooth
 Python ride. If you forget to <code>workon opener</code> the road might be quite bumpy.</p>
 
 <h4 id="lxml">Lxml</h4>
 
-<p>Most OpeNER components ship with all batteries included. However lxml is used<br />
-so often that that wouldn’t make sense. So please, after you activated your<br />
-virtualenv. please install lxml. There is a <a href="http://lxml.de/installation.html">manual available at the lxml<br />
+<p>Most OpeNER components ship with all batteries included. However lxml is used
+so often that that wouldn’t make sense. So please, after you activated your
+virtualenv. please install lxml. There is a <a href="http://lxml.de/installation.html">manual available at the lxml
 website</a>.</p>
 
 <div id="get-the-example-application"></div>
 
 <h1 id="install-opener">Install OpeNER</h1>
 
-<p>Once you’ve got the basics set up, including the installation of rubygems,<br />
+<p>Once you’ve got the basics set up, including the installation of rubygems,
 bundler, a Python virtual environment and lxml run the following command:</p>
 
 <p><code>gem install opener-basic</code></p>
 
-<p>The installation might take a while and you might get asked several questions.<br />
-But if all goes well, you’ll be up and running in about 15 minutes, give or<br />
+<p>The installation might take a while and you might get asked several questions.
+But if all goes well, you’ll be up and running in about 15 minutes, give or
 take.</p>
 
 <div id="run-the-example"></div>
@@ -206,7 +206,7 @@ take.</p>
 
 <p><code>echo "This is absolutelty great" | language-identifier</code></p>
 
-<p>You can also try and put your own text into the opener-example chain. For<br />
+<p>You can also try and put your own text into the opener-example chain. For
 example by piping in the contents of a textfile:</p>
 
 <p><code>cat my_text_file.txt | language-identifier | tokenizer | pos-tagger</code></p>

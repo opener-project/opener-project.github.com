@@ -122,7 +122,7 @@
 <pre><code>    ./INSTALL.sh
 </code></pre>
 
-<p>This will install both the required custom <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/">libSVM library</a> and the<br />
+<p>This will install both the required custom <a href="http://www.csie.ntu.edu.tw/~cjlin/libsvm/">libSVM library</a> and the
 domain adatation tool.</p>
 
 <h2 id="configure">Configure</h2>
@@ -197,8 +197,8 @@ domain adatation tool.</p>
 
 <h3 id="parse-corpus-to-vectors">Parse corpus to vectors</h3>
 
-<p>Before training the classifiers, we need to parse the input corpus to vertors. For that purpose, the corpus must be at Conll format with these columns:<br />
-```<br />
+<p>Before training the classifiers, we need to parse the input corpus to vertors. For that purpose, the corpus must be at Conll format with these columns:
+```
     index   word_form   lemma       pos head    ne(optional)</p>
 
 <pre><code>1       El          el          D	2       O
@@ -222,8 +222,8 @@ domain adatation tool.</p>
   </li>
 </ul>
 
-<p>You will also need a seed file for the bootstrapping process. The seed file is a raw text file with these columns:<br />
-```<br />
+<p>You will also need a seed file for the bootstrapping process. The seed file is a raw text file with these columns:
+```
     seed    category</p>
 
 <pre><code>Alaska  location
@@ -280,7 +280,7 @@ CDC     organization ```
     Usage: perl ancora2conll.pl corpus_input_dir corpus_output_dir -ne 0|1
                 -ne 0: does not parse named entites
                     1: parses named entites for test purposes
-</code><br />
+</code>
 The seed list is at <em>test/seeds</em> folder with <em>person, location and organization</em> categories.</p>
 
 <p>To parse the corpus to vectors, use this command:</p>
@@ -389,9 +389,9 @@ The seed list is at <em>test/seeds</em> folder with <em>person, location and org
   <li>
     <p><strong>kaf-conll-0.0.1-SNAPSHOT.jar</strong></p>
 
-    <p>It parses KAF files to conll. This is the usage:<br />
-```<br />
-     Usage: java -jar kaf-conll-0.0.1-SNAPSHOT.jar [OPTIONS…]<br />
+    <p>It parses KAF files to conll. This is the usage:
+```
+     Usage: java -jar kaf-conll-0.0.1-SNAPSHOT.jar [OPTIONS…]
      Reads text from standard input and writes result at standard output.</p>
 
     <pre><code>   OPTIONS:

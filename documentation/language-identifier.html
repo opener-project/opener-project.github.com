@@ -92,13 +92,20 @@
 
 <h1 id="language-identifier">Language Identifier</h1>
 
-<p>The language identifier takes raw text and tries to figure out what language it was written in. The output can either be a plain-text i18n language code or a basic KAF document containing the language and raw input text.</p>
+<p>The language identifier takes raw text and tries to figure out what language it
+was written in. The output can either be a plain-text i18n language code or a
+basic KAF document containing the language and raw input text.</p>
 
-<p>The output of the language identifier can then be used to drive further text analysis of for example sentiments and or entities.</p>
+<p>The output of the language identifier can then be used to drive further text
+analysis of for example sentiments and or entities.</p>
 
-<h3 id="confused-by-some-terminology">Confused by some terminology?</h3>
+<h2 id="confused-by-some-terminology">Confused by some terminology?</h2>
 
-<p>This software is part of a larger collection of natural language processing tools known as “the OpeNER project”. You can find more information about the project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can also find references to terms like KAF (an XML standard to represent linguistic annotations in texts), component, cores, scenario’s and pipelines.</p>
+<p>This software is part of a larger collection of natural language processing
+tools known as “the OpeNER project”. You can find more information about the
+project at <a href="http://opener-project.github.io">the OpeNER portal</a>. There you can
+also find references to terms like KAF (an XML standard to represent linguistic
+annotations in texts), component, cores, scenario’s and pipelines.</p>
 
 <h2 id="quick-use-example">Quick Use Example</h2>
 
@@ -111,9 +118,12 @@
 
 <h3 id="command-line-interface">Command line interface</h3>
 
-<p>You should now be able to call the language indentifier as a regular shell command: by its name. Once installed the gem normally sits in your path so you can call it directly from anywhere.</p>
+<p>You should now be able to call the language indentifier as a regular shell
+command: by its name. Once installed the gem normally sits in your path so you
+can call it directly from anywhere.</p>
 
-<p>This aplication reads a text from standard input in order to identify the language.</p>
+<p>This aplication reads a text from standard input in order to identify the
+language.</p>
 
 <pre><code>echo "This is an English text." | language-identifier
 </code></pre>
@@ -143,9 +153,10 @@
 <pre><code>$ language-identifier-server
 </code></pre>
 
-<p>This will launch a mini webserver with the webservice. It defaults to port 9292, so you can access it at <a href="http://localhost:9292/">http://localhost:9292/</a>.</p>
+<p>This will launch a mini webserver with the webservice. It defaults to port
+9292, so you can access it at <a href="http://localhost:9292/">http://localhost:9292/</a>.</p>
 
-<p>To launch it on a different port provide the <code>-p [port-number]</code> option like<br />
+<p>To launch it on a different port provide the <code>-p [port-number]</code> option like
 this:</p>
 
 <pre><code>language-identifier-server -p 1234
@@ -153,32 +164,33 @@ this:</p>
 
 <p>It then launches at <a href="http://localhost:1234/">http://localhost:1234/</a></p>
 
-<p>Documentation on the Webservice is provided by surfing to the urls provided<br />
-above. For more information on how to launch a webservice run the command with<br />
+<p>Documentation on the Webservice is provided by surfing to the urls provided
+above. For more information on how to launch a webservice run the command with
 the <code>-h</code> option.</p>
 
 <h3 id="daemon">Daemon</h3>
 
-<p>Last but not least the language identifier comes shipped with a daemon that<br />
-can read jobs (and write) jobs to and from Amazon SQS queues. For more<br />
-information type:</p>
+<p>Last but not least the language identifier comes shipped with a daemon that can
+read jobs (and write) jobs to and from Amazon SQS queues. For more information
+type:</p>
 
 <pre><code>$ language-identifier-daemon -h
 </code></pre>
 
 <h2 id="description-of-dependencies">Description of dependencies</h2>
 
-<p>This component runs best if you run it in an environment suited for OpeNER<br />
-components. You can find an installation guide and helper tools in the <a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and <a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">an installation guide on the OpenerWebsite</a></p>
+<p>This component runs best if you run it in an environment suited for OpeNER
+components. You can find an installation guide and helper tools in the
+<a href="https://github.com/opener-project/opener-installer">OpeNER installer</a> and
+<a href="http://opener-project.github.io/getting-started/how-to/local-installation.html">an installation guide on the OpenerWebsite</a>.</p>
 
 <p>At least you need the following system setup:</p>
 
 <h3 id="dependencies-for-normal-use">Dependencies for normal use:</h3>
 
 <ul>
-  <li>Python 2.6 - PIP, possibly VirtualEnv</li>
-  <li>Jruby</li>
-  <li>Java 1.7 or newer (There are problems with encoding in older versions).</li>
+  <li>JRuby 1.7 or newer</li>
+  <li>Java 1.7 or newer (there are problems with encodings in older versions).</li>
 </ul>
 
 <h3 id="dependencies-if-you-want-to-modify-the-component">Dependencies if you want to modify the component:</h3>
@@ -189,13 +201,15 @@ components. You can find an installation guide and helper tools in the <a href="
 
 <h2 id="language-extension">Language Extension</h2>
 
-<p>The internal library that actually performs the language identification already supports a lot of languages. <br />
-For more information about how to extends it for more languages or functionalities, please, visit the website of the tool at <a href="https://code.google.com/p/language-detection/">https://code.google.com/p/language-detection/</a></p>
+<p>The internal library that actually performs the language identification already
+supports a lot of languages.  For more information about how to extends it for
+more languages or functionalities, please, visit the website of the tool at
+<a href="https://code.google.com/p/language-detection/">https://code.google.com/p/language-detection/</a>.</p>
 
 <h2 id="the-core">The Core</h2>
 
-<p>The component is a fat wrapper around the actual language technology core.<br />
-Written in Java. Checkout the core/src directory of the package to get to the<br />
+<p>The component is a fat wrapper around the actual language technology core.
+Written in Java. Checkout the core/src directory of the package to get to the
 actual working component.</p>
 
 <h2 id="where-to-go-from-here">Where to go from here</h2>
@@ -207,8 +221,8 @@ actual working component.</p>
 
 <h2 id="report-problemget-help">Report problem/Get help</h2>
 
-<p>If you encounter problems, please email support@opener-project.eu or leave an<br />
-issue in the <a href="https://github.com/opener-project/language-identifier/issues">issue tracker</a>. </p>
+<p>If you encounter problems, please email support@opener-project.eu or leave an
+issue in the <a href="https://github.com/opener-project/language-identifier/issues">issue tracker</a>.</p>
 
 <h2 id="contributing">Contributing</h2>
 
@@ -265,7 +279,7 @@ issue in the <a href="https://github.com/opener-project/language-identifier/issu
 <p>After launching the server, you can reach the webservice at
 <a href="http://localhost:9292">http://localhost:9292</a>.</p>
 
-<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the<br />
+<p>The webservice takes several options that get passed along to <a href="http://puma.io">Puma</a>, the
 webserver used by the component. The options are:</p>
 
 <pre><code>-b, --bind URI                   URI to bind to (tcp://, unix://, ssl://)
@@ -305,8 +319,8 @@ When calling language-identifier without &lt;start|stop|restart&gt; the daemon w
 
 <h4 id="environment-variables">Environment Variables</h4>
 
-<p>These daemons make use of Amazon SQS queues and other Amazon services.<br />
-The access to these services and other environment variables can be configured<br />
+<p>These daemons make use of Amazon SQS queues and other Amazon services.
+The access to these services and other environment variables can be configured
 using a .opener-daemons-env file in the home directory of the current user.</p>
 
 <p>It is also possible to provide the environment variables directly to the deamon.</p>
