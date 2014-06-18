@@ -21,3 +21,10 @@ As a result, TourPedia shows all the places and their users' sentiments on a map
 ## Ent-i-tUp: Social and Media Analysis and Monitoring application
 
 [Link](http://128.65.123.12/entitup/login.php)
+
+
+## OpeNER analysis demo
+
+This is a demo that shows some of the OpeNER tools analysis results. The demo shows many views of the information contained in a KAF documents, like the named entities detected (people, locations, organizations, etc.), their links to DBpedia if any, the polarity of the words, etc. The demo does not cover all the OpeNER analysis modules but it is a quick way to see what OpeNER project is about.
+
+[OpeNER analysis demo](http://demo2-opener.rhcloud.com)
