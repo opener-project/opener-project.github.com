@@ -10,6 +10,14 @@ sidebar: getting_started
 
 Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules
 
+(1) collect texts
+(2) send the text through the pipeline 
+(3) annotate a selection of the text
+(4) train the model using the annotations
+(5) use a generic sentiment lexicon
+(6) generate a domain-specific lexicon
+(7) ??
+
 ## Needed components
 
 Please elaborate...
