@@ -10,21 +10,20 @@ sidebar: getting_started
 
 Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules
 
-(1) collect texts
-(2) send the text through the pipeline 
-(3) annotate a selection of the text
-(4) train the model using the annotations
-(5) use a generic sentiment lexicon
-(6) generate a domain-specific lexicon
-(7) ??
++collect texts
++send the text through the pipeline 
++annotate a selection of the text
++train the model using the annotations
++use a generic sentiment lexicon
++generate a domain-specific lexicon
++ ??
 
 ## Needed components
-
-Please elaborate...
+domain-specific text scraped (REF to wiki-scraper) or collected by the user 
 
 ###general language lexicons
-
-Please elaborate...
+a generic sentiment lexicons for the OpeNER languages can be found here (REF)
+tools to generate generic sentiment lexicons can be found here (REF)
 
 ###toolkit to train the domain model for opinion mining
 
