@@ -26,7 +26,7 @@ a generic sentiment lexicons for the OpeNER languages can be found here (REF)
 tools to generate generic sentiment lexicons can be found here (REF)
 
 ###toolkit to train the domain model for opinion mining
-
+with the annotatated corpus the domain model can be trained (http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html)
 Please elaborate...
 
 ###toolkit to train  a model for NER
