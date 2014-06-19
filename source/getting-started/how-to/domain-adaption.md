@@ -8,18 +8,36 @@ sidebar: getting_started
 
 ## Aim: Adding a new Domain (DELUXE)
 
-Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules
+Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules. The following steps need to be done:
 
-+ collect texts
-+ send the text through the pipeline 
-+ annotate a selection of the text
-+ train the model using the annotations
-+ use a generic sentiment lexicon
-+ generate a domain-specific lexicon
-+ ??
++ Collect texts from the domain
++ Send the text through the OpeNER pipeline 
++ Create an annotated corpus
++ Train the model using the annotated corpus
++ Choose or generate generic sentiment lexicon
++ Choose or generate a domain-specific lexicon
++ ??  what to do for named entiry??? (RUBEN)
 
 ## Needed components
-domain-specific text scraped (REF to wiki-scraper) or collected by the user 
++ domain texts
++ annotation guidelines
++ tools to train the opinion model
++ tools to generate a general sentiment lexicon
++ a general sentiment lexicon or tools to generate one
++ a domain-specific lexicon or tools to generate one 
+
+
+
+### collect texts (cf. x for corpus composition)
++ domain adaptation starts with the collection of domain-specific texts
++ these texts can scraped from internet or collected from any other source
++ facebook texts can scraped using .... REF????
+
+### create an annotated corpus
++ Select a small and representative part of the domain texts. The OpeNER  deliverable D5.42 describes how this is done for the touristic domain (hotel reviews and attraction reviews) and the domain of political news.
++ Annotate the corpus following guidelines for the annotation of opinions (cf. OpeNER deliverable D5.42 Annex I and II) adaptation starts with the collection of domain-specific texts
++ these texts can scraped from internet or collected from any other source
++ facebook texts can scraped using .... REF????
 
 ###general language lexicons
 a generic sentiment lexicons for the OpeNER languages can be found here (REF)
@@ -28,7 +46,6 @@ tools to generate generic sentiment lexicons can be found here (REF)
 ###toolkit to train the domain model for opinion mining
 with the annotatated corpus the domain model can be trained (http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html)
 Please elaborate...
-
 ###toolkit to train  a model for NER
 
 Please elaborate...
