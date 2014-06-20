@@ -6,7 +6,9 @@ sidebar: getting_started
 
 # How to: Domain Adaption
 
-## Aim: Adding a new Domain : the machine-learning approach
+## Aim: Adding a new Domain 
+
+###the machine-learning approach
 
 Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules. The following steps need to be done:
 
@@ -58,7 +60,9 @@ A corpus, i.e a representative selection of the domain texts,  must be annotated
 
 ## Choose or generate Sentiment Lexicons
 The opinion identification tools make use of a general sentiment and domain-specific sentiment lexicons. The first one covers opinionated words used across all domains, the second one covers the domain-specific items.  
+### General Sentiment Lexicons
 + General sentiment lexicons are available for the 6 OpeNER languages (cf. https://github.com/opener-project/sentiment-lexicons/tree/master/propagation_lexicons). General sentiment lexicons for new languages can be built using the propagation toolkit (cf. https://github.com/opener-project/VU-lexicon-propagation_kernel)
-+ Domain-specific lexicons can be generated with the following tools. 
-  + To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). 
-  + The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). 
+
+### Domain-specific lexicons
++ To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). 
++ The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). 
