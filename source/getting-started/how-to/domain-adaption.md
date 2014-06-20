@@ -6,7 +6,7 @@ sidebar: getting_started
 
 # How to: Domain Adaption
 
-## Aim: Adding a new Domain (DELUXE)
+## Aim: Adding a new Domain : the machine-learning approach
 
 Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules. The following steps need to be done:
 
@@ -50,65 +50,15 @@ A corpus, i.e a representative selection of the domain texts,  must be annotated
 + Annotate the corpus with opinion annotations. D5.42  provides guidelines for such annotations in the tourist domain and in the domain of political news. These guidelines can be adapted for the annotations of other domains. 
 + Annotate the corpus with named entities annotations.  D3.52 provides guidelines for such annotations in the tourist domain. These guidelines can be adapted for the annotations of other domains.
 
-###general language lexicons
-a generic sentiment lexicons for the OpeNER languages can be found here (REF)
-tools to generate generic sentiment lexicons can be found here (REF)
+## Train the model for opinion detection
++ The model for opinion detection must be trained with the data from the annotated corpus (cf. where??)
 
-###toolkit to train the domain model for opinion mining
-with the annotatated corpus the domain model can be trained (http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html)
-Please elaborate...
-###toolkit to train  a model for NER
+## Train the model for named entity detection
++ The model for named entity detection must be trained with the data from the annotated corpus (cf. http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html) 
 
-Please elaborate...
-
-###webservices / pipeline components
-
-Please elaborate...
-
-## Preparations
-
-Please elaborate...
-
-### make annotated corpus
-
-Please elaborate...
-
-### collect texts (cf. x for corpus composition)
-
-Please elaborate...
-
-### use the annotation guideline
-
-Please elaborate...
-
-## Generate a domain-specific lexicon
-
-Please elaborate...
-
-
-### Collect texts
-
-Please elaborate...
-
-### Use toolkit for generation of domain lexicons
-
-Please elaborate...
-
-
-## Train a model 
-
-Please elaborate...
-
-
-###Convert annotations to KAF/NAF
-
-Please elaborate...
-
-
-## Procedures
-
-e.g. see scenario I or II or III
-
-## Notes/Tips/Variations
-
-e.g. item x, y, z are optional
+## Choose or generate Sentiment Lexicons
+The opinion identification tools make use of a general sentiment and domain-specific sentiment lexicons. The first one covers opinionated words used across all domains, the second one covers the domain-specific items.  
++ General sentiment lexicons are available for the 6 OpeNER languages (cf. https://github.com/opener-project/sentiment-lexicons/tree/master/propagation_lexicons). General sentiment lexicons for new languages can be built using the propagation toolkit (cf. https://github.com/opener-project/VU-lexicon-propagation_kernel)
++ Domain-specific lexicons can be generated with the following tools. 
+  + To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). 
+  + The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). 
