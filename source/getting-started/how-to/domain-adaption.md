@@ -15,10 +15,9 @@ Fine-tuning the tools and pipeline in order to able to perform a opinion mining 
 + Collect texts from the domain
 + Send the text through the OpeNER pipeline 
 + Create an annotated corpus
-+ Train the model for opinion detection
++ Prepare the domain specific resources required. For the opinion miner, domain specific lexicons can be automatically built using our toolkit (https://github.com/opener-project/domain-adaptation-tool)
++ Train the model for opinion detection. Instructions about how to train your own models and select the features can be found at https://github.com/opener-project/opinion_miner_deluxe
 +	Train the model for named entity detection
-+ Choose or generate sentiment lexicons
-+ Run ... HOW??RUBEN??
 
 ## Needed components
 
@@ -41,10 +40,13 @@ Fine-tuning the tools and pipeline in order to able to perform a opinion mining 
 The texts must be automatically enriched with linguistic annotations such as lemma, part-of-speech, parse tree, etc. This can be done by sending the text through the OpeNER pipeline either using the webservices (http://www.opener-project.eu/webservices/) or by using a local installation (http://www.opener-project.eu/getting-started/how-to/local-installation.html). 
 The following components should be included: 
 + Language detection (http://www.opener-project.eu/getting-started/#language-detection)
-+ Lemmatization and Part-of-speech tagging (http://www.opener-project.eu/getting-started/# part-of-speech-tagging)
-+ Tokenization (http://www.opener-project.eu/getting-started/#okenization)
-+ Constituent parsing (http://www.opener-project.eu/documentation/constituent-parser.html#readme)
++ Tokenisation
++ Part-of-speech tagger
++ Polarity tagger
++ Property tagger
++ Constituency parser
 
+Information about all these tools can be found at http://www.opener-project.eu/getting-started
 
 ## Create an annotated corpus
 A corpus, i.e a representative selection of the domain texts,  must be annotated for the training of the models. The corpus consists of opinion annotations for the training of the model for the identification of opinions and of named entity annotations for the training of the model for the identification of named entities. 
@@ -53,7 +55,7 @@ A corpus, i.e a representative selection of the domain texts,  must be annotated
 + Annotate the corpus with named entities annotations.  D3.52 provides guidelines for such annotations in the tourist domain. These guidelines can be adapted for the annotations of other domains.
 
 ## Train the model for opinion detection
-+ The model for opinion detection must be trained with the data from the annotated corpus (cf. ??RUBENwhere??)
++ The model for opinion detection must be trained with the data from the annotated corpus (see detailed instructions at https://github.com/opener-project/opinion_miner_deluxe)
 
 ## Train the model for named entity detection
 + The model for named entity detection must be trained with the data from the annotated corpus (cf. http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html) 
@@ -67,4 +69,3 @@ The opinion identification tools make use of a general sentiment and domain-spec
 + To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). 
 + The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). 
 
-###  ??RUBEN?? make it run
