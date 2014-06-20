@@ -17,6 +17,9 @@ Fine-tuning the tools and pipeline in order to able to perform a opinion mining 
 + Choose or generate generic sentiment lexicon
 + Choose or generate a domain-specific lexicon
 + ??  what to do for named entiry??? (RUBEN)
+•	Train the model for opinion detection
+•	Train the model for named entity detection
+•	Choose or generate sentiment lexicons
 
 ## Needed components
 + domain texts
