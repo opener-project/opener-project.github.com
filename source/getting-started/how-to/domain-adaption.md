@@ -67,4 +67,4 @@ The opinion identification tools make use of a general sentiment and domain-spec
 + To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). 
 + The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). 
 
-###  ??RUBEN?? wrap up everything
+###  ??RUBEN?? make it run
