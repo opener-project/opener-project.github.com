@@ -28,11 +28,11 @@ Fine-tuning the tools and pipeline in order to able to perform a opinion mining 
 + Domain-specific lexicon or tools to generate one 
 
 
-### Collect texts from the domain
+## Collect texts from the domain
 + Domain texts are texts
-++ about a specific topic such a product, a person, a company,  a political issue, etc. 
-++ within a specific domain such as such as tourism, sports, politics, etc.
-++ such as customer reviews, blog posts, news articles, facebook messages, etc. 
++ + about a specific topic such a product, a person, a company,  a political issue, etc. 
++ + within a specific domain such as such as tourism, sports, politics, etc.
++ + such as customer reviews, blog posts, news articles, facebook messages, etc. 
 + These texts can scraped from internet or collected from any other source. 
 
 
