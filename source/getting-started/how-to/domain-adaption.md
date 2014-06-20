@@ -19,13 +19,21 @@ Fine-tuning the tools and pipeline in order to able to perform a opinion mining 
 + Run ... HOW??RUBEN??
 
 ## Needed components
-+ domain texts
-+ annotation guidelines
-+ tools to train the opinion model
-+ tools to generate a general sentiment lexicon
-+ a general sentiment lexicon or tools to generate one
-+ a domain-specific lexicon or tools to generate one 
 
++ Domain texts 
++ Annotation guidelines
++ Tools to train the opinion identification model
++ Tools to train the named entity recognition model
++ General sentiment lexicon or tools to generate one
++ Domain-specific lexicon or tools to generate one 
+
+
+### Collect texts from the domain
++ Domain texts are texts
+++ about a specific topic such a product, a person, a company,  a political issue, etc. 
+++ within a specific domain such as such as tourism, sports, politics, etc.
+++ such as customer reviews, blog posts, news articles, facebook messages, etc. 
++ These texts can scraped from internet or collected from any other source. 
 
 
 ### collect texts (cf. x for corpus composition)
