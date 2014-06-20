@@ -8,7 +8,7 @@ sidebar: getting_started
 
 ## Aim: Adding a new Domain 
 
-###the machine-learning approach
+###The machine-learning approach
 
 Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules. The following steps need to be done:
 
@@ -53,16 +53,18 @@ A corpus, i.e a representative selection of the domain texts,  must be annotated
 + Annotate the corpus with named entities annotations.  D3.52 provides guidelines for such annotations in the tourist domain. These guidelines can be adapted for the annotations of other domains.
 
 ## Train the model for opinion detection
-+ The model for opinion detection must be trained with the data from the annotated corpus (cf. where??)
++ The model for opinion detection must be trained with the data from the annotated corpus (cf. ??RUBENwhere??)
 
 ## Train the model for named entity detection
 + The model for named entity detection must be trained with the data from the annotated corpus (cf. http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html) 
 
 ## Choose or generate Sentiment Lexicons
 The opinion identification tools make use of a general sentiment and domain-specific sentiment lexicons. The first one covers opinionated words used across all domains, the second one covers the domain-specific items.  
-### General Sentiment Lexicons
+### General sentiment lexicons
 + General sentiment lexicons are available for the 6 OpeNER languages (cf. https://github.com/opener-project/sentiment-lexicons/tree/master/propagation_lexicons). General sentiment lexicons for new languages can be built using the propagation toolkit (cf. https://github.com/opener-project/VU-lexicon-propagation_kernel)
 
-### Domain-specific lexicons
+### Domain-specific sentiment lexicons
 + To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). 
 + The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). 
+
+###  ??RUBEN?? wrap up everything
