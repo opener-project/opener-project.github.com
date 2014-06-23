@@ -214,21 +214,15 @@ Polarity tagger</a>.</p>
 
 <p>An example of the expected input and output is as follows:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre>$ echo &quot;this is an english text.&quot; | language-identifier
-</pre></div>
-</div>
-</div>
+<pre><code class="language-bash">$ echo "this is an english text." | language-identifier
+</code></pre>
 
 <p>and the response is</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span style="color:#070">&lt;KAF</span> <span style="color:#b48">xml:lang</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">en</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">version</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">2.1</span><span style="color:#710">&quot;</span></span><span style="color:#070">&gt;</span>
-  <span style="color:#070">&lt;raw&gt;</span>This is an english text.<span style="color:#070">&lt;/raw&gt;</span>
-<span style="color:#070">&lt;/KAF&gt;</span>
-</pre></div>
-</div>
-</div>
+<pre><code class="language-xml">&lt;KAF xml:lang="en" version="2.1"&gt;
+  &lt;raw&gt;This is an english text.&lt;/raw&gt;
+&lt;/KAF&gt;
+</code></pre>
 
 <p>Check out the <a href="/documentation/language-identifier.html">documentation of the language identifier</a> or visit the <a href="/webservices/">webservices page</a></p>
 
@@ -297,14 +291,21 @@ option. You can do this like this.</p>
 
 <h4 id="technical-characteristics-2">Technical characteristics</h4>
 
-<p>This component is based on Apache OpeNLP component and contains one module that relates a word with its part of speech given a context. The component is the same for all the languages in the consortium, the only differences are the models which depend on the languages (are trained according to the linguistic features of each language) and the lemmatizers. Lemmatization is dictionary-based. To perform English lemmatization the module uses three different methods for English and two for Spanish:</p>
+<p>This component is based on probabilistic POS tagging models trained with Apache
+OpeNLP library. The component is the same for all the languages in the
+consortium, the only differences are the models which depend on the languages
+(are trained according to the linguistic features of each language) and the
+lemmatizers. Lemmatization is dictionary-based. To perform English
+lemmatization the module uses three different methods for English and two for
+the rest of the languages:</p>
 
-<p>English has two possible lemmatizers. One is based on WordNet-3.0 and the other is based on pain text dictionary (en-lemmas.dict is a “Word POStag lemma” dictionary in plain text to perform lemmatization).
-Also, there is Morfologik-stemming: english.dict is the same as en-lemmas.dict but binarized as a finite state automata using the morfologik-stemming project (see NOTICE file for details) This method uses 10% of RAM with
-respect to the plain text dictionary and works 2x faster.</p>
-
-<p>Spanish has a plain text dictionary: es-lemmas.dict and it uses the Morfologik stemming: spanish.dict.
-For the rest of the languages they also include a file inside the repository which lemmatizes the output and maps a form to a lemma.</p>
+<ul>
+  <li>Plain text dictionary: “Word POStag lemma” dictionary in plain text. </li>
+  <li>Using Morfologik-stemming: plain text dictionaries binarized as finite state
+automata using the morfologik-stemming project.  This method requires less RAM with
+respect to the plain text dictionary.</li>
+  <li>WordNet: only for English. </li>
+</ul>
 
 <p>The part of speech tagger takes a KAF file as an input and will output KAF as
 well. You can take a look at the <a href="/examples/kaf-pos-tagger.kaf">example kaf file
@@ -321,7 +322,92 @@ here</a></p>
 
 <h3 id="constituent-parser">Constituent parser</h3>
 
+<p>Parsing means providing the syntactic tree representation of a sentence. The component provides shift-reduced style 
+constituent parsers for English, French, Italian and Spanish trained using 
+the Apache OpenNLP API. For Dutch and German Alpino and Stanford parsers
+are required respectively. Constituent parsing
+is primarily used in OpeNER as an input to the Coreference resolution
+system.</p>
+
 <h4 id="technical-characteristics-3">Technical characteristics</h4>
+
+<p>The tree representation of the sentence organizes its branches in terms of
+phrases, namely, noun phrases, verbal phrases and so on. The leafs are the
+terminals of the sentence (the words themeselves) and the preterminals are
+the POS tags provided by a pos tagger model. </p>
+
+<p>Most of the constituent parsers nowadays are statistical, e.g., probabilistic
+models are trained on a hand-annotated corpus. Such corpora are generally
+termed “treebanks”. In OpeNER the constituent parsers output two formats: </p>
+
+<ul>
+  <li>KAF: a tree layer consisting of the terminals, the non-terminals and the
+edges between them. </li>
+  <li>Penn Treebank: Bracketing format as defined by the Penn Treebank project. </li>
+</ul>
+
+<p>For example, for the following sentence: </p>
+
+<pre><code>The dog ate the cat.
+</code></pre>
+
+<p>The OpeNER constituent parser could provide two outputs. In Penn Treebank
+format: </p>
+
+<pre><code>(S (NP (DET The) *(NN dog)) *(VP *(V ate) (NP ((DET the) *(NN cat)))) (.
+.))
+</code></pre>
+
+<p>In a KAF constituent tree: </p>
+
+<pre><code>&lt;constituency&gt;
+  &lt;tree&gt;
+    &lt;!-- Non-terminals --&gt;
+    &lt;nt id="nter0"  label="ROOT"/&gt;
+    &lt;nt id="nter1"  label="S"/&gt;
+    &lt;nt id="nter2"  label="NP"/&gt;
+    &lt;nt id="nter3"  label="VP"/&gt;
+    &lt;nt id="nter4"  label="V"/&gt;
+    &lt;nt id="nter5"  label="NP"/&gt;
+    &lt;nt id="nter6"  label="DET"/&gt;
+    &lt;nt id="nter7"  label="NN"/&gt;
+    &lt;nt id="nter8"  label="DET"/&gt;
+    &lt;nt id="nter9"  label="NN"/&gt;
+    &lt;nt id="nter10" label="."/&gt;
+    &lt;!-- Terminals --&gt;
+    &lt;!-- The --&gt;
+    &lt;t id="ter1"&gt;&lt;span&gt;&lt;target id="t1"/&gt;&lt;/span&gt;&lt;/t&gt;
+    &lt;!-- dog --&gt;
+    &lt;t id="ter2"&gt;&lt;span&gt;&lt;target id="t2"/&gt;&lt;/span&gt;&lt;/t&gt;
+    &lt;!-- ate --&gt;
+    &lt;t id="ter3"&gt;&lt;span&gt;&lt;target id="t3"/&gt;&lt;/span&gt;&lt;/t&gt;
+    &lt;!-- the --&gt;
+    &lt;t id="ter4"&gt;&lt;span&gt;&lt;target id="t4"/&gt;&lt;/span&gt;&lt;/t&gt;
+    &lt;!-- cat --&gt;
+    &lt;t id="ter5"&gt;&lt;span&gt;&lt;target id="t5"/&gt;&lt;/span&gt;&lt;/t&gt;
+    &lt;!-- . --&gt;
+    &lt;t id="ter6"&gt;&lt;span&gt;&lt;target id="t6"/&gt;&lt;/span&gt;&lt;/t&gt;
+
+    &lt;!-- tree edges. Note: order is important! --&gt;
+    &lt;edge id="tre1" from="nter1" to="nter0"/&gt;             &lt;!-- ROOT &lt;- S --&gt;
+    &lt;edge id="tre2" from="nter2" to="nter1"/&gt;             &lt;!-- S &lt;- NP --&gt;
+    &lt;edge id="tre3" from="nter6" to="nter2"/&gt;             &lt;!-- NP &lt;- DET --&gt;
+    &lt;edge id="tre4" from="ter1" to="nter6"/&gt;              &lt;!-- DET &lt;- The --&gt;
+    &lt;edge id="tre5" from="nter7" to="nter2" head="yes"/&gt;  &lt;!-- NP &lt;- NN (head) --&gt;
+    &lt;edge id="tre6" from="ter2" to="nter7"/&gt;              &lt;!-- NN &lt;- dog --&gt;
+    &lt;edge id="tre7" from="nter3" to="nter1" head="yes"/&gt;  &lt;!-- S  &lt;- VP (head) --&gt;
+    &lt;edge id="tre8" from="nter4" to="nter3" head="yes"/&gt;  &lt;!-- VP &lt;- V (head) --&gt;
+    &lt;edge id="tre9" from="ter3" to="nter4"/&gt;              &lt;!-- V  &lt;- ate --&gt;
+    &lt;edge id="tre10" from="nter5" to="nter3"/&gt;            &lt;!-- VP &lt;- NP --&gt;
+    &lt;edge id="tre11" from="nter8" to="nter5"/&gt;            &lt;!-- NP &lt;- DET --&gt;
+    &lt;edge id="tre12" from="ter4" to="nter8"/&gt;             &lt;!-- DET &lt;- the --&gt;
+    &lt;edge id="tre13" from="nter9" to="nter5" head="yes"/&gt; &lt;!-- NP &lt;- NN (head) --&gt;
+    &lt;edge id="tre14" from="ter5" to="nter5"/&gt;             &lt;!-- NN &lt;- cat --&gt;
+    &lt;edge id="tre15" from="ter6" to="nter10"/&gt;            &lt;!-- . &lt;- . --&gt;
+    &lt;edge id="tre16" from="nter10" to="nter1"/&gt;           &lt;!-- S &lt;- . --&gt;
+  &lt;/tree&gt;
+&lt;/constituency&gt;
+</code></pre>
 
 <div id="named-entity-resolution"></div>
 

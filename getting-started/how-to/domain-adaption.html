@@ -114,73 +114,82 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <h1 id="how-to-domain-adaption">How to: Domain Adaption</h1>
 
-<h2 id="aim-adding-a-new-domain-deluxe">Aim: Adding a new Domain (DELUXE)</h2>
+<h2 id="aim-adding-a-new-domain">Aim: Adding a new Domain</h2>
 
-<p>Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules</p>
+<h3 id="the-machine-learning-approach">The machine-learning approach</h3>
+
+<p>Fine-tuning the tools and pipeline in order to able to perform a opinion mining and named entity analysis on a new domain using trained modules. The following steps need to be done:</p>
+
+<ul>
+  <li>Collect texts from the domain</li>
+  <li>Send the text through the OpeNER pipeline </li>
+  <li>Create an annotated corpus</li>
+  <li>Prepare general and domain-specific lexicons</li>
+  <li>Train the model for opinion detection</li>
+  <li>Train the model for named entity detection</li>
+</ul>
 
 <h2 id="needed-components">Needed components</h2>
 
-<p>Please elaborate…</p>
+<ul>
+  <li>Domain texts </li>
+  <li>Annotation guidelines</li>
+  <li>Tools to train the opinion identification model</li>
+  <li>Tools to train the named entity recognition model</li>
+  <li>General sentiment lexicon or tools to generate one</li>
+  <li>Domain-specific lexicon or tools to generate one </li>
+</ul>
 
-<h3 id="general-language-lexicons">general language lexicons</h3>
+<h2 id="collect-texts-from-the-domain">Collect texts from the domain</h2>
+<ul>
+  <li>Domain texts are texts
+    <ul>
+      <li>about a specific topic such a product, a person, a company,  a political issue, etc. </li>
+      <li>within a specific domain such as such as tourism, sports, politics, etc.</li>
+      <li>such as customer reviews, blog posts, news articles, facebook messages, etc. </li>
+    </ul>
+  </li>
+  <li>These texts can scraped from internet or collected from any other source. </li>
+</ul>
 
-<p>Please elaborate…</p>
+<h2 id="send-the-texts-through-the-opener-pipeline">Send the texts through the OpeNER pipeline</h2>
+<p>The texts must be automatically enriched with linguistic annotations such as lemma, part-of-speech, parse tree, etc. This can be done by sending the text through the OpeNER pipeline either using the webservices (http://www.opener-project.eu/webservices/) or by using a local installation (http://www.opener-project.eu/getting-started/how-to/local-installation.html). 
+The following components should be included: 
++ Language detection (http://www.opener-project.eu/getting-started/#language-detection)
++ Tokenisation
++ Part-of-speech tagger
++ Polarity tagger
++ Property tagger
++ Constituency parser</p>
 
-<h3 id="toolkit-to-train-the-domain-model-for-opinion-mining">toolkit to train the domain model for opinion mining</h3>
+<p>Information about all these tools can be found at http://www.opener-project.eu/getting-started</p>
 
-<p>Please elaborate…</p>
+<h2 id="create-an-annotated-corpus">Create an annotated corpus</h2>
+<p>A corpus, i.e a representative selection of the domain texts,  must be annotated for the training of the models. The corpus consists of opinion annotations for the training of the model for the identification of opinions and of named entity annotations for the training of the model for the identification of named entities. 
++ Compose a corpus by selecting a small and representative part of the domain texts for annotations. The OpeNER deliverable D5.42 describes how this is done for the touristic domain (hotel reviews and attraction reviews) and the domain of political news.
++ Annotate the corpus with opinion annotations. D5.42  provides guidelines for such annotations in the tourist domain and in the domain of political news. These guidelines can be adapted for the annotations of other domains. 
++ Annotate the corpus with named entities annotations.  D3.52 provides guidelines for such annotations in the tourist domain. These guidelines can be adapted for the annotations of other domains.</p>
 
-<h3 id="toolkit-to-train--a-model-for-ner">toolkit to train  a model for NER</h3>
+<h2 id="prepare-general-and-domain-specific-lexicons">Prepare general and domain-specific lexicons</h2>
+<p>The opinion identification tools make use of a general sentiment and domain-specific sentiment lexicons. The first one covers opinionated words used across all domains, the second one covers the domain-specific items.  
+### General sentiment lexicons
++ General sentiment lexicons are available for the 6 OpeNER languages (cf. https://github.com/opener-project/sentiment-lexicons/tree/master/propagation_lexicons). General sentiment lexicons for new languages can be built using the propagation toolkit (cf. https://github.com/opener-project/VU-lexicon-propagation_kernel)</p>
 
-<p>Please elaborate…</p>
+<h3 id="domain-specific-sentiment-lexicons">Domain-specific sentiment lexicons</h3>
+<ul>
+  <li>To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). </li>
+  <li>The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). </li>
+</ul>
 
-<h3 id="webservices--pipeline-components">webservices / pipeline components</h3>
+<h2 id="train-the-model-for-opinion-detection">Train the model for opinion detection</h2>
+<ul>
+  <li>The model for opinion detection must be trained with the data from the annotated corpus. Instructions about how to train your own models and select the features can be found at https://github.com/opener-project/opinion_miner_deluxe .</li>
+</ul>
 
-<p>Please elaborate…</p>
-
-<h2 id="preparations">Preparations</h2>
-
-<p>Please elaborate…</p>
-
-<h3 id="make-annotated-corpus">make annotated corpus</h3>
-
-<p>Please elaborate…</p>
-
-<h3 id="collect-texts-cf-x-for-corpus-composition">collect texts (cf. x for corpus composition)</h3>
-
-<p>Please elaborate…</p>
-
-<h3 id="use-the-annotation-guideline">use the annotation guideline</h3>
-
-<p>Please elaborate…</p>
-
-<h2 id="generate-a-domain-specific-lexicon">Generate a domain-specific lexicon</h2>
-
-<p>Please elaborate…</p>
-
-<h3 id="collect-texts">Collect texts</h3>
-
-<p>Please elaborate…</p>
-
-<h3 id="use-toolkit-for-generation-of-domain-lexicons">Use toolkit for generation of domain lexicons</h3>
-
-<p>Please elaborate…</p>
-
-<h2 id="train-a-model">Train a model</h2>
-
-<p>Please elaborate…</p>
-
-<h3 id="convert-annotations-to-kafnaf">Convert annotations to KAF/NAF</h3>
-
-<p>Please elaborate…</p>
-
-<h2 id="procedures">Procedures</h2>
-
-<p>e.g. see scenario I or II or III</p>
-
-<h2 id="notestipsvariations">Notes/Tips/Variations</h2>
-
-<p>e.g. item x, y, z are optional</p>
+<h2 id="train-the-model-for-named-entity-detection">Train the model for named entity detection</h2>
+<ul>
+  <li>The model for named entity detection must be trained with the data from the annotated corpus (cf. http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html) </li>
+</ul>
 
         </div>
       </div>
