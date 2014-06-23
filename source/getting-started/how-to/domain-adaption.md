@@ -15,7 +15,7 @@ Fine-tuning the tools and pipeline in order to able to perform a opinion mining 
 + Collect texts from the domain
 + Send the text through the OpeNER pipeline 
 + Create an annotated corpus
-+ Prepare general and domain-specific resources
++ Prepare general and domain-specific lexicons
 + Train the model for opinion detection
 +	Train the model for named entity detection
 
@@ -56,7 +56,7 @@ A corpus, i.e a representative selection of the domain texts,  must be annotated
 
 
 
-## Choose or generate Sentiment Lexicons
+## Prepare general and domain-specific lexicons
 The opinion identification tools make use of a general sentiment and domain-specific sentiment lexicons. The first one covers opinionated words used across all domains, the second one covers the domain-specific items.  
 ### General sentiment lexicons
 + General sentiment lexicons are available for the 6 OpeNER languages (cf. https://github.com/opener-project/sentiment-lexicons/tree/master/propagation_lexicons). General sentiment lexicons for new languages can be built using the propagation toolkit (cf. https://github.com/opener-project/VU-lexicon-propagation_kernel)
