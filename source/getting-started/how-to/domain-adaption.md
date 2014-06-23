@@ -15,8 +15,8 @@ Fine-tuning the tools and pipeline in order to able to perform a opinion mining 
 + Collect texts from the domain
 + Send the text through the OpeNER pipeline 
 + Create an annotated corpus
-+ Prepare the domain specific resources required. For the opinion miner, domain specific lexicons can be automatically built using our toolkit (https://github.com/opener-project/domain-adaptation-tool)
-+ Train the model for opinion detection. Instructions about how to train your own models and select the features can be found at https://github.com/opener-project/opinion_miner_deluxe
++ Prepare general and domain-specific resources
++ Train the model for opinion detection
 +	Train the model for named entity detection
 
 ## Needed components
@@ -54,11 +54,7 @@ A corpus, i.e a representative selection of the domain texts,  must be annotated
 + Annotate the corpus with opinion annotations. D5.42  provides guidelines for such annotations in the tourist domain and in the domain of political news. These guidelines can be adapted for the annotations of other domains. 
 + Annotate the corpus with named entities annotations.  D3.52 provides guidelines for such annotations in the tourist domain. These guidelines can be adapted for the annotations of other domains.
 
-## Train the model for opinion detection
-+ The model for opinion detection must be trained with the data from the annotated corpus (see detailed instructions at https://github.com/opener-project/opinion_miner_deluxe)
 
-## Train the model for named entity detection
-+ The model for named entity detection must be trained with the data from the annotated corpus (cf. http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html) 
 
 ## Choose or generate Sentiment Lexicons
 The opinion identification tools make use of a general sentiment and domain-specific sentiment lexicons. The first one covers opinionated words used across all domains, the second one covers the domain-specific items.  
@@ -69,3 +65,8 @@ The opinion identification tools make use of a general sentiment and domain-spec
 + To generate a domain lexicon from domain texts, use https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition). 
 + The following tools can be used when texts with customer ratings are available (cf.  https://github.com/opener-project/opinion-domain-lexicon-acquisition#unsupervised-acquisition-from-reviews-with-star-ratings). 
 
+## Train the model for opinion detection
++ The model for opinion detection must be trained with the data from the annotated corpus. Instructions about how to train your own models and select the features can be found at https://github.com/opener-project/opinion_miner_deluxe .
+
+## Train the model for named entity detection
++ The model for named entity detection must be trained with the data from the annotated corpus (cf. http://www.opener-project.eu/documentation/domain-adaptation-toolkit.html) 
