@@ -237,58 +237,7 @@ datasets: &datasets
     name: Entity Resource Linker (Tour-pedia api)
     documentation:  http://tour-pedia.org/api
     filetype: Api
-  -
-   name: ESTHER Corpus
-   documentation: http://catalog.elra.info/product_info.php?products_id=999
-   filetype: XML
-  -
-   name: French Treebank
-   documentation: http://www.llf.cnrs.fr/Gens/Abeille/French-Treebank-fr.php
-   filetype: XML
-  -
-   name: French MWN Laporte
-   documentation: http://infolingu.univ-mlv.fr/english/
-   filetype: XML
 
-   name: WOLF french WordNET
-   documentation: http://alpage.inria.fr/~sagot/wolf-en.html
-   filetype: XML
-  -
-   name: MCR 3.0
-   documentation: http://adimen.si.ehu.es/web/MCR
-   filetype: CSV database
-  -
-   name: Reuters corpus
-   documentation: http://trec.nist.gov/data/reuters/reuters.html
-   filetype:
-  -
-   name: ECI Multilingual Corpus
-   documentation: http://www.ldc.upenn.edu/Catalog/CatalogEntry.jsp?catalogId=LDC94T5
-   filetype:
-  -
-   name: I-CAB
-   documentation: http://ontotext.fbk.eu/i-cab/download-icab.html
-   filetype:
-  -
-   name: CoNLL 2002
-   documentation: http://www.cnts.ua.ac.be/conll2002/ner/
-   filetype:
-  -
-   name: Ontonotes 4.0
-   documentation: https://catalog.ldc.upenn.edu/LDC2011T03
-   filetype:
-  -
-   name: Penn Treebank
-   documentation: http://www.cis.upenn.edu/~treebank/home.html
-   filetype:
-  -
-   name: Ancora
-   documentation: http://clic.ub.edu/corpus/ancora
-   filetype:
-  -
-   name: SemEval Coreference 2010
-   documentation: http://stel.ub.edu/semeval2010-coref/
-   filetype:
 
 lexicons: &lexicons
   -
