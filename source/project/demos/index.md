@@ -6,9 +6,6 @@ sidebar: project
 
 # OpeNER Demos.
 
-A list of demos with a short explanation. Individual pages per demo for the
-details.
-
 ## TourPedia
 			
 <a href="http://tour-pedia.org/gui/demo">TourPedia</a> is a Web application 
@@ -26,9 +23,7 @@ As a result, TourPedia shows all the places and their users' sentiments on a map
 
 ## KAF Browser
 
-This is a demo that shows some of the OpeNER tools analysis results. The demo shows many views of the information contained in a KAF documents, like the named entities detected (people, locations, organizations, etc.), their links to DBpedia if any, the polarity of the words, etc. The demo does not cover all the OpeNER analysis modules but it is a quick way to see what OpeNER project is about.
-
-[KAF Browser](http://demo2-opener.rhcloud.com)
+<a href = "http://demo2-opener.rhcloud.com"> KAF Browser</a> is a demo that shows some of the OpeNER tools analysis results. The demo shows many views of the information contained in a KAF documents, like the named entities detected (people, locations, organizations, etc.), their links to DBpedia if any, the polarity of the words, etc. The demo does not cover all the OpeNER analysis modules but it is a quick way to see what OpeNER project is about.
 
 
 ## Moodmap
