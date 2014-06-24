@@ -24,8 +24,14 @@ As a result, TourPedia shows all the places and their users' sentiments on a map
 
 
 
-## OpeNER analysis demo
+## KAF Browser
 
 This is a demo that shows some of the OpeNER tools analysis results. The demo shows many views of the information contained in a KAF documents, like the named entities detected (people, locations, organizations, etc.), their links to DBpedia if any, the polarity of the words, etc. The demo does not cover all the OpeNER analysis modules but it is a quick way to see what OpeNER project is about.
 
-[OpeNER analysis demo](http://demo2-opener.rhcloud.com)
+[KAF Browser](http://demo2-opener.rhcloud.com)
+
+
+## Moodmap
+
+<a href="http://tour-pedia.org/moodmap">Moodmap</a> is a resulting application of the second Hackathon in Amsterdam. The application analysed all the tweets of LREC (taking in account the #LREC2014 hashtag, and poster and oral sessions number specified in the tweet) and analysed and show alive the results twits and the mood of them. This demo had a huge interest in LREC2014 and a lot of participants tweet and came to our OpeNER booth to see the output analysed.
+
