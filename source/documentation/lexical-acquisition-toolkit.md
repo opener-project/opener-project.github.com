@@ -16,6 +16,7 @@ repository: https://github.com/opener-project/opinion-domain-lexicon-acquisition
 
 This toolkit allows to generate domain specific lexicons:
 * Polarity or expression lexicons: lexicons with words in the specific domain used to state opinions
+* Lexicons of ngrams strongly associated with a certain rating 
 * Target or property lexicons: lexicons with expressions that represent properties of the entities
 represented in the given domain (for a hotel review domain, these properties could be the rooms, the staff
 or the ambience). 
@@ -72,6 +73,7 @@ acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_
 
 This would read all the KAF/NAF files in the folder ~/data/hole and store the output in the file log.out, the debugging information in the file log.err, and the resulting
 lexicons in CSV format on the files my_expressions.csv and my_targets.csv respectively.
+
 
 ##Unsupervised Acquisition##
 
@@ -182,7 +184,8 @@ Once you have these three list ready and the index created, you can run the lexi
 acquire_from_raw_data.py -h
 usage: acquire_from_raw_data.py [-h] -index index_folder -seeds
                                 file_with_seeds -patterns file_with_patterns
-                                -p_pol file_with_patterns [-lang, lang_code]
+                                -p_pol file_with_patterns -lex_pol pol_lex
+                                -lex_tar pol_tar [-lang, lang_code]
                                 [-no_verbose] [-min_freq integer]
                                 [-target_pos list of tags "N R G"]
                                 [-expression_pos list of tags "N R G"]
@@ -216,14 +219,75 @@ Required arguments:
   -p_pol file_with_patterns
                         File with patterns for guessing the polarity, one per
                         line (example-> "# [A] and [B]")
+  -lex_pol pol_lex      File to store the POLARITY lexicon
+  -lex_tar pol_tar      File to store the TARGET lexicon
 ````
 
-The required parameters are the folder where we stored our indexes and the three lists of seeds and patterns. The rest of parameters are optional, and the values
+The required parameters are the folder where we stored our indexes and the three lists of seeds and patterns. Also the names for the output CSV files
+are required. The rest of parameters are optional, and the values
 used by default if they are not specified can be seen in the help output of the script. If you want to create the lexicons using the indexes stored in my_indexes
 and the examples files provided for English, you should run:
 ````shell
-acquire_from_raw_data.py -index my_indexes -seeds resources/seeds/en.txt -patterns resources/patterns/en.txt -p_pol resources/patterns_guess_polarity/en.txt
+acquire_from_raw_data.py -index my_indexes -seeds resources/seeds/en.txt -patterns resources/patterns/en.txt -p_pol resources/patterns_guess_polarity/en.txt -lex_pol my_polarities.csv -lex_tar my_targets.csv
 ````
+
+The output are 2 lexicon in CSV format with one line per word. For instance this in example of the polarity lexicon generated using Dutch data:
+````shell
+expression;polarity;overall_confidence;avg_confidence
+goede;positive;40.7531891834;1.23494512677
+prima;positive;37.0588988223;0.95022817493
+leuke;positive;28.7255701655;1.14902280662
+````
+
+There are 4 fields. The first one is the expression, the second one is the guessed polarity, the third one is the overall confidence for that word and the last one
+is the average confidence over all the patterns that match with the word.
+
+In the case of the targets, the fields are the same except the polarity type, which does not apply for targets. This is an example:
+````shell
+target;overall_confidence;avg_confidence
+hotel;55.264445494;0.87721342054
+kamer;32.6183972529;0.741327210293
+locatie;27.2989131741;1.18690926844
+plek;24.7961318524;1.12709690238
+````
+
+##Unsupervised Acquisition from reviews with star rating##
+
+This module implements a basic heuristic to extract words associated more strongly
+with one kind of star rating.
+
+For the data preparation, you will need to to generate indexes (you can use the
+ script generate_indexex.py), and one index must be built for each star rating. The folder structure must follow this schema:
+```shell
+ls -1 english_rating_indexes/
+index_rating_2
+index_rating_3
+index_rating_4
+index_rating_5
+```
+
+It is important to keep the star rating as the end of the name of the index folders, after the
+underscore. The rest of the name is not relevant.
+
+To run the program you should call to the script passing the name of the folder where the
+indexes are stored:
+
+```shell
+acquire_from_ratings.py english_rating_indexes > log.out 2> log.err
+```
+
+It will generate three CSV files, one per ngram len. So, the lexicon generated for
+trigrams will be `lexicon_len3.csv`, and one example line could be:
+```shell
+definitely be returning;5;2.02;5=-10.9 4=-14.94
+```
+
+The first field is the actual word or ngram, the second field is the star rating
+most strongly associated with this word and the third is the standard deviation of the
+values of association of the words with each rating (the lexicon is sorted according
+to this value). The last field are the values of association of the ngram with each
+star rating.
+
 
 ##Installation##
 The only requirement of this toolkit is to have installed the KafNafParserPy, which can be found at https://github.com/opener-project/KafNafParserPy
