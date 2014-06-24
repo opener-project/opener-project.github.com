@@ -82,6 +82,34 @@ Egoitz Laparra and German Rigau, <strong>Sources of Evidence for Implicit
   Semantics (IWCS’13), March 2013, Postdam, Germany</em> <a href="http://adimen.si.ehu.es/%7Erigau/publications/iwcs13-lr.pdf">[Download]</a>
 </p>
 
+
+<p>A. García-Pablos, M. Cuadros and G. Rigau, <strong>OpeNER demo: Open Polarity Enhanced Named Entity  Recognition</strong>, <em>6th Language Technology Conference, LTC, Poznán, Poland, 2013.</em></p>
+
+<p>Marchetti, M. Tesconi, S. Abbate, A. Lo Duca, A. D'Errico, F. Frontini and M. Monachini, <strong>Tour-pedia: a web application for the analysis and visualization of opinions for tourism domain</strong>, <em>The 6th Language & Technology Conference on Human Language Technology, Zygmunt Vetulani & Hans Uszkoreit (eds.), pp 594-595, Poznan, Poland, 2013.</em></p>
+
+<p>A. García-Pablos, M. Cuadros, G. Rigau and S. Gaines, <strong>OOpeNER demo: Open Polarity Enhanced Named Entity Recognition, 9th edition of the Language Resources and Evaluation Conference. Reykjavik</strong>, <em> Iceland, 2014.</em></p>
+<p>	A. García-Pablos, M. Cuadros, G. Rigau and S. Gaines, <strong>OUnsupervised acquisiton of domain aspect terms for Aspect Based Opinion Mining</strong>, <em> Sociedad Española de Procesamiento de Lenguage Natural, SEPLN, Girona, Spain, 2014.</em></p>
+<p>	A. García-Pablos, M. Cuadros, G. Rigau and S. Gaines, <strong>OV3: Unsupervised generation of domain aspect terms for Aspect Based Sentiment Analysis</strong>, <em> International Workshop on Semantic Evaluation, SemEval-2014, Dublin, Ireland, 2014.</em></p>
+<p>	C. Manteli, B. van Hoof, H. van Vliet and W. van Duinkerken, <strong>OOvercoming challenges in Global Software Development: The role of Brokers</strong>, <em> IEEE Eighth International Conference on Research Challenges in, pp 3542-3545, Morocco, 2014.</em></p>
+<p>	C. Bacciu, A. Lo Duca, A. Marchetti and M. Tesconi, <strong>OAccommodations in Tuscany as Linked Data</strong>, <em> Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC'14), ELRA, Reykjavik, Iceland 2014.</em></p>
+<p>	S. Cresci, A. D’Errico, D. Gazzè and A. Lo Duca, A. Marchetti and M. Tesconi, <strong>OTour-pedia: a Web Application for Sentiment Visualization in Tourism Domain</strong>, <em> Proceedings of the Come Hack with OpeNER Workshop in the Ninth International Conference on Language Resources and Evaluation (LREC'14), pp 18-21, Reyjkavik, Iceland, 2014.</em></p>
+<p>	I. Maks, R. Izquierdo, F. Frontini, R. Agerri, A. Azpeitia and P. Vossen, <strong>OGenerating Polarity Lexicons with WordNet propagation in five languages</strong>, <em> Proceedings of the Ninth International Conference on Language Resources and Evaluation (LREC'14), ELRA, pp 1156-1161, Reykjavik, Iceland, 2014.</em></p>
+<p>	R. Agerri, J. Bermudez and G. Rigau, <strong>OIXA pipeline: Efficient and Ready to Use Multilingual NLP tools</strong>, <em> Proceedings of the 9th Language Resources and Evaluation Conference (LREC2014), Reykjavik, Iceland, 2014.</em></p>
+<p>	J.  Atserias, M. van Erp, I. Maks, G. Rigau and F. J. Sánchez-Rada, <strong>OEuroLoveMap: Confronting feelings from news</strong>, <em> Proceedings of "Come Hack with OpeNER!" workshop at the 9th Language Resources and Evaluation Conference (LREC'14), Reykjavik, Iceland, 2014.</em></p>
+<p>	R. Agerri, J. Bermudez and G. Rigau, Multilingual, <strong>OEfficient and Easy NLP Processing with IXA Pipeline</strong>, <em> Proceedings of the Demo Sessions of the 14th Conference of the European Chapter of the Association for Computational Linguistics (EACL2014), Gothenburg, Sweden, 2014.</em></p>
+<p>	I. San Vicente, R. Agerri and G. Rigau, Simple, Robust and (almost) <strong>OUnsupervised Generation of Polarity Lexicons for Multiple Languages</strong>, <em> Proceedings of the 14th Conference of the European Chapter of the Association for Computational Linguistics (EACL2014), Gothenburg, Sweden, 2014.</em></p>
+<p>	A.  Azpeitia, M. Cuadros, S Gaines and G. Rigau, <strong>ONerc-fr: Supervised named entity recognition for French</strong>, <em> Proceedings of the 17th International Conference on Text, Speech and Dialogue (TSD’14), Brno, Czech Republic, 2014.</em></p>
+<p>	I. Maks, R. Izquierdo and P. Vossen, <strong>OOpeNER and the automatic generation of sentiment lexicons in five languages</strong>, <em> Computational Linguistics on The Netherlands, CLIN-2014, Institute for Dutch terminology and the Dutch-Flemish HLT Agency, Leiden, Netherlands, 2014.</em></p>
+<p>	A. Azpeitia, A. Balahur, M. Cuadros, A. Fokkens and R. Izquierdo Bevia, <strong>OThe Snowball effect: following opinions on controversial topics</strong>, <em> 9th edition of the Language Resources and Evaluation Conference, Reykjavik, Iceland, 2014.</em></p>
+<p>	A. Barrena, E. Agirre, A. Peñas, B. Cabaleiro and A. Soroa, <strong>O“One Entity per Discourse” and “One Entity per Collocation” Improve Named-Entity Disambiguation</strong>, <em> In Proceedings of COLING, Dublin, 23-29 August 2014.  </em></p>
+<p>	I. Maks, R. Izquierdo and  P. Vossen, <strong>OOPeNER and the automatic generation of sentiment lexicons in five languages</strong>, <em> Computational Linguistics on The Netherlands, CLIN-2014, Institute for Dutch terminology and the Dutch-Flemish HLT Agency, Leiden, The Netherlands, 2014.</em></p>
+
+
+
+
+
+
+
 <div id="presentations"></div>
 
 ## Presentations
