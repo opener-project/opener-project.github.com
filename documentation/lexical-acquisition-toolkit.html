@@ -92,6 +92,7 @@
 
 <p>This toolkit allows to generate domain specific lexicons:
 * Polarity or expression lexicons: lexicons with words in the specific domain used to state opinions
+* Lexicons of ngrams strongly associated with a certain rating 
 * Target or property lexicons: lexicons with expressions that represent properties of the entities
 represented in the given domain (for a hotel review domain, these properties could be the rooms, the staff
 or the ambience). </p>
@@ -110,7 +111,8 @@ a set of KAF/NAF files annotated with opinions (targets, holders and expressions
 output files with the most relevant expressions and targets. You can call directly to the script with
 the option -h or –help to see the parameters:</p>
 
-<pre><code class="language-shell">$ acquire_from_annotated_data.py -h
+<div><div class="CodeRay">
+  <div class="code"><pre>$ acquire_from_annotated_data.py -h
 usage: acquire_from_annotated_data.py [-h] (-l file_with_list | -f folder)
                                       -exp_csv expressions_file.csv -tar_csv
                                       targets_file.csv
@@ -128,7 +130,9 @@ optional arguments:
   -tar_csv targets_file.csv
                         CSV file to store the targets
 
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>The input KAF/NAF files can be specified using in 2 exclusive ways:
 * Providing a file which contains a list of paths to the annotated files (one per line) (option -l / –list)
@@ -141,8 +145,11 @@ options -exp_cvs and -tar_csv. </p>
 <p>The script also prints the lexicons on the standard output in a more user readable way, as well as some debugging
 information on the error output. One example of usage of this program would be:</p>
 
-<pre><code class="language-shell">acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_csv my_targets.csv &gt; log.out 2&gt; log.err
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre>acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_csv my_targets.csv &gt; log.out 2&gt; log.err
+</pre></div>
+</div>
+</div>
 
 <p>This would read all the KAF/NAF files in the folder ~/data/hole and store the output in the file log.out, the debugging information in the file log.err, and the resulting
 lexicons in CSV format on the files my_expressions.csv and my_targets.csv respectively.</p>
@@ -170,11 +177,12 @@ This step needs to be performed just once, so when you create the indexes from y
 the queries more efficiently. The script which implements this is “create_index.py”. It accepts a list of parameters to customize the indexes, you can check the accepted parameters by calling to the script
 with the option -h:</p>
 
-<pre><code class="language-shell">create_index.py -h
+<div><div class="CodeRay">
+  <div class="code"><pre>create_index.py -h
 usage: create_index.py [-h]
                        (-input_file file_with_list | -input_folder folder)
                        -output folder
-                       [-punc punctuation_symbols default ".?;!")] [-no_lower]
+                       [-punc punctuation_symbols default &quot;.?;!&quot;)] [-no_lower]
                        [-max_ngram integer (default 3)]
                        [-min_ngram integer (default 1)] [-no_sent_borders]
                        [-no_remove_out] [-min_freq integer (default 1]
@@ -183,7 +191,7 @@ Create n-gram indexes from a set of KAF/NAF files
 
 optional arguments:
   -h, --help            show this help message and exit
-  -punc punctuation_symbols (default ".?;!")
+  -punc punctuation_symbols (default &quot;.?;!&quot;)
                         Symbols to be considered as punctuation
   -no_lower             Tokens are NOT converted to lowercase (by default they
                         are)
@@ -203,7 +211,9 @@ Required arguments:
                         line
   -input_folder folder  Folder with a set of KAF/NAF files
   -output folder        Output folder to store the indexes
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>The only required arguments are those to specify the input files (via a folder or via a file with a list of paths to your KAF files), and the name of the output folder where you want to store the new indexes. The rest
 of parameters are used to specify some characteristics of your ngram indexes, like the maximum length of the ngram (-max_ngram), the minimum frequency allowed for an ngram in your index (-min_freq). So considering
@@ -226,11 +236,14 @@ files that you can use as an start or modify to suit your needs. These are the t
 
 <p>This is an example the polarity seed file, where there is a polarity word per line and a symbol + or - depending on the polarity of this word:</p>
 
-<pre><code class="language-shell">good +
+<div><div class="CodeRay">
+  <div class="code"><pre>good +
 bad -
 nice +
 ugly -
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>This is an example of the relational patterns. Each line contains a pattern with the placeholders [EXP] representing the polarity word and [TAR] standing for the target or aspect
 <code>shell
@@ -253,7 +266,8 @@ the [EXP] [TAR]
 acquire_from_raw_data.py -h
 usage: acquire_from_raw_data.py [-h] -index index_folder -seeds
                                 file_with_seeds -patterns file_with_patterns
-                                -p_pol file_with_patterns [-lang, lang_code]
+                                -p_pol file_with_patterns -lex_pol pol_lex
+                                -lex_tar pol_tar [-lang, lang_code]
                                 [-no_verbose] [-min_freq integer]
                                 [-target_pos list of tags “N R G”]
                                 [-expression_pos list of tags “N R G”]
@@ -287,14 +301,76 @@ usage: acquire_from_raw_data.py [-h] -index index_folder -seeds
   -p_pol file_with_patterns
                         File with patterns for guessing the polarity, one per
                         line (example-&gt; “# [A] and [B]”)
+  -lex_pol pol_lex      File to store the POLARITY lexicon
+  -lex_tar pol_tar      File to store the TARGET lexicon
 ````</p>
 
-<p>The required parameters are the folder where we stored our indexes and the three lists of seeds and patterns. The rest of parameters are optional, and the values
+<p>The required parameters are the folder where we stored our indexes and the three lists of seeds and patterns. Also the names for the output CSV files
+are required. The rest of parameters are optional, and the values
 used by default if they are not specified can be seen in the help output of the script. If you want to create the lexicons using the indexes stored in my_indexes
 and the examples files provided for English, you should run:
 <code>shell
-acquire_from_raw_data.py -index my_indexes -seeds resources/seeds/en.txt -patterns resources/patterns/en.txt -p_pol resources/patterns_guess_polarity/en.txt
+acquire_from_raw_data.py -index my_indexes -seeds resources/seeds/en.txt -patterns resources/patterns/en.txt -p_pol resources/patterns_guess_polarity/en.txt -lex_pol my_polarities.csv -lex_tar my_targets.csv
 </code></p>
+
+<p>The output are 2 lexicon in CSV format with one line per word. For instance this in example of the polarity lexicon generated using Dutch data:
+<code>shell
+expression;polarity;overall_confidence;avg_confidence
+goede;positive;40.7531891834;1.23494512677
+prima;positive;37.0588988223;0.95022817493
+leuke;positive;28.7255701655;1.14902280662
+</code></p>
+
+<p>There are 4 fields. The first one is the expression, the second one is the guessed polarity, the third one is the overall confidence for that word and the last one
+is the average confidence over all the patterns that match with the word.</p>
+
+<p>In the case of the targets, the fields are the same except the polarity type, which does not apply for targets. This is an example:
+<code>shell
+target;overall_confidence;avg_confidence
+hotel;55.264445494;0.87721342054
+kamer;32.6183972529;0.741327210293
+locatie;27.2989131741;1.18690926844
+plek;24.7961318524;1.12709690238
+</code></p>
+
+<h2 id="unsupervised-acquisition-from-reviews-with-star-rating">Unsupervised Acquisition from reviews with star rating</h2>
+
+<p>This module implements a basic heuristic to extract words associated more strongly
+with one kind of star rating.</p>
+
+<p>For the data preparation, you will need to to generate indexes (you can use the
+ script generate_indexex.py), and one index must be built for each star rating. The folder structure must follow this schema:
+<code>shell
+ls -1 english_rating_indexes/
+index_rating_2
+index_rating_3
+index_rating_4
+index_rating_5
+</code></p>
+
+<p>It is important to keep the star rating as the end of the name of the index folders, after the
+underscore. The rest of the name is not relevant.</p>
+
+<p>To run the program you should call to the script passing the name of the folder where the
+indexes are stored:</p>
+
+<div><div class="CodeRay">
+  <div class="code"><pre>acquire_from_ratings.py english_rating_indexes &gt; log.out 2&gt; log.err
+</pre></div>
+</div>
+</div>
+
+<p>It will generate three CSV files, one per ngram len. So, the lexicon generated for
+trigrams will be <code>lexicon_len3.csv</code>, and one example line could be:
+<code>shell
+definitely be returning;5;2.02;5=-10.9 4=-14.94
+</code></p>
+
+<p>The first field is the actual word or ngram, the second field is the star rating
+most strongly associated with this word and the third is the standard deviation of the
+values of association of the words with each rating (the lexicon is sorted according
+to this value). The last field are the values of association of the ngram with each
+star rating.</p>
 
 <h2 id="installation">Installation</h2>
 <p>The only requirement of this toolkit is to have installed the KafNafParserPy, which can be found at https://github.com/opener-project/KafNafParserPy
