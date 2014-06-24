@@ -123,36 +123,27 @@ general overview of the technology.</p>
 command. This assumes you have your text in a text file called
 <code>some_file.txt</code>.</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
+<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
+"http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
-&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
-</pre></div>
-</div>
-</div>
+&amp;callbacks\[\]=http://opener.olery.com/outlet"
+</code></pre>
 
 <p>You will get a return that looks like this:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>output_url</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>request_id</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>
+<pre><code class="language-json">{
+  "output_url": "http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99",
+  "request_id": "68f6f338-1058-40d0-99da-b6a4d226bb99"
 }
-</pre></div>
-</div>
-</div>
+</code></pre>
 
 <p>If you then append <code>.json</code> to the output url and do a request like this:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre>curl http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99.json
-</pre></div>
-</div>
-</div>
+<pre><code class="language-shell">curl http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99.json
+</code></pre>
 
 <p>You will get a JSON representation of the KAF file. Generating the JSON does
 take a little longer though.</p>
@@ -162,9 +153,8 @@ take a little longer though.</p>
 <p>By using the full pipeline the opinion detection should become better. In this
 case you will need the NER and NED and their support endpoints. Like this:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
+<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
+"http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/ner\
@@ -173,10 +163,8 @@ case you will need the NER and NED and their support endpoints. Like this:</p>
 &amp;callbacks\[\]=http://opener.olery.com/property-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/opinion-detector\
-&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
-</pre></div>
-</div>
-</div>
+&amp;callbacks\[\]=http://opener.olery.com/outlet"
+</code></pre>
 
 <h2 id="aggregating-sentiment-scores">Aggregating Sentiment Scores</h2>
 
@@ -190,40 +178,34 @@ case you will need the NER and NED and their support endpoints. Like this:</p>
 
 <p>Then at the end put the scorer instead of the outlet. Resulting in this request:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
+<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
+"http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/property-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
-&amp;callbacks\[\]=http://opener.olery.com/scorer&quot;
-</pre></div>
-</div>
-</div>
+&amp;callbacks\[\]=http://opener.olery.com/scorer"
+</code></pre>
 
 <p>This will also provide you with an output_url. However, this url will give you
 back a JSON object with sentiment values between -1 and 1 on the detected
 topics. Like this:</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>scores</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>breakfast</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>location</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>cleanliness</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>restaurant</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>room</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>bathroom</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>value_for_money</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>overall</span><span style="color:#404">&quot;</span></span>: <span style="color:#60E">0.5</span>
+<pre><code class="language-json">{
+  "scores": {
+    "breakfast": -1,
+    "location": -1,
+    "cleanliness": 1,
+    "restaurant": 1,
+    "room": 1,
+    "bathroom": 1,
+    "value_for_money": -1,
+    "overall": 0.5
   },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>uuid</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">74c63ace-4402-4352-a94f-32ecf3bdc433</span><span style="color:#710">&quot;</span></span>
+  "uuid": "74c63ace-4402-4352-a94f-32ecf3bdc433"
 }
-</pre></div>
-</div>
-</div>
+</code></pre>
 
         </div>
       </div>
