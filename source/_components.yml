@@ -243,12 +243,7 @@ lexicons: &lexicons
   -
     name: Sentiment Lexicons
     documentation: https://github.com/opener-project/sentiment-lexicons
-  -
-    name: Polarity Lexicons
-    documentation: https://github.com/opener-project/general-polarity-lexicons
-  -
-    name: Propagation Lexicons
-    documentation: https://github.com/opener-project/VU-propagation-lexicons_ALL_LANGS_data
+
 
 documentation:
   components:
