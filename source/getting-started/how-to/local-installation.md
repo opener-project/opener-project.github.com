@@ -28,7 +28,7 @@ The prerequisits of running an OpeNER toolchain consists of:
 
 * A mac / linux / unix kind of operating system
 * JRuby 1.7.9+ ([installation instructions](http://jruby.org))
-* Python 2.7+ ([installation instructions](http://www.python.org/getit/))
+* Python 2.6+ ([installation instructions](http://www.python.org/getit/))
 * Java 1.7+ ([installation instructions](http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html))
 * Perl 5+([installation instructions](http://www.perl.org/get.html))
 
@@ -80,14 +80,36 @@ website](http://lxml.de/installation.html).
 
 # Install OpeNER
 
+
+
+The components that are currently available are:
+
+    opener-language-identifier
+    opener-tokenizer
+    opener-pos-tagger
+    opener-tree-tagger
+    opener-polarity-tagger
+    opener-property-tagger
+    opener-constituent-parser
+    opener-ner
+    opener-coreference
+    opener-ned
+    opener-opinion-detector
+    opener-opinion-detector-basic
+    opener-kaf2json
+    opener-outlet
+    opener-scorer
+
 Once you've got the basics set up, including the installation of rubygems,
-bundler, a Python virtual environment and lxml run the following command:
+bundler, a Python virtual environment and lxml run the following command for the
+components you want to install (replace `component-name` with one of the above
+components):
 
-```gem install opener-basic```
+```gem install component-name```
 
-The installation might take a while and you might get asked several questions.
-But if all goes well, you'll be up and running in about 15 minutes, give or
-take.
+For more information for each component you can visit the documentation in
+* Perl 5+([Rubygems](https://rubygems.org)). Simply search for the component and
+click on the Documentation page.
 
 <div id="run-the-example"></div>
 
@@ -101,4 +123,12 @@ You can also try and put your own text into the opener-example chain. For
 example by piping in the contents of a textfile:
 
 ``` cat my_text_file.txt | language-identifier | tokenizer | pos-tagger ```
+
+You can also run the component as a web-service like that: 
+
+```language-identifier-server```
+
+And you can visit the web service in your browser at ```http://localhost:9292```
+
+
 

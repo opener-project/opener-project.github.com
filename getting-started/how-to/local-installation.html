@@ -139,7 +139,7 @@ of the components to for the specifics.</p>
 <ul>
   <li>A mac / linux / unix kind of operating system</li>
   <li>JRuby 1.7.9+ (<a href="http://jruby.org">installation instructions</a>)</li>
-  <li>Python 2.7+ (<a href="http://www.python.org/getit/">installation instructions</a>)</li>
+  <li>Python 2.6+ (<a href="http://www.python.org/getit/">installation instructions</a>)</li>
   <li>Java 1.7+ (<a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html">installation instructions</a>)</li>
   <li>Perl 5+(<a href="http://www.perl.org/get.html">installation instructions</a>)</li>
 </ul>
@@ -189,14 +189,35 @@ website</a>.</p>
 
 <h1 id="install-opener">Install OpeNER</h1>
 
+<p>The components that are currently available are:</p>
+
+<pre><code>opener-language-identifier
+opener-tokenizer
+opener-pos-tagger
+opener-tree-tagger
+opener-polarity-tagger
+opener-property-tagger
+opener-constituent-parser
+opener-ner
+opener-coreference
+opener-ned
+opener-opinion-detector
+opener-opinion-detector-basic
+opener-kaf2json
+opener-outlet
+opener-scorer
+</code></pre>
+
 <p>Once you’ve got the basics set up, including the installation of rubygems,
-bundler, a Python virtual environment and lxml run the following command:</p>
+bundler, a Python virtual environment and lxml run the following command for the
+components you want to install (replace <code>component-name</code> with one of the above
+components):</p>
 
-<p><code>gem install opener-basic</code></p>
+<p><code>gem install component-name</code></p>
 
-<p>The installation might take a while and you might get asked several questions.
-But if all goes well, you’ll be up and running in about 15 minutes, give or
-take.</p>
+<p>For more information for each component you can visit the documentation in
+* Perl 5+(<a href="https://rubygems.org">Rubygems</a>). Simply search for the component and
+click on the Documentation page.</p>
 
 <div id="run-the-example"></div>
 
@@ -210,6 +231,12 @@ take.</p>
 example by piping in the contents of a textfile:</p>
 
 <p><code>cat my_text_file.txt | language-identifier | tokenizer | pos-tagger</code></p>
+
+<p>You can also run the component as a web-service like that: </p>
+
+<p><code>language-identifier-server</code></p>
+
+<p>And you can visit the web service in your browser at <code>http://localhost:9292</code></p>
 
 
         </div>
