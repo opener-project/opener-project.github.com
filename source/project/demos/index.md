@@ -35,3 +35,16 @@ This is a demo that shows some of the OpeNER tools analysis results. The demo sh
 
 <a href="http://tour-pedia.org/moodmap">Moodmap</a> is a resulting application of the second Hackathon in Amsterdam. The application analysed all the tweets of LREC (taking in account the #LREC2014 hashtag, and poster and oral sessions number specified in the tweet) and analysed and show alive the results twits and the mood of them. This demo had a huge interest in LREC2014 and a lot of participants tweet and came to our OpeNER booth to see the output analysed.
 
+## Review Browser
+
+The Review Browser is a demo application that demonstrates what someone can potentially do by using the OpeNER tool chain in the Hotel domain.
+Reviews are becoming more and more important in the hotel industry, since someone can draw useful conclusions about several aspects of the hotel from the customer perspective.
+Apart from the ratings of a review, there is much more information hidden in the context. That is where OpeNER gets involved.
+Given that each hotel review is processed by the whole OpeNER chain, (Language identifier, tokenizer, POS tagger, polarity tagger, property tagger, constituent parser, ner, co-reference, ned, opinion detector with hotel domain models)
+they are then stored in a database, in a way where all the needed information is stored as well. The most important information is the property tags and the opinion(s) of each review. 
+Each review is analyzed and it is known what the opinion of each customer was for each domain that he was referring in his review.
+That way, not only important information is extracted from a review, which would otherwise be ignored or would require manual work to be received, someone can also view related reviews that refer to the same topic, assign a task to a specific person, regarding the review or write a note about it.
+
+Link coming soon...
+
+
