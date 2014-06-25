@@ -43,6 +43,15 @@ sidebar: project
 | ner-base | de | 84,02% |	58,56% |	69,02% |	Perceptron |	CoNLL 2003 |
 | ner-base | nl | 79,85% |	75,41% |	77,57% |	Perceptron |	CoNLL 2002 |
 
+### Named Entity Disambiguation (NED)
+
+| Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
+| ----------- |:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| ned | en | 87,31% | 61,83% |	72,39% |	Spotlight |	TAC KBP 2011 |
+| ned | en | 81,94% | 71,12% |	76,15% |	Spotlight |	AIDA |
+| ned | es | 78,92% | 58,40% |	67,13% |	Spotlight |	TAC KBP 2012 |
+
+
 
 
 
