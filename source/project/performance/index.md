@@ -51,6 +51,23 @@ sidebar: project
 | ned | en | 81,94% | 71,12% |	76,15% |	Spotlight |	AIDA |
 | ned | es | 78,92% | 58,40% |	67,13% |	Spotlight |	TAC KBP 2012 |
 
+### Constituency parsing
+
+| Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
+| ----------- |:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|
+| constituent-parser | en | 86,90% |	87,32% |	87,11% |	Maximum Entropy	Penn Treebank |
+| constituent-parser | es | 86,34% |	87,25% |	86,79% |	Maximum Entropy	Ancora 3K sentence evaluation, rest for training |
+
+### Coreference resolution
+
+| Tool        | Language | F-Score   | method | Dataset   |
+| ----------- |:--------:|:-----:|:-----:|:-----:|
+| coreference | en | 69 | Multisieve | MUC |
+| coreference | en | 61,2 | Multisieve | B3 |
+| coreference | en | 54,5 | Multisieve | CEAFe |
+| coreference | en | 65,0 | Multisieve | BLANC |
+| coreference | en | 61,5 | Multisieve | CoNLL |
+
 
 
 
