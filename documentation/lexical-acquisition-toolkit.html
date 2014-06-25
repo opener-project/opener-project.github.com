@@ -111,7 +111,8 @@ a set of KAF/NAF files annotated with opinions (targets, holders and expressions
 output files with the most relevant expressions and targets. You can call directly to the script with
 the option -h or –help to see the parameters:</p>
 
-<pre><code class="language-shell">$ acquire_from_annotated_data.py -h
+<div><div class="CodeRay">
+  <div class="code"><pre>$ acquire_from_annotated_data.py -h
 usage: acquire_from_annotated_data.py [-h] (-l file_with_list | -f folder)
                                       -exp_csv expressions_file.csv -tar_csv
                                       targets_file.csv
@@ -129,7 +130,9 @@ optional arguments:
   -tar_csv targets_file.csv
                         CSV file to store the targets
 
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>The input KAF/NAF files can be specified using in 2 exclusive ways:
 * Providing a file which contains a list of paths to the annotated files (one per line) (option -l / –list)
@@ -142,8 +145,11 @@ options -exp_cvs and -tar_csv. </p>
 <p>The script also prints the lexicons on the standard output in a more user readable way, as well as some debugging
 information on the error output. One example of usage of this program would be:</p>
 
-<pre><code class="language-shell">acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_csv my_targets.csv &gt; log.out 2&gt; log.err
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre>acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_csv my_targets.csv &gt; log.out 2&gt; log.err
+</pre></div>
+</div>
+</div>
 
 <p>This would read all the KAF/NAF files in the folder ~/data/hole and store the output in the file log.out, the debugging information in the file log.err, and the resulting
 lexicons in CSV format on the files my_expressions.csv and my_targets.csv respectively.</p>
@@ -171,11 +177,12 @@ This step needs to be performed just once, so when you create the indexes from y
 the queries more efficiently. The script which implements this is “create_index.py”. It accepts a list of parameters to customize the indexes, you can check the accepted parameters by calling to the script
 with the option -h:</p>
 
-<pre><code class="language-shell">create_index.py -h
+<div><div class="CodeRay">
+  <div class="code"><pre>create_index.py -h
 usage: create_index.py [-h]
                        (-input_file file_with_list | -input_folder folder)
                        -output folder
-                       [-punc punctuation_symbols default ".?;!")] [-no_lower]
+                       [-punc punctuation_symbols default &quot;.?;!&quot;)] [-no_lower]
                        [-max_ngram integer (default 3)]
                        [-min_ngram integer (default 1)] [-no_sent_borders]
                        [-no_remove_out] [-min_freq integer (default 1]
@@ -184,7 +191,7 @@ Create n-gram indexes from a set of KAF/NAF files
 
 optional arguments:
   -h, --help            show this help message and exit
-  -punc punctuation_symbols (default ".?;!")
+  -punc punctuation_symbols (default &quot;.?;!&quot;)
                         Symbols to be considered as punctuation
   -no_lower             Tokens are NOT converted to lowercase (by default they
                         are)
@@ -204,7 +211,9 @@ Required arguments:
                         line
   -input_folder folder  Folder with a set of KAF/NAF files
   -output folder        Output folder to store the indexes
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>The only required arguments are those to specify the input files (via a folder or via a file with a list of paths to your KAF files), and the name of the output folder where you want to store the new indexes. The rest
 of parameters are used to specify some characteristics of your ngram indexes, like the maximum length of the ngram (-max_ngram), the minimum frequency allowed for an ngram in your index (-min_freq). So considering
@@ -227,11 +236,14 @@ files that you can use as an start or modify to suit your needs. These are the t
 
 <p>This is an example the polarity seed file, where there is a polarity word per line and a symbol + or - depending on the polarity of this word:</p>
 
-<pre><code class="language-shell">good +
+<div><div class="CodeRay">
+  <div class="code"><pre>good +
 bad -
 nice +
 ugly -
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>This is an example of the relational patterns. Each line contains a pattern with the placeholders [EXP] representing the polarity word and [TAR] standing for the target or aspect
 <code>shell
@@ -342,8 +354,11 @@ underscore. The rest of the name is not relevant.</p>
 <p>To run the program you should call to the script passing the name of the folder where the
 indexes are stored:</p>
 
-<pre><code class="language-shell">acquire_from_ratings.py english_rating_indexes &gt; log.out 2&gt; log.err
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre>acquire_from_ratings.py english_rating_indexes &gt; log.out 2&gt; log.err
+</pre></div>
+</div>
+</div>
 
 <p>It will generate three CSV files, one per ngram len. So, the lexicon generated for
 trigrams will be <code>lexicon_len3.csv</code>, and one example line could be:
