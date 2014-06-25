@@ -108,7 +108,7 @@ components):
 ```gem install component-name```
 
 For more information for each component you can visit the documentation in
-* Perl 5+([Rubygems](https://rubygems.org)). Simply search for the component and
+[RubyGems](https://rubygems.org). Simply search for the component and
 click on the Documentation page.
 
 <div id="run-the-example"></div>
@@ -129,6 +129,11 @@ You can also run the component as a web-service like that:
 ```language-identifier-server```
 
 And you can visit the web service in your browser at ```http://localhost:9292```
+
+# Support
+
+Visit the [Support Page](/support.html) if you need further help or instructions
+on how to install the OpeNER components.
 
 
 
