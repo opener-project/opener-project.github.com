@@ -51,7 +51,7 @@ sidebar: project
 | ned | en | 81,94% | 71,12% |	76,15% |	Spotlight |	AIDA |
 | ned | es | 78,92% | 58,40% |	67,13% |	Spotlight |	TAC KBP 2012 |
 
-### Constituency parsing
+### Constituency parser
 
 | Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
 | ----------- |:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|
@@ -62,12 +62,28 @@ sidebar: project
 
 | Tool        | Language | F-Score   | method | Dataset   |
 | ----------- |:--------:|:-----:|:-----:|:-----:|
-| coreference | en | 69 | Multisieve | MUC |
-| coreference | en | 61,2 | Multisieve | B3 |
-| coreference | en | 54,5 | Multisieve | CEAFe |
-| coreference | en | 65,0 | Multisieve | BLANC |
-| coreference | en | 61,5 | Multisieve | CoNLL |
+| coreference | en | 69,0% | Multisieve | MUC |
+| coreference | en | 61,2% | Multisieve | B3 |
+| coreference | en | 54,5% | Multisieve | CEAFe |
+| coreference | en | 65,0% | Multisieve | BLANC |
+| coreference | en | 61,5% | Multisieve | CoNLL |
 
+### Opinion detector
+
+| Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
+| ----------- |:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|Opinion detector basic |	en | 62,0% |	46,3% | 53,01% |	Rules	| OpeNER manual hotel annotations |
+|Opinion detector deluxe |	en |	85,52% |	58,45% |	69,44% |	CRF + SVM |	OpeNER manual hotel annotations |
+|Opinion detector basic |	nl |	48,22% |	31,39% |	38,03% |	Rules |	OpeNER manual hotel annotations |
+|Opinion detector deluxe |	nl |	82,8% |	51,77% |	63,71% |	CRF + SVM |	OpeNER manual hotel annotations |
+|Opinion detector basic |	de |	56,22% |	35,6% |	43,59% |	Rules |	OpeNER manual hotel annotations |
+|Opinion detector deluxe |	de |	75,64% |	48,88% |	59,38% |	CRF + SVM |	OpeNER manual hotel annotations |
+|Opinion detector basic |	es |	26,11% |	6,14% |	9,94% |	Rules |	OpeNER manual hotel annotations |
+|Opinion detector deluxe |	es |	74,41% |	46,55% |	57,27% |	CRF + SVM |	OpeNER manual hotel annotations |
+|Opinion detector basic |	it	|	26,94% |	33,49% |	29,86% |	Rules |	OpeNER manual hotel annotations |
+|Opinion detector deluxe |	it |	65,47% |	40,39% |	49,96% |	CRF + SVM |	OpeNER manual hotel annotations |
+|Opinion detector basic |	fr |	37,02% |	34,71% |	35,83% |	Rules	| OpeNER manual hotel annotations |
+|Opinion detector deluxe |	fr	|	70,94% |	46,28% |	56,02% |	CRF + SVM |	OpeNER manual hotel annotations |
 
 
 
