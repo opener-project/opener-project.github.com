@@ -55,8 +55,8 @@ sidebar: project
 
 | Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
 | ----------- |:--------:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| constituent-parser | en | 86,90% |	87,32% |	87,11% |	Maximum Entropy	Penn Treebank |
-| constituent-parser | es | 86,34% |	87,25% |	86,79% |	Maximum Entropy	Ancora 3K sentence evaluation, rest for training |
+| constituent-parser | en | 86,90% |	87,32% |	87,11% |	Maximum Entropy |	Penn Treebank |
+| constituent-parser | es | 86,34% |	87,25% |	86,79% |	Maximum Entropy |	Ancora 3K sentence evaluation, rest for training |
 
 ### Coreference resolution
 
