@@ -238,15 +238,17 @@ datasets: &datasets
     documentation:  http://tour-pedia.org/api
     filetype: Api
 
+  -
+    name: Corpus of Political News with Opinion Annotations
+    documentation: https://github.com/opener-project/opener_annotations_news
 
 lexicons: &lexicons
   -
     name: General Sentiment Lexicons
     documentation: https://github.com/opener-project/sentiment-lexicons
-    
-  - 
-    name: Domain-specific Polarity Lexicons from Ratings (touristic domain)
-    documentation: https://github.com/opener-project/sentiment-lexicons/rating_lexicon
+  -  
+    name: Domain-specific Sentiment Lexicons (News)
+    documentation: https://github.com/opener-project/sentiment-lexicons
     
     
 
