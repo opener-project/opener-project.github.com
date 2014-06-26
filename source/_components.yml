@@ -241,8 +241,14 @@ datasets: &datasets
 
 lexicons: &lexicons
   -
-    name: Sentiment Lexicons
+    name: General Sentiment Lexicons
     documentation: https://github.com/opener-project/sentiment-lexicons
+    
+  - 
+    name: Domain-specific Polarity Lexicons from Ratings (touristic domain)
+    documentation: https://github.com/opener-project/sentiment-lexicons/rating_lexicon
+    
+    
 
 
 documentation:
