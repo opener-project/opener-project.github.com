@@ -119,16 +119,19 @@ general overview of the technology.</p>
 
 <p>In order to use the NED and NED you can take a look at this example:</p>
 
-<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
-"http://opener.olery.com/language-identifier\
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/constituent-parser\
 &amp;callbacks\[\]=http://opener.olery.com/ner\
 &amp;callbacks\[\]=http://opener.olery.com/ned\
 &amp;callbacks\[\]=http://opener.olery.com/coreference\
-&amp;callbacks\[\]=http://opener.olery.com/outlet"
-</code></pre>
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
 
 
         </div>
