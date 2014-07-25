@@ -69,6 +69,9 @@ using Ruby. The prerequisits of running an OpeNER toolchain consists of:
 * Java 1.7+
 * Perl 5+
 
+You can find more information on how to get this all up and running at the
+[Local Installations](/getting-started/how-to/local-installation.html) instructions page.
+
 Don't worry though. If you just want to jump in and get started, take a look at
 the freely available <a href="/webservices/">webservices</a>.
 

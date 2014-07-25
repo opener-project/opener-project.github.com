@@ -18,7 +18,7 @@
 
     <title>Getting Started</title>
   </head>
-  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
 <div class="container">
   <div class="row">
@@ -66,16 +66,18 @@
       <div class="row">
         <div class="col-md-3">
           <!--Nav Bar -->
-          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="600">
             
             <ul id="sidebar" class="nav bs-sidenav">
   <li>
   <a href="/getting-started#introduction">Getting Started</a>
     <ul class="nav nav-stacked visible">
-      <li><a href="#what-is-opener">What is OpeNER</a></li>
+      <li><a href="/getting-started/index.html#what-is-opener">What is OpeNER</a></li>
       <li><a href="/getting-started/how-to/quick-start.html">Quick Start Guide</a></li>
-      <li><a href="#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
-      <li><a href="#what-technology-is-used">What technology is used</a></li>
+      <li><a href="/getting-started/architecture-overview.html">Architecture Overview</a></li>
+      <li><a href="/getting-started/design-decisions.html">Design Decisions</a></li>
+      <li><a href="/getting-started/index.html#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
+      <li><a href="/getting-started/index.html#what-technology-is-used">What technology is used</a></li>
       <li>
         <a href="#core-technology">Main functionality</a>
         <ul class="nav nav-stacked double-stacked">
@@ -185,6 +187,9 @@ using Ruby. The prerequisits of running an OpeNER toolchain consists of:</p>
   <li>Java 1.7+</li>
   <li>Perl 5+</li>
 </ul>
+
+<p>You can find more information on how to get this all up and running at the
+<a href="/getting-started/how-to/local-installation.html">Local Installations</a> instructions page.</p>
 
 <p>Don’t worry though. If you just want to jump in and get started, take a look at
 the freely available <a href="/webservices/">webservices</a>.</p>
@@ -306,11 +311,11 @@ lemmatization the module uses three different methods for English and two for
 the rest of the languages:</p>
 
 <ul>
-  <li>Plain text dictionary: “Word POStag lemma” dictionary in plain text. </li>
+  <li>Plain text dictionary: “Word POStag lemma” dictionary in plain text.</li>
   <li>Using Morfologik-stemming: plain text dictionaries binarized as finite state
 automata using the morfologik-stemming project.  This method requires less RAM with
 respect to the plain text dictionary.</li>
-  <li>WordNet: only for English. </li>
+  <li>WordNet: only for English.</li>
 </ul>
 
 <p>The part of speech tagger takes a KAF file as an input and will output KAF as
@@ -328,8 +333,8 @@ here</a></p>
 
 <h3 id="constituent-parser">Constituent parser</h3>
 
-<p>Parsing means providing the syntactic tree representation of a sentence. The component provides shift-reduced style 
-constituent parsers for English, French, Italian and Spanish trained using 
+<p>Parsing means providing the syntactic tree representation of a sentence. The component provides shift-reduced style
+constituent parsers for English, French, Italian and Spanish trained using
 the Apache OpenNLP API. For Dutch and German Alpino and Stanford parsers
 are required respectively. Constituent parsing
 is primarily used in OpeNER as an input to the Coreference resolution
@@ -340,31 +345,31 @@ system.</p>
 <p>The tree representation of the sentence organizes its branches in terms of
 phrases, namely, noun phrases, verbal phrases and so on. The leafs are the
 terminals of the sentence (the words themeselves) and the preterminals are
-the POS tags provided by a pos tagger model. </p>
+the POS tags provided by a pos tagger model.</p>
 
 <p>Most of the constituent parsers nowadays are statistical, e.g., probabilistic
 models are trained on a hand-annotated corpus. Such corpora are generally
-termed “treebanks”. In OpeNER the constituent parsers output two formats: </p>
+termed “treebanks”. In OpeNER the constituent parsers output two formats:</p>
 
 <ul>
   <li>KAF: a tree layer consisting of the terminals, the non-terminals and the
-edges between them. </li>
-  <li>Penn Treebank: Bracketing format as defined by the Penn Treebank project. </li>
+edges between them.</li>
+  <li>Penn Treebank: Bracketing format as defined by the Penn Treebank project.</li>
 </ul>
 
-<p>For example, for the following sentence: </p>
+<p>For example, for the following sentence:</p>
 
 <pre><code>The dog ate the cat.
 </code></pre>
 
 <p>The OpeNER constituent parser could provide two outputs. In Penn Treebank
-format: </p>
+format:</p>
 
 <pre><code>(S (NP (DET The) *(NN dog)) *(VP *(V ate) (NP ((DET the) *(NN cat)))) (.
 .))
 </code></pre>
 
-<p>In a KAF constituent tree: </p>
+<p>In a KAF constituent tree:</p>
 
 <pre><code>&lt;constituency&gt;
   &lt;tree&gt;
@@ -665,7 +670,6 @@ applications you can use OpeNER technology. You can find them listed under the
 
 <p>Besided the usage scenarios there are also a set of how-to guides available,
 check those out in the <a href="/getting-started/how-to/">how to section</a>.</p>
-
 
         </div>
       </div>
