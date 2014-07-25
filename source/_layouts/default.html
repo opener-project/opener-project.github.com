@@ -6,7 +6,7 @@
     {% include stylesheets.html %}
     <title>{{ page.title }}</title>
   </head>
-  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     {% include header.html %}
 
     <div class="header-2-sub bg-midnight-blue low">
@@ -22,7 +22,7 @@
       <div class="row">
         <div class="col-md-3">
           <!--Nav Bar -->
-          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="600">
             {% assign file = page.sidebar | prepend: "sidebar_" | append: ".html" %}
             {% include {{ file }} %}
           </div>

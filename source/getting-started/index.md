@@ -187,11 +187,11 @@ lemmatization the module uses three different methods for English and two for
 the rest of the languages:
 
 
-+ Plain text dictionary: "Word POStag lemma" dictionary in plain text. 
++ Plain text dictionary: "Word POStag lemma" dictionary in plain text.
 + Using Morfologik-stemming: plain text dictionaries binarized as finite state
 automata using the morfologik-stemming project.  This method requires less RAM with
 respect to the plain text dictionary.
-+ WordNet: only for English. 
++ WordNet: only for English.
 
 The part of speech tagger takes a KAF file as an input and will output KAF as
 well. You can take a look at the [example kaf file
@@ -208,8 +208,8 @@ An example of the expected input and output is as follows:
 
 ### Constituent parser
 
-Parsing means providing the syntactic tree representation of a sentence. The component provides shift-reduced style 
-constituent parsers for English, French, Italian and Spanish trained using 
+Parsing means providing the syntactic tree representation of a sentence. The component provides shift-reduced style
+constituent parsers for English, French, Italian and Spanish trained using
 the Apache OpenNLP API. For Dutch and German Alpino and Stanford parsers
 are required respectively. Constituent parsing
 is primarily used in OpeNER as an input to the Coreference resolution
@@ -221,27 +221,27 @@ system.
 The tree representation of the sentence organizes its branches in terms of
 phrases, namely, noun phrases, verbal phrases and so on. The leafs are the
 terminals of the sentence (the words themeselves) and the preterminals are
-the POS tags provided by a pos tagger model. 
+the POS tags provided by a pos tagger model.
 
 Most of the constituent parsers nowadays are statistical, e.g., probabilistic
 models are trained on a hand-annotated corpus. Such corpora are generally
-termed "treebanks". In OpeNER the constituent parsers output two formats: 
+termed "treebanks". In OpeNER the constituent parsers output two formats:
 
 + KAF: a tree layer consisting of the terminals, the non-terminals and the
-  edges between them. 
-+ Penn Treebank: Bracketing format as defined by the Penn Treebank project. 
+  edges between them.
++ Penn Treebank: Bracketing format as defined by the Penn Treebank project.
 
-For example, for the following sentence: 
+For example, for the following sentence:
 
     The dog ate the cat.
 
 The OpeNER constituent parser could provide two outputs. In Penn Treebank
-format: 
+format:
 
     (S (NP (DET The) *(NN dog)) *(VP *(V ate) (NP ((DET the) *(NN cat)))) (.
     .))
 
-In a KAF constituent tree: 
+In a KAF constituent tree:
 
     <constituency>
       <tree>
@@ -528,6 +528,3 @@ applications you can use OpeNER technology. You can find them listed under the
 
 Besided the usage scenarios there are also a set of how-to guides available,
 check those out in the [how to section](/getting-started/how-to/).
-
-
-
