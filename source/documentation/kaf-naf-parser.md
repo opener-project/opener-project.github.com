@@ -73,6 +73,8 @@ jobs (and write) jobs to and from Amazon SQS queues. For more information type:
 Description of dependencies
 ---------------------------
 
+The working part of this OpeNER component is the KafNafParserPy Python library. More documentation on this library can be found here http://kyoto.let.vu.nl/~izquierdo/api/KafNafParserPy/ and at [KafNafParserPy Github Page](https://github.com/cltl/KafNafParserPy).
+
 This component runs best if you run it in an environment suited for OpeNER
 components. You can find an installation guide and helper tools in the
 [OpeNER installer](https://github.com/opener-project/opener-installer) and an

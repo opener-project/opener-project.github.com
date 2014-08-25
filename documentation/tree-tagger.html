@@ -18,7 +18,7 @@
 
     <title>Tree Tagger</title>
   </head>
-  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
 <div class="container">
   <div class="row">
@@ -66,7 +66,7 @@
       <div class="row">
         <div class="col-md-3">
           <!--Nav Bar -->
-          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="600">
             
             <ul id="sidebar" class="nav bs-sidenav">
   <li>
@@ -173,8 +173,11 @@ variable.</li>
 
 <p>If TreeTagger is not installed in your machine you can download it from <a href="http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/">http://www.ims.uni-stuttgart.de/projekte/corplex/TreeTagger/</a> and follow the installation instructions. To indicate to our scripts where TreeTagger is located, you have to set an environment variable with the location:</p>
 
-<pre><code class="language-shell">export TREE_TAGGER_PATH=/usr/local/TreeTagger/
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre>export TREE_TAGGER_PATH=/usr/local/TreeTagger/
+</pre></div>
+</div>
+</div>
 
 <p>It is advised you add the path to the tree tagger in your bash or zsh profile by
 adding it to <code>~/.bash_profile</code> or <code>~/.zshrc</code></p>

@@ -18,7 +18,7 @@
 
     <title>Coreference</title>
   </head>
-  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
 <div class="container">
   <div class="row">
@@ -66,7 +66,7 @@
       <div class="row">
         <div class="col-md-3">
           <!--Nav Bar -->
-          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="600">
             
             <ul id="sidebar" class="nav bs-sidenav">
   <li>
@@ -122,22 +122,25 @@
 
 <p>This will output:</p>
 
-<pre><code class="language-xml">&lt;coref coid="co5"&gt;
-  &lt;!--Her father--&gt;
-  &lt;span&gt;
-    &lt;target id="t45"/&gt;
-    &lt;target id="t46"/&gt;
-  &lt;/span&gt;
-  &lt;!--him--&gt;
-  &lt;span&gt;
-    &lt;target id="t58"/&gt;
-  &lt;/span&gt;
-  &lt;!--his--&gt;
-  &lt;span&gt;
-    &lt;target id="t54"/&gt;
-  &lt;/span&gt;
-&lt;/coref&gt;
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;coref</span> <span style="color:#b48">coid</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">co5</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+  <span style="color:#777">&lt;!--Her father--&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t45</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t46</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+  <span style="color:#777">&lt;!--him--&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t58</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+  <span style="color:#777">&lt;!--his--&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t54</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/coref&gt;</span>
+</pre></div>
+</div>
+</div>
 
 <h3 id="webservices">Webservices</h3>
 
@@ -251,22 +254,25 @@
 <pre><code>cat some_kind_of_kaf_file.kaf | coreference
 </code></pre>
 
-<pre><code class="language-xml">&lt;coref coid="co5"&gt;
-  &lt;!--Her father--&gt;
-  &lt;span&gt;
-    &lt;target id="t45"/&gt;
-    &lt;target id="t46"/&gt;
-  &lt;/span&gt;
-  &lt;!--him--&gt;
-  &lt;span&gt;
-    &lt;target id="t58"/&gt;
-  &lt;/span&gt;
-  &lt;!--his--&gt;
-  &lt;span&gt;
-    &lt;target id="t54"/&gt;
-  &lt;/span&gt;
-&lt;/coref&gt;
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;coref</span> <span style="color:#b48">coid</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">co5</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+  <span style="color:#777">&lt;!--Her father--&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t45</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t46</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+  <span style="color:#777">&lt;!--him--&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t58</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+  <span style="color:#777">&lt;!--his--&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;span&gt;</span>
+    <span style="color:#070;font-weight:bold">&lt;target</span> <span style="color:#b48">id</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">t54</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">/&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;/span&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/coref&gt;</span>
+</pre></div>
+</div>
+</div>
 
 <h3 id="webservice">Webservice</h3>
 

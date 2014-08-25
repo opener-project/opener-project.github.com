@@ -8,7 +8,7 @@ sidebar: project
 ### Language identifier
 
 | Tool        | Language | Accuracy    | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|:------|:----------|
+| -------------------- |:------------|:----------|:--------|:---------|:-----------|:----------------|
 | Language Identifier         | en  |  99,51%   | Bayesian methods | Leipzig Corpus Collection, 10-20 words per sentence: http://corpora.uni-leipzig.de/download |
 | Language Identifier         | es  |  99,03%   | Bayesian methods | Leipzig Corpus Collection, 10-20 words per sentence: http://corpora.uni-leipzig.de/download |
 | Language Identifier         | fr  |  99,08%   | Bayesian methods | Leipzig Corpus Collection, 10-20 words per sentence: http://corpora.uni-leipzig.de/download |
@@ -20,13 +20,13 @@ sidebar: project
 ### Tokenizer
 
 | Tool        | Language | Accuracy    | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|:------|:----------|
+| ----------- |:-------------|:----------|:---------|:-----------|:------|:----------|
 | Tokenizer-base | 20 langs, evaluated with French | 98,44% | Regex and Nonbreaking Prefixes | ESTER Corpus test dataset, http://catalog.elra.info/product_info.php?products_id=999 |
 
 ### Part-of-speech tagger
 
 | Tool        | Language | Accuracy    | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|:------|:----------|
+| --------------- |:-------------|:------------|:--------|:-----------|:------|:----------|
 | Pos-tagger-en-es | en | 96,66% | Perceptron | Penn TreeBank |
 | Pos-tagger-en-es | es | 96,66% | Perceptron | Penn TreeBank |
 | Pos-tagger-en-es | fr | 94,9% | Maximum Entropy | French Treebank test dataset, http://www.llf.cnrs.fr/Gens/Abeille/French-Treebank-fr.php |
@@ -35,7 +35,7 @@ sidebar: project
 ### Named Entity Recognition and Classification (NERC)
 
 | Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|:-----|:-----|
+| ------------- |:-------------|:-----------|:-----------|:---------|:-----------|:-----------|
 | ner-base | en | 89,39% |	85,19% |	87,24% | Perceptron + Dictionaries | CoNLL 2003 |
 | ner-base | es | 79,91% |	80,58% |	80,24% | Maximum Entropy | CoNLL 2002 |
 | ner-base | fr | 86,15% |	75,69% |	80,58% | Maximum Entropy | ESTER corpus |
@@ -46,7 +46,7 @@ sidebar: project
 ### Named Entity Disambiguation (NED)
 
 | Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|:-----|:-----|
+| ----------- |:------------|:------------|:----------|:----------|:----------|:-----------|
 | ned | en | 87,31% | 61,83% |	72,39% |	Spotlight |	TAC KBP 2011 |
 | ned | en | 81,94% | 71,12% |	76,15% |	Spotlight |	AIDA |
 | ned | es | 78,92% | 58,40% |	67,13% |	Spotlight |	TAC KBP 2012 |
@@ -54,14 +54,14 @@ sidebar: project
 ### Constituency parser
 
 | Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|:-----|:-----|
+| --------------- |:------------|:----------|:---------|:----------|:--------|:--------|
 | constituent-parser | en | 86,90% |	87,32% |	87,11% |	Maximum Entropy |	Penn Treebank |
 | constituent-parser | es | 86,34% |	87,25% |	86,79% |	Maximum Entropy |	Ancora 3K sentence evaluation, rest for training |
 
 ### Coreference resolution
 
 | Tool        | Language | F-Score   | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|
+| ------------- |:------------|:----------|:-----------|:------------|
 | coreference | en | 69,0% | Multisieve | MUC |
 | coreference | en | 61,2% | Multisieve | B3 |
 | coreference | en | 54,5% | Multisieve | CEAFe |
@@ -71,7 +71,7 @@ sidebar: project
 ### Opinion detector
 
 | Tool        | Language | Precision | Recall | F-Score   | method | Dataset   |
-| ----------- |:--------|:-----|:-----|:-----|:-----|:-----|
+| ----------- |:------------|:-------------|:-----------|:------------|:------------|:------------|
 |Opinion detector basic |	en | 62,0% |	46,3% | 53,01% |	Rules	| OpeNER manual hotel annotations |
 |Opinion detector deluxe |	en |	85,52% |	58,45% |	69,44% |	CRF + SVM |	OpeNER manual hotel annotations |
 |Opinion detector basic |	nl |	48,22% |	31,39% |	38,03% |	Rules |	OpeNER manual hotel annotations |

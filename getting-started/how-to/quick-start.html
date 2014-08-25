@@ -18,7 +18,7 @@
 
     <title>Getting started with OpeNER</title>
   </head>
-  <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
     <header class="header-2">
 <div class="container">
   <div class="row">
@@ -66,16 +66,18 @@
       <div class="row">
         <div class="col-md-3">
           <!--Nav Bar -->
-          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60">
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="600">
             
             <ul id="sidebar" class="nav bs-sidenav">
   <li>
   <a href="/getting-started#introduction">Getting Started</a>
     <ul class="nav nav-stacked visible">
-      <li><a href="#what-is-opener">What is OpeNER</a></li>
+      <li><a href="/getting-started/index.html#what-is-opener">What is OpeNER</a></li>
       <li><a href="/getting-started/how-to/quick-start.html">Quick Start Guide</a></li>
-      <li><a href="#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
-      <li><a href="#what-technology-is-used">What technology is used</a></li>
+      <li><a href="/getting-started/architecture-overview.html">Architecture Overview</a></li>
+      <li><a href="/getting-started/design-decisions.html">Design Decisions</a></li>
+      <li><a href="/getting-started/index.html#opener-nlp-chain-schema">OpeNER NLP chain schema</a></li>
+      <li><a href="/getting-started/index.html#what-technology-is-used">What technology is used</a></li>
       <li>
         <a href="#core-technology">Main functionality</a>
         <ul class="nav nav-stacked double-stacked">
@@ -118,12 +120,15 @@
 For the best result, put your text in a textfile, for the example called
 <code>some_file.txt</code> and then pass it through the webservices like this:</p>
 
-<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
-"http://opener.olery.com/language-identifier\
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/outlet"
-</code></pre>
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
 
 <p>The trick here is to use curls <code>-F</code> option with <code>input=&lt;-</code> as argument.
 The <code>&lt;-</code> in this case means it reads from STDIN and posts it to the
@@ -142,13 +147,16 @@ become <code>\[\]</code>. Also put your url in between double quotes.</p>
 
 <p>So the structure of the curl request looks like this:</p>
 
-<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
-"http://opener.olery.com/language-identifier\
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/extra_callback1\
 &amp;callbacks\[\]=http://opener.olery.com/extra_callback2\
-&amp;callbacks\[\]=http://opener.olery.com/outlet"
-</code></pre>
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
 
 <p><strong>ALWAYS end your callbacks with the outlet. Else there is no spot to “catch” your
 results</strong></p>
@@ -165,27 +173,36 @@ get a message stating <code>no document found</code>.</p>
 
 <p>If you do the following request:</p>
 
-<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
-"http://opener.olery.com/language-identifier\
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
-&amp;callbacks\[\]=http://opener.olery.com/outlet"
-</code></pre>
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
 
 <p>You will get a return that looks like this:</p>
 
-<pre><code class="language-json">{
-  "output_url": "http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99",
-  "request_id": "68f6f338-1058-40d0-99da-b6a4d226bb99"
+<div><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>output_url</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>request_id</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>
 }
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <p>If you then append <code>.json</code> to the output url and do a request like this:</p>
 
-<pre><code class="language-shell">curl http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99.json
-</code></pre>
+<div><div class="CodeRay">
+  <div class="code"><pre>curl http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99.json
+</pre></div>
+</div>
+</div>
 
 <p>You will get a JSON representation of the KAF file. Generating the JSON does
 take a little longer though.</p>
@@ -194,8 +211,9 @@ take a little longer though.</p>
 
 <h3 id="a-full-pipeline">A Full Pipeline</h3>
 
-<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
-"http://opener.olery.com/language-identifier\
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/constituent-parser\
@@ -205,8 +223,10 @@ take a little longer though.</p>
 &amp;callbacks\[\]=http://opener.olery.com/property-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/opinion-detector\
-&amp;callbacks\[\]=http://opener.olery.com/outlet"
-</code></pre>
+&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+</pre></div>
+</div>
+</div>
 
 <h3 id="rule-based-opinion-detection">Rule based opinion detection</h3>
 
@@ -236,34 +256,40 @@ other.</p>
 
 <p>Then at the end put the scorer instead of the outlet. Resulting in this request:</p>
 
-<pre><code class="language-shell">cat some_file.txt | curl -F 'input=&lt;-' \
-"http://opener.olery.com/language-identifier\
+<div><div class="CodeRay">
+  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
+&quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
 &amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/property-tagger\
 &amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
-&amp;callbacks\[\]=http://opener.olery.com/scorer"
-</code></pre>
+&amp;callbacks\[\]=http://opener.olery.com/scorer&quot;
+</pre></div>
+</div>
+</div>
 
 <p>This will also provide you with an output_url. However, this url will give you
 back a JSON object with sentiment values between -1 and 1 on the detected
 topics. Like this:</p>
 
-<pre><code class="language-json">{
-  "scores": {
-    "breakfast": -1,
-    "location": -1,
-    "cleanliness": 1,
-    "restaurant": 1,
-    "room": 1,
-    "bathroom": 1,
-    "value_for_money": -1,
-    "overall": 0.5
+<div><div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>scores</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>breakfast</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>location</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>cleanliness</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>restaurant</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>room</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>bathroom</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>value_for_money</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>overall</span><span style="color:#404">&quot;</span></span>: <span style="color:#60E">0.5</span>
   },
-  "uuid": "74c63ace-4402-4352-a94f-32ecf3bdc433"
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>uuid</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">74c63ace-4402-4352-a94f-32ecf3bdc433</span><span style="color:#710">&quot;</span></span>
 }
-</code></pre>
+</pre></div>
+</div>
+</div>
 
 <h3 id="use-the-tree-tagger-instead-of-the-pos-tagger">Use the tree tagger instead of the pos-tagger</h3>
 

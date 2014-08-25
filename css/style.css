@@ -72,8 +72,6 @@ h1 {
 h2 {
   color: rgb(221, 72, 20);
   font-weight: 900;
-  padding-top: 100px;
-  margin-top: -60px;
 }
 h3 {
   font-weight: 900;
@@ -1932,4 +1930,26 @@ form#test dd {
   background-color: #FFF;
   font-size: 12px;
   color: #666;
+}
+
+table, th, td {
+   border: 1px solid #CCC;
+}
+
+table td, th {
+  padding: .5em;
+}
+
+table th {
+  background: #DDD
+}
+
+table tr:nth-child(even) {background: #EEE}
+
+.introduction {
+  z-index: 1000;
+}
+
+.clear {
+  clear: both;
 }
