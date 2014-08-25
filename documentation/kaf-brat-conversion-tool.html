@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <meta charset="utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/flat-ui.css">
+<link rel="stylesheet" href="/css/icon-font.css">
+<link rel="stylesheet" href="/css/animations.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    <title>KAF/BRAT conversion tool</title>
+  </head>
+    <body data-spy="scroll" data-target=".bs-sidebar" data-offset="90">
+    <header class="header-2">
+<div class="container">
+  <div class="row">
+    <nav class="navbar col-sm-12" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle"></button>
+      <a class="brand" href="/"><img src="/images/opener_log.png" width="125" height="58" alt=""> </a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav pull-right">
+        <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="/news.html">News</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+      </ul>
+      <ul class="subnav">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    </nav>
+  </div>
+</div>
+</header>
+
+
+    <div class="header-2-sub bg-midnight-blue low">
+      <div class="background">&nbsp;</div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2"> </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container bs-docs-container">
+      <div class="row">
+        <div class="col-md-3">
+          <!--Nav Bar -->
+          <div class="bs-sidebar hidden-print" role="complementary" data-spy="affix" data-offset-top="60" data-offset-bottom="600">
+            
+            <ul id="sidebar" class="nav bs-sidenav">
+  <li>
+    <a href="#readme">KAF/BRAT conversion tool</a>
+    <ul class="nav nav-stacked visible">
+      <li><a href="#readme">Introduction</a></li>
+      <li><a href="#reference">Reference</a></li>
+      <li><a href="http://opener.olery.com/kaf-brat-conversion-tool">Webservice</a></li>
+      <li><a href="https://github.com/opener-project/brat-kaf-conversion-tools">View Source code</a></li>
+    </ul>
+  </li>
+  <li><a href="/documentation/">Other Components</a></li>
+</ul>
+
+
+          </div>
+        </div>
+        <!--Main Content -->
+        <div class="col-sm-8 col-sm-offset-1 content">
+          <div id="readme"></div>
+
+<h2 id="reference">Reference</h2>
+
+<p>This repository contains the code employed to convert OpeNER KAF files to a Brat annotation tool collection files. More details about the role this toolkit has played in the OpeNER annotation campaign can be found in the OpeNER deliverable D3.52.</p>
+
+<p>Brat collections require two files per document:
+  * A .txt file containing the plain text to annotate
+  * A .ann file, which is a metadata file holding the annotation information generated when an annotation is added</p>
+
+<p>The format of these documents is specified in the Brat annotation tool website.
+Please, visit http://brat.nlplab.org/ for more information about Brat.</p>
+
+<p>In OpeNER we have used the Brat version 1.3, with a minor tweak to force Brat to tag full tokens (using white spaces as the boundaries) instead of the default per-character basis.</p>
+
+<h3 id="command-line-interface">Command Line Interface</h3>
+
+<p>The code has received a CLI wrapping in order to be able of calling it from the command line.
+The are two possible operations:
+* convert a set of KAF documents to a Brat collection
+* dump a Brat collection annotations back to enriched KAF files (i.e. the original KAF files plus the annotation information)</p>
+
+<p>You need Apache Maven in your computer in order to package the code.
+To execute the tool first go to the directory containing the source code and the pom.xml issue a:</p>
+
+<pre><code>mvn clean package
+</code></pre>
+
+<p>This will package the code into a runnable jar using maven.
+Then issue the following</p>
+
+<pre><code>java -jar [NAME-OF-THE-JAR] KAF2BRAT -kaf DIR_WITH_KAF_FILES -brat DIR_TO_OUTPUT_BRAT_COLLECTION
+</code></pre>
+
+<p>This will read the directory indicated in the -kaf parameter and generate the corresponding Brat collection in the directory indicated with the -brat parameter.</p>
+
+<p>On the other hand you can issue:</p>
+
+<pre><code>java -jar [NAME-OF-THE-JAR] BRAT2KAF -brat DIR_WITH_BRAT_COLLECTION -kaf DIR_WITH_ORIGINAL_KAF_FILES -output DIR_TO_WRITE_ENRICHED_KAFS
+</code></pre>
+
+<p>This command will read the Brat collection in the specified directory, together with the original kaf files in the corresponding directory (NOTE: the KAF files must be the ones used to generate the Brat collection, or at least agree in the token and term layers with them). The Brat annotation will be parsed and new enriched KAF files, including the information coming from the Brat annotation written into the corresponding layers, will be printed to the specified output location.</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer-2 bg-midnight-blue doc-bottom-margin">
+<div class="container">
+  <nav class="pull-left">
+  <ul>
+    <li class="active"><a href="/index.html">Home</a></li>
+<li><a href="/getting-started">Getting started</a></li>
+<li><a href="/documentation">Documentation</a></li>
+<li><a href="/webservices">Webservices</a></li>
+<li><a href="/project">The Project</a></li>
+<li><a href="/support.html">Support</a></li>
+<li><a href="/news.html">News</a></li>
+<li><a href="https://github.com/opener-project">GitHub</a></li>
+
+
+  </ul>
+  </nav>
+  <div class="social-btns pull-right">
+    <a href="https://twitter.com/openereu">
+      <div class="fui-twitter"></div>
+      <div class="fui-twitter"></div>
+    </a>
+    <a href="http://www.linkedin.com/company/3503334">
+      <div class="fui-linkedin"></div>
+      <div class="fui-linkedin"></div>
+    </a>
+  </div>
+  <div class="additional-links">
+    Be sure to take a look at our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+  </div>
+</div>
+</footer>
+<div class=container">
+  <div class="eu-notice">
+    <img src="/images/flag_yellow_low.jpg" height="34" width="50"/> This project has received funding from the European Union’s Seventh
+    Framework Programme for research, technological development and
+    demonstration under grant agreement no 261712.
+  </div>
+</div>
+
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/modernizr.custom.js"></script>
+<script src="/js/page-transitions.js"></script>
+<script src="/js/easing.min.js"></script>
+<script src="/js/jquery.svg.js"></script>
+<script src="/js/jquery.svganim.js"></script>
+<script src="/js/jquery.backgroundvideo.min.js"></script>
+<script src="/js/froogaloop.min.js"></script>
+<script src="/js/startup-kit.js"></script>
+
+  </body>
+</html>
