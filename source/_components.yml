@@ -154,6 +154,9 @@ toolkits: &toolkits
   -
     name: Domain adaptation toolkit
     repository: https://github.com/opener-project/domain-adaptation-tool
+  -
+    name: KAF/BRAT conversion tool
+    repository: https://github.com/opener-project/brat-kaf-conversion-tools
 
 clusters:
   - &c_input_tools
