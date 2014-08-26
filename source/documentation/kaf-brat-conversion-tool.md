@@ -2,7 +2,7 @@
 layout: default
 title: KAF/BRAT conversion tool
 sidebar: documentation
-webservice: http://opener.olery.com/kaf-brat-conversion-tool
+webservice: 
 repository: https://github.com/opener-project/brat-kaf-conversion-tools
 
 ---

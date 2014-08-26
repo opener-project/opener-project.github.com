@@ -4,7 +4,9 @@
     <ul class="nav nav-stacked visible">
       <li><a href="#readme">Introduction</a></li>
       <li><a href="#reference">Reference</a></li>
+      {% if page.webservice %}
       <li><a href="{{ page.webservice }}">Webservice</a></li>
+      {% endif %}
       <li><a href="{{ page.repository }}">View Source code</a></li>
     </ul>
   </li>

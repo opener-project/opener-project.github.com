@@ -2,7 +2,7 @@
 layout: default
 title: Domain adaptation toolkit
 sidebar: documentation
-webservice: http://opener.olery.com/domain-adaptation-toolkit
+webservice: 
 repository: https://github.com/opener-project/domain-adaptation-tool
 
 ---

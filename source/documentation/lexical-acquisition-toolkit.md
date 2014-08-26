@@ -2,7 +2,7 @@
 layout: default
 title: Lexical acquisition toolkit
 sidebar: documentation
-webservice: http://opener.olery.com/lexical-acquisition-toolkit
+webservice: 
 repository: https://github.com/opener-project/opinion-domain-lexicon-acquisition
 
 ---
