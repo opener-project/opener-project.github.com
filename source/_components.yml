@@ -98,7 +98,7 @@ components:
   - &opinion_detector_deluxe
     name: Opinion Detector Deluxe
     repository: https://github.com/opener-project/opinion-detector
-    webservice: http://opener.olery.com/opinion-detector-base
+    webservice: http://opener.olery.com/opinion-detector
     description:
       The opinion detector deluxe also extracts fine-grained opinions as the basic version. It is based on
       Machine Learning, using two Artificial Intelligence algorithms (Conditional Random Fields and Support
