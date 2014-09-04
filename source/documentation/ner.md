@@ -251,7 +251,7 @@ We advise to have the following environment variables available:
 
 * Dutch (nl)
 * English (en)
-* French (fr)
+* <a href="https://github.com/opener-project/nerc-fr">French (fr)</a>
 * German (de)
 * Italian (it)
 * Spanish (es)
