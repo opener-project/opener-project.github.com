@@ -527,7 +527,7 @@ For instance consider the sentence "I like the design of Ipod video". These are 
 
 We prepared several example scenarios that explain how and for which
 applications you can use OpeNER technology. You can find them listed under the
-[scenarios section](/getting-started/secenarios) on the left.
+[scenarios section](/getting-started/scenarios) on the left.
 
 Besided the usage scenarios there are also a set of how-to guides available,
 check those out in the [how to section](/getting-started/how-to/).
