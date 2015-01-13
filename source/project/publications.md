@@ -17,62 +17,35 @@ This will be a list of deliverables of the OpeNER project.
 * D3.22 NE Recognition and Classification Techniques for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D3.22.pdf" target="_blank">[Download]</a>
 * D3.31 Co-reference resolution for Cycle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D3.31.pdf" target="_blank">[Download]</a>
 * D3.32 Co-reference resolution for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D3.32.pdf" target="_blank">[Download]</a>
-
 * D3.41 Entity resolution for Cycle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D3.41.pdf" target="_blank">[Download]</a>
 * D3.42 Entity resolution for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D3.42.pdf" target="_blank">[Download]</a>
 * D3.51 Domain Extension Tools for Cycle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D3.51.pdf" target="_blank">[Download]</a>
 * D3.52 Domain Extension Tools for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D3.52.pdf" target="_blank">[Download]</a>
 * D4.21 Definition of indicators and metrics for Sentiment Analysis <a ref="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D4.21.pdf" target="_blank">[Download]</a>
 * D4.22 Sentiment analyser on Social Media <a ref="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D4.22.pdf" target="_blank">[Download]</a>
-
 * D4.41 Entity Resource Linker for Cycle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D4.41.pdf" target="_blank">[Download]</a>
-
 * D4.42 Entity Resource Linker for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D4.42.pdf" target="_blank">[Download]</a>
-
 * D4.51 OpeNER Linked Data <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D4.51.pdf" target="_blank">[Download]</a>
-
 * D5.21 Linkages over cross-lingual Wordnets <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.21.pdf" target="_blank">[Download]</a>
-
 * D5.31 Sentiment Lexicon for Cycle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.31.pdf" target="_blank">[Download]</a>
-
-
 * D5.32 Sentiment Lexicon for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.32.pdf" target="_blank">[Download]</a>
-
 * D5.41 Sentiment Analysis Techniques for Cycle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.41.pdf" target="_blank">[Download]</a>
-
 * D5.42 Sentiment Analysis Techniques for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.42.pdf" target="_blank">[Download]</a>
-
-
 * D5.51 Domain Extension tools <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D5.51.pdf" target="_blank">[Download]</a>
-
 * D6.21 Harvested Data Sets for Cycle 1 prototype  <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D6.21.pdf" target="_blank">[Download]</a>
-
 * D6.22 Harvested Data Sets for Cycle 2 prototype  <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D6.22.pdf" target="_blank">[Download]</a>
-
 * D6.51 Named Entity and Sentiment Detection tools for Cycle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D6.51.pdf" target="_blank">[Download]</a>
-
 * D6.52 Named Entity and Sentiment Detection tools for Cycle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D6.52.pdf" target="_blank">[Download]</a>
-
 * D6.61 Validation of the results <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D6.61.pdf" target="_blank">[Download]</a>
-
 * D7.11 Definition of the project development environment <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D7.11.pdf" target="_blank">[Download]</a>
-
 * D7.31 Evaluation of Cyle 1 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D7.31.pdf" target="_blank">[Download]</a>
-
-
 * D7.32 Evaluation of Cyle 2 prototype <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D7.32.pdf" target="_blank">[Download]</a>
-
 * D7.41 OpeNER portal, APIs and services <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D7.41.pdf" target="_blank">[Download]</a>
-
 * D7.51 Applications and benchmarking <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D7.51.pdf" target="_blank">[Download]</a>
-
 * D8.11 EUAB Setup and First OpeNER Workshop and Report <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D8.11.pdf" target="_blank">[Download]</a>
 * D8.12 Second OpeNER Workshop and Report <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D8.12.pdf" target="_blank">[Download]</a>
-
 * D8.13 Final OpeNER Workshop and Report <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D8.13.pdf" target="_blank">[Download]</a>
-
 * D8.31 Project Disseminaton and Communication Plan <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D8.31.pdf" target="_blank">[Download]</a>
-
 * D8.32 Project Disseminaton Activities <a href="https://dl.dropboxusercontent.com/u/43647591/deliverablesOpeNER/OpeNER_D8.32.pdf" target="_blank">[Download]</a>
 
 <div id="papers"></div>
