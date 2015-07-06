@@ -88,14 +88,14 @@
         <div class="col-sm-8 col-sm-offset-1 content">
           <div id="readme"></div>
 
-<h1 id="acquisition-of-expressions-and-targets-lexicons-from-a-domain">Acquisition of expressions and targets lexicons from a domain</h1>
+<p>#Acquisition of expressions and targets lexicons from a domain#</p>
 
 <p>This toolkit allows to generate domain specific lexicons:
 * Polarity or expression lexicons: lexicons with words in the specific domain used to state opinions
 * Lexicons of ngrams strongly associated with a certain rating 
 * Target or property lexicons: lexicons with expressions that represent properties of the entities
 represented in the given domain (for a hotel review domain, these properties could be the rooms, the staff
-or the ambience). </p>
+or the ambience).</p>
 
 <p>Usually the polarity expressions are used to give opinions about properties.</p>
 
@@ -104,14 +104,14 @@ and are available within this toolkit:
 * Supervised acquisition: from domain annotated data
 * Unsupervised acquisition: from raw data belonging to the domain</p>
 
-<h2 id="supervised-acquisition">Supervised Acquisition</h2>
+<p>##Supervised Acquisition##</p>
 
 <p>This approach is implemented in the script <code>acquire_from_annotated_data.py</code>. It basically takes as input
 a set of KAF/NAF files annotated with opinions (targets, holders and expressions), and generates 2 CSV
 output files with the most relevant expressions and targets. You can call directly to the script with
 the option -h or –help to see the parameters:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ acquire_from_annotated_data.py -h
 usage: acquire_from_annotated_data.py [-h] (-l file_with_list | -f folder)
                                       -exp_csv expressions_file.csv -tar_csv
@@ -140,12 +140,12 @@ optional arguments:
 (option -f / –folder)</p>
 
 <p>There are two mandatory output parameters to specify where the expression and targets lexicons must be stored (the
-options -exp_cvs and -tar_csv. </p>
+options -exp_cvs and -tar_csv.</p>
 
 <p>The script also prints the lexicons on the standard output in a more user readable way, as well as some debugging
 information on the error output. One example of usage of this program would be:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>acquire_from_annotated_data.py -f ~/data/hotel -exp_csv my_expressions.csv -tar_csv my_targets.csv &gt; log.out 2&gt; log.err
 </pre></div>
 </div>
@@ -154,7 +154,7 @@ information on the error output. One example of usage of this program would be:<
 <p>This would read all the KAF/NAF files in the folder ~/data/hole and store the output in the file log.out, the debugging information in the file log.err, and the resulting
 lexicons in CSV format on the files my_expressions.csv and my_targets.csv respectively.</p>
 
-<h2 id="unsupervised-acquisition">Unsupervised Acquisition</h2>
+<p>##Unsupervised Acquisition##</p>
 
 <p>With this approach it is possible to build an expression and a target lexicon from raw data from the domain. The method is based on patterns and frequency distribution of words in our new domain,
 so usually the larger our domain corpus is, the best lexicon we will get. The process is divided into 3 steps:
@@ -162,7 +162,7 @@ so usually the larger our domain corpus is, the best lexicon we will get. The pr
 * Creation of the indexes
 * Running the lexicon creator</p>
 
-<h3 id="data-preparation">Data preparation</h3>
+<p>###Data preparation###</p>
 
 <p>We need first to annotate all the data that we have with this information:
 * Token and sentence information: which is provided by our tokenisers (https://github.com/opener-project/tokenizer)
@@ -170,14 +170,14 @@ so usually the larger our domain corpus is, the best lexicon we will get. The pr
 
 <p>So you will need to tag all your plain files with the required information using these 2 tools and store all the resulting KAF files within a folder (is not necessary but it is the easiest)</p>
 
-<h3 id="creation-of-the-indexes">Creation of the indexes</h3>
+<p>###Creation of the indexes###</p>
 
 <p>This tool reads all the KAF files created in the previous step and generates several indexes with ngram frequencies and extra information that will be used in the last step when creating the lexicons.
 This step needs to be performed just once, so when you create the indexes from your KAF files, you can reuse these indexes as many times as you want, and they implement a cache optimisation for making
 the queries more efficiently. The script which implements this is “create_index.py”. It accepts a list of parameters to customize the indexes, you can check the accepted parameters by calling to the script
 with the option -h:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>create_index.py -h
 usage: create_index.py [-h]
                        (-input_file file_with_list | -input_folder folder)
@@ -226,7 +226,7 @@ create_index.py -input_folder my_kaf_files -max_ngram 3 -min_freq 2 -output my_i
 <p>Once you have created this index you can reuse it as many times as you want. It has implemented an internal cache for speeding up queries already done, so the first time you use the indexes the speed could be low if you
 are using large datasets or creating indexes for long ngrams (usually in these cases by forcing each ngram to appear at least twice with the option -min_freq 2 for the create_index.py).</p>
 
-<h3 id="lexicon-creator">Lexicon creator</h3>
+<p>###Lexicon creator###</p>
 
 <p>Once you have created the index of ngram frequencies, you can create the lexicons. You will have to provide with a small amount of information to represent your domain. We provide in the toolkit with some example
 files that you can use as an start or modify to suit your needs. These are the three pieces of information required:
@@ -236,7 +236,7 @@ files that you can use as an start or modify to suit your needs. These are the t
 
 <p>This is an example the polarity seed file, where there is a polarity word per line and a symbol + or - depending on the polarity of this word:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>good +
 bad -
 nice +
@@ -333,7 +333,7 @@ locatie;27.2989131741;1.18690926844
 plek;24.7961318524;1.12709690238
 </code></p>
 
-<h2 id="unsupervised-acquisition-from-reviews-with-star-rating">Unsupervised Acquisition from reviews with star rating</h2>
+<p>##Unsupervised Acquisition from reviews with star rating##</p>
 
 <p>This module implements a basic heuristic to extract words associated more strongly
 with one kind of star rating.</p>
@@ -354,7 +354,7 @@ underscore. The rest of the name is not relevant.</p>
 <p>To run the program you should call to the script passing the name of the folder where the
 indexes are stored:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>acquire_from_ratings.py english_rating_indexes &gt; log.out 2&gt; log.err
 </pre></div>
 </div>
@@ -372,16 +372,14 @@ values of association of the words with each rating (the lexicon is sorted accor
 to this value). The last field are the values of association of the ngram with each
 star rating.</p>
 
-<h2 id="installation">Installation</h2>
-<p>The only requirement of this toolkit is to have installed the KafNafParserPy, which can be found at https://github.com/opener-project/KafNafParserPy
+<p>##Installation##
+The only requirement of this toolkit is to have installed the KafNafParserPy, which can be found at https://github.com/opener-project/KafNafParserPy
 Then you need only to make sure the KafNafParserPy library is on the Python path and clone this repository.</p>
 
-<h2 id="contact">Contact</h2>
-<ul>
-  <li>Ruben Izquierdo</li>
-  <li>Vrije University of Amsterdam</li>
-  <li>ruben.izquierdobevia@vu.nl</li>
-</ul>
+<p>##Contact##
+* Ruben Izquierdo
+* Vrije University of Amsterdam
+* ruben.izquierdobevia@vu.nl</p>
 
         </div>
       </div>

@@ -219,7 +219,7 @@ Polarity tagger</a>.</p>
 
 <p>An example of the expected input and output is as follows:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>$ echo &quot;this is an english text.&quot; | language-identifier
 </pre></div>
 </div>
@@ -227,10 +227,10 @@ Polarity tagger</a>.</p>
 
 <p>and the response is</p>
 
-<div><div class="CodeRay">
-  <div class="code"><pre><span style="color:#070">&lt;KAF</span> <span style="color:#b48">xml:lang</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">en</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">version</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">2.1</span><span style="color:#710">&quot;</span></span><span style="color:#070">&gt;</span>
-  <span style="color:#070">&lt;raw&gt;</span>This is an english text.<span style="color:#070">&lt;/raw&gt;</span>
-<span style="color:#070">&lt;/KAF&gt;</span>
+<div class="highlighter-coderay"><div class="CodeRay">
+  <div class="code"><pre><span style="color:#070;font-weight:bold">&lt;KAF</span> <span style="color:#b48">xml:lang</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">en</span><span style="color:#710">&quot;</span></span> <span style="color:#b48">version</span>=<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">2.1</span><span style="color:#710">&quot;</span></span><span style="color:#070;font-weight:bold">&gt;</span>
+  <span style="color:#070;font-weight:bold">&lt;raw&gt;</span>This is an english text.<span style="color:#070;font-weight:bold">&lt;/raw&gt;</span>
+<span style="color:#070;font-weight:bold">&lt;/KAF&gt;</span>
 </pre></div>
 </div>
 </div>
@@ -243,7 +243,7 @@ Polarity tagger</a>.</p>
 
 <p>This component is the responsible of tokenizing the text in two levels, in sentence level and in word level. This component is crucial to the correct working of the rest of NLP components.  This components is the first one of each language processing chain.</p>
 
-<h4 id="technical-characteristics-1">Technical characteristics</h4>
+<p>####Technical characteristics</p>
 
 <p>This component uses Apache OpeNLP for all languages except French.  The tokenizer contains two modules for sentence and token segmentation
 respectively. The components based on Apache OpeNLP are the same except for the models which depend on the languages and are trained according to the linguistic features of each language.</p>
@@ -300,7 +300,7 @@ option. You can do this like this.</p>
 
 <p>This component is the responsible of assigning each token its morphological label. This component is crucial to the correct working of the rest of NLP components. This component also includes the lemmatization of the words.</p>
 
-<h4 id="technical-characteristics-2">Technical characteristics</h4>
+<h4 id="technical-characteristics-1">Technical characteristics</h4>
 
 <p>This component is based on probabilistic POS tagging models trained with Apache
 OpeNLP library. The component is the same for all the languages in the
@@ -340,7 +340,7 @@ are required respectively. Constituent parsing
 is primarily used in OpeNER as an input to the Coreference resolution
 system.</p>
 
-<h4 id="technical-characteristics-3">Technical characteristics</h4>
+<h4 id="technical-characteristics-2">Technical characteristics</h4>
 
 <p>The tree representation of the sentence organizes its branches in terms of
 phrases, namely, noun phrases, verbal phrases and so on. The leafs are the

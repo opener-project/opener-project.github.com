@@ -110,7 +110,7 @@
   <li>Spanish</li>
 </ul>
 
-<h2 id="how-to">How-to</h2>
+<p>##How-to##</p>
 
 <p>The main script of this tool is a python file, which accepts a set of parameters to determine which features
 or options we want to use. The language is read from the KAF file, so it doesn’t need to be specified as a parameter
@@ -148,8 +148,8 @@ for instance:
 ````shell
 core/poltagger-basic-multi.py –show-lexicons nl</p>
 
-<h6 id="section">#</h6>
-<p>Available lexicons for nl
+<p>##############################
+Available lexicons for nl
   Identifier: “hotel” (Default)
     Desc: Hotel domain lexicon for Dutch
      Res: VUA_olery_lexicon_nl_lmf
@@ -160,12 +160,13 @@ core/poltagger-basic-multi.py –show-lexicons nl</p>
      Res: VUA_olery_lexicon_nl_lmf
     File: /Users/ruben/python_envs/python2.7/lib/python2.7/VUSentimentLexicon/NL-lexicon/Sentiment-Dutch-general.xml</p>
 
-<h6 id="section-1">#</h6>
-<pre><code>
-Then you can use the lexicon identifiers to select the proper lexicon, with the option --lexicon
-````shell
+<p>##############################
+````</p>
+
+<p>Then you can use the lexicon identifiers to select the proper lexicon, with the option –lexicon
+<code>shell
 cat my_input.nl.kaf | core/poltagger-basic-multi.py --lexicon general
-</code></pre>
+</code></p>
 
 <p>This command will call to the polarity tagger using the general lexicon for Dutch. The lexicon identifiers are unique only per language.
 If the lexicon id is not specified(you skip the –lexicon option), or you provide a wrong identifier, the default lexicon will be loaded.
@@ -207,7 +208,7 @@ for further information about how to manage lexicons and add new ones</p>
 &lt;/term&gt;
 </code></pre>
 
-<h2 id="requirements">Requirements</h2>
+<p>##Requirements##</p>
 
 <ul>
   <li>Python 2.7.0 or newer</li>
@@ -301,50 +302,51 @@ for further information about how to manage lexicons and add new ones</p>
 </code></pre>
 
 <p>Partial output
-~~~~
+~~~~</p>
 <term lemma="donner" morphofeat="VP3s" pos="V" tid="t119" type="open">
   <span>
     <!--donne-->
-    <target id="w119"></target>
+    <target id="w119" />
   </span>
-  <sentiment polarity="neutral" resource="General domain lexicon for French . Vicomtech_general_lexicon_french"></sentiment>
+  <sentiment polarity="neutral" resource="General domain lexicon for French . Vicomtech_general_lexicon_french" />
 </term>
-~~~~</p>
+<pre><code>
+#### Switching to another lexicon
 
-<h4 id="switching-to-another-lexicon">Switching to another lexicon</h4>
+```
+cat some-kaf-file.kaf | polarity-tagger --resource-path path/to/lexicon
+```
 
-<pre><code>cat some-kaf-file.kaf | polarity-tagger --resource-path path/to/lexicon
-</code></pre>
+#### Downloading and switching to lexicon
 
-<h4 id="downloading-and-switching-to-lexicon">Downloading and switching to lexicon</h4>
-
-<pre><code>cat some-kaf-file.kaf | polarity-tagger --resource_path path/to/extract/lexicon \
+```
+cat some-kaf-file.kaf | polarity-tagger --resource_path path/to/extract/lexicon \
   --resource-url http://some.kind.of/zip-file.zip
+```
+
+#### Disabling pos matching
+
+To push options to the python core use a double dash (--)
+
+```
+cat some-kaf.kaf | polarity-tagger -- --no-pos
+```
+
+#### Getting to the core
+
+The main script of this tool is a python file, which accepts a set of parameters to determine which features or options we want to use. The language is read from the KAF file, so it doesn't need to be specified as a parameter. The program reads a KAF file from the standard input and writes the resulting KAf in the standard output.To see the options you can call to the main script with the -h or --help option
+
+    shell
+    polarity-tagger -- -h
+    usage: poltagger-basic-multi.py [-h] [--no-time] [--ignore-pos]
+                                [--show-lexicons {nl,en,de,es,it,fr}]
+                                [--lexicon LEXICON] [--silent] [--version]
+
+Tags a text with polarities at lemma level
+
+optional arguments:
 </code></pre>
-
-<h4 id="disabling-pos-matching">Disabling pos matching</h4>
-
-<p>To push options to the python core use a double dash (–)</p>
-
-<pre><code>cat some-kaf.kaf | polarity-tagger -- --no-pos
-</code></pre>
-
-<h4 id="getting-to-the-core">Getting to the core</h4>
-
-<p>The main script of this tool is a python file, which accepts a set of parameters to determine which features or options we want to use. The language is read from the KAF file, so it doesn’t need to be specified as a parameter. The program reads a KAF file from the standard input and writes the resulting KAf in the standard output.To see the options you can call to the main script with the -h or –help option</p>
-
-<pre><code>shell
-polarity-tagger -- -h
-usage: poltagger-basic-multi.py [-h] [--no-time] [--ignore-pos]
-                            [--show-lexicons {nl,en,de,es,it,fr}]
-                            [--lexicon LEXICON] [--silent] [--version]
-</code></pre>
-
-<p>Tags a text with polarities at lemma level</p>
-
-<p>optional arguments:
-~~~~
-  -h, –help            show this help message and exit
+<p>-h, –help            show this help message and exit
   –no-time             For not including timestamp in header
   –ignore-pos          Ignore the pos labels
   –show-lexicons {nl,en,de,es,it,fr}

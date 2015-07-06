@@ -144,6 +144,8 @@ of the components to for the specifics.</p>
   <li>Python 2.6+ (<a href="http://www.python.org/getit/">installation instructions</a>)</li>
   <li>Java 1.7+ (<a href="http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html">installation instructions</a>)</li>
   <li>Perl 5+(<a href="http://www.perl.org/get.html">installation instructions</a>)</li>
+  <li><a href="http://www.libarchive.org/">libarchive</a> development headers, best installed
+via your operating system’s package manager</li>
 </ul>
 
 <h3 id="ruby-setup">Ruby Setup</h3>
@@ -155,7 +157,45 @@ of the components to for the specifics.</p>
 
 <p>After you installed Rubygems install the bundler gem with the following command:</p>
 
-<p><code>gem install bundler</code></p>
+<pre><code>gem install bundler
+</code></pre>
+
+<p>If you happen to install JRuby via your operating system’s package manager it’s
+likely that just using the <code>ruby</code> command will result in the system Ruby version
+being used instead of JRuby. You can confirm this by running:</p>
+
+<pre><code>ruby --version
+</code></pre>
+
+<p>This should output something along the lines of:</p>
+
+<pre><code>jruby 1.7.18 (1.9.3p551) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+</code></pre>
+
+<p>If this is not the case you’ll need to run the various components using
+<code>jruby -S</code>. For example:</p>
+
+<pre><code>echo 'Hello world, this is a text' | jruby -S language-identifier
+</code></pre>
+
+<p>You’ll also have to use this when installing Gems:</p>
+
+<pre><code>jruby -S gem install opener-language-identifier
+</code></pre>
+
+<p>As an alternative you can use <a href="https://github.com/postmodern/chruby">chruby</a> and
+<a href="https://github.com/postmodern/ruby-install">ruby-install</a> to install JRuby
+in an isolated environment. Once this is set up you can install/use JRuby as
+following:</p>
+
+<pre><code>ruby-install jruby
+
+# restart your terminal or reload your Bash profile (e.g. source ~/.bashrc)
+
+chruby jruby
+</code></pre>
+
+<p>For more information see the READMEs of chruby and ruby-install.</p>
 
 <h3 id="python-setup">Python Setup</h3>
 
@@ -234,7 +274,7 @@ example by piping in the contents of a textfile:</p>
 
 <p><code>cat my_text_file.txt | language-identifier | tokenizer | pos-tagger</code></p>
 
-<p>You can also run the component as a web-service like that: </p>
+<p>You can also run the component as a web-service like that:</p>
 
 <p><code>language-identifier-server</code></p>
 

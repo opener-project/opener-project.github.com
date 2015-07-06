@@ -120,7 +120,7 @@
 For the best result, put your text in a textfile, for the example called
 <code>some_file.txt</code> and then pass it through the webservices like this:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
 &quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
@@ -147,7 +147,7 @@ become <code>\[\]</code>. Also put your url in between double quotes.</p>
 
 <p>So the structure of the curl request looks like this:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
 &quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
@@ -173,7 +173,7 @@ get a message stating <code>no document found</code>.</p>
 
 <p>If you do the following request:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
 &quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
@@ -187,7 +187,7 @@ get a message stating <code>no document found</code>.</p>
 
 <p>You will get a return that looks like this:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>{
   <span style="color:#606"><span style="color:#404">&quot;</span><span>output_url</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>,
   <span style="color:#606"><span style="color:#404">&quot;</span><span>request_id</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>
@@ -198,7 +198,7 @@ get a message stating <code>no document found</code>.</p>
 
 <p>If you then append <code>.json</code> to the output url and do a request like this:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>curl http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99.json
 </pre></div>
 </div>
@@ -211,7 +211,7 @@ take a little longer though.</p>
 
 <h3 id="a-full-pipeline">A Full Pipeline</h3>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
 &quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
@@ -256,7 +256,7 @@ other.</p>
 
 <p>Then at the end put the scorer instead of the outlet. Resulting in this request:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
 &quot;http://opener.olery.com/language-identifier\
 ?callbacks\[\]=http://opener.olery.com/tokenizer\
@@ -273,7 +273,7 @@ other.</p>
 back a JSON object with sentiment values between -1 and 1 on the detected
 topics. Like this:</p>
 
-<div><div class="CodeRay">
+<div class="highlighter-coderay"><div class="CodeRay">
   <div class="code"><pre>{
   <span style="color:#606"><span style="color:#404">&quot;</span><span>scores</span><span style="color:#404">&quot;</span></span>: {
     <span style="color:#606"><span style="color:#404">&quot;</span><span>breakfast</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,

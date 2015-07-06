@@ -127,13 +127,13 @@ There is nothing else required to run these scripts.</p>
 <p>The seed list has to be stored in a file, wit a seed per line, with the format:
 synset/polarity/pos</p>
 
-<p>For instance:  
-n_n-531677/negative/n  
-n_n-531685/neutral/n  
-n_n-531697/positive/n  
-n_n-531759/negative/n  
-n_n-531792/neutral/n  
-n_n-531952/neutral/n  
+<p>For instance:<br />
+n_n-531677/negative/n<br />
+n_n-531685/neutral/n<br />
+n_n-531697/positive/n<br />
+n_n-531759/negative/n<br />
+n_n-531792/neutral/n<br />
+n_n-531952/neutral/n<br />
 ……</p>
 
 <p>The seed list can be based also in sense identifiers instead of synset identifiers, but the use of synsets ids
@@ -150,12 +150,12 @@ with a weight of 0.3 (3*0.1). If the weight is negative, we will invert the pola
 of relations</p>
 
 <p>In our experiments, we have used the following configuration for the relations file with good results, so it could be a good
-idea to use also these relations addapted to your own labels in case they differ.  </p>
+idea to use also these relations addapted to your own labels in case they differ.</p>
 
-<p>NEAR_SYNONYM 2  
-NEAR_ANTONYM -2  
-HAS_HYPONYM 1  
-HAS_HYPERONYM 0.5  </p>
+<p>NEAR_SYNONYM 2<br />
+NEAR_ANTONYM -2<br />
+HAS_HYPONYM 1<br />
+HAS_HYPERONYM 0.5</p>
 
 <h2 id="script-propagatewnpy">Script propagate_wn.py</h2>
 
@@ -176,7 +176,7 @@ $ python propagate_wn.py -h
   <li>Optional:
     <ul>
       <li>–log=FILE Filename where store the log (default no log)</li>
-      <li>–max-depth=INT Maximum depth in number of relations to expand each synset (default 5) </li>
+      <li>–max-depth=INT Maximum depth in number of relations to expand each synset (default 5)</li>
     </ul>
   </li>
 </ul>
