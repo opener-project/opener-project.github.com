@@ -31,6 +31,8 @@ The prerequisits of running an OpeNER toolchain consists of:
 * Python 2.6+ ([installation instructions](http://www.python.org/getit/))
 * Java 1.7+ ([installation instructions](http://www.oracle.com/technetwork/java/javase/downloads/java-se-jre-7-download-432155.html))
 * Perl 5+([installation instructions](http://www.perl.org/get.html))
+* [libarchive](http://www.libarchive.org/) development headers, best installed
+  via your operating system's package manager
 
 ### Ruby Setup
 
@@ -124,7 +126,7 @@ example by piping in the contents of a textfile:
 
 ``` cat my_text_file.txt | language-identifier | tokenizer | pos-tagger ```
 
-You can also run the component as a web-service like that: 
+You can also run the component as a web-service like that:
 
 ```language-identifier-server```
 
