@@ -43,7 +43,39 @@ You can find the installation instructions of Rubygems here:
 
 After you installed Rubygems install the bundler gem with the following command:
 
-````gem install bundler````
+    gem install bundler
+
+If you happen to install JRuby via your operating system's package manager it's
+likely that just using the `ruby` command will result in the system Ruby version
+being used instead of JRuby. You can confirm this by running:
+
+    ruby --version
+
+This should output something along the lines of:
+
+    jruby 1.7.18 (1.9.3p551) 2014-12-22 625381c on OpenJDK 64-Bit Server VM 1.7.0_79-b14 +jit [linux-amd64]
+
+If this is not the case you'll need to run the various components using
+`jruby -S`. For example:
+
+    echo 'Hello world, this is a text' | jruby -S language-identifier
+
+You'll also have to use this when installing Gems:
+
+    jruby -S gem install opener-language-identifier
+
+As an alternative you can use [chruby](https://github.com/postmodern/chruby) and
+[ruby-install](https://github.com/postmodern/ruby-install) to install JRuby
+in an isolated environment. Once this is set up you can install/use JRuby as
+following:
+
+    ruby-install jruby
+
+    # restart your terminal or reload your Bash profile (e.g. source ~/.bashrc)
+
+    chruby jruby
+
+For more information see the READMEs of chruby and ruby-install.
 
 ### Python Setup
 
