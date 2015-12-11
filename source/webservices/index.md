@@ -8,10 +8,6 @@ sidebar: webservices
 
 # Webservices
 
-Go to the [Entrance page of the webservices to try the webservices immediately](/webservices/entrance.html). There
-you will find a form where you can copy paste some text, press a button, and be
-up and running in no-time.
-
 {% for cluster in page.clusters %}
 
 <div id="{{cluster.name | handle}}"></div>

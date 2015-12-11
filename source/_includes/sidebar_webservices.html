@@ -2,10 +2,6 @@
   <li>
     <a href="#introduction">Webservices</a>
   </li>
-  <li>
-    <a href="/webservices/entrance.html">Try it out!</a>
-  </li>
-
   {% for cluster in page.clusters %}
   <li>
   <a href="/webservices/index.html#{{ cluster.name | handleize }}">{{ cluster.name }}</a>
