@@ -25,8 +25,12 @@ sidebar: webservices
 
 {{component.description}}
 
-More information about the webserice can be found at its endpoint. The endpoint for this webservice is:
+{% if component.webservice %}
+More information about the webservice can be found at its endpoint. The endpoint for this webservice is:
 [{{component.webservice}}]({{component.webservice}}).
+{% endif %}
+
+
 
 {% endfor %}
 

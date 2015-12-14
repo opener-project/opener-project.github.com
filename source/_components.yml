@@ -115,7 +115,6 @@ components:
   - &s3_outlet
     name: S3 Outlet
     repository: https://github.com/opener-project/s3-outlet
-    webservice: http://opener.olery.com/s3-outlet
     description:
       The S3 outlet is a modified version of the normal outlet. It uses
       Amazon S3 to store the input. When using the S3 outlet you can specify specific
