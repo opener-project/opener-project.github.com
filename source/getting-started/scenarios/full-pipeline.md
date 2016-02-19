@@ -26,8 +26,6 @@ The folowing components are available:
 | opinion-detector       | http://opener.olery.com/opinion-detector       | en, nl, de, es, it, fr |
 | opinion-detector-basic | http://opener.olery.com/opinion-detector-basic | en, nl, de, es, it, fr |
 | kaf2json               | http://opener.olery.com/kaf2json               | n.a.                   |
-| outlet                 | http://opener.olery.com/outlet                 | n.a.                   |
-| scorer                 | http://opener.olery.com/scorer                 | n.a.                   |
 
 ## An example using curl
 
@@ -44,18 +42,16 @@ that, everything was perfect and I would definitely stay here again!
 Then execute the following command:
 
 ```shell
-cat some_file.txt | curl -F 'input=<-' \
-"http://opener.olery.com/language-identifier\
-?callbacks\[\]=http://opener.olery.com/tokenizer\
-&callbacks\[\]=http://opener.olery.com/pos-tagger\
-&callbacks\[\]=http://opener.olery.com/constituent-parser\
-&callbacks\[\]=http://opener.olery.com/ner\
-&callbacks\[\]=http://opener.olery.com/ned\
-&callbacks\[\]=http://opener.olery.com/coreference\
-&callbacks\[\]=http://opener.olery.com/property-tagger\
-&callbacks\[\]=http://opener.olery.com/polarity-tagger\
-&callbacks\[\]=http://opener.olery.com/opinion-detector\
-&callbacks\[\]=http://opener.olery.com/outlet"
+cat some_file.txt | \
+curl -F 'input=<-' "http://opener.olery.com/language-identifier" | \
+curl -F 'input=<-' "http://opener.olery.com/tokenizer" | \
+curl -F 'input=<-' "http://opener.olery.com/pos-tagger" | \
+curl -F 'input=<-' "http://opener.olery.com/constituent-parser" | \
+curl -F 'input=<-' "http://opener.olery.com/ner" | \
+curl -F 'input=<-' "http://opener.olery.com/ned" | \
+curl -F 'input=<-' "http://opener.olery.com/property-tagger" | \
+curl -F 'input=<-' "http://opener.olery.com/polarity-tagger" | \
+curl -F 'input=<-' "http://opener.olery.com/opinion-detector"
 ```
 
 This will give you the following output:
