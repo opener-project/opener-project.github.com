@@ -121,11 +121,10 @@ For the best result, put your text in a textfile, for the example called
 <code>some_file.txt</code> and then pass it through the webservices like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
-?callbacks\[\]=http://opener.olery.com/tokenizer\
-&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+  <div class="code"><pre>cat some_file.txt | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/language-identifier&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/tokenizer&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/pos-tagger&quot;
 </pre></div>
 </div>
 </div>
@@ -139,32 +138,22 @@ the textfile and put them through the webservices.</p>
 
 <h2 id="chaining-webservices">Chaining Webservices</h2>
 
-<p>You can chain multiple webservices together by adding <code>callbacks[]=</code> to the
-current request. The more callbacks you add the longer your pipeline will be.</p>
-
-<p>Beware that when you use curl from bash, you need to escape the <code>[]</code> and they
-become <code>\[\]</code>. Also put your url in between double quotes.</p>
+<p>You can chain multiple webservices together.
+The more callbacks you add the longer your pipeline will be.</p>
 
 <p>So the structure of the curl request looks like this:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
-?callbacks\[\]=http://opener.olery.com/tokenizer\
-&amp;callbacks\[\]=http://opener.olery.com/extra_callback1\
-&amp;callbacks\[\]=http://opener.olery.com/extra_callback2\
-&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+  <div class="code"><pre>cat some_file.txt | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/language-identifier&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/tokenizer&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/extra_callback1&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/extra_callback2&quot;
 </pre></div>
 </div>
 </div>
 
-<p><strong>ALWAYS end your callbacks with the outlet. Else there is no spot to “catch” your
-results</strong></p>
-
-<p>After you do this request you’ll get a response containing a URL which you can
-poll to catch your result. Don’t worry if it’s not immediately there. It might
-take a couple of seconds. If the document is not done processing yet, you will
-get a message stating <code>no document found</code>.</p>
+<p>Then you will get the result on your terminal.</p>
 
 <h2 id="returning-json">Returning JSON</h2>
 
@@ -174,56 +163,34 @@ get a message stating <code>no document found</code>.</p>
 <p>If you do the following request:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
-?callbacks\[\]=http://opener.olery.com/tokenizer\
-&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
-&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+  <div class="code"><pre>cat some_file.txt | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/language-identifier&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/tokenizer&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/pos-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/polarity-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/opinion-detector-basic&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/kaf2json&quot;
 </pre></div>
 </div>
 </div>
 
-<p>You will get a return that looks like this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>output_url</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>request_id</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">68f6f338-1058-40d0-99da-b6a4d226bb99</span><span style="color:#710">&quot;</span></span>
-}
-</pre></div>
-</div>
-</div>
-
-<p>If you then append <code>.json</code> to the output url and do a request like this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>curl http://opener.olery.com/outlet/68f6f338-1058-40d0-99da-b6a4d226bb99.json
-</pre></div>
-</div>
-</div>
-
-<p>You will get a JSON representation of the KAF file. Generating the JSON does
-take a little longer though.</p>
+<p>You will get a JSON representation of the KAF file.</p>
 
 <h2 id="examples">Examples</h2>
 
 <h3 id="a-full-pipeline">A Full Pipeline</h3>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
-?callbacks\[\]=http://opener.olery.com/tokenizer\
-&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/constituent-parser\
-&amp;callbacks\[\]=http://opener.olery.com/ner\
-&amp;callbacks\[\]=http://opener.olery.com/ned\
-&amp;callbacks\[\]=http://opener.olery.com/coreference\
-&amp;callbacks\[\]=http://opener.olery.com/property-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/opinion-detector\
-&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+  <div class="code"><pre>cat some_file.txt | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/language-identifier&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/tokenizer&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/pos-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/constituent-parser&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/ner&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/ned&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/property-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/polarity-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/opinion-detector&quot;
 </pre></div>
 </div>
 </div>
@@ -236,64 +203,17 @@ other.</p>
 
 <p>to do so use:</p>
 
-<pre><code>&amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
+<pre><code>curl -F 'input=&lt;-' "http://opener.olery.com/opinion-detector-basic"
 </code></pre>
 
 <p>instead of</p>
 
-<pre><code>&amp;callbacks\[\]=http://opener.olery.com/opinion-detector\
+<pre><code>curl -F 'input=&lt;-' "http://opener.olery.com/opinion-detector"
 </code></pre>
-
-<h3 id="you-can-aggregate-sentiment-scores-using-the-scorer">You can aggregate sentiment scores using the scorer</h3>
-
-<p>In order to do so, make sure your pipeline includes:</p>
-
-<ul>
-  <li>the property tagger</li>
-  <li>the polarity-tagger</li>
-  <li>an opinion-detector (the standard one or the basic one)</li>
-</ul>
-
-<p>Then at the end put the scorer instead of the outlet. Resulting in this request:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
-?callbacks\[\]=http://opener.olery.com/tokenizer\
-&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/property-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/opinion-detector-basic\
-&amp;callbacks\[\]=http://opener.olery.com/scorer&quot;
-</pre></div>
-</div>
-</div>
-
-<p>This will also provide you with an output_url. However, this url will give you
-back a JSON object with sentiment values between -1 and 1 on the detected
-topics. Like this:</p>
-
-<div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>scores</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>breakfast</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>location</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>cleanliness</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>restaurant</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>room</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>bathroom</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>value_for_money</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">-1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>overall</span><span style="color:#404">&quot;</span></span>: <span style="color:#60E">0.5</span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>uuid</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">74c63ace-4402-4352-a94f-32ecf3bdc433</span><span style="color:#710">&quot;</span></span>
-}
-</pre></div>
-</div>
-</div>
 
 <h3 id="use-the-tree-tagger-instead-of-the-pos-tagger">Use the tree tagger instead of the pos-tagger</h3>
 
-<pre><code>&amp;callbacks\[\]=http://opener.olery.com/tree-tagger\
+<pre><code>curl -F 'input=&lt;-' "http://opener.olery.com/tree-tagger"
 </code></pre>
 
 <p>Beware: the tree tagger is considerably slower and less stable than the standard
@@ -374,16 +294,6 @@ failed.</p>
     <tr>
       <td>kaf2json</td>
       <td>http://opener.olery.com/kaf2json</td>
-      <td>n.a.</td>
-    </tr>
-    <tr>
-      <td>outlet</td>
-      <td>http://opener.olery.com/outlet</td>
-      <td>n.a.</td>
-    </tr>
-    <tr>
-      <td>scorer</td>
-      <td>http://opener.olery.com/scorer</td>
       <td>n.a.</td>
     </tr>
   </tbody>

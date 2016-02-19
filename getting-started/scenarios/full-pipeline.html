@@ -195,16 +195,6 @@ general overview of the technology.</p>
       <td>http://opener.olery.com/kaf2json</td>
       <td>n.a.</td>
     </tr>
-    <tr>
-      <td>outlet</td>
-      <td>http://opener.olery.com/outlet</td>
-      <td>n.a.</td>
-    </tr>
-    <tr>
-      <td>scorer</td>
-      <td>http://opener.olery.com/scorer</td>
-      <td>n.a.</td>
-    </tr>
   </tbody>
 </table>
 
@@ -222,18 +212,16 @@ that, everything was perfect and I would definitely stay here again!
 <p>Then execute the following command:</p>
 
 <div class="highlighter-coderay"><div class="CodeRay">
-  <div class="code"><pre>cat some_file.txt | curl -F 'input=&lt;-' \
-&quot;http://opener.olery.com/language-identifier\
-?callbacks\[\]=http://opener.olery.com/tokenizer\
-&amp;callbacks\[\]=http://opener.olery.com/pos-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/constituent-parser\
-&amp;callbacks\[\]=http://opener.olery.com/ner\
-&amp;callbacks\[\]=http://opener.olery.com/ned\
-&amp;callbacks\[\]=http://opener.olery.com/coreference\
-&amp;callbacks\[\]=http://opener.olery.com/property-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/polarity-tagger\
-&amp;callbacks\[\]=http://opener.olery.com/opinion-detector\
-&amp;callbacks\[\]=http://opener.olery.com/outlet&quot;
+  <div class="code"><pre>cat some_file.txt | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/language-identifier&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/tokenizer&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/pos-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/constituent-parser&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/ner&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/ned&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/property-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/polarity-tagger&quot; | \
+curl -F 'input=&lt;-' &quot;http://opener.olery.com/opinion-detector&quot;
 </pre></div>
 </div>
 </div>
